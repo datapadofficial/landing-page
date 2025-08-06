@@ -94,7 +94,9 @@ export default function RootLayout({
           <StructuredData />
           <div className="flex flex-col min-h-screen">
             <Navbar1 />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 flex flex-col items-center mx-auto">
+              {children}
+            </main>
             <Footer />
           </div>
         </ThemeProvider>

@@ -25,9 +25,13 @@ export function AppPreview() {
           <Image
             src="/images/datapad-ai-analyst.png"
             alt="Landing page preview"
-            className="h-auto w-full"
             width={1920}
             height={1080}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
           />
         </div>
       </motion.div>
