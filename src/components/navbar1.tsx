@@ -1,4 +1,7 @@
+"use client";
+
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 
 import {
@@ -136,8 +139,24 @@ const Navbar1 = ({
     signup: { title: "Sign up", url: "#" },
   },
 }: Navbar1Props) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b py-4">
+    <section
+      className={`sticky top-0 z-50 bg-background/80 backdrop-blur-sm py-3 ${
+        isScrolled ? "border-b border-border" : ""
+      }`}
+    >
       <div className="container mx-auto px-4">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
@@ -173,7 +192,7 @@ const Navbar1 = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <AnimatedLogo isActive={true} size="medium" className="w-8 h-8" />
+              <AnimatedLogo isActive={false} className="w-5 h-5" />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -184,12 +203,11 @@ const Navbar1 = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <AnimatedLogo
-                        isActive={true}
-                        size="medium"
-                        className="w-8 h-8"
-                      />
+                    <a
+                      href={logo.url}
+                      className="flex items-center gap-2 font-medium text-lg"
+                    >
+                      Menu
                     </a>
                   </SheetTitle>
                 </SheetHeader>
@@ -240,7 +258,7 @@ const renderMenuItem = (item: MenuItem) => {
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
         href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors"
+        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
       >
         {item.title}
       </NavigationMenuLink>

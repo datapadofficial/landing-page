@@ -28,9 +28,9 @@ const Hero7 = ({
   },
 }: Hero7Props) => {
   return (
-    <section className="pt-32">
-      <div className="container mx-auto max-w-3xl px-4 text-center">
-        <div className="mx-auto flex max-w-5xl flex-col gap-6">
+    <section className="pt-24">
+      <div className="container mx-auto max-w-5xl px-4 text-center">
+        <div className="mx-auto flex flex-col gap-6">
           <div className="flex justify-center">
             <AnnouncementBadge
               href="/blog/datapad-secures-over-500k-to-redefine-data-analytics-with-autonomous-ai-agents"
@@ -39,7 +39,7 @@ const Hero7 = ({
               Datapad Raises New Funding Round
             </AnnouncementBadge>
           </div>
-          <h1 className="text-3xl lg:text-8xl font-display gradient-text">
+          <h1 className="text-3xl lg:text-8xl font-display text-gradient tracking-tighter leading-[110%]">
             {heading}
           </h1>
           <p className="text-muted-foreground text-balance lg:text-lg">

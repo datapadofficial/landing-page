@@ -1,11 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/animations.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --text-2xs: 0.625rem;
+  --text-3xs: 0.5rem;
   --text-8xl: 5rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -45,6 +47,213 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom Black Colors */
+  --color-custom-black-100: var(--custom-black-100);
+  --color-custom-black-200: var(--custom-black-200);
+  --color-custom-black-300: var(--custom-black-300);
+  --color-custom-black-400: var(--custom-black-400);
+  --color-custom-black-500: var(--custom-black-500);
+  --color-custom-black-600: var(--custom-black-600);
+  --color-custom-black-700: var(--custom-black-700);
+  --color-custom-black-800: var(--custom-black-800);
+  --color-custom-black-900: var(--custom-black-900);
+
+  /* Krasnyi Red Colors */
+  --color-krasnyi-red-100: var(--krasnyi-red-100);
+  --color-krasnyi-red-200: var(--krasnyi-red-200);
+  --color-krasnyi-red-300: var(--krasnyi-red-300);
+  --color-krasnyi-red-400: var(--krasnyi-red-400);
+  --color-krasnyi-red-500: var(--krasnyi-red-500);
+  --color-krasnyi-red-600: var(--krasnyi-red-600);
+  --color-krasnyi-red-700: var(--krasnyi-red-700);
+  --color-krasnyi-red-800: var(--krasnyi-red-800);
+  --color-krasnyi-red-900: var(--krasnyi-red-900);
+
+  /* Radical Red Colors */
+  --color-radical-red-100: var(--radical-red-100);
+  --color-radical-red-200: var(--radical-red-200);
+  --color-radical-red-300: var(--radical-red-300);
+  --color-radical-red-400: var(--radical-red-400);
+  --color-radical-red-500: var(--radical-red-500);
+  --color-radical-red-600: var(--radical-red-600);
+  --color-radical-red-700: var(--radical-red-700);
+  --color-radical-red-800: var(--radical-red-800);
+  --color-radical-red-900: var(--radical-red-900);
+
+  /* Giants Orange Colors */
+  --color-giants-orange-100: var(--giants-orange-100);
+  --color-giants-orange-200: var(--giants-orange-200);
+  --color-giants-orange-300: var(--giants-orange-300);
+  --color-giants-orange-400: var(--giants-orange-400);
+  --color-giants-orange-500: var(--giants-orange-500);
+  --color-giants-orange-600: var(--giants-orange-600);
+  --color-giants-orange-700: var(--giants-orange-700);
+  --color-giants-orange-800: var(--giants-orange-800);
+  --color-giants-orange-900: var(--giants-orange-900);
+
+  /* Eversong Yellow Colors */
+  --color-eversong-yellow-100: var(--eversong-yellow-100);
+  --color-eversong-yellow-200: var(--eversong-yellow-200);
+  --color-eversong-yellow-300: var(--eversong-yellow-300);
+  --color-eversong-yellow-400: var(--eversong-yellow-400);
+  --color-eversong-yellow-500: var(--eversong-yellow-500);
+  --color-eversong-yellow-600: var(--eversong-yellow-600);
+  --color-eversong-yellow-700: var(--eversong-yellow-700);
+  --color-eversong-yellow-800: var(--eversong-yellow-800);
+  --color-eversong-yellow-900: var(--eversong-yellow-900);
+
+  /* Dry Highlighter Green Colors */
+  --color-dry-highlighter-green-100: var(--dry-highlighter-green-100);
+  --color-dry-highlighter-green-200: var(--dry-highlighter-green-200);
+  --color-dry-highlighter-green-300: var(--dry-highlighter-green-300);
+  --color-dry-highlighter-green-400: var(--dry-highlighter-green-400);
+  --color-dry-highlighter-green-500: var(--dry-highlighter-green-500);
+  --color-dry-highlighter-green-600: var(--dry-highlighter-green-600);
+  --color-dry-highlighter-green-700: var(--dry-highlighter-green-700);
+  --color-dry-highlighter-green-800: var(--dry-highlighter-green-800);
+  --color-dry-highlighter-green-900: var(--dry-highlighter-green-900);
+
+  /* Vegan Green Colors */
+  --color-vegan-green-100: var(--vegan-green-100);
+  --color-vegan-green-200: var(--vegan-green-200);
+  --color-vegan-green-300: var(--vegan-green-300);
+  --color-vegan-green-400: var(--vegan-green-400);
+  --color-vegan-green-500: var(--vegan-green-500);
+  --color-vegan-green-600: var(--vegan-green-600);
+  --color-vegan-green-700: var(--vegan-green-700);
+  --color-vegan-green-800: var(--vegan-green-800);
+  --color-vegan-green-900: var(--vegan-green-900);
+
+  /* Teal Colors */
+  --color-teal-100: var(--teal-100);
+  --color-teal-200: var(--teal-200);
+  --color-teal-300: var(--teal-300);
+  --color-teal-400: var(--teal-400);
+  --color-teal-500: var(--teal-500);
+  --color-teal-600: var(--teal-600);
+  --color-teal-700: var(--teal-700);
+  --color-teal-800: var(--teal-800);
+  --color-teal-900: var(--teal-900);
+
+  /* Raspberry Blue Colors */
+  --color-raspberry-blue-100: var(--raspberry-blue-100);
+  --color-raspberry-blue-200: var(--raspberry-blue-200);
+  --color-raspberry-blue-300: var(--raspberry-blue-300);
+  --color-raspberry-blue-400: var(--raspberry-blue-400);
+  --color-raspberry-blue-500: var(--raspberry-blue-500);
+  --color-raspberry-blue-600: var(--raspberry-blue-600);
+  --color-raspberry-blue-700: var(--raspberry-blue-700);
+  --color-raspberry-blue-800: var(--raspberry-blue-800);
+  --color-raspberry-blue-900: var(--raspberry-blue-900);
+
+  /* Bolt Blue Colors */
+  --color-bolt-blue-100: var(--bolt-blue-100);
+  --color-bolt-blue-200: var(--bolt-blue-200);
+  --color-bolt-blue-300: var(--bolt-blue-300);
+  --color-bolt-blue-400: var(--bolt-blue-400);
+  --color-bolt-blue-500: var(--bolt-blue-500);
+  --color-bolt-blue-600: var(--bolt-blue-600);
+  --color-bolt-blue-700: var(--bolt-blue-700);
+  --color-bolt-blue-800: var(--bolt-blue-800);
+  --color-bolt-blue-900: var(--bolt-blue-900);
+
+  /* Denim Blue Colors */
+  --color-denim-blue-100: var(--denim-blue-100);
+  --color-denim-blue-200: var(--denim-blue-200);
+  --color-denim-blue-300: var(--denim-blue-300);
+  --color-denim-blue-400: var(--denim-blue-400);
+  --color-denim-blue-500: var(--denim-blue-500);
+  --color-denim-blue-600: var(--denim-blue-600);
+  --color-denim-blue-700: var(--denim-blue-700);
+  --color-denim-blue-800: var(--denim-blue-800);
+  --color-denim-blue-900: var(--denim-blue-900);
+
+  /* Royal Blue Colors */
+  --color-royal-blue-100: var(--royal-blue-100);
+  --color-royal-blue-200: var(--royal-blue-200);
+  --color-royal-blue-300: var(--royal-blue-300);
+  --color-royal-blue-400: var(--royal-blue-400);
+  --color-royal-blue-500: var(--royal-blue-500);
+  --color-royal-blue-600: var(--royal-blue-600);
+  --color-royal-blue-700: var(--royal-blue-700);
+  --color-royal-blue-800: var(--royal-blue-800);
+  --color-royal-blue-900: var(--royal-blue-900);
+
+  /* Slate Blue Colors */
+  --color-slate-blue-100: var(--slate-blue-100);
+  --color-slate-blue-200: var(--slate-blue-200);
+  --color-slate-blue-300: var(--slate-blue-300);
+  --color-slate-blue-400: var(--slate-blue-400);
+  --color-slate-blue-500: var(--slate-blue-500);
+  --color-slate-blue-600: var(--slate-blue-600);
+  --color-slate-blue-700: var(--slate-blue-700);
+  --color-slate-blue-800: var(--slate-blue-800);
+  --color-slate-blue-900: var(--slate-blue-900);
+
+  /* Magenta Purple Colors */
+  --color-magenta-purple-100: var(--magenta-purple-100);
+  --color-magenta-purple-200: var(--magenta-purple-200);
+  --color-magenta-purple-300: var(--magenta-purple-300);
+  --color-magenta-purple-400: var(--magenta-purple-400);
+  --color-magenta-purple-500: var(--magenta-purple-500);
+  --color-magenta-purple-600: var(--magenta-purple-600);
+  --color-magenta-purple-700: var(--magenta-purple-700);
+  --color-magenta-purple-800: var(--magenta-purple-800);
+  --color-magenta-purple-900: var(--magenta-purple-900);
+
+  /* Ritual Cyan Colors */
+  --color-ritual-cyan-100: var(--ritual-cyan-100);
+  --color-ritual-cyan-200: var(--ritual-cyan-200);
+  --color-ritual-cyan-300: var(--ritual-cyan-300);
+  --color-ritual-cyan-400: var(--ritual-cyan-400);
+  --color-ritual-cyan-500: var(--ritual-cyan-500);
+  --color-ritual-cyan-600: var(--ritual-cyan-600);
+  --color-ritual-cyan-700: var(--ritual-cyan-700);
+  --color-ritual-cyan-800: var(--ritual-cyan-800);
+  --color-ritual-cyan-900: var(--ritual-cyan-900);
+
+  /* Lead Black Colors */
+  --color-lead-black-100: var(--lead-black-100);
+  --color-lead-black-200: var(--lead-black-200);
+  --color-lead-black-300: var(--lead-black-300);
+  --color-lead-black-400: var(--lead-black-400);
+  --color-lead-black-500: var(--lead-black-500);
+  --color-lead-black-600: var(--lead-black-600);
+  --color-lead-black-700: var(--lead-black-700);
+  --color-lead-black-800: var(--lead-black-800);
+  --color-lead-black-900: var(--lead-black-900);
+
+  /* Dark Theme Colors */
+  --color-dark-100: var(--dark-100);
+  --color-dark-200: var(--dark-200);
+  --color-dark-300: var(--dark-300);
+  --color-dark-400: var(--dark-400);
+  --color-dark-500: var(--dark-500);
+  --color-dark-600: var(--dark-600);
+  --color-dark-700: var(--dark-700);
+  --color-dark-800: var(--dark-800);
+  --color-dark-900: var(--dark-900);
+
+  /* Chart Colors */
+  --color-chart-red: var(--chart-red);
+  --color-chart-green: var(--chart-green);
+  --color-chart-purple: var(--chart-purple);
+  --color-chart-yellow: var(--chart-yellow);
+  --color-chart-orange: var(--chart-orange);
+  --color-chart-blue: var(--chart-blue);
+
+  /* Opacity Colors */
+  --color-black-1: var(--black-1);
+  --color-black-3: var(--black-3);
+  --color-black-5: var(--black-5);
+  --color-black-10: var(--black-10);
+  --color-black-30: var(--black-30);
+  --color-white-1: var(--white-1);
+  --color-white-3: var(--white-3);
+  --color-white-5: var(--white-5);
+  --color-white-10: var(--white-10);
+  --color-white-30: var(--white-30);
 }
 
 :root {
@@ -304,7 +513,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: var(--slate-blue-500);
+  --primary: var(--slate-blue-600);
   --primary-foreground: oklch(0.969 0.016 293.756);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
@@ -332,11 +541,21 @@
 }
 
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50 antialiased;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: radial-gradient(71% 100% at 42.3% 159.4%, var(--token-f83143e3-85dd-4298-af96-ff8b01637032, rgb(13, 13, 13)) 0%, rgb(255, 255, 255) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

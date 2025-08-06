@@ -1,13 +1,10 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Hero7 } from "@/components/hero7";
 import {
   MessageSquare,
@@ -15,23 +12,25 @@ import {
   Zap,
   Users,
   Clock,
-  Shield,
-  ArrowRight,
   Star,
+  Shield,
 } from "lucide-react";
+import { AppPreview } from "@/components/app-preview";
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
       <Hero7
-        heading="100% Autonomous AI Data Analyst"
-        description="No more frustrating waits in critical meetings. Get instant answers anywhere, anytime with Datapad's autonomous AI data analyst."
+        heading="Better AI Outputs With Data-Backed Workflows"
+        description="Generalistic AI is to shallow to meet your competitive business demands. Datapad analyses your existing data before takin any action; leading to 5x better results on ROI on average."
         button={{
           text: "Get Started Free",
           url: "#",
         }}
       />
+
+      <AppPreview />
 
       {/* Trusted by section */}
       <section className="py-16 px-4">
@@ -71,7 +70,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
-                <MessageSquare className="h-12 w-12 text-primary mb-4" />
+                <MessageSquare
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Chat With Any Source</CardTitle>
                 <CardDescription>
                   Remove data bottlenecks, get instant answers when you need
@@ -82,7 +84,10 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <BarChart3 className="h-12 w-12 text-primary mb-4" />
+                <BarChart3
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Automate Your Reporting</CardTitle>
                 <CardDescription>
                   Receive AI-generated reports with deep-dive analysis on cause
@@ -93,7 +98,10 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <Zap className="h-12 w-12 text-primary mb-4" />
+                <Zap
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Cross-Source Data Blending</CardTitle>
                 <CardDescription>
                   Zero setup data blending with just basic prompting
@@ -103,7 +111,10 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <Users className="h-12 w-12 text-primary mb-4" />
+                <Users
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Enable Your Business Teams</CardTitle>
                 <CardDescription>
                   Give everyone the power of a dedicated analyst
@@ -113,7 +124,10 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <Clock className="h-12 w-12 text-primary mb-4" />
+                <Clock
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Real-Time Data</CardTitle>
                 <CardDescription>
                   In-memory calculations with instant responses
@@ -123,7 +137,10 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <Shield className="h-12 w-12 text-primary mb-4" />
+                <Shield
+                  className="h-12 w-12 text-primary mb-4"
+                  strokeWidth={1.5}
+                />
                 <CardTitle>Secure Data Access</CardTitle>
                 <CardDescription>
                   Enterprise-grade security with role-based permissions
@@ -143,6 +160,7 @@ export default function Home() {
                 <Star
                   key={star}
                   className="h-6 w-6 fill-yellow-400 text-yellow-400"
+                  strokeWidth={1.5}
                 />
               ))}
             </div>

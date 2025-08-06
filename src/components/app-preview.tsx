@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function AppPreview() {
   return (
-    <section className="my-12">
+    <section className="my-12 container mx-auto max-w-7xl">
       <motion.div
         initial={{
           opacity: 0,
@@ -19,7 +19,7 @@ export function AppPreview() {
           duration: 0.3,
           delay: 0.2,
         }}
-        className="relative z-10 w-full rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+        className="relative z-10 w-full rounded-3xl border border-neutral-200 bg-neutral-100 p-2 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
       >
         <div className="w-full overflow-hidden rounded-xl border border-white/10 p-2 bg-background">
           <Image
