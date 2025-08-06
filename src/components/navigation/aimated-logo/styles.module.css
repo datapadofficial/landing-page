@@ -1,0 +1,76 @@
+/* Initial styles for all SVG elements */
+.svg-elem-1,
+.svg-elem-2,
+.svg-elem-3,
+.svg-elem-4,
+.svg-elem-5,
+.svg-elem-6,
+.svg-elem-7,
+.svg-elem-8 {
+  opacity: 1; /* Set opacity to 1 initially to ensure visibility */
+  fill: var(--logo-fill-color, #7a69ee); /* Use CSS variable with default fallback */
+}
+
+/* Apply transition to all SVG elements */
+.svg-elem-1,
+.svg-elem-2,
+.svg-elem-3,
+.svg-elem-4,
+.svg-elem-5,
+.svg-elem-6,
+.svg-elem-7,
+.svg-elem-8 {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply animation and delays when isActive is true */
+.active .svg-elem-1 {
+  animation: fadeIn 2s forwards 0s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-2 {
+  animation: fadeIn 2s forwards 0.125s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-3 {
+  animation: fadeIn 2s forwards 0.25s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-4 {
+  animation: fadeIn 2s forwards 0.375s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-5 {
+  animation: fadeIn 2s forwards 0.5s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-6 {
+  animation: fadeIn 2s forwards 0.625s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-7 {
+  animation: fadeIn 2s forwards 0.75s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
+
+.active .svg-elem-8 {
+  animation: fadeIn 2s forwards 0.875s;
+  animation-iteration-count: infinite; /* Loop the animation when isActive is true */
+}
