@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { AnnouncementBadge } from "@/components/ui/announcement-badge";
+import { LineShadowText } from "@/components/magicui/line-shadow-text";
 
 interface Hero7Props {
   heading?: string;
@@ -39,8 +40,13 @@ const Hero7 = ({
               Datapad Raises New Funding Round
             </AnnouncementBadge>
           </div>
-          <h1 className="text-3xl lg:text-8xl font-display text-gradient tracking-tighter leading-[110%]">
-            {heading}
+          <h1 className="w-full z-99 relative max-w-4xl text-center text-5xl font-ligth tracking-tighter font-display md:text-7xl mx-auto">
+            <span className="text-muted-foreground/50">
+              Better AI Outputs With
+            </span>
+            <LineShadowText className="w-full">
+              Data-Backed Workflows
+            </LineShadowText>
           </h1>
           <p className="text-muted-foreground text-balance lg:text-lg">
             {description}

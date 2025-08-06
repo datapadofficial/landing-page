@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ComponentPropsWithoutRef } from "react";
+import Image from "next/image";
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   /**
@@ -18,8 +19,9 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   pauseOnHover?: boolean;
   /**
    * Content to be displayed in the marquee
+   * If not provided, defaults to company logos
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Whether to animate vertically instead of horizontally
    * @default false
@@ -30,7 +32,24 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
    * @default 4
    */
   repeat?: number;
+  /**
+   * Whether to show company logos as default content
+   * @default true
+   */
+  showDefaultLogos?: boolean;
 }
+
+const companyLogos = [
+  { name: "Revolut", src: "/images/company-logos/revolut-logo.svg" },
+  { name: "Dentsu", src: "/images/company-logos/dentsu-logo.svg" },
+  { name: "Spendesk", src: "/images/company-logos/spendesk-logo.svg" },
+  { name: "Maersk", src: "/images/company-logos/maersk-logo.svg" },
+  { name: "Contentful", src: "/images/company-logos/contentful-logo.svg" },
+  { name: "Corsair", src: "/images/company-logos/corsair-logo.svg" },
+  { name: "Shangri-La", src: "/images/company-logos/shangrila-logo.svg" },
+  { name: "McKinsey", src: "/images/company-logos/mckinsey-logo.svg" },
+  { name: "Delta", src: "/images/company-logos/delta-logo.svg" },
+];
 
 export function Marquee({
   className,
@@ -39,8 +58,30 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  showDefaultLogos = true,
   ...props
 }: MarqueeProps) {
+  const content =
+    children ||
+    (showDefaultLogos ? (
+      <>
+        {companyLogos.map((logo) => (
+          <div
+            key={logo.name}
+            className="mx-8 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+          >
+            <Image
+              src={logo.src}
+              alt={`${logo.name} logo`}
+              width={100}
+              height={100}
+              className="w-auto h-7 filter invert dark:invert-0"
+            />
+          </div>
+        ))}
+      </>
+    ) : null);
+
   return (
     <div
       {...props}
@@ -65,7 +106,7 @@ export function Marquee({
               "[animation-direction:reverse]": reverse,
             })}
           >
-            {children}
+            {content}
           </div>
         ))}
     </div>
