@@ -8,9 +8,9 @@ const Feature95 = () => {
       <div className="container">
         <div className="mb-16 max-w-xl px-8 lg:px-0">
           <Badge variant="outline">How it works</Badge>
-          <h2 className="mb-3 mt-6 text-balance text-2xl font-medium md:text-4xl">
+          <h3 className="mb-3 mt-6 text-balance font-medium">
             From data source to insights in minutes
-          </h2>
+          </h3>
           <p>
             Connect your data, let AI analyze it, and get actionable insights
             through beautiful dashboards.
@@ -32,9 +32,9 @@ const Feature95 = () => {
                     <span className="bg-input h-full w-px lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
+                    <h4 className="mb-1 font-medium lg:mt-4">
                       Connect your data source
-                    </h3>
+                    </h4>
                     <p className="text-sm">
                       Link your databases, APIs, or files in seconds with our
                       100+ integrations.
@@ -63,9 +63,9 @@ const Feature95 = () => {
                     <span className="bg-input h-full w-px lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
+                    <h4 className="mb-1 font-medium lg:mt-4">
                       Ask the AI agent to analyze
-                    </h3>
+                    </h4>
                     <p className="text-sm">
                       Simply ask questions about your data and get instant
                       AI-powered insights.
@@ -94,9 +94,9 @@ const Feature95 = () => {
                     <span className="bg-input h-full w-px lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
+                    <h4 className="mb-1 font-medium lg:mt-4">
                       Get interactive dashboards
-                    </h3>
+                    </h4>
                     <p className="text-sm">
                       Transform insights into beautiful, interactive dashboards
                       that update in real-time.
@@ -125,9 +125,9 @@ const Feature95 = () => {
                     <span className="bg-input h-full w-px lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
+                    <h4 className="mb-1 font-medium lg:mt-4">
                       Share and collaborate
-                    </h3>
+                    </h4>
                     <p className="text-sm">
                       Export reports, share dashboards, and collaborate with
                       your team seamlessly.

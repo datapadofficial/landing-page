@@ -10,14 +10,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <Hero7
-        heading="Better AI Outputs With Data-Backed Workflows"
-        description="Generalistic AI is to shallow to meet your competitive business demands. Datapad analyses your existing data before takin any action; leading to 5x better results on ROI on average."
-        button={{
-          text: "Get Started Free",
-          url: "#",
-        }}
-      />
+      <Hero7 />
 
       <AppPreview />
 

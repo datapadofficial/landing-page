@@ -21,8 +21,7 @@ interface Hero7Props {
 }
 
 const Hero7 = ({
-  heading = "Datapad is the AI Analyst for your business",
-  description = "Datapad is a platform that helps you analyze your data and make better decisions.",
+  description = "Generalistic AI is to shallow to meet your competitive business demands. Datapad analyses your existing data before takin any action; leading to 5x better results on ROI on average.",
   button = {
     text: "Get Started",
     url: "https://www.shadcnblocks.com",
@@ -40,10 +39,8 @@ const Hero7 = ({
               Datapad Raises New Funding Round
             </AnnouncementBadge>
           </div>
-          <h1 className="w-full z-99 relative max-w-4xl text-center text-5xl font-medium tracking font-display md:text-7xl mx-auto">
-            <span className="text-muted-foreground/50">
-              Better AI Outputs With
-            </span>
+          <h1 className="w-full text-heading-1 relative max-w-5xl text-center mx-auto">
+            <span className="text-primary/80">Better AI Outputs With</span>
             <LineShadowText className="w-full">
               Data-Backed Workflows
             </LineShadowText>

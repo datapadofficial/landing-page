@@ -51,9 +51,7 @@ const Feature166 = ({
     <section className="py-32 max-w-7xl mx-auto">
       <div className="container">
         <div className="mb-24 flex flex-col items-center gap-6">
-          <h1 className="text-center text-heading-2 max-w-3xl text-gradient">
-            {heading}
-          </h1>
+          <h2 className="text-center max-w-4xl text-gradient">{heading}</h2>
           <p className="text-center text-lg font-medium text-muted-foreground md:max-w-4xl lg:text-xl">
             {description}
           </p>
@@ -62,7 +60,7 @@ const Feature166 = ({
           <div className="border-muted2 rounded-2xl relative flex w-full flex-col border md:w-1/2 lg:w-full ">
             <div className="relative flex flex-col lg:flex-row">
               <div className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-3/5 lg:border-r lg:border-b-0">
-                <h2 className="text-xl font-semibold">{feature1.title}</h2>
+                <h4>{feature1.title}</h4>
                 <p className="text-muted-foreground">{feature1.description}</p>
                 <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <Image
@@ -75,7 +73,7 @@ const Feature166 = ({
                 </div>
               </div>
               <div className="flex flex-col justify-between p-10 lg:w-2/5">
-                <h2 className="text-xl font-semibold">{feature2.title}</h2>
+                <h4>{feature2.title}</h4>
                 <p className="text-muted-foreground">{feature2.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
                   <Image
@@ -90,7 +88,7 @@ const Feature166 = ({
             </div>
             <div className="border-muted2 relative flex flex-col border-t border-solid lg:flex-row">
               <div className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-2/5 lg:border-r lg:border-b-0">
-                <h2 className="text-xl font-semibold">{feature3.title}</h2>
+                <h4>{feature3.title}</h4>
                 <p className="text-muted-foreground">{feature3.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
                   <Image
@@ -103,7 +101,7 @@ const Feature166 = ({
                 </div>
               </div>
               <div className="flex flex-col justify-between p-10 lg:w-3/5">
-                <h2 className="text-xl font-semibold">{feature4.title}</h2>
+                <h4>{feature4.title}</h4>
                 <p className="text-muted-foreground">{feature4.description}</p>
                 <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <Image
