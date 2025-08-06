@@ -23,7 +23,7 @@ function AnnouncementBadge({
       {...props}
     >
       {/* NEW Tag */}
-      <div className="bg-primary-500 rounded-full px-2 py-1">
+      <div className="bg-primary rounded-full px-2 py-1">
         <p className="font-inter text-2xs text-background font-bold tracking-[0.03em] leading-none uppercase m-0">
           {tag}
         </p>
@@ -31,7 +31,7 @@ function AnnouncementBadge({
 
       {/* Main Content */}
       <div className="opacity-100">
-        <p className="font-inter text-sm font-medium tracking-[-0.1px] leading-[1.4em] text-left text-primary-500 m-0">
+        <p className="font-inter text-sm font-medium tracking-[-0.1px] leading-[1.4em] text-left text-primary">
           {children}
         </p>
       </div>

@@ -31,7 +31,7 @@ const Hero7 = ({
     <section className="pt-32">
       <div className="container mx-auto max-w-3xl px-4 text-center">
         <div className="mx-auto flex max-w-5xl flex-col gap-6">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center">
             <AnnouncementBadge
               href="/blog/datapad-secures-over-500k-to-redefine-data-analytics-with-autonomous-ai-agents"
               tag="NEW"
