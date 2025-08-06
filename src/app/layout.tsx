@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Geist_Mono } from "next/font/google";
+import { Inter, Poppins, Geist_Mono, Funnel_Display } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
@@ -16,6 +16,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const funnel_display = Funnel_Display({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-funnel-display",
 });
 
 const geistMono = Geist_Mono({
@@ -83,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${funnel_display.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

@@ -40,7 +40,7 @@ const Hero7 = ({
               Datapad Raises New Funding Round
             </AnnouncementBadge>
           </div>
-          <h1 className="w-full z-99 relative max-w-4xl text-center text-5xl font-ligth tracking-tighter font-display md:text-7xl mx-auto">
+          <h1 className="w-full z-99 relative max-w-4xl text-center text-5xl font-medium tracking font-display md:text-7xl mx-auto">
             <span className="text-muted-foreground/50">
               Better AI Outputs With
             </span>

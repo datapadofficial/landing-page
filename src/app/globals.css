@@ -12,7 +12,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-poppins);
+  --font-display: var(--font-funnel-display);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -578,22 +578,8 @@
   }
 }
 
-@layer utilities {
-  .text-gradient {
-    background: radial-gradient(71% 100% at 42.3% 159.4%, var(--custom-black-900) 0%, var(--dark-600) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .dark .text-gradient {
-    background: radial-gradient(71% 100% at 42.3% 159.4%, var(--token-f83143e3-85dd-4298-af96-ff8b01637032, rgb(13, 13, 13)) 0%, rgb(255, 255, 255) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Custom Heading Text Utilities */
+@layer components {
+  /* Semantic Typography Components - Proper Tailwind v4 approach */
   .text-heading-1 {
     font-family: var(--font-display);
     font-size: 4rem;
@@ -631,6 +617,22 @@
     .text-heading-3 {
       font-size: 1.5rem; /* 24px on mobile */
     }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: radial-gradient(71% 100% at 42.3% 159.4%, var(--custom-black-900) 0%, var(--dark-600) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .dark .text-gradient {
+    background: radial-gradient(71% 100% at 42.3% 159.4%, var(--token-f83143e3-85dd-4298-af96-ff8b01637032, rgb(13, 13, 13)) 0%, rgb(255, 255, 255) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
