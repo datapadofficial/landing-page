@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PipelineMock } from "./pipeline-mock";
 
 interface Feature {
   title: string;
@@ -33,9 +34,9 @@ const Feature166 = ({
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   feature3 = {
-    title: "Cross-Source Data Blending",
+    title: "Visual Pipeline Builder",
     description:
-      "Zero setup data blending with just basic prompting. Unify data from multiple sources without complex pipelines or ETLs.",
+      "Build data pipelines visually with drag-and-drop steps. Watch your data transform in real-time with our intuitive pipeline interface.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
@@ -91,13 +92,7 @@ const Feature166 = ({
                 <h4>{feature3.title}</h4>
                 <p className="text-muted-foreground">{feature3.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
-                  <Image
-                    src={feature3.image}
-                    alt={feature3.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 25vw"
-                    className="object-cover"
-                  />
+                  <PipelineMock className="w-full h-full" />
                 </div>
               </div>
               <div className="flex flex-col justify-between p-10 lg:w-3/5">
