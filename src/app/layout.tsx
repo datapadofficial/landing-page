@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/structured-data";
+import { Navbar1 } from "@/components/navbar1";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,7 +86,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StructuredData />
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <Navbar1 />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

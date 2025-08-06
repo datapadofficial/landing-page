@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MainNav } from "@/components/navigation/main-nav";
+import { Hero7 } from "@/components/hero7";
 import {
   MessageSquare,
   BarChart3,
@@ -22,58 +22,35 @@ import {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <MainNav />
-
+    <>
       {/* Hero Section */}
-      <section className="flex-1 flex items-center justify-center px-4 py-16 bg-gradient-to-br from-background to-muted/50">
+      <Hero7
+        heading="100% Autonomous AI Data Analyst"
+        description="No more frustrating waits in critical meetings. Get instant answers anywhere, anytime with Datapad's autonomous AI data analyst."
+        button={{
+          text: "Get Started Free",
+          url: "#",
+        }}
+      />
+
+      {/* Trusted by section */}
+      <section className="py-16 px-4">
         <div className="container max-w-6xl mx-auto text-center">
-          <div className="mb-6">
-            <Badge variant="secondary" className="mb-4">
-              🚀 New: Datapad Raises New Funding Round
-            </Badge>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            100% Autonomous
-            <br />
-            <span className="text-primary">AI Data Analyst</span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            No more frustrating waits in critical meetings.
-            <br />
-            Get instant answers anywhere, anytime.
+          <p className="text-muted-foreground mb-6">
+            Trusted by the world's most innovative teams
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="text-lg px-8 py-6">
-              Get Started Free
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-              Book 15m Demo
-            </Button>
-          </div>
-
-          {/* Trusted by section */}
-          <div className="text-center mb-16">
-            <p className="text-muted-foreground mb-6">
-              Trusted by the world's most innovative teams
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {[
-                "Company A",
-                "Company B", 
-                "Company C",
-                "Company D",
-                "Company E",
-              ].map((company) => (
-                <div key={company} className="text-lg font-semibold">
-                  {company}
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            {[
+              "Company A",
+              "Company B",
+              "Company C",
+              "Company D",
+              "Company E",
+            ].map((company) => (
+              <div key={company} className="text-lg font-semibold">
+                {company}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -214,39 +191,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 border-t">
-        <div className="container max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">
-                  D
-                </span>
-              </div>
-              <span className="font-bold text-xl">Datapad</span>
-            </div>
-            <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link href="/blog" className="hover:text-foreground">
-                Blog
-              </Link>
-              <Link href="/privacy-policy" className="hover:text-foreground">
-                Privacy
-              </Link>
-              <Link href="/terms-of-service" className="hover:text-foreground">
-                Terms
-              </Link>
-              <Link href="/kitchen-sink" className="hover:text-foreground">
-                Kitchen Sink
-              </Link>
-            </div>
-          </div>
-          <div className="mt-4 text-center text-sm text-muted-foreground">
-            © 2025 Datapad Inc. Made with ❤️ for data-driven teams.
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
