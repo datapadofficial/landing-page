@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PipelineMock } from "./pipeline-mock";
+import { DashboardMock } from "./dashboard-mock";
 
 interface Feature {
   title: string;
@@ -99,13 +100,7 @@ const Feature166 = ({
                 <h4>{feature4.title}</h4>
                 <p className="text-muted-foreground">{feature4.description}</p>
                 <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
-                  <Image
-                    src={feature4.image}
-                    alt={feature4.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 40vw"
-                    className="object-cover"
-                  />
+                  <DashboardMock className="w-full h-full" />
                 </div>
               </div>
             </div>
