@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   // Configure page extensions to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
 
+  // Configure allowed image domains
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "framerusercontent.com",
+      },
+    ],
+  },
+
   // Experimental features (only use stable ones in production)
   // experimental: {
   //   // PPR is only available in canary versions

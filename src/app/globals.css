@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../styles/animations.css";
+@import "../styles/prose-optimized.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -637,6 +638,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+
 }
 
 @layer base {

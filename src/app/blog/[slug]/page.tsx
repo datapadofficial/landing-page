@@ -10,9 +10,9 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
@@ -301,7 +301,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <article
-          className="prose prose-neutral dark:prose-invert max-w-none"
+          className="prose prose-lg prose-neutral dark:prose-invert max-w-none prose-optimized"
           itemScope
           itemType="https://schema.org/Article"
         >

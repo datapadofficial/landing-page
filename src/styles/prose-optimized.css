@@ -1,0 +1,244 @@
+/* Optimized Prose Styles for Blog Reading Experience */
+
+.prose-optimized {
+  /* Optimal reading width - 65-75 characters per line */
+  max-width: 65ch !important;
+  margin: 0 auto;
+  
+  /* Enhanced line height for better readability */
+  line-height: 1.7;
+  
+  /* Improved text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Better letter spacing for body text */
+  letter-spacing: 0.01em;
+}
+
+.prose-optimized p {
+  /* Optimal line height for paragraphs */
+  line-height: 1.7;
+  
+  /* Better paragraph spacing */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  
+  /* Improved text color contrast */
+  color: var(--foreground);
+  
+  /* Slightly larger font size for better readability */
+  font-size: 1.125rem;
+  
+  /* Better letter spacing */
+  letter-spacing: 0.01em;
+}
+
+.prose-optimized h1,
+.prose-optimized h2,
+.prose-optimized h3,
+.prose-optimized h4,
+.prose-optimized h5,
+.prose-optimized h6 {
+  /* Better heading spacing */
+  margin-top: 2em;
+  margin-bottom: 1em;
+  
+  /* Improved heading line height */
+  line-height: 1.3;
+  
+  /* Better letter spacing for headings */
+  letter-spacing: -0.02em;
+  
+  /* Ensure good contrast */
+  color: var(--foreground);
+}
+
+.prose-optimized h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.prose-optimized h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.prose-optimized h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.prose-optimized h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.prose-optimized ul,
+.prose-optimized ol {
+  /* Better list spacing */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.prose-optimized li {
+  /* Better list item spacing */
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+.prose-optimized blockquote {
+  /* Enhanced blockquote styling */
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.prose-optimized code {
+  /* Better inline code styling */
+  background-color: var(--muted);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  color: var(--foreground);
+}
+
+.prose-optimized pre {
+  /* Better code block styling */
+  background-color: var(--muted);
+  padding: 1.5em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2em 0;
+}
+
+.prose-optimized pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.prose-optimized a {
+  /* Better link styling */
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.prose-optimized a:hover {
+  color: var(--primary);
+  text-decoration-thickness: 2px;
+}
+
+.prose-optimized img {
+  /* Better image styling */
+  border-radius: 0.5rem;
+  margin: 2em auto;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.prose-optimized table {
+  /* Better table styling */
+  margin: 2em 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.prose-optimized th,
+.prose-optimized td {
+  padding: 0.75em 1em;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose-optimized th {
+  background-color: var(--muted);
+  font-weight: 600;
+}
+
+.prose-optimized hr {
+  /* Better horizontal rule styling */
+  margin: 3em 0;
+  border: none;
+  height: 1px;
+  background-color: var(--border);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .prose-optimized {
+    max-width: 100% !important;
+    padding: 0 1rem;
+  }
+
+  .prose-optimized p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .prose-optimized h1 {
+    font-size: 1.875rem;
+  }
+
+  .prose-optimized h2 {
+    font-size: 1.5rem;
+  }
+
+  .prose-optimized h3 {
+    font-size: 1.25rem;
+  }
+
+  .prose-optimized blockquote {
+    margin: 1.5em 0;
+    padding-left: 1em;
+  }
+
+  .prose-optimized pre {
+    margin: 1.5em -1rem;
+    border-radius: 0;
+    padding: 1rem;
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark .prose-optimized {
+  /* Ensure better contrast in dark mode */
+  color: var(--foreground);
+}
+
+.dark .prose-optimized p {
+  /* Slightly reduce opacity for better readability in dark mode */
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .prose-optimized h1,
+.dark .prose-optimized h2,
+.dark .prose-optimized h3,
+.dark .prose-optimized h4,
+.dark .prose-optimized h5,
+.dark .prose-optimized h6 {
+  color: var(--foreground);
+}
+
+.dark .prose-optimized blockquote {
+  border-left-color: var(--primary);
+  color: var(--muted-foreground);
+}
+
+.dark .prose-optimized code {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
+}
+
+.dark .prose-optimized pre {
+  background-color: rgba(255, 255, 255, 0.05);
+}
