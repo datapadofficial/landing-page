@@ -47,7 +47,7 @@ const MainHero = ({
             </AnnouncementBadge>
           </div>
           <h1 className="w-full relative text-center mx-auto">
-            <div className="text-white">
+            <div className="">
               <div>Stop Guessing. Start Winning.</div>
               <AnimatedTicker
                 texts={[

@@ -1,7 +1,7 @@
-import { PipelineMock } from "./pipeline-mock";
-import { DashboardMock } from "./dashboard-mock";
-import { CodePrecisionMock } from "./code-precision-mock";
-import { AskReceiveMock } from "./ask-receive-mock";
+import { PipelineMock } from "./creatives/pipeline-mock";
+import { DashboardMock } from "./creatives/dashboard-mock";
+import { CodePrecisionMock } from "./creatives/code-precision-mock";
+import { AskReceiveMock } from "./creatives/ask-receive-mock";
 
 interface Feature {
   title: string;

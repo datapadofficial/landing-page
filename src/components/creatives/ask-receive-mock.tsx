@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { Search, Target, Lightbulb, FileText } from "lucide-react";
 
@@ -13,6 +13,8 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
   const [typingText, setTypingText] = useState("");
   const [currentStep, setCurrentStep] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [displayedMessages, setDisplayedMessages] = useState<string[]>([]);
 
   // Animation phases: 0=typing, 1=zoom-out, 2=processing, 3=results, 4=reset
 
@@ -42,24 +44,20 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
     },
   ];
 
-  const resultsSummary = `🎯 **READY-TO-DEPLOY CAMPAIGN OPTIMIZATIONS**
+  const resultMessages = useMemo(
+    () => [
+      "🎯 **Analysis Complete!** I found significant optimization opportunities across your marketing channels.",
 
-📋 **COPY-PASTE ACTIONS:**
-• Pause 3 LinkedIn campaigns (saving $1,800/month)
-• Scale Google Ads budget to $15,450 (+25%)
-• Add 12 negative keywords to Facebook Ads
+      "📋 **Immediate Actions (Copy & Paste Ready):**\n• Pause 3 LinkedIn campaigns (saving $1,800/month)\n• Scale Google Ads budget to $15,450 (+25%)\n• Add 12 negative keywords to Facebook Ads",
 
-🚀 **CAMPAIGN ASSETS CREATED:**
-• Google Ads: 47 winning keywords ready to import
-• Facebook: 5 new ad creatives based on top performers  
-• Email sequence: 7 follow-up templates for leads
+      "🚀 **Campaign Assets Created:**\n• Google Ads: 47 winning keywords ready to import\n• Facebook: 5 new ad creatives based on top performers\n• Email sequence: 7 follow-up templates for leads",
 
-💰 **BUDGET REALLOCATION PLAN:**
-• Move $2,400 from LinkedIn → Google Ads
-• Increase Facebook testing budget by $800
-• Reserve $1,200 for Q1 expansion
+      "💰 **Budget Reallocation Plan:**\n• Move $2,400 from LinkedIn → Google Ads\n• Increase Facebook testing budget by $800\n• Reserve $1,200 for Q1 expansion",
 
-**PROJECTED IMPACT:** +$8,400/month, 127% lead quality lift`;
+      "**🎉 PROJECTED IMPACT:** +$8,400/month revenue, 127% lead quality lift",
+    ],
+    []
+  );
 
   useEffect(() => {
     const sequence = async () => {
@@ -91,19 +89,36 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
         }
       }
 
-      // Phase 3: Show results
+      // Phase 3: Show results (multiple messages)
       else if (animationPhase === 3) {
         setShowResults(true);
-        let index = 0;
-        const typeResults = setInterval(() => {
-          if (index <= resultsSummary.length) {
-            setTypingText(resultsSummary.slice(0, index));
-            index++;
-          } else {
-            clearInterval(typeResults);
-            setTimeout(() => setAnimationPhase(4), 3000);
-          }
-        }, 25);
+
+        if (currentMessageIndex < resultMessages.length) {
+          const currentMessage = resultMessages[currentMessageIndex];
+          let index = 0;
+          setTypingText("");
+
+          const typeMessage = setInterval(() => {
+            if (index <= currentMessage.length) {
+              setTypingText(currentMessage.slice(0, index));
+              index++;
+            } else {
+              clearInterval(typeMessage);
+              // Add completed message to displayed messages
+              setDisplayedMessages((prev) => [...prev, currentMessage]);
+              setCurrentMessageIndex((prev) => prev + 1);
+              setTypingText("");
+
+              // If all messages are done, reset after delay
+              if (currentMessageIndex >= resultMessages.length - 1) {
+                setTimeout(() => setAnimationPhase(4), 2000);
+              } else {
+                // Small delay between messages
+                setTimeout(() => {}, 800);
+              }
+            }
+          }, 20);
+        }
       }
 
       // Phase 4: Reset
@@ -112,6 +127,8 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
         setCurrentStep(0);
         setShowResults(false);
         setTypingText("");
+        setCurrentMessageIndex(0);
+        setDisplayedMessages([]);
       }
     };
 
@@ -120,8 +137,9 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
   }, [
     animationPhase,
     currentStep,
+    currentMessageIndex,
     userQuestion,
-    resultsSummary,
+    resultMessages,
     processingSteps.length,
   ]);
 
@@ -177,7 +195,7 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
             </div>
           </div>
 
-          {/* AI Agent Response */}
+          {/* AI Agent Initial Response */}
           <div className="flex justify-start">
             <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
               <div className="text-xs text-gray-700 dark:text-gray-300 mb-2">
@@ -211,25 +229,36 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
                   </span>
                 </div>
               )}
-
-              {/* Results */}
-              {showResults && (
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2">
-                  <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
-                    {typingText}
-                    {animationPhase === 3 &&
-                      typingText.length < resultsSummary.length && (
-                        <span className="animate-pulse text-primary">|</span>
-                      )}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
+
+          {/* AI Agent Result Messages */}
+          {showResults &&
+            displayedMessages.map((message, index) => (
+              <div key={index} className="flex justify-start">
+                <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
+                  <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
+                    {message}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          {/* Currently Typing Message */}
+          {showResults && typingText && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
+                <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
+                  {typingText}
+                  <span className="animate-pulse text-primary">|</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Chat Footer */}
-        {showResults && (
+        {showResults && currentMessageIndex >= resultMessages.length && (
           <div className="flex justify-center">
             <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 rounded-full px-3 py-1">
               ✓ Analysis complete • ROI: +$42K/year
