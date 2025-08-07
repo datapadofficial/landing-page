@@ -53,6 +53,40 @@
   
   /* Ensure good contrast */
   color: var(--foreground);
+  
+  /* Add subtle hover effect */
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.prose-optimized h1:hover,
+.prose-optimized h2:hover {
+  color: var(--chart-purple);
+  cursor: default;
+}
+
+/* High contrast headings using darker primary */
+.prose-optimized h2 {
+  color: var(--slate-blue-700);
+  opacity: 1;
+}
+
+.prose-optimized h3 {
+  color: var(--slate-blue-600);
+  opacity: 1;
+}
+
+/* Add a subtle accent line for h2 headings */
+.prose-optimized h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  width: 2em;
+  height: 2px;
+  background: var(--slate-blue-600);
+  border-radius: 1px;
+  opacity: 0.6;
 }
 
 .prose-optimized h1 {
@@ -90,67 +124,267 @@
   line-height: 1.6;
 }
 
+/* Custom bullet points with brand colors */
+.prose-optimized ul {
+  list-style: none;
+  padding-left: 2em;
+}
+
+.prose-optimized ul > li {
+  position: relative;
+}
+
+.prose-optimized ul > li::before {
+  content: "▸";
+  position: absolute;
+  left: -1.2em;
+  top: 0.1em;
+  font-size: 1em;
+  color: var(--slate-blue-700);
+  font-weight: bold;
+  transform: scale(1);
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.prose-optimized ul > li:hover::before {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Nested list bullets with different icons */
+.prose-optimized ul ul > li::before {
+  content: "◆";
+  color: var(--slate-blue-600);
+  opacity: 1;
+  left: -1.2em;
+  transform: scale(1);
+}
+
+.prose-optimized ul ul > li:hover::before {
+  opacity: 0.8;
+}
+
+.prose-optimized ul ul ul > li::before {
+  content: "▪";
+  color: var(--slate-blue-500);
+  opacity: 1;
+}
+
+.prose-optimized ul ul ul > li:hover::before {
+  opacity: 0.8;
+}
+
+/* Contextual bullets based on data attributes */
+.prose-optimized ul > li[data-type="feature"]::before,
+.prose-optimized ul > li[data-type="step"]::before,
+.prose-optimized ul > li[data-type="tip"]::before,
+.prose-optimized ul > li[data-type="warning"]::before,
+.prose-optimized ul > li[data-type="success"]::before,
+.prose-optimized ul > li[data-type="info"]::before,
+.prose-optimized ul > li[data-type="rocket"]::before,
+.prose-optimized ul > li[data-type="chart"]::before {
+  position: absolute;
+  left: -1.2em;
+  top: 0.1em;
+  font-size: 1em;
+  transform: scale(1);
+  transition: all 0.2s ease;
+}
+
+.prose-optimized ul > li[data-type="feature"]::before {
+  content: "✨";
+}
+
+.prose-optimized ul > li[data-type="step"]::before {
+  content: "➤";
+  color: var(--chart-blue);
+}
+
+.prose-optimized ul > li[data-type="tip"]::before {
+  content: "💡";
+}
+
+.prose-optimized ul > li[data-type="warning"]::before {
+  content: "⚠️";
+}
+
+.prose-optimized ul > li[data-type="success"]::before {
+  content: "✅";
+}
+
+.prose-optimized ul > li[data-type="info"]::before {
+  content: "ℹ️";
+}
+
+.prose-optimized ul > li[data-type="rocket"]::before {
+  content: "🚀";
+}
+
+.prose-optimized ul > li[data-type="chart"]::before {
+  content: "📊";
+}
+
+/* Custom ordered list numbers */
+.prose-optimized ol {
+  list-style: none;
+  counter-reset: custom-counter;
+  padding-left: 2.5em;
+}
+
+.prose-optimized ol > li {
+  counter-increment: custom-counter;
+  position: relative;
+}
+
+.prose-optimized ol > li::before {
+  content: counter(custom-counter);
+  position: absolute;
+  left: -2em;
+  top: 0.1em;
+  width: 1.5em;
+  height: 1.5em;
+  background: linear-gradient(135deg, var(--chart-purple), var(--chart-blue));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(134, 134, 242, 0.2);
+}
+
+.prose-optimized ol > li:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(134, 134, 242, 0.3);
+}
+
+/* Nested ordered lists with different styling */
+.prose-optimized ol ol > li::before {
+  background: linear-gradient(135deg, var(--chart-green), var(--chart-teal));
+  border-radius: 4px;
+}
+
+.prose-optimized ol ol ol > li::before {
+  background: linear-gradient(135deg, var(--chart-orange), var(--chart-yellow));
+  border-radius: 2px;
+}
+
 .prose-optimized blockquote {
-  /* Enhanced blockquote styling */
-  border-left: 4px solid var(--primary);
-  padding-left: 1.5em;
+  /* Subtle blockquote styling */
+  border-left: 4px solid var(--slate-blue-600);
+  background: color-mix(in srgb, var(--slate-blue-500) 8%, transparent);
+  padding: 1.5em 2em;
   margin: 2em 0;
   font-style: italic;
-  font-size: 1.1em;
+  font-size: 1.05em;
   line-height: 1.6;
   color: var(--muted-foreground);
+  border-radius: 0 0.5rem 0.5rem 0;
+  opacity: 0.95;
 }
 
 .prose-optimized code {
-  /* Better inline code styling */
-  background-color: var(--muted);
+  /* Better inline code styling with subtle gradient */
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.1) 0%, 
+    rgba(110, 145, 236, 0.1) 100%);
   padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
+  border-radius: 0.375rem;
   font-size: 0.9em;
-  color: var(--foreground);
+  color: var(--chart-purple);
+  border: 1px solid rgba(134, 134, 242, 0.2);
+  transition: all 0.2s ease;
+}
+
+.prose-optimized code:hover {
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.15) 0%, 
+    rgba(110, 145, 236, 0.15) 100%);
+  border-color: rgba(134, 134, 242, 0.3);
 }
 
 .prose-optimized pre {
-  /* Better code block styling */
+  /* Better code block styling with enhanced border */
   background-color: var(--muted);
   padding: 1.5em;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   overflow-x: auto;
   margin: 2em 0;
+  border: 1px solid rgba(134, 134, 242, 0.1);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.prose-optimized pre:hover {
+  border-color: rgba(134, 134, 242, 0.2);
+  box-shadow: 0 4px 12px rgba(134, 134, 242, 0.1);
 }
 
 .prose-optimized pre code {
   background-color: transparent;
   padding: 0;
   border-radius: 0;
+  border: none;
+  color: var(--foreground);
+}
+
+.prose-optimized pre code:hover {
+  background-color: transparent;
+  border: none;
 }
 
 .prose-optimized a {
-  /* Better link styling */
-  color: var(--primary);
+  /* High contrast link styling */
+  color: var(--slate-blue-700);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--slate-blue-600) 60%, transparent);
   transition: all 0.2s ease;
 }
 
 .prose-optimized a:hover {
-  color: var(--primary);
+  color: var(--slate-blue-800);
+  text-decoration-color: var(--slate-blue-700);
   text-decoration-thickness: 2px;
 }
 
 .prose-optimized img {
-  /* Better image styling */
+  /* Clean image styling with minimal border */
   border-radius: 0.5rem;
   margin: 2em auto;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  background: var(--card);
+  padding: 0.5rem;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose-optimized img:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: color-mix(in srgb, var(--slate-blue-600) 40%, var(--border));
 }
 
 .prose-optimized table {
-  /* Better table styling */
+  /* Better table styling with subtle effects */
   margin: 2em 0;
   border-collapse: collapse;
   width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(134, 134, 242, 0.1);
+  transition: all 0.2s ease;
+}
+
+.prose-optimized table:hover {
+  box-shadow: 0 8px 12px rgba(134, 134, 242, 0.15);
 }
 
 .prose-optimized th,
@@ -158,19 +392,56 @@
   padding: 0.75em 1em;
   border: 1px solid var(--border);
   text-align: left;
+  transition: all 0.2s ease;
 }
 
 .prose-optimized th {
-  background-color: var(--muted);
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.1) 0%, 
+    rgba(110, 145, 236, 0.1) 100%);
   font-weight: 600;
+  color: var(--chart-purple);
 }
 
+.prose-optimized tr:hover td {
+  background-color: rgba(134, 134, 242, 0.03);
+}
+
+
+
 .prose-optimized hr {
-  /* Better horizontal rule styling */
+  /* Better horizontal rule styling with gradient */
   margin: 3em 0;
   border: none;
-  height: 1px;
-  background-color: var(--border);
+  height: 2px;
+  background: linear-gradient(135deg, 
+    transparent 0%, 
+    var(--chart-purple) 20%, 
+    var(--chart-blue) 50%, 
+    var(--chart-green) 80%, 
+    transparent 100%);
+  border-radius: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prose-optimized hr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 /* Mobile optimizations */
@@ -229,16 +500,87 @@
   color: var(--foreground);
 }
 
+.dark .prose-optimized h1:hover,
+.dark .prose-optimized h2:hover {
+  color: var(--chart-purple);
+}
+
+/* Dark mode heading colors with better contrast */
+.dark .prose-optimized h2 {
+  color: var(--slate-blue-300);
+  opacity: 1;
+}
+
+.dark .prose-optimized h3 {
+  color: var(--slate-blue-400);
+  opacity: 1;
+}
+
 .dark .prose-optimized blockquote {
-  border-left-color: var(--primary);
+  background: color-mix(in srgb, var(--slate-blue-400) 12%, transparent);
+  border-left-color: var(--slate-blue-400);
   color: var(--muted-foreground);
 }
 
 .dark .prose-optimized code {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--foreground);
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.15) 0%, 
+    rgba(110, 145, 236, 0.15) 100%);
+  color: var(--chart-purple);
+  border-color: rgba(134, 134, 242, 0.3);
+}
+
+.dark .prose-optimized code:hover {
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.2) 0%, 
+    rgba(110, 145, 236, 0.2) 100%);
+  border-color: rgba(134, 134, 242, 0.4);
 }
 
 .dark .prose-optimized pre {
   background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(134, 134, 242, 0.2);
+}
+
+.dark .prose-optimized pre:hover {
+  border-color: rgba(134, 134, 242, 0.3);
+  box-shadow: 0 4px 12px rgba(134, 134, 242, 0.15);
+}
+
+.dark .prose-optimized th {
+  background: linear-gradient(135deg, 
+    rgba(134, 134, 242, 0.15) 0%, 
+    rgba(110, 145, 236, 0.15) 100%);
+  color: var(--chart-purple);
+}
+
+.dark .prose-optimized tr:hover td {
+  background-color: rgba(134, 134, 242, 0.05);
+}
+
+/* Dark mode bullets and links */
+.dark .prose-optimized ul > li::before {
+  color: var(--slate-blue-300);
+}
+
+.dark .prose-optimized ul ul > li::before {
+  color: var(--slate-blue-400);
+}
+
+.dark .prose-optimized ul ul ul > li::before {
+  color: var(--slate-blue-500);
+}
+
+.dark .prose-optimized a {
+  color: var(--slate-blue-300);
+  text-decoration-color: color-mix(in srgb, var(--slate-blue-300) 60%, transparent);
+}
+
+.dark .prose-optimized a:hover {
+  color: var(--slate-blue-200);
+  text-decoration-color: var(--slate-blue-300);
+}
+
+.dark .prose-optimized h2::after {
+  background: var(--slate-blue-400);
 }

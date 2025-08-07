@@ -232,9 +232,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </Badge>
             )}
 
-            <h1 className="text-4xl font-bold tracking-tight mb-4">
-              {post.title}
-            </h1>
+            <h1 className="text-7xl mb-4">{post.title}</h1>
 
             {post.description && (
               <p className="text-xl text-muted-foreground mb-4">
