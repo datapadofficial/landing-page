@@ -19,9 +19,9 @@ export function AppPreview() {
           duration: 0.3,
           delay: 0.2,
         }}
-        className="relative z-10 w-full rounded-3xl border border-neutral-200 bg-neutral-100 p-2 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+        className="relative z-10 w-full rounded-3xl border border-neutral-200 bg-neutral-100 p-1.5 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
       >
-        <div className="w-full overflow-hidden rounded-xl border border-white/10 p-2 bg-background">
+        <div className="w-full overflow-hidden rounded-xl border border-white/10 p-1.5 bg-background">
           <Image
             src="/images/hero-1.png"
             alt="Landing page preview"

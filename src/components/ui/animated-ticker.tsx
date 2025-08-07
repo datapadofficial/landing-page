@@ -10,7 +10,7 @@ interface AnimatedTickerProps {
 
 const AnimatedTicker: React.FC<AnimatedTickerProps> = ({
   texts,
-  interval = 3000,
+  interval = 2400,
   className = "",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

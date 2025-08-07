@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/structured-data";
-import { Navbar1 } from "@/components/navbar1";
+import { MainNavigation } from "@/components/main-navigation";
 import { Footer } from "@/components/footer";
 
 const inter = Inter({
@@ -99,7 +99,7 @@ export default function RootLayout({
         >
           <StructuredData />
           <div className="flex flex-col min-h-screen">
-            <Navbar1 />
+            <MainNavigation />
             <main className="flex-1 flex flex-col items-center mx-auto">
               {children}
             </main>

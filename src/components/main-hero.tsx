@@ -7,7 +7,7 @@ import { AnnouncementBadge } from "@/components/ui/announcement-badge";
 import { AnimatedTicker } from "@/components/ui/animated-ticker";
 import { cn } from "@/lib/utils";
 
-interface Hero7Props {
+interface MainHeroProps {
   heading?: string;
   description?: string;
   button?: {
@@ -24,21 +24,13 @@ interface Hero7Props {
   };
 }
 
-const Hero7 = ({
-  description = "Generalistic AI is to shallow to meet your competitive business demands. Datapad analyses your existing data before takin any action; leading to 5x better results on ROI on average.",
+const MainHero = ({
+  description = "While others guess, you'll know. Connect your data sources, let our AI analyze your business patterns, then generate winning strategies with 1-click. Join 500+ teams getting 5x better ROI than generic AI tools.",
   button = {
     text: "Get Started",
     url: "https://www.shadcnblocks.com",
   },
-}: Hero7Props) => {
-  const tickerTexts = [
-    "AI Outputs",
-    "Ad Optimization",
-    "SEO Content",
-    "Social Media Posts",
-    "Executive Summaries",
-    "Dashboards",
-  ];
+}: MainHeroProps) => {
   return (
     <section className="pt-24">
       <div className="container relative mx-auto max-w-6xl px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden">
@@ -54,15 +46,24 @@ const Hero7 = ({
               Datapad Raises New Funding Round
             </AnnouncementBadge>
           </div>
-          <h1 className="w-full text-heading-1 relative max-w-5xl text-center mx-auto">
+          <h1 className="w-full relative text-center mx-auto">
             <div className="text-white">
+              <div>Stop Guessing. Start Winning.</div>
               <AnimatedTicker
-                texts={tickerTexts}
+                texts={[
+                  "Ad Strategies That Convert",
+                  "SEO Content That Ranks",
+                  "Email Campaigns That Sell",
+                  "Social Posts That Engage",
+                  "Reports That Drive Decisions",
+                  "Landing Pages That Close",
+                  "Product Descriptions That Move",
+                  "Sales Pitches That Win",
+                ]}
                 interval={3000}
                 className="text-chart-purple"
               />{" "}
             </div>
-            <div>With Data-Backed Workflows</div>
           </h1>
           <p className="text-muted-foreground text-balance lg:text-lg">
             {description}
@@ -81,7 +82,7 @@ const Hero7 = ({
   );
 };
 
-export { Hero7 };
+export { MainHero };
 
 // Below is the modified component from Aceternity UI
 // Original source: npx shadcn@latest add https://ui.aceternity.com/registry/background-boxes.json

@@ -195,9 +195,9 @@ const Hero32 = ({
           <div className="bg-background z-20 -mx-4 w-full shrink-0 px-4 pt-32 md:w-1/2 md:bg-transparent md:pb-32">
             <div className="flex flex-col items-start text-left">
               <div className="max-w-sm">
-                <h1 className="my-6 text-pretty text-heading-1 text-gradient">
+                <h2 className="py-6 text-pretty text-heading-1 text-gradient">
                   {heading}
-                </h1>
+                </h2>
                 <p className="text-muted-foreground">{description}</p>
                 <Button asChild size="lg" className="mt-10">
                   <a href={button.url}>{button.text}</a>
