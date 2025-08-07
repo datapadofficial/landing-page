@@ -75,7 +75,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
   return (
     <div
       className={cn(
-        "w-full h-full bg-white dark:bg-gray-950 p-4 flex flex-col relative overflow-hidden",
+        "w-full h-full  p-0 flex flex-col relative overflow-hidden",
         className
       )}
     >
@@ -117,7 +117,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
           <div
             key={index}
             className={cn(
-              "border border-gray-200 dark:border-gray-700 rounded-xl p-2 bg-white dark:bg-gray-950 shadow-sm transition-all duration-500 ease-out",
+              "border border-gray-200 dark:border-gray-700 rounded-xl p-2  shadow-sm transition-all duration-500 ease-out",
               animationStep >= 1 && isRunning
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95"
@@ -150,15 +150,25 @@ export function DashboardMock({ className }: DashboardMockProps) {
         )}
       >
         {/* Daily Click Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 bg-white dark:bg-gray-950 shadow-sm flex flex-col">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3  shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Click Performance
           </div>
-          <div className="flex-1 min-h-0">
+          <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
               <BarChart data={clickData}>
-                <XAxis dataKey="day" tick={false} axisLine={false} />
-                <YAxis hide />
+                <XAxis
+                  dataKey="day"
+                  tick={{ fontSize: 10, fill: "#6b7280" }}
+                  axisLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  tickLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                />
+                <YAxis
+                  tick={{ fontSize: 10, fill: "#6b7280" }}
+                  axisLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  tickLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  width={30}
+                />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Bar
                   dataKey="clicks"
@@ -177,15 +187,25 @@ export function DashboardMock({ className }: DashboardMockProps) {
         </div>
 
         {/* Daily Impression Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 bg-white dark:bg-gray-950 shadow-sm flex flex-col">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3  shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Impression Performance
           </div>
-          <div className="flex-1 min-h-0">
+          <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
               <LineChart data={impressionData}>
-                <XAxis dataKey="day" tick={false} axisLine={false} />
-                <YAxis hide />
+                <XAxis
+                  dataKey="day"
+                  tick={{ fontSize: 10, fill: "#6b7280" }}
+                  axisLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  tickLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                />
+                <YAxis
+                  tick={{ fontSize: 10, fill: "#6b7280" }}
+                  axisLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  tickLine={{ stroke: "#6b7280", strokeWidth: 1 }}
+                  width={40}
+                />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Line
                   type="monotone"

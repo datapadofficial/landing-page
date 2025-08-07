@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PipelineMock } from "./pipeline-mock";
 import { DashboardMock } from "./dashboard-mock";
+import { CodePrecisionMock } from "./code-precision-mock";
 
 interface Feature {
   title: string;
@@ -18,31 +19,31 @@ interface Feature166Props {
 }
 
 const Feature166 = ({
-  heading = "Democratize Your Data, Make Better Executive Decisions",
+  heading = "Stop Waiting for Answers. Start Getting Results.",
   description = "No more frustrating waits in critical meetings. Get instant answers anywhere, anytime.",
   feature1 = {
-    title: "Chat With Any Source",
+    title: "Ask and Receive",
     description:
       "Remove data bottlenecks, get instant answers when you need them. Connect to any data source and start asking questions immediately.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
-    title: "Automate Your Reporting",
+    title: "Code-Level Precision",
     description:
-      "Receive AI-generated reports with deep-dive analysis on cause & effect. Keep your team aligned with automated insights.",
+      "Get copy-paste ready campaigns, keyword lists, and ad copy generated from YOUR data. Not generic advice - actual deliverables ready to deploy.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   feature3 = {
-    title: "Visual Pipeline Builder",
+    title: "Blend Any Data, Effortlessly",
     description:
       "Build data pipelines visually with drag-and-drop steps. Watch your data transform in real-time with our intuitive pipeline interface.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature4 = {
-    title: "Enable Your Business Teams",
+    title: "Dashboards at the Speed of Thought",
     description:
       "Give everyone the power of a dedicated analyst. Democratize your data and make better executive decisions with real-time insights.",
     image:
@@ -78,13 +79,7 @@ const Feature166 = ({
                 <h4>{feature2.title}</h4>
                 <p className="text-muted-foreground">{feature2.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
-                  <Image
-                    src={feature2.image}
-                    alt={feature2.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 25vw"
-                    className="object-cover"
-                  />
+                  <CodePrecisionMock className="w-full h-full" />
                 </div>
               </div>
             </div>
@@ -99,7 +94,7 @@ const Feature166 = ({
               <div className="flex flex-col justify-between p-10 lg:w-3/5">
                 <h4>{feature4.title}</h4>
                 <p className="text-muted-foreground">{feature4.description}</p>
-                <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
+                <div className="aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <DashboardMock className="w-full h-full" />
                 </div>
               </div>

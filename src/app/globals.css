@@ -578,19 +578,19 @@
 @layer components {
   /* Semantic Typography Components - Using @apply for composability */
   h1 {
-    @apply text-8xl font-display;
+    @apply text-6xl xl:text-8xl font-display;
   }
 
   h2 {
-    @apply text-6xl font-display;
+    @apply text-4xl xl:text-6xl font-display;
   }
 
   h3 {
-    @apply text-5xl font-display;
+    @apply text-3xl xl:text-5xl font-display;
   }
 
   h4 {
-    @apply text-2xl font-display font-normal;
+    @apply text-xl xl:text-2xl font-display font-normal;
   }
 
   /* Responsive variants - using @apply for consistency */

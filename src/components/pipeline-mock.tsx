@@ -132,7 +132,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
   return (
     <div
       className={cn(
-        "w-full h-full bg-white dark:bg-gray-950 p-4 flex flex-col relative overflow-hidden",
+        "w-full h-full p-4 flex flex-col relative overflow-hidden",
         className
       )}
     >
@@ -146,7 +146,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
         {steps.map((step, index) => (
           <div key={index} className="relative flex items-center">
             {/* Step Number Badge */}
-            <div className="absolute z-20s left-[-28px] opacity-60 text-xs font-medium bg-primary/10 border border-primary/20 rounded-md text-primary h-5 w-5 flex items-center justify-center">
+            <div className="absolute z-20s left-[-36px] opacity-60 text-xs font-medium bg-primary/10 border border-primary/20 rounded-md h-6 w-6 flex items-center justify-center">
               {index + 1}
             </div>
 
@@ -191,7 +191,9 @@ export function PipelineMock({ className }: MockPipelineProps) {
                       />
                     </div>
                   ) : (
-                    <step.icon size={14} className="text-primary" />
+                    step.icon && (
+                      <step.icon size={14} className="text-primary" />
+                    )
                   )}
                   <span
                     className={cn(
@@ -228,7 +230,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
 
             {/* Connector Divider Line */}
             {index < steps.length - 1 && (
-              <div className="absolute left-[-19px] top-[30px] w-px h-7 z-10 bg-primary/30" />
+              <div className="absolute left-[-24px] top-[30px] w-px h-7 z-10 bg-primary/30" />
             )}
           </div>
         ))}
@@ -243,7 +245,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
             : "translate-y-full opacity-0"
         )}
       >
-        <div className="h-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-900 shadow-lg">
+        <div className="h-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-lg">
           {/* Table Header */}
           <div className="grid grid-cols-4 bg-primary/10 border-b border-gray-200 dark:border-gray-700">
             <div className="p-2 text-xs font-medium text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
