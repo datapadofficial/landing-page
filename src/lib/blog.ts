@@ -12,6 +12,20 @@ export interface BlogPost {
   tags?: string[];
   published?: boolean;
   content: string;
+  // Enhanced SEO fields
+  seoTitle?: string;
+  seoDescription?: string;
+  image?: string;
+  imageAlt?: string;
+  featured?: boolean;
+  popular?: boolean;
+  lastModified?: string;
+  customDate?: string;
+  footerTitle?: string;
+  showInFooter?: boolean;
+  hideInBlog?: boolean;
+  showImage?: boolean;
+  createdDate?: string;
 }
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
@@ -44,6 +58,20 @@ export const getAllPosts = cache(async (): Promise<BlogPost[]> => {
         author: matterResult.data.author,
         tags: matterResult.data.tags || [],
         published: matterResult.data.published !== false, // Default to true
+        // Enhanced SEO fields
+        seoTitle: matterResult.data.seoTitle,
+        seoDescription: matterResult.data.seoDescription,
+        image: matterResult.data.image,
+        imageAlt: matterResult.data.imageAlt,
+        featured: matterResult.data.featured || false,
+        popular: matterResult.data.popular || false,
+        lastModified: matterResult.data.lastModified,
+        customDate: matterResult.data.customDate,
+        footerTitle: matterResult.data.footerTitle,
+        showInFooter: matterResult.data.showInFooter || false,
+        hideInBlog: matterResult.data.hideInBlog || false,
+        showImage: matterResult.data.showImage !== false, // Default to true
+        createdDate: matterResult.data.createdDate,
       } as BlogPost;
     })
     .filter((post) => post.published) // Only return published posts
@@ -76,6 +104,20 @@ export const getPostBySlug = cache(
         author: matterResult.data.author,
         tags: matterResult.data.tags || [],
         published: matterResult.data.published !== false,
+        // Enhanced SEO fields
+        seoTitle: matterResult.data.seoTitle,
+        seoDescription: matterResult.data.seoDescription,
+        image: matterResult.data.image,
+        imageAlt: matterResult.data.imageAlt,
+        featured: matterResult.data.featured || false,
+        popular: matterResult.data.popular || false,
+        lastModified: matterResult.data.lastModified,
+        customDate: matterResult.data.customDate,
+        footerTitle: matterResult.data.footerTitle,
+        showInFooter: matterResult.data.showInFooter || false,
+        hideInBlog: matterResult.data.hideInBlog || false,
+        showImage: matterResult.data.showImage !== false, // Default to true
+        createdDate: matterResult.data.createdDate,
       } as BlogPost;
     } catch (error) {
       console.error(`Error reading post ${slug}:`, error);
