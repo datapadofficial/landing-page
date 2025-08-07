@@ -51,7 +51,7 @@ const Faq2 = ({
   ],
 }: Faq2Props) => {
   return (
-    <section className="py-32">
+    <section className="py-32 bg-background">
       <div className="container max-w-3xl">
         <h1 className="mb-4 text-3xl font-semibold md:mb-11 md:text-4xl">
           {heading}
@@ -59,7 +59,7 @@ const Faq2 = ({
         <div className="space-y-8">
           {items.map((item, index) => (
             <div key={index} className="border-b pb-6">
-              <h3 className="mb-2 font-semibold">{item.question}</h3>
+              <h4 className="mb-2 font-semibold">{item.question}</h4>
               <p className="text-muted-foreground">{item.answer}</p>
             </div>
           ))}

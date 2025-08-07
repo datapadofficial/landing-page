@@ -23,7 +23,7 @@ export function AppPreview() {
       >
         <div className="w-full overflow-hidden rounded-xl border border-white/10 p-2 bg-background">
           <Image
-            src="/images/datapad-ai-analyst.png"
+            src="/images/hero-1.png"
             alt="Landing page preview"
             width={1920}
             height={1080}

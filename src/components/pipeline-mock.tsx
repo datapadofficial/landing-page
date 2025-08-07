@@ -183,7 +183,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
                       )}
                     >
                       <Image
-                        src={step.iconSrc}
+                        src={step.iconSrc as string}
                         alt={step.name}
                         width={12}
                         height={12}

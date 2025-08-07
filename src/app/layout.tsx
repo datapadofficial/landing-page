@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/structured-data";
 import { Navbar1 } from "@/components/navbar1";
-import { Footer2 } from "@/components/footer2";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -103,7 +103,7 @@ export default function RootLayout({
             <main className="flex-1 flex flex-col items-center mx-auto">
               {children}
             </main>
-            <Footer2 />
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

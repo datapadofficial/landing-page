@@ -3,7 +3,7 @@ import { classNames } from "@/lib/class-names";
 import styles from "./styles.module.css";
 
 const AnimatedLogo = ({
-  isActive,
+  isActive = false,
   size = "medium",
   className = "",
   fillColor = "#7a69ee",
@@ -17,7 +17,7 @@ const AnimatedLogo = ({
     <svg
       className={classNames([
         styles.logo,
-        size === "large" ? "scale-[160%] -mt-20" : "",
+        size === "large" ? "scale-[160%]" : "",
         isActive ? styles.active : "",
         // "scale-x-[-1]",
         className,

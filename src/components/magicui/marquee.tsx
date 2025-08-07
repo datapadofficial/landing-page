@@ -46,8 +46,8 @@ const companyLogos = [
   { name: "Maersk", src: "/images/company-logos/maersk-logo.svg" },
   { name: "Contentful", src: "/images/company-logos/contentful-logo.svg" },
   { name: "Corsair", src: "/images/company-logos/corsair-logo.svg" },
-  { name: "Shangri-La", src: "/images/company-logos/shangrila-logo.svg" },
-  { name: "McKinsey", src: "/images/company-logos/mckinsey-logo.svg" },
+  // { name: "Shangri-La", src: "/images/company-logos/shangrila-logo.svg" },
+  // { name: "McKinsey", src: "/images/company-logos/mckinsey-logo.svg" },
   { name: "Delta", src: "/images/company-logos/delta-logo.svg" },
 ];
 

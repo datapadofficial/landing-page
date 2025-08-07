@@ -165,7 +165,7 @@ const Navbar1 = ({
           <div className="min-w-[181px]">
             <a href={logo.url} className="flex w-fit items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
-              <span className="text-xl font-medium tracking-tight font-display">
+              <span className="text-xl font-medium tracking-tight font-poppins">
                 {logo.title}
               </span>
             </a>
