@@ -6,7 +6,7 @@ const AnimatedLogo = ({
   isActive = false,
   size = "medium",
   className = "",
-  fillColor = "#7a69ee",
+  fillColor = "var(--chart-purple)",
 }: {
   isActive: boolean;
   size?: "medium" | "large";

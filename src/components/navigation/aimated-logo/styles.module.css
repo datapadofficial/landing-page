@@ -8,7 +8,7 @@
 .svg-elem-7,
 .svg-elem-8 {
   opacity: 1; /* Set opacity to 1 initially to ensure visibility */
-  fill: var(--logo-fill-color, #7a69ee); /* Use CSS variable with default fallback */
+  fill: var(--logo-fill-color, var(--chart-purple)); /* Use CSS variable with chart color fallback */
 }
 
 /* Apply transition to all SVG elements */

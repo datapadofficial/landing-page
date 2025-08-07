@@ -329,7 +329,7 @@ export default function KitchenSinkPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Star className="h-5 w-5 text-yellow-500" />
+              <Star className="h-5 w-5 text-chart-yellow" />
               Feature Card
             </CardTitle>
             <CardDescription>
@@ -347,7 +347,7 @@ export default function KitchenSinkPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Heart className="h-5 w-5 text-red-500" />
+              <Heart className="h-5 w-5 text-chart-red" />
               Customer Story
             </CardTitle>
             <CardDescription>
@@ -373,7 +373,7 @@ export default function KitchenSinkPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Share className="h-5 w-5 text-blue-500" />
+              <Share className="h-5 w-5 text-chart-blue" />
               Action Card
             </CardTitle>
             <CardDescription>Card with call-to-action buttons</CardDescription>

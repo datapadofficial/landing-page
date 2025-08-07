@@ -19,33 +19,33 @@ interface Feature166Props {
 }
 
 const Feature166 = ({
-  heading = "Stop Waiting for Answers. Start Getting Results.",
-  description = "No more frustrating waits in critical meetings. Get instant answers anywhere, anytime.",
+  heading = "Turn Any Data Into Ready-to-Deploy Solutions",
+  description = "Connect databases, CRMs, analytics tools, or any data source. Get complete strategies, optimizations, and actionable insights generated from YOUR data - not generic advice. Copy, paste, and implement immediately.",
   feature1 = {
     title: "Ask and Receive",
     description:
-      "Remove data bottlenecks, get instant answers when you need them. Connect to any data source and start asking questions immediately.",
+      "Ask any business question in plain English. Get detailed analysis with specific recommendations - whether it's reducing churn, optimizing operations, or identifying revenue opportunities across any dataset.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
     title: "Code-Level Precision",
     description:
-      "Get copy-paste ready campaigns, keyword lists, and ad copy generated from YOUR data. Not generic advice - actual deliverables ready to deploy.",
+      "Watch SQL + Python analysis dive deep into your data to identify patterns, anomalies, and opportunities. Get predictive models, churn scores, financial forecasts, and optimization strategies ready to implement.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   feature3 = {
     title: "Blend Any Data, Effortlessly",
     description:
-      "Build data pipelines visually with drag-and-drop steps. Watch your data transform in real-time with our intuitive pipeline interface.",
+      "Connect databases, CRMs, financial systems, and any data source with drag-and-drop simplicity. Watch your fragmented data transform into unified, comprehensive insights in real-time.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature4 = {
     title: "Dashboards at the Speed of Thought",
     description:
-      "Give everyone the power of a dedicated analyst. Democratize your data and make better executive decisions with real-time insights.",
+      "Track KPIs, performance metrics, and business health across all systems in one unified dashboard. Get the complete operational picture that drives better decisions instantly.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },

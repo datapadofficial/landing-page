@@ -45,11 +45,11 @@ export function DashboardMock({ className }: DashboardMockProps) {
   const chartConfig = {
     clicks: {
       label: "Clicks",
-      color: "#FF6B8B", // chart-red
+      color: "var(--chart-red)",
     },
     impressions: {
       label: "Impressions",
-      color: "#4ECDC4", // chart-green
+      color: "var(--chart-green)",
     },
   };
 

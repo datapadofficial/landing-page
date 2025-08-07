@@ -113,8 +113,8 @@ PROJECTED IMPACT:
           </div>
           {isRunning && (
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+              <div className="w-2 h-2 bg-chart-blue rounded-full animate-pulse" />
+              <span className="text-xs text-chart-blue dark:text-chart-blue font-medium">
                 {codeBlocks[currentCodeBlock]?.language}
               </span>
             </div>
@@ -129,7 +129,7 @@ PROJECTED IMPACT:
       <div className="flex-1">
         <Terminal className="w-full h-full max-h-none max-w-none bg-gray-900 dark:bg-black border-gray-700 [&_code]:text-[10px] [&_code]:leading-tight">
           {isRunning && (
-            <div className="text-green-400 font-mono">
+            <div className="text-chart-green font-mono !text-xs">
               {codeBlocks[currentCodeBlock]?.code
                 .split("\n")
                 .map((line, index) => (
@@ -140,13 +140,13 @@ PROJECTED IMPACT:
                       ) : line.match(
                           /^(SELECT|FROM|WHERE|GROUP BY|HAVING|ORDER BY)/i
                         ) ? (
-                        <span className="text-blue-400 font-semibold">
+                        <span className="text-chart-blue font-semibold">
                           {line}
                         </span>
                       ) : line.includes("SUM(") ||
                         line.includes("AVG(") ||
                         line.includes("DATE_SUB") ? (
-                        <span className="text-purple-400">{line}</span>
+                        <span className="text-chart-purple">{line}</span>
                       ) : (
                         <span className="text-gray-300">{line}</span>
                       )
@@ -154,35 +154,35 @@ PROJECTED IMPACT:
                       line.startsWith("#") ? (
                         <span className="text-gray-500">{line}</span>
                       ) : line.includes("import ") ? (
-                        <span className="text-orange-400">{line}</span>
+                        <span className="text-chart-orange">{line}</span>
                       ) : line.includes("def ") || line.includes("print(") ? (
-                        <span className="text-blue-400">{line}</span>
+                        <span className="text-chart-blue">{line}</span>
                       ) : line.includes("df[") ||
                         line.includes("query_results") ? (
-                        <span className="text-purple-400">{line}</span>
+                        <span className="text-chart-purple">{line}</span>
                       ) : (
                         <span className="text-gray-300">{line}</span>
                       )
                     ) : codeBlocks[currentCodeBlock]?.language === "Output" ? (
                       line.startsWith("💰") || line.startsWith("🎯") ? (
-                        <span className="text-yellow-400 font-semibold">
+                        <span className="text-chart-yellow font-semibold">
                           {line}
                         </span>
                       ) : line.startsWith("❌") ? (
-                        <span className="text-red-400">{line}</span>
+                        <span className="text-chart-red">{line}</span>
                       ) : line.startsWith("✅") ? (
-                        <span className="text-green-400">{line}</span>
+                        <span className="text-chart-green">{line}</span>
                       ) : line.startsWith("📋") ? (
-                        <span className="text-blue-400">{line}</span>
+                        <span className="text-chart-blue">{line}</span>
                       ) : line.includes("TOP WASTE") ||
                         line.includes("WINNERS") ||
                         line.includes("COPY-PASTE") ||
                         line.includes("PROJECTED") ? (
-                        <span className="text-cyan-400 font-semibold">
+                        <span className="text-chart-blue font-semibold">
                           {line}
                         </span>
                       ) : line.includes("$") ? (
-                        <span className="text-yellow-400">{line}</span>
+                        <span className="text-chart-yellow">{line}</span>
                       ) : (
                         <span className="text-gray-300">{line}</span>
                       )

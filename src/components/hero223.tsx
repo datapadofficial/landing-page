@@ -59,13 +59,12 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(150).fill(1);
   const cols = new Array(100).fill(1);
   const colors = [
-    "#33A1FD",
-    "#2276FF",
-    "#FDCA41",
-    "#2EDCC3",
-    "#FF99CA",
-    "#E5D5C3",
-    "#343433",
+    "var(--chart-blue)",
+    "var(--chart-purple)",
+    "var(--chart-yellow)",
+    "var(--chart-green)",
+    "var(--chart-red)",
+    "var(--chart-orange)",
   ];
   const getRandomColor = () => {
     return colors[Math.floor(Math.random() * colors.length)];
@@ -78,7 +77,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       }}
       className={cn(
         "absolute -top-1/4 left-1/4 z-0 flex h-full w-full -translate-x-1/2 -translate-y-1/2 p-4",
-        className,
+        className
       )}
       {...rest}
     >
