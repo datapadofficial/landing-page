@@ -19,19 +19,19 @@ interface Feature166Props {
 }
 
 const Feature166 = ({
-  heading = "Turn Any Data Into Ready-to-Deploy Solutions",
-  description = "Connect databases, CRMs, analytics tools, or any data source. Get complete strategies, optimizations, and actionable insights generated from YOUR data - not generic advice. Copy, paste, and implement immediately.",
+  heading = "The Only Agent With Real Data Super-Powers",
+  description = "Connect any data source with a simple prompt and watch our AI dive deep into your numbers. Get sophisticated SQL analysis, predictive models, and data insights that would take data scientists weeks to uncover - all from natural language questions about your business.",
   feature1 = {
     title: "Ask and Receive",
     description:
-      "Ask any business question in plain English. Get detailed analysis with specific recommendations - whether it's reducing churn, optimizing operations, or identifying revenue opportunities across any dataset.",
+      "Ask any business question in plain English. Get sophisticated statistical analysis, trend identification, and data-driven insights that reveal hidden patterns in your business metrics across any dataset.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
     title: "Code-Level Precision",
     description:
-      "Watch SQL + Python analysis dive deep into your data to identify patterns, anomalies, and opportunities. Get predictive models, churn scores, financial forecasts, and optimization strategies ready to implement.",
+      "Watch SQL + Python analysis dive deep into your data to identify patterns, anomalies, and opportunities. Get predictive models, statistical correlations, churn probability scores, and advanced forecasting that reveals what your data is really telling you.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
