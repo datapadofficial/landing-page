@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { getPostBySlug, getPostSlugs } from "@/lib/blog";
 import { BlogPostContent } from "./blog-post-content";
 import { MDXContent } from "./mdx-content";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -197,6 +198,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      {/* Scroll Progress */}
+      <ScrollProgress color="primary" />
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

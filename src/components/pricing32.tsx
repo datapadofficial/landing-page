@@ -18,6 +18,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { cn } from "@/lib/utils";
 
 interface FeatureItem {
   icon: LucideIcon;
@@ -117,17 +118,71 @@ const PLANS: PricingPlan[] = [
   },
 ];
 
-const Pricing32 = () => {
+const Pricing32 = ({
+  showHeadline = true,
+  className,
+}: {
+  showHeadline?: boolean;
+  className?: string;
+}) => {
   const [checked, setChecked] = useState(true);
 
   return (
-    <section className="py-32">
+    <section className={cn("py-32", className)}>
       <div className="container">
         <div className="flex flex-col items-center justify-center gap-9.5">
-          <h2>
-            Stop making decisions based on guesswork. Get AI that actually
-            understands your data.
-          </h2>
+          <div className="flex flex-col items-center gap-6 text-center max-w-4xl mx-auto">
+            <h1 className="mb-8">Stop paying for insights you can't use</h1>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              While other tools show you what happened, Datapad creates what
+              happens next. Get implementation-ready campaigns, SEO content, and
+              optimization strategies—not just charts.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-8">
+              <div className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-chart-green"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                ROI in days, not months
+              </div>
+              <div className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-chart-green"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Replace expensive analysts
+              </div>
+              <div className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-chart-green"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Copy-paste ready deliverables
+              </div>
+            </div>
+          </div>
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center justify-center gap-4">
               <Label

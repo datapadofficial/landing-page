@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -107,6 +108,9 @@ export default async function BlogsPage() {
 
   return (
     <>
+      {/* Scroll Progress */}
+      <ScrollProgress />
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

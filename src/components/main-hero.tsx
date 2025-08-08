@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { AnnouncementBadge } from "@/components/ui/announcement-badge";
 
 import { AnimatedTicker } from "@/components/ui/animated-ticker";
@@ -70,9 +71,9 @@ const MainHero = ({
           </p>
         </div>
         <div className="relative z-30 flex gap-4 items-center justify-center">
-          <Button asChild size="lg" className="mt-10">
+          <ShimmerButton className="mt-10">
             <a href={button.url}>{button.text}</a>
-          </Button>
+          </ShimmerButton>
           <Button asChild variant="secondary" size="lg" className="mt-10">
             <a href={button.url}>Book a Demo</a>
           </Button>

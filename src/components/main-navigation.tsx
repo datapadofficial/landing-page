@@ -3,7 +3,7 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 
 import {
   Accordion,
@@ -128,7 +128,7 @@ const MainNavigation = ({
     },
     {
       title: "Pricing",
-      url: "#",
+      url: "/pricing",
     },
     {
       title: "Blog",
@@ -179,7 +179,14 @@ const MainNavigation = ({
           </div>
 
           <div className="flex gap-2 items-center">
-            <ThemeToggle />
+            <Button
+              asChild
+              size="icon"
+              variant="ghost"
+              className="cursor-pointer"
+            >
+              <AnimatedThemeToggler className="h-8 w-8" />
+            </Button>
             <Button asChild variant="secondary" size="sm">
               <a href={auth.login.url}>{auth.login.title}</a>
             </Button>
@@ -197,7 +204,7 @@ const MainNavigation = ({
               <AnimatedLogo isActive={false} className="w-5 h-5" />
             </a>
             <div className="flex gap-2 items-center">
-              <ThemeToggle />
+              <AnimatedThemeToggler className="h-9 w-9 flex items-center justify-center rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground" />
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">
