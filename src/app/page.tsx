@@ -1,11 +1,25 @@
 import { MainHero } from "@/components/main-hero";
-import { Hero32 } from "@/components/hero32";
 import { AppPreview } from "@/components/creatives/app-preview";
-import { Feature166 } from "@/components/feature166";
+import { Logos } from "@/components/logos";
 import { Feature242 } from "@/components/feature242";
 import { Faq2 } from "@/components/faq2";
-import { Logos } from "@/components/logos";
 import { Pricing32 } from "@/components/pricing32";
+import { Hero32 } from "@/components/hero32";
+import dynamic from "next/dynamic";
+
+// Only lazy load components with heavy charts/visualizations
+const Feature166 = dynamic(
+  () =>
+    import("@/components/feature166").then((mod) => ({
+      default: mod.Feature166,
+    })),
+  {
+    ssr: true, // Keep SSR for SEO
+    loading: () => (
+      <div className="h-96 animate-pulse bg-muted/50 rounded-lg" />
+    ),
+  }
+);
 
 export default function Home() {
   return (

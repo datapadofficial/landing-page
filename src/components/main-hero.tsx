@@ -90,8 +90,9 @@ export { MainHero };
 // We respect copyright and attribution to the original creators
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
+  // Dramatically reduced grid size for performance
+  const rows = new Array(30).fill(1); // Reduced from 150 to 30
+  const cols = new Array(20).fill(1); // Reduced from 100 to 20
   const colors = [
     "var(--chart-red)",
     "var(--chart-green)",
@@ -108,6 +109,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     <div
       style={{
         transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
+        willChange: "transform", // Optimize for animations
       }}
       className={cn(
         "absolute -top-1/4 left-1/4 z-0 flex h-full w-full -translate-x-1/2 -translate-y-1/2 p-4",
@@ -119,6 +121,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
         <motion.div
           key={`row` + i}
           className="border-muted-foreground/20 relative h-8 w-16 border-l"
+          initial={false} // Disable initial animation
         >
           {cols.map((_, j) => (
             <motion.div
@@ -126,13 +129,11 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 backgroundColor: `${getRandomColor()}`,
                 transition: { duration: 0 },
               }}
-              animate={{
-                transition: { duration: 2 },
-              }}
               key={`col` + j}
               className="border-muted-foreground/20 relative h-8 w-16 border-r border-t"
+              initial={false} // Disable initial animation
             >
-              {j % 2 === 0 && i % 2 === 0 ? (
+              {j % 4 === 0 && i % 4 === 0 ? ( // Reduced icon frequency
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

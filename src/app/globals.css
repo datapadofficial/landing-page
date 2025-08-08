@@ -3,6 +3,13 @@
 @import "../styles/animations.css";
 @plugin "@tailwindcss/typography";
 
+/* Performance optimizations */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

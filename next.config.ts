@@ -14,13 +14,8 @@ const nextConfig: NextConfig = {
         hostname: "framerusercontent.com",
       },
     ],
+    formats: ["image/webp", "image/avif"],
   },
-
-  // Experimental features (only use stable ones in production)
-  // experimental: {
-  //   // PPR is only available in canary versions
-  //   // ppr: true,
-  // },
 };
 
 const withMDX = createMDX({

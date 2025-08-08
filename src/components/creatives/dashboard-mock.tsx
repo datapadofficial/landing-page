@@ -54,26 +54,54 @@ export function DashboardMock({ className }: DashboardMockProps) {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isRunning) {
-        setIsRunning(true);
-        setAnimationStep(0);
-      } else if (animationStep < totalSteps - 1) {
-        setAnimationStep((prev) => prev + 1);
-      } else {
-        // Reset after showing complete dashboard
-        setTimeout(() => {
-          setIsRunning(false);
-          setAnimationStep(0);
-        }, 3000);
-      }
-    }, 1200);
+    let interval: NodeJS.Timeout;
 
-    return () => clearInterval(interval);
+    // Only run animations when component is visible
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        interval = setInterval(() => {
+          if (!isRunning) {
+            setIsRunning(true);
+            setAnimationStep(0);
+          } else if (animationStep < totalSteps - 1) {
+            setAnimationStep((prev) => prev + 1);
+          } else {
+            // Reset after showing complete dashboard
+            setTimeout(() => {
+              setIsRunning(false);
+              setAnimationStep(0);
+            }, 3000);
+          }
+        }, 1200);
+      } else {
+        clearInterval(interval);
+        setIsRunning(false);
+        setAnimationStep(0);
+      }
+    };
+
+    // Create intersection observer
+    const intersectionObserver = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1,
+      rootMargin: "50px",
+    });
+
+    // Find the component element and observe it
+    const element = document.getElementById("dashboard-mock");
+    if (element) {
+      intersectionObserver.observe(element);
+    }
+
+    return () => {
+      clearInterval(interval);
+      intersectionObserver?.disconnect();
+    };
   }, [animationStep, isRunning]);
 
   return (
     <div
+      id="dashboard-mock"
       className={cn(
         "w-full h-full  p-0 flex flex-col relative overflow-hidden",
         className
