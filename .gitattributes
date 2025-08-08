@@ -1,0 +1,14 @@
+# Mark MDX files as documentation, not code
+*.mdx linguist-documentation
+
+# Ensure TypeScript/JavaScript files are detected as the main language
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+
+# Mark other non-code files appropriately
+*.md linguist-documentation
+*.json linguist-data
+*.css linguist-language=CSS
+*.scss linguist-language=SCSS
