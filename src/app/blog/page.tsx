@@ -1,73 +1,68 @@
-import Link from "next/link";
-import Image from "next/image";
 import { getAllPosts } from "@/lib/blog";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 export const metadata = {
-  title: "Blog - AI Data Analytics Insights | Datapad",
+  title: "Blog - Datapad | AI-Powered Data Analytics Insights",
   description:
-    "Latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis. Learn from industry experts about modern data strategies and tools.",
+    "Stay updated with the latest insights on AI-powered data analytics, business intelligence, KPIs, and autonomous data analysis. Expert tips and trends from Datapad.",
   keywords: [
     "data analytics blog",
     "AI analytics insights",
-    "business intelligence articles",
-    "data science tutorials",
-    "autonomous AI",
+    "business intelligence tips",
+    "KPI tracking",
     "data visualization",
-    "analytics tools",
-    "Datapad blog",
-  ].join(", "),
+    "autonomous analytics",
+    "datapad blog",
+  ],
+  authors: [{ name: "Datapad Team" }],
+  creator: "Datapad",
+  publisher: "Datapad",
+  alternates: {
+    canonical: "https://datapad.io/blogs",
+  },
   openGraph: {
-    title: "Blog - AI Data Analytics Insights | Datapad",
+    title: "Blog - Datapad | AI-Powered Data Analytics Insights",
     description:
-      "Latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
-    url: "https://datapad.io/blog",
+      "Stay updated with the latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
+    url: "https://datapad.io/blogs",
     siteName: "Datapad",
     type: "website",
     images: [
       {
-        url: "https://datapad.io/images/datapad-blog-og.png",
+        url: "https://datapad.io/images/datapad-og-default.png",
         width: 1200,
         height: 630,
-        alt: "Datapad Blog - AI Data Analytics Insights",
+        alt: "Datapad Blog - AI-Powered Data Analytics Insights",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@datapad",
-    title: "Blog - AI Data Analytics Insights | Datapad",
+    title: "Blog - Datapad | AI-Powered Data Analytics Insights",
     description:
-      "Latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
-    images: ["https://datapad.io/images/datapad-blog-twitter.png"],
-  },
-  alternates: {
-    canonical: "https://datapad.io/blog",
-    types: {
-      "application/rss+xml": "https://datapad.io/blog/feed.xml",
-    },
+      "Stay updated with the latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
+    images: ["https://datapad.io/images/datapad-og-default.png"],
   },
 };
 
-export default async function BlogPage() {
+export default async function BlogsPage() {
   const posts = await getAllPosts();
   const siteUrl = "https://datapad.io";
 
-  // Generate JSON-LD structured data for the blog page
+  // Generate JSON-LD structured data for the blogs page
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Datapad Blog",
     description:
       "Latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
-    url: `${siteUrl}/blog`,
+    url: `${siteUrl}/blogs`,
     publisher: {
       "@type": "Organization",
       name: "Datapad",
@@ -95,10 +90,20 @@ export default async function BlogPage() {
     })),
   };
 
-  // Separate featured and popular posts
-  const featuredPosts = posts.filter((post) => post.featured);
-  const popularPosts = posts.filter((post) => post.popular && !post.featured);
-  const regularPosts = posts.filter((post) => !post.featured && !post.popular);
+  // Get featured post (first post or first featured post)
+  const featuredPost = posts.find((post) => post.featured) || posts[0];
+
+  // Get remaining posts for the list
+  const otherPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
+
+  if (!featuredPost) {
+    return (
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold mb-4">Blog</h1>
+        <p className="text-muted-foreground">No blog posts available yet.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -108,241 +113,166 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Blog</h1>
-          <p className="text-xl text-muted-foreground">
-            Latest insights on data analytics, AI, and business intelligence.
-          </p>
-
-          {/* RSS Feed Link */}
-          <div className="mt-4">
-            <Link
-              href="/blog/feed.xml"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              📡 Subscribe to RSS Feed
-            </Link>
-          </div>
-        </div>
-
-        {posts.length === 0 ? (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold mb-4">No posts yet</h2>
-            <p className="text-muted-foreground">
-              Check back soon for the latest insights from our team.
+      {/* Header Section - Based on blog14.tsx */}
+      <section className="py-32">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <h1 className="text-5xl font-medium md:text-6xl">
+              Insights and Trends Blog
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+              Stay updated with the latest insights on AI-powered data
+              analytics, business intelligence, and autonomous data analysis.
             </p>
           </div>
-        ) : (
-          <div className="space-y-8">
-            {/* Featured Posts */}
-            {featuredPosts.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Featured Articles</h2>
-                <div className="grid gap-6">
-                  {featuredPosts.map((post) => (
-                    <Card
-                      key={post.slug}
-                      className="hover:shadow-md transition-shadow border-primary/20"
+          <div className="mx-auto max-w-7xl">
+            <div className="my-16 grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-16">
+              <img
+                src={
+                  featuredPost.image ||
+                  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                }
+                alt={featuredPost.imageAlt || featuredPost.title}
+                className="aspect-video rounded-lg object-cover"
+              />
+              <div className="flex flex-col items-start gap-4">
+                <Badge variant="secondary" className="shrink">
+                  {featuredPost.tags && featuredPost.tags.length > 0
+                    ? featuredPost.tags[0]
+                    : "Data Analytics"}
+                </Badge>
+                <h2 className="text-2xl font-semibold text-balance md:max-w-lg lg:text-3xl">
+                  <Link
+                    href={`/blog/${featuredPost.slug}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {featuredPost.title}
+                  </Link>
+                </h2>
+                <p className="text-muted-foreground md:max-w-lg">
+                  {featuredPost.description}
+                </p>
+              </div>
+            </div>
+            <p className="text-2xl font-medium md:text-3xl">Popular Posts</p>
+            <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
+              {otherPosts.slice(0, 3).map((post) => (
+                <div
+                  key={post.slug}
+                  className="flex flex-col items-start gap-4"
+                >
+                  <img
+                    src={
+                      post.image ||
+                      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
+                    }
+                    alt={post.imageAlt || post.title}
+                    className="aspect-video rounded-lg object-cover"
+                  />
+                  <Badge variant="secondary" className="shrink">
+                    {post.tags && post.tags.length > 0
+                      ? post.tags[0]
+                      : "Data Analytics"}
+                  </Badge>
+                  <h3 className="text-xl font-semibold text-balance md:max-w-md">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="hover:text-primary transition-colors"
                     >
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Badge variant="default">Featured</Badge>
-                              {post.popular && (
-                                <Badge variant="outline">Popular</Badge>
-                              )}
-                            </div>
-                            <CardTitle className="text-2xl mb-2">
-                              <Link
-                                href={`/blog/${post.slug}`}
-                                className="hover:text-primary transition-colors"
-                              >
-                                {post.title}
-                              </Link>
-                            </CardTitle>
-                            <CardDescription className="text-base">
-                              {post.description}
-                            </CardDescription>
-                          </div>
-                          {post.image && post.showImage && (
-                            <div className="w-32 h-20 rounded-lg overflow-hidden flex-shrink-0 relative">
-                              <Image
-                                src={post.image}
-                                alt={post.imageAlt || post.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 128px"
-                              />
-                            </div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <time dateTime={post.date}>
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            })}
-                          </time>
-                          {post.author && <span>by {post.author}</span>}
-                        </div>
-                      </CardHeader>
-                      {post.tags && post.tags.length > 0 && (
-                        <CardContent className="pt-0">
-                          <div className="flex flex-wrap gap-2">
-                            {post.tags.map((tag) => (
-                              <Badge key={tag} variant="secondary">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                        </CardContent>
-                      )}
-                    </Card>
-                  ))}
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground md:max-w-md">
+                    {post.description}
+                  </p>
                 </div>
-              </section>
-            )}
-
-            {/* Popular Posts */}
-            {popularPosts.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Popular Articles</h2>
-                <div className="grid gap-6">
-                  {popularPosts.map((post) => (
-                    <Card
-                      key={post.slug}
-                      className="hover:shadow-md transition-shadow"
-                    >
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <div className="mb-2">
-                              <Badge variant="outline">Popular</Badge>
-                            </div>
-                            <CardTitle className="text-2xl mb-2">
-                              <Link
-                                href={`/blog/${post.slug}`}
-                                className="hover:text-primary transition-colors"
-                              >
-                                {post.title}
-                              </Link>
-                            </CardTitle>
-                            <CardDescription className="text-base">
-                              {post.description}
-                            </CardDescription>
-                          </div>
-                          {post.image && post.showImage && (
-                            <div className="w-32 h-20 rounded-lg overflow-hidden flex-shrink-0 relative">
-                              <Image
-                                src={post.image}
-                                alt={post.imageAlt || post.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 128px"
-                              />
-                            </div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <time dateTime={post.date}>
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            })}
-                          </time>
-                          {post.author && <span>by {post.author}</span>}
-                        </div>
-                      </CardHeader>
-                      {post.tags && post.tags.length > 0 && (
-                        <CardContent className="pt-0">
-                          <div className="flex flex-wrap gap-2">
-                            {post.tags.map((tag) => (
-                              <Badge key={tag} variant="secondary">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                        </CardContent>
-                      )}
-                    </Card>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Regular Posts */}
-            {regularPosts.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Latest Articles</h2>
-                <div className="grid gap-6">
-                  {regularPosts.map((post) => (
-                    <Card
-                      key={post.slug}
-                      className="hover:shadow-md transition-shadow"
-                    >
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <CardTitle className="text-2xl mb-2">
-                              <Link
-                                href={`/blog/${post.slug}`}
-                                className="hover:text-primary transition-colors"
-                              >
-                                {post.title}
-                              </Link>
-                            </CardTitle>
-                            <CardDescription className="text-base">
-                              {post.description}
-                            </CardDescription>
-                          </div>
-                          {post.image && post.showImage && (
-                            <div className="w-32 h-20 rounded-lg overflow-hidden flex-shrink-0 relative">
-                              <Image
-                                src={post.image}
-                                alt={post.imageAlt || post.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 128px"
-                              />
-                            </div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <time dateTime={post.date}>
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            })}
-                          </time>
-                          {post.author && <span>by {post.author}</span>}
-                        </div>
-                      </CardHeader>
-                      {post.tags && post.tags.length > 0 && (
-                        <CardContent className="pt-0">
-                          <div className="flex flex-wrap gap-2">
-                            {post.tags.map((tag) => (
-                              <Badge key={tag} variant="secondary">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                        </CardContent>
-                      )}
-                    </Card>
-                  ))}
-                </div>
-              </section>
-            )}
+              ))}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      </section>
+
+      {/* List Section - Based on blog29.tsx */}
+      {otherPosts.length > 3 && (
+        <section className="bg-background py-16">
+          <div className="container">
+            <h1 className="mb-10 px-6 text-left text-4xl font-bold tracking-tighter text-foreground sm:text-6xl">
+              All Posts
+            </h1>
+
+            <section className="mt-10 space-y-6 md:mt-18">
+              {otherPosts.slice(3).map((post, index) => (
+                <React.Fragment key={post.slug}>
+                  <Card className="border-none shadow-none">
+                    <CardContent className="">
+                      <div className="relative w-full">
+                        <p className="text-sm tracking-tight text-muted-foreground">
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </p>
+
+                        <h2 className="mt-2 text-lg font-medium tracking-tight text-foreground md:text-2xl">
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="hover:text-primary transition-colors"
+                          >
+                            {post.title}
+                          </Link>
+                        </h2>
+
+                        <p className="md:text-md mt-4 text-sm text-muted-foreground md:pr-24 xl:pr-32">
+                          {post.description}
+                        </p>
+
+                        <div className="mt-4 flex w-9/10 flex-wrap items-center gap-2">
+                          {post.tags && post.tags.length > 0 ? (
+                            post.tags.slice(0, 5).map((tag, tagIndex) => (
+                              <Badge
+                                key={tagIndex}
+                                variant="secondary"
+                                className="h-6 rounded-md"
+                              >
+                                <span className="text-md font-medium text-muted-foreground">
+                                  {tag}
+                                </span>
+                              </Badge>
+                            ))
+                          ) : (
+                            <Badge
+                              variant="secondary"
+                              className="h-6 rounded-md"
+                            >
+                              <span className="text-md font-medium text-muted-foreground">
+                                Data Analytics
+                              </span>
+                            </Badge>
+                          )}
+                        </div>
+
+                        <Link href={`/blog/${post.slug}`}>
+                          <Button
+                            variant="secondary"
+                            className="absolute -right-3 -bottom-1 flex h-10 w-10 items-center justify-center rounded-full transition-all ease-in-out hover:rotate-45 md:bottom-14"
+                          >
+                            <ArrowUpRightIcon />
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {index < otherPosts.slice(3).length - 1 && (
+                    <Separator className="h-px w-full" />
+                  )}
+                </React.Fragment>
+              ))}
+            </section>
+          </div>
+        </section>
+      )}
     </>
   );
 }
