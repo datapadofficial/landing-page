@@ -1,14 +1,8 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPostBySlug, getPostSlugs } from "@/lib/blog";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useMDXComponents as getMDXComponents } from "../../../../mdx-components";
+import { BlogPostContent } from "./blog-post-content";
+import { MDXContent } from "./mdx-content";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -209,119 +203,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <Button variant="ghost" asChild className="mb-6">
-            <Link href="/blog" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Link>
-          </Button>
-
-          <div className="mb-6">
-            {/* Featured badge */}
-            {post.featured && (
-              <Badge variant="default" className="mb-4">
-                Featured Article
-              </Badge>
-            )}
-
-            {/* Popular badge */}
-            {post.popular && (
-              <Badge variant="outline" className="mb-4 ml-2">
-                Popular
-              </Badge>
-            )}
-
-            <h1 className="text-7xl mb-4">{post.title}</h1>
-
-            {post.description && (
-              <p className="text-xl text-muted-foreground mb-4">
-                {post.description}
-              </p>
-            )}
-
-            {/* Hero image */}
-            {post.image && post.showImage && (
-              <div className="mb-6 relative w-full h-80">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt || post.title}
-                  fill
-                  className="object-cover rounded-lg"
-                  priority
-                />
-              </div>
-            )}
-
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-              <time dateTime={post.date} itemProp="datePublished">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              {post.author && (
-                <span
-                  itemProp="author"
-                  itemScope
-                  itemType="https://schema.org/Person"
-                >
-                  by <span itemProp="name">{post.author}</span>
-                </span>
-              )}
-              {post.lastModified && post.lastModified !== post.date && (
-                <span>
-                  • Updated{" "}
-                  <time dateTime={post.lastModified} itemProp="dateModified">
-                    {new Date(post.lastModified).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </time>
-                </span>
-              )}
-            </div>
-
-            {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-6">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" itemProp="keywords">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <Separator className="mb-8" />
-        </div>
-
-        <article
-          className="prose prose-lg dark:prose-invert mx-auto"
-          itemScope
-          itemType="https://schema.org/Article"
-        >
-          <meta itemProp="headline" content={post.title} />
-          <meta
-            itemProp="description"
-            content={post.seoDescription || post.description}
-          />
-          <meta itemProp="datePublished" content={post.date} />
-          <meta
-            itemProp="dateModified"
-            content={post.lastModified || post.date}
-          />
-          <div itemProp="articleBody">
-            <MDXRemote
-              source={post.content}
-              components={getMDXComponents({})}
-            />
-          </div>
-        </article>
-      </div>
+      <BlogPostContent post={post} slug={slug}>
+        <MDXContent content={post.content} />
+      </BlogPostContent>
     </>
   );
 }
