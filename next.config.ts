@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
 
 const nextConfig: NextConfig = {
   // Configure page extensions to include MDX files
@@ -25,7 +26,8 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    // Enable GitHub-Flavored Markdown at runtime (tables, task lists, etc.)
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
 });

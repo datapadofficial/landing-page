@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMDXComponents as getMDXComponents } from "../../../../mdx-components";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -208,7 +209,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" asChild className="mb-6">
             <Link href="/blog" className="flex items-center gap-2">
@@ -242,7 +243,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Hero image */}
             {post.image && post.showImage && (
-              <div className="mb-6 relative w-full h-64">
+              <div className="mb-6 relative w-full h-80">
                 <Image
                   src={post.image}
                   alt={post.imageAlt || post.title}
@@ -299,7 +300,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <article
-          className="prose prose-lg prose-neutral dark:prose-invert max-w-none prose-optimized"
+          className="prose prose-lg dark:prose-invert mx-auto"
           itemScope
           itemType="https://schema.org/Article"
         >
@@ -314,7 +315,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             content={post.lastModified || post.date}
           />
           <div itemProp="articleBody">
-            <MDXRemote source={post.content} />
+            <MDXRemote
+              source={post.content}
+              components={getMDXComponents({})}
+            />
           </div>
         </article>
       </div>

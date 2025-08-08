@@ -1,19 +1,22 @@
 ---
 title: "How to Make a Gantt Chart in Google Sheets: Secrets of Creating Stunning Charts"
 description: "In this article, you will learn how to make a Gantt chart in Google Sheets, explore multiple templates, and get to know about Datapad - an alternative to sheets."
-date: "2023-01-25"
+date: "2023-01-25T00:00:00.000Z"
 author: "john-ozuysal"
 slug: "how-to-make-a-gantt-chart-in-google-sheets"
 draft: false
 featured: false
 popular: false
 image: "https://framerusercontent.com/images/h6eS3QOg0bWKvgQO9C8wK3JHJHY.png"
-customDate: "2023-01-25"
+lastModified: "2023-01-25T00:00:00.000Z"
+customDate: "2023-01-25T00:00:00.000Z"
 showInFooter: false
 hideInBlog: false
 showImage: true
+createdDate: "2023-01-25T00:00:00.000Z"
+seoTitle: "How to Make a Gantt Chart in Google Sheets: Secrets of Creating Stunning Charts"
+seoDescription: "In this article, you will learn how to make a Gantt chart in Google Sheets, explore multiple templates, and get to know about Datapad - an alternative to sheets."
 ---
-
 'Gantt Chart' – the name itself sounds overwhelming, no?
 
 Even if you ask the 2 Billion Google sheets users on how do you make a Gantt chart on Google sheets?
@@ -22,17 +25,20 @@ Most of them would go like:
 
 ![](https://framerusercontent.com/images/a2DirUpgS52ISDu03oVZVlKoE.gif)
 
-*[Yeah the GIF is buffering, nothing wrong with your device *😉*]*
+_\[Yeah the GIF is buffering, nothing wrong with your device&#x20;_&#xD83D;&#xDE09;_]_
 
 Gantt charts aren’t everyone’s piece of cake, yet they are no rocket science.
 
 In this article, we’ll walk you through a step-by-step tutorial on how to make a Gantt chart on Google sheets. Time to face the music. 🎶
 
-**But before we get into it, here’s a TL;DR you might want to see:**
+**But before we get into it, here’s a TL;DR you might want to see:** 
 
 - Creating a Gantt chart in Google sheets is a 6-step process, you first need to prepare your database, calculate task duration, create a stacked bar graph, customize the graph to make it a Gantt chart, customize for personalization, and then add dependencies if needed.
+
 - Later in the article you will find 5 Gantt chart templates that you can make a copy of and use.
+
 - Making Gantt charts in Google Sheets isn’t everyone’s cup of tea; it takes a lot of time, isn’t mobile-friendly, team onboarding can be tough, and has some more drawbacks.
+
 - Try our tool - Datapad, a mobile-friendly software to create Gantt charts or any other kind of charts and dashboard that takes care of all the drawbacks you face when creating Gantt charts on GSheets.
 
 ## How to Create a Gantt Chart in Google Sheets?
@@ -41,9 +47,11 @@ In this article, we’ll walk you through a step-by-step tutorial on how to make
 
 Open a blank Google spreadsheet and make three columns, namely:
 
-- **Task Heading:** Includes each task name
-- **Start Date:** When did the task begin?
-- **End Date: **When did the task end?
+- **Task Heading:**  Includes each task name
+
+- **Start Date:**  When did the task begin?
+
+- **End Date:&#x20;**&#x57;hen did the task end?
 
 As a sample dataset, we have created a table with ten tasks and their start and end date.
 
@@ -59,9 +67,11 @@ No worries, we've got the formulas ready for you.
 
 Create a second table with three columns:
 
-- **A: **Task Heading
-- **B: **Start Date
-- **C:** Time duration
+- **A:&#x20;**&#x54;ask Heading
+
+- **B:&#x20;**&#x53;tart Date
+
+- **C:**  Time duration
 
 The first two columns are similar to the above table. So simply copy-paste the values of both columns in the second table.
 
@@ -71,7 +81,7 @@ Next, you need to figure out the start day for each task so that the bars accura
 
 To do so, use the Google spreadsheet formula: **=int(B2)-int($B$2)**
 
-**Note:** This formula translates into 👉🏻 Current Task's Start Date – The First Task's Start Date
+**Note:**  This formula translates into 👉🏻 Current Task's Start Date – The First Task's Start Date
 
 In our formula, B2 represents the first value in the original 'start date' column. You can change this variable if your table positioning is different.
 
@@ -105,7 +115,7 @@ Again, if you have a different table alignment, the cell numbers in the formula 
 
 ### Step #3. Create a Stacked Bar Graph
 
-Highlight all the cells in the second table, then click **Insert** >** Chart**
+Highlight all the cells in the second table, then click **Insert** >**&#x20;Chart**
 
 Google sheets automatically present you with a stacked bar graph. Side by side, it also opens up the Chart Editor on the right sidebar.
 
@@ -157,7 +167,7 @@ Next, for those unaware, we'll show how to change title of Gantt chart on Google
 
 #### #2. Chart & Axis titles
 
-Click on **the Chart & axis titles **element below the chart style. From this section, you can change the chart title text, font style, size, and colors.
+Click on **the Chart & axis titles&#x20;**&#x65;lement below the chart style. From this section, you can change the chart title text, font style, size, and colors.
 
 ![](https://framerusercontent.com/images/rGTG20w47XF8RKCoMY6kjRBKfo.png)
 
@@ -195,9 +205,9 @@ Using Google sheets formulas, you can easily map dependencies among tasks. Below
 
 The dependency means a task can only be started once the previous task is completed.
 
-**💭 Think about it:** Which task can be completed before another can start?
+**💭 Think about it:**  Which task can be completed before another can start?
 
-For example, in our dataset, *Unit Tests* can only be started once *Designing *is complete. So here, Unit Tests (B5) depend on Designing (C4).
+For example, in our dataset, _Unit Tests_ can only be started once _Designing&#x20;_&#x69;s complete. So here, Unit Tests (B5) depend on Designing (C4).
 
 So we’ll put this formula in B5: **=MAX(C4)+1**
 
@@ -213,7 +223,7 @@ In fact, managers often do that because each task is interlinked in one way or a
 
 For instance, we might start the design tasks without ending the coding tasks because we may also require some coding from a design perspective.
 
-In such dependencies, we create a buffer period for the previous task. So, we'll add this formula at the end date of the coding task (C2): **=MIN(B4)+4**
+In such dependencies, we create a buffer period for the previous task. So, we'll add this formula at the end date of the coding task (C2):**=MIN(B4)+4**
 
 Here, B4 is the start date of the dependent task, and +4 is the additional number of days the task will remain active after the initiation of another task.
 
@@ -227,7 +237,7 @@ As in our example, Improvements (C9) need extra days to complete even after fina
 
 You see, you might encounter a problem during final testing and choose to improve instead of launch.
 
-In C9, use this formula: **=MIN(C10)+1**
+In C9, use this formula:**=MIN(C10)+1**
 
 ![](https://framerusercontent.com/images/G833A0LyMCELt2AExUnU7swvyk8.png)
 
@@ -242,22 +252,31 @@ A well-organized marketing Gantt chart allows you to manage your marketing activ
 Simply put, Gantt charts in marketing can help you with:
 
 - Better planning and scheduling
+
 - Lesser complexity
+
 - Clear task dependencies
+
 - Improved communication
+
 - Better utilization of time
 
 ![](https://framerusercontent.com/images/djvXhAUwqQFDpS4WosHOKeA0pIY.png)
 
-**Template Link: **[Gantt Chart Marketing Template](https://docs.google.com/spreadsheets/d/1QNm-pB9PsGxIu8MyVcomuAQeH3oYE0zqDj3hjp9YrKA/edit?usp=sharing)
+**Template Link:&#x20;**[Gantt Chart Marketing Template](https://docs.google.com/spreadsheets/d/1QNm-pB9PsGxIu8MyVcomuAQeH3oYE0zqDj3hjp9YrKA/edit?usp=sharing)
 
 This particular marketing Gantt chart template displays the complete time span of specific marketing activities, including:
 
 - The start and completion date of the project.
+
 - The list of tasks that need to be done.
+
 - The start date and finish date for each task.
+
 - Who is working on what?
+
 - What tasks are dependent on each other?
+
 - The progress made in each task.
 
 Moreover, it has categorized marketing tasks based on local and national marketing, public relations, content marketing, online advertisements, and more.
@@ -272,13 +291,16 @@ Project managers ideally use this type of Gantt chart to streamline operations o
 
 ![](https://framerusercontent.com/images/pnWXCDJ6G0cW6ZWwdrpzbRxGg7E.png)
 
-**Template Link:** [Project Management Gantt Chart](https://docs.google.com/spreadsheets/d/1TDEiI_-fzBlO9oe8Og10R_EAHB3xjCwjg3cf06jTql8/edit?usp=sharing)
+**Template Link:**  [Project Management Gantt Chart](https://docs.google.com/spreadsheets/d/1TDEiI_-fzBlO9oe8Og10R_EAHB3xjCwjg3cf06jTql8/edit?usp=sharing)
 
 This project management Gantt chart template does precisely the same for you. In one section, you get to put in data such as:
 
 - Major projects
+
 - Subtasks for each project
+
 - Start and end dates
+
 - Estimated and actual dates
 
 And on the other half, your data is visualized via a Gantt chart in real time.
@@ -291,7 +313,7 @@ That being said, IT project managers typically use it to show what work is sched
 
 ![](https://framerusercontent.com/images/Wg6304frs0MwToR5y6rfUgd04.png)
 
-**Template Link:** [IT Project Gantt Chart](https://docs.google.com/spreadsheets/d/19BO4d58wFBFc9yczragKSH978-l-hXdPze9T_U9Rjms/edit?usp=sharing)
+**Template Link:**  [IT Project Gantt Chart](https://docs.google.com/spreadsheets/d/19BO4d58wFBFc9yczragKSH978-l-hXdPze9T_U9Rjms/edit?usp=sharing)
 
 Like any other chart, this specific IT project Gantt chart has four columns – task name, start date, end date, and duration.
 
@@ -307,17 +329,23 @@ Such kinds of Gantt charts are used by organizations and agencies that frequentl
 
 ![](https://framerusercontent.com/images/JjNLOwC4XfSUjgapTn5XZFGGyI.png)
 
-**Template Link: **[Event Marketing Gantt Chart](https://docs.google.com/spreadsheets/d/1xOXkqTyewTBYowo92DPKhrCsTlOqZlxCe7KiUSuRP1o/edit?usp=sharing)
+**Template Link:&#x20;**[Event Marketing Gantt Chart](https://docs.google.com/spreadsheets/d/1xOXkqTyewTBYowo92DPKhrCsTlOqZlxCe7KiUSuRP1o/edit?usp=sharing)
 
 The convenient structure of this template and the stylish design make it great for planning and scheduling various projects. Here are what other things you get when using this template:
 
-- **Performer: **To gauge the team's performance on individual tasks
-- **Start and completion date:** Determines the beginning and end date of a task
-- **Completion %:** Defines to what percentage a particular task is completed
-- **Status: **A dropdown to indicate the status of a task (In progress, completed, paused, overdue)
-- **Priority:** Set priority levels for individual tasks (High, medium, low)
-- **Estimated cost:** Forecasted cost for completing a particular tasks
-- **Actual cost: **Actual cost incurred for completing the tasks
+- **Performer:&#x20;**&#x54;o gauge the team's performance on individual tasks
+
+- **Start and completion date:**  Determines the beginning and end date of a task
+
+- **Completion %:**  Defines to what percentage a particular task is completed
+
+- **Status:&#x20;**&#x41; dropdown to indicate the status of a task (In progress, completed, paused, overdue)
+
+- **Priority:**  Set priority levels for individual tasks (High, medium, low)
+
+* **Estimated cost:**  Forecasted cost for completing a particular tasks
+
+* **Actual cost:&#x20;**&#x41;ctual cost incurred for completing the tasks
 
 ### #5. Sales Management Gantt Chart
 
@@ -325,14 +353,17 @@ As the name suggests, a sales Gantt chart is used by sales teams to graphically 
 
 ![](https://framerusercontent.com/images/hcc3RlgsR6xeQI60Bg4CsFSj7mo.png)
 
-**Template Link: **[Sales Management Gantt Chart](https://docs.google.com/spreadsheets/d/1ii9WymGvD2oc6xkkNg1Tm_gIboAx7uPPzDT7_3K4ndg/edit?usp=sharing)
+**Template Link:&#x20;**[Sales Management Gantt Chart](https://docs.google.com/spreadsheets/d/1ii9WymGvD2oc6xkkNg1Tm_gIboAx7uPPzDT7_3K4ndg/edit?usp=sharing)
 
 This sales Gantt chart depicts the performance of a sales manager in five stages:
 
-- **Acquaintance:** Create a basis for an exchange relationship
-- **Identifying customer needs: **Time required to identify customer needs
-- **Presentation:** Time needed to pitch and present the customer with the product
-- **Closing the deal:** Actual time taken to close deals every quarter
+- **Acquaintance:**  Create a basis for an exchange relationship
+
+- **Identifying customer needs:&#x20;**&#x54;ime required to identify customer needs
+
+- **Presentation:**  Time needed to pitch and present the customer with the product
+
+- **Closing the deal:**  Actual time taken to close deals every quarter
 
 ## Drawbacks of Creating Charts with Sheets
 
@@ -369,7 +400,9 @@ Descending from a mighty-mighty company (Alphabet), Sheets aren't the first choi
 You may often face problematic situations like
 
 - Mishandling of data
+
 - Lags and glitches when scrolling or performing calculations
+
 - Unresponsive sheets
 
 Besides, for companies dealing in terabytes of data, Google sheets automatically become a second choice to modern-day chart creation tools like Datapad.
@@ -405,8 +438,11 @@ Tired of copying and pasting data from your spreadsheets into visualization tool
 With Datapad's Google Sheets integration, you can:
 
 - Connect any Google Sheet with just a few clicks—no coding required
+
 - Watch as your dashboards update automatically when your spreadsheet changes
+
 - Visualize complex data in ways Google Sheets alone simply can't handle
+
 - Create beautiful, presentation-ready charts without fighting with formatting
 
 Say goodbye to spreadsheet limitations and hello to data that works for you, not the other way around.
@@ -418,8 +454,11 @@ Ever wished you had a data analyst on call 24/7? With Datapad, you basically do.
 With Datapad's AI-powered analysis, you can:
 
 - Ask questions in everyday language and get immediate visual insights
+
 - Uncover hidden patterns and relationships in your data automatically
+
 - Focus on making decisions instead of fighting with chart settings
+
 - Transform complex data into clear, actionable intelligence in seconds
 
 Your data has stories to tell—Datapad helps you hear them through simple conversation.
@@ -428,36 +467,32 @@ Your data has stories to tell—Datapad helps you hear them through simple conve
 
 End the monthly reporting grind forever. Datapad automatically delivers fresh insights straight to your inbox or Slack channel on your schedule. Set up your dashboard once and let automation take over—whether you need daily metrics, weekly performance snapshots, or monthly executive summaries. Choose from our library of ready-made templates to get started even faster with industry-specific KPIs and visualizations. Your team stays informed with zero manual effort, while you focus on acting on insights instead of creating reports. Perfect for agencies managing multiple clients or busy teams that need consistent data without the hassle.
 
-[Embedded content: https://www.youtube.com/embed/stOcHnA0MTU?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1&loop=1&playlist=stOcHnA0MTU]
-
 Collaboration and KPI dashboards must go hand in hand, that’s how a company excels in KPIs tracking and setting strategic goals.
 
-💭**Food For Thought:** We wanted to be innovative with our collaboration feature and thus spent hours brainstorming about how to make collaborations easy yet real-time.
+💭**Food For Thought:**  We wanted to be innovative with our collaboration feature and thus spent hours brainstorming about how to make collaborations easy yet real-time.
 
-So, here we are! 
+So, here we are! 
 
 ### #4. Downloadable Reports
 
 Sharing insights with your team or stakeholders should be straightforward. With Datapad, you can download your reports in PDF or HTML format, making it easy to distribute them. Whether you need to attach a report to an email, share it on a project management tool, or print it for a meeting, Datapad has you covered. No more scrambling to capture screenshots or manually compiling data. Your reports are ready to be shared in a professional format at the click of a button.
 
-[Embedded content: https://www.youtube.com/embed/VkWp_At4fZo?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1&loop=1&playlist=VkWp_At4fZo]
-
 ### #5. Web Search Feature
 
 Sometimes, understanding your data requires context from the wider world. Datapad's Web Search feature allows you to pull in external data for sector benchmarks and trends, enriching your analysis. Whether you're comparing your sales figures to industry averages or looking for the latest market trends, Datapad can help you find the information you need. This feature ensures that your analysis is not just based on internal data but also informed by external factors, giving you a more comprehensive view of your performance.Make Your Excel Dashboards Look Stunning with Datapad.
 
-[Embedded content: https://www.youtube.com/embed/tuwM7uKLY6E?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1&loop=1&playlist=tuwM7uKLY6E]
-
 ## Table of Key Features and Benefits
 
-| Feature | Description | Benefit |
-| --- | --- | --- |
-| Google Sheets Integration | Connects directly to Google Sheets for data analysis. | Seamless workflow, leverages existing data. |
-| AI-Powered Analysis | Allows plain English queries, generates graphs and dashboards. | Reduces technical barriers, fast insights. |
+|                               |                                                                  |                                                  |
+| ----------------------------- | ---------------------------------------------------------------- | ------------------------------------------------ |
+| **Feature**                   | **Description**                                                  | **Benefit**                                      |
+| Google Sheets Integration     | Connects directly to Google Sheets for data analysis.            | Seamless workflow, leverages existing data.      |
+| AI-Powered Analysis           | Allows plain English queries, generates graphs and dashboards.   | Reduces technical barriers, fast insights.       |
 | Dashboard and Report Creation | Supports bar graphs, line charts, pie charts, Gantt charts, etc. | Visualizes data effectively for decision-making. |
-| Scheduling Reports | Delivers reports via email or Slack at scheduled intervals. | Keeps users informed without manual effort. |
-| Download Options | Reports available in PDF or HTML format. | Easy sharing with stakeholders or teams. |
-| Web Search Feature | Pulls external data for benchmarks and trends. | Enhances analysis with industry context. |
+| Scheduling Reports            | Delivers reports via email or Slack at scheduled intervals.      | Keeps users informed without manual effort.      |
+| Download Options              | Reports available in PDF or HTML format.                         | Easy sharing with stakeholders or teams.         |
+| Web Search Feature            | Pulls external data for benchmarks and trends.                   | Enhances analysis with industry context.         |
+
 Datapad is a free kpi dashboard tool that allows you to connect data sources and keep track of all your metrics in one place. We claim that Datapad is the easiest kpi tool out there.
 
 If you are keeping your dashboards on excel or sheets, you can use our integration to take all your data from spreadsheets and build stunning dashboards on Datapad.
