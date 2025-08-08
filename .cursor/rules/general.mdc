@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+
+### Planning & Execution
+
+- When you receive a task, first check the repo for similar solutions
+- If you need context, check the about-datapad document
+- Always re-use existing components or steal inspiration from them
+- If you're creating something from scratch, then always use Shadcn or other available UI blocks
+- If you're writing copy, first check the about-datapad document for more context
+
+### Style
+
+- Language is direct, simplistic, bold, challenging
+- Design assets are minimalistic
+- Design is always consistent (we don't create new things if we don't have to)

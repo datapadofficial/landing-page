@@ -1,0 +1,19 @@
+---
+description: Use when creating new mock/creative assets
+alwaysApply: false
+---
+
+This is a landing page for our company datapad.io.
+We have many feature cards where we display creative skeletons.
+
+When creating a new mock keep these in mind:
+1- Skeletons are charicatures of actual user interfaces.
+2- They convey the main message with as little detail as possible.
+3- Only use outlines and no fills.
+4- Fills are accepted in smaller components.
+5- Use the bg-primary bg-chart-green bg-chart-purple ... (orange, yellow etc.)
+6- If the user is asking for an animation, deliver it in a 1-2 frame narrative.
+7- Always look at existing implementations in components/creatives/ and keep designs consistend to their styles.
+9- Start small (not detailed elements or animations), iterate with the user if needed.
+10- Less is more. Main idea is to convey a great message.
+11- Make it sexy.
