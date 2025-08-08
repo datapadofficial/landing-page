@@ -53,7 +53,7 @@ export function BlogPostContent({
   useEffect(() => {
     const timer = setTimeout(() => {
       const headingElements = document.querySelectorAll(
-        "article h1, article h2, article h3, article h4, article h5, article h6"
+        "#main-title, article h1, article h2, article h3, article h4, article h5, article h6"
       );
       const headingData = Array.from(headingElements).map((element, index) => {
         const id = element.id || `heading-${index}`;
@@ -167,7 +167,10 @@ export function BlogPostContent({
         </Breadcrumb>
 
         {/* Header - Simplified like content3 */}
-        <h1 className="mt-10 text-balance text-4xl font-bold md:text-5xl lg:text-6xl">
+        <h1
+          id="main-title"
+          className="mt-10 text-balance text-4xl font-bold md:text-5xl lg:text-6xl"
+        >
           {post.title}
         </h1>
         {post.description && (
@@ -199,7 +202,7 @@ export function BlogPostContent({
             {/* Article Status */}
             {(post.featured || post.popular) && (
               <div>
-                <h5 className="font-semibold">Article Status</h5>ikmp
+                <h5 className="font-semibold">Article Status</h5>
                 <div className="mt-2 flex flex-col gap-2">
                   {post.featured && (
                     <Badge variant="default" className="w-fit">
