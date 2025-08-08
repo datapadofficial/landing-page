@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ArrowLeft } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -43,10 +42,11 @@ export function BlogPostContent({
   slug,
   children,
 }: BlogPostContentProps) {
-  const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
+  const [activeHeading, setActiveHeading] = useState<string>("");
   const [headings, setHeadings] = useState<
     Array<{ id: string; text: string; level: number }>
   >([]);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement>>({});
 
   // Extract headings from MDX content
@@ -70,30 +70,61 @@ export function BlogPostContent({
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [post.content]);
+  }, []);
 
   // Intersection Observer for active heading tracking
   useEffect(() => {
     if (headings.length === 0) return;
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        const id = entry.target.id;
+    const observerCallback = () => {
+      // Get all headings with their positions
+      const headingPositions = headings
+        .map(({ id }) => {
+          const element = document.getElementById(id);
+          return {
+            id,
+            element,
+            top: element ? element.getBoundingClientRect().top : Infinity,
+          };
+        })
+        .filter((item) => item.element);
 
-        if (entry.isIntersecting) {
-          setActiveHeadings((prev) =>
-            prev.includes(id) ? prev : [...prev, id]
-          );
-        } else {
-          setActiveHeadings((prev) => prev.filter((heading) => heading !== id));
-        }
-      });
+      // Find the current heading (first one that hasn't passed the viewport top)
+      // Account for navbar height (~60px) plus some buffer
+      const currentHeadingIndex = headingPositions.findIndex(
+        (item) => item.top > 120
+      );
+
+      // If no heading is below the threshold, we're at the bottom, so use the last heading
+      const activeIndex =
+        currentHeadingIndex === -1
+          ? headingPositions.length - 1
+          : Math.max(0, currentHeadingIndex - 1);
+
+      // Set only one active heading
+      const activeId = activeIndex >= 0 ? headingPositions[activeIndex].id : "";
+      setActiveHeading(activeId);
+
+      // Update back to top button visibility
+      setShowBackToTop(window.scrollY > 300);
     };
 
+    // Use a more frequent scroll listener for smoother updates
+    const handleScroll = () => {
+      observerCallback();
+    };
+
+    // Initial call
+    observerCallback();
+
+    // Listen to scroll events for real-time updates
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Also use intersection observer as backup
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
       rootMargin: "-10% 0px -80% 0px",
-      threshold: 0.1,
+      threshold: [0, 0.1, 0.5, 1],
     });
 
     headings.forEach(({ id }) => {
@@ -104,6 +135,7 @@ export function BlogPostContent({
     });
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, [headings]);
@@ -163,25 +195,11 @@ export function BlogPostContent({
         {/* Main Content Layout - Match content3 spacing */}
         <div className="relative mt-16 grid gap-10 lg:mt-28 lg:grid-cols-5">
           {/* Left Sidebar - All Metadata */}
-          <aside className="top-10 flex h-fit w-full max-w-56 flex-col gap-5 lg:sticky">
-            {/* Navigation */}
-            <div>
-              <Button
-                variant="ghost"
-                asChild
-                className="p-0 h-auto justify-start"
-              >
-                <Link href="/blog" className="flex items-center gap-2">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span className="text-sm">Back to Blog</span>
-                </Link>
-              </Button>
-            </div>
-
+          <aside className="top-24 flex h-fit w-full max-w-56 flex-col gap-5 lg:sticky">
             {/* Article Status */}
             {(post.featured || post.popular) && (
               <div>
-                <h2 className="font-semibold">Article Status</h2>
+                <h5 className="font-semibold">Article Status</h5>ikmp
                 <div className="mt-2 flex flex-col gap-2">
                   {post.featured && (
                     <Badge variant="default" className="w-fit">
@@ -200,14 +218,14 @@ export function BlogPostContent({
             {/* Author */}
             {post.author && (
               <div>
-                <h2 className="font-semibold">Author</h2>
+                <h5 className="font-semibold">Author</h5>
                 <p className="text-muted-foreground text-sm">{post.author}</p>
               </div>
             )}
 
             {/* Publication Date */}
             <div>
-              <h2 className="font-semibold">Published</h2>
+              <h5 className="font-semibold">Published</h5>
               <time
                 className="text-muted-foreground text-sm"
                 dateTime={post.date}
@@ -223,7 +241,7 @@ export function BlogPostContent({
             {/* Last Updated */}
             {post.lastModified && post.lastModified !== post.date && (
               <div>
-                <h2 className="font-semibold">Last Updated</h2>
+                <h5 className="font-semibold">Last Updated</h5>
                 <time
                   className="text-muted-foreground text-sm"
                   dateTime={post.lastModified}
@@ -240,7 +258,7 @@ export function BlogPostContent({
             {/* Topics/Tags */}
             {post.tags && post.tags.length > 0 && (
               <div>
-                <h2 className="font-semibold">Topics</h2>
+                <h5 className="font-semibold">Topics</h5>
                 <ul className="mt-2 flex flex-col gap-2">
                   {post.tags.slice(0, 5).map((tag) => (
                     <li key={tag}>
@@ -249,6 +267,21 @@ export function BlogPostContent({
                   ))}
                 </ul>
               </div>
+            )}
+
+            {/* Back to Top Button */}
+            {showBackToTop && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                <ArrowUp className="mr-2 h-4 w-4" />
+                Back to Top
+              </Button>
             )}
           </aside>
 
@@ -289,34 +322,36 @@ export function BlogPostContent({
 
           {/* Right Sidebar - Table of Contents */}
           {headings.length > 0 && (
-            <nav className="sticky top-10 hidden h-fit lg:block">
+            <nav className="sticky top-24 hidden h-fit lg:block">
               <p className="text-muted-foreground text-sm font-medium mb-3">
                 ON THIS PAGE
               </p>
-              <ul className="text-muted-foreground text-sm space-y-1">
-                {headings.map(({ id, text, level }) => (
-                  <li key={id}>
-                    <a
-                      className={cn(
-                        "border-border block border-l py-1 transition-colors duration-200",
-                        level === 2
-                          ? "pl-2.5"
-                          : level === 3
-                          ? "pl-4"
-                          : level === 4
-                          ? "pl-6"
-                          : "pl-2.5",
-                        activeHeadings.includes(id)
-                          ? "border-primary text-primary font-medium"
-                          : "text-muted-foreground hover:text-primary border-transparent"
-                      )}
-                      href={`#${id}`}
-                    >
-                      {text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-h-[calc(100vh-12rem)] overflow-y-auto">
+                <ul className="text-muted-foreground text-sm space-y-1">
+                  {headings.map(({ id, text, level }) => (
+                    <li key={id}>
+                      <a
+                        className={cn(
+                          "border-border block border-l py-1 transition-colors duration-200",
+                          level === 2
+                            ? "pl-2.5"
+                            : level === 3
+                            ? "pl-4"
+                            : level === 4
+                            ? "pl-6"
+                            : "pl-2.5",
+                          activeHeading === id
+                            ? "border-primary text-primary font-medium"
+                            : "text-muted-foreground hover:text-primary border-transparent"
+                        )}
+                        href={`#${id}`}
+                      >
+                        {text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </nav>
           )}
         </div>
