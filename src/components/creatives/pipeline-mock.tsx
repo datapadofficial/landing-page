@@ -256,17 +256,17 @@ export function PipelineMock({ className }: MockPipelineProps) {
       >
         <div className="h-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-lg">
           {/* Table Header */}
-          <div className="grid grid-cols-4 bg-primary/10 border-b border-gray-200 dark:border-gray-700">
-            <div className="p-2 text-xs font-medium text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
+          <div className="grid grid-cols-4 bg-primary border-b border-gray-200 dark:border-gray-700">
+            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
               Date
             </div>
-            <div className="p-2 text-xs font-medium text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
+            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
               Sessions
             </div>
-            <div className="p-2 text-xs font-medium text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
+            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
               Attribution %
             </div>
-            <div className="p-2 text-xs font-medium text-gray-700 dark:text-gray-300">
+            <div className="p-2 text-xs font-medium text-white">
               Conversion %
             </div>
           </div>
