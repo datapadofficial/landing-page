@@ -18,8 +18,9 @@ export function DashboardMock({ className }: DashboardMockProps) {
   const [animationStep, setAnimationStep] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [dataUpdateCycle, setDataUpdateCycle] = useState(0);
+  const [isFullyVisible, setIsFullyVisible] = useState(false);
 
-  // Animation sequence: 0=start, 1=metrics, 2=charts, 3=data updates
+  // Animation sequence: 0=start, 1=metrics, 2=charts, 3=complete
   const totalSteps = 3;
 
   // Dynamic metrics that change to show data updating
@@ -144,12 +145,19 @@ export function DashboardMock({ className }: DashboardMockProps) {
             if (prev < totalSteps - 1) {
               return prev + 1;
             } else {
-              // Start data update cycle after initial sequence
+              // Mark as fully visible and start data updates
+              setIsFullyVisible(true);
               clearInterval(interval);
-              // Start continuous data updates every 3 seconds
-              dataInterval = setInterval(() => {
-                setDataUpdateCycle((cycle) => cycle + 1);
-              }, 3000);
+
+              // Start first data update after a short delay
+              setTimeout(() => {
+                setDataUpdateCycle(1);
+
+                // Start continuous data updates every 5 seconds
+                dataInterval = setInterval(() => {
+                  setDataUpdateCycle((cycle) => (cycle + 1) % 3);
+                }, 5000);
+              }, 1500);
 
               return prev;
             }
@@ -163,6 +171,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
         setIsRunning(false);
         setAnimationStep(0);
         setDataUpdateCycle(0);
+        setIsFullyVisible(false);
       }
     };
 
@@ -199,7 +208,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
       <div
         className={cn(
           "grid grid-cols-4 gap-2 mb-4 transition-all duration-700 ease-in-out",
-          animationStep >= 1 && isRunning
+          (animationStep >= 1 && isRunning) || isFullyVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-4"
         )}
@@ -234,7 +243,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
             key={index}
             className={cn(
               "border border-gray-200 dark:border-gray-700 rounded-xl p-2 shadow-sm transition-all duration-700 ease-out",
-              animationStep >= 1 && isRunning
+              (animationStep >= 1 && isRunning) || isFullyVisible
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95"
             )}
@@ -262,7 +271,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
       <div
         className={cn(
           "flex-1 grid grid-cols-2 gap-3 transition-all duration-700 ease-in-out",
-          animationStep >= 2 && isRunning
+          (animationStep >= 2 && isRunning) || isFullyVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-4"
         )}
@@ -295,7 +304,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
                   animationDuration={800}
                   className={cn(
                     "transition-all duration-1000 ease-out",
-                    animationStep >= 2 && isRunning
+                    (animationStep >= 2 && isRunning) || isFullyVisible
                       ? "opacity-100"
                       : "opacity-0"
                   )}
@@ -339,7 +348,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
                   animationDuration={800}
                   className={cn(
                     "transition-all duration-1000 ease-out",
-                    animationStep >= 2 && isRunning
+                    (animationStep >= 2 && isRunning) || isFullyVisible
                       ? "opacity-100"
                       : "opacity-0"
                   )}
