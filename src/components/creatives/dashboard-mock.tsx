@@ -17,30 +17,84 @@ interface DashboardMockProps {
 export function DashboardMock({ className }: DashboardMockProps) {
   const [animationStep, setAnimationStep] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [dataUpdateCycle, setDataUpdateCycle] = useState(0);
 
-  // Animation sequence: 0=start, 1=metrics, 2=charts, 3=complete
+  // Animation sequence: 0=start, 1=metrics, 2=charts, 3=data updates
   const totalSteps = 3;
 
-  // Chart data
-  const clickData = [
-    { day: "28", clicks: 387 },
-    { day: "29", clicks: 593 },
-    { day: "30", clicks: 136 },
-    { day: "31", clicks: 452 },
-    { day: "01", clicks: 689 },
-    { day: "02", clicks: 234 },
-    { day: "03", clicks: 567 },
+  // Dynamic metrics that change to show data updating
+  const metricsData = [
+    {
+      impressions: "688,405",
+      clicks: "3,390",
+      position: "~29",
+      ctr: "4.9%",
+      changes: ["+12.3%", "+8.7%", "-15.2%", "+2.1%"],
+    },
+    {
+      impressions: "712,890",
+      clicks: "3,567",
+      position: "~26",
+      ctr: "5.1%",
+      changes: ["+15.8%", "+13.2%", "-18.7%", "+4.3%"],
+    },
+    {
+      impressions: "645,230",
+      clicks: "3,123",
+      position: "~31",
+      ctr: "4.7%",
+      changes: ["+8.9%", "+5.4%", "-12.1%", "-1.2%"],
+    },
   ];
 
-  const impressionData = [
-    { day: "28", impressions: 71900 },
-    { day: "29", impressions: 48800 },
-    { day: "30", impressions: 24600 },
-    { day: "31", impressions: 65300 },
-    { day: "01", impressions: 89200 },
-    { day: "02", impressions: 34500 },
-    { day: "03", impressions: 76800 },
+  const currentMetrics = metricsData[dataUpdateCycle % metricsData.length];
+
+  // Chart data that updates to show progression
+  const chartDataSets = [
+    {
+      clicks: [
+        { day: "28", clicks: 387 },
+        { day: "29", clicks: 593 },
+        { day: "30", clicks: 136 },
+        { day: "31", clicks: 452 },
+        { day: "01", clicks: 689 },
+        { day: "02", clicks: 234 },
+        { day: "03", clicks: 567 },
+      ],
+      impressions: [
+        { day: "28", impressions: 71900 },
+        { day: "29", impressions: 48800 },
+        { day: "30", impressions: 24600 },
+        { day: "31", impressions: 65300 },
+        { day: "01", impressions: 89200 },
+        { day: "02", impressions: 34500 },
+        { day: "03", impressions: 76800 },
+      ],
+    },
+    {
+      clicks: [
+        { day: "28", clicks: 421 },
+        { day: "29", clicks: 634 },
+        { day: "30", clicks: 189 },
+        { day: "31", clicks: 523 },
+        { day: "01", clicks: 712 },
+        { day: "02", clicks: 298 },
+        { day: "03", clicks: 645 },
+      ],
+      impressions: [
+        { day: "28", impressions: 78200 },
+        { day: "29", impressions: 52100 },
+        { day: "30", impressions: 28900 },
+        { day: "31", impressions: 69800 },
+        { day: "01", impressions: 94500 },
+        { day: "02", impressions: 38700 },
+        { day: "03", impressions: 81200 },
+      ],
+    },
   ];
+
+  const currentChartData =
+    chartDataSets[dataUpdateCycle % chartDataSets.length];
 
   const chartConfig = {
     clicks: {
@@ -55,29 +109,40 @@ export function DashboardMock({ className }: DashboardMockProps) {
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
+    let dataInterval: NodeJS.Timeout;
 
     // Only run animations when component is visible
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       const [entry] = entries;
       if (entry.isIntersecting) {
+        // Start animation immediately
+        setIsRunning(true);
+        setAnimationStep(0);
+
         interval = setInterval(() => {
-          if (!isRunning) {
-            setIsRunning(true);
-            setAnimationStep(0);
-          } else if (animationStep < totalSteps - 1) {
-            setAnimationStep((prev) => prev + 1);
-          } else {
-            // Reset after showing complete dashboard
-            setTimeout(() => {
-              setIsRunning(false);
-              setAnimationStep(0);
-            }, 3000);
-          }
+          setAnimationStep((prev) => {
+            if (prev < totalSteps - 1) {
+              return prev + 1;
+            } else {
+              // Start data update cycle after initial sequence
+              clearInterval(interval);
+              // Start continuous data updates every 3 seconds
+              dataInterval = setInterval(() => {
+                setDataUpdateCycle((cycle) => cycle + 1);
+              }, 3000);
+
+              return prev;
+            }
+          });
         }, 1200);
       } else {
         clearInterval(interval);
+        if (dataInterval) {
+          clearInterval(dataInterval);
+        }
         setIsRunning(false);
         setAnimationStep(0);
+        setDataUpdateCycle(0);
       }
     };
 
@@ -95,9 +160,12 @@ export function DashboardMock({ className }: DashboardMockProps) {
 
     return () => {
       clearInterval(interval);
+      if (dataInterval) {
+        clearInterval(dataInterval);
+      }
       intersectionObserver?.disconnect();
     };
-  }, [animationStep, isRunning]);
+  }, []);
 
   return (
     <div
@@ -120,45 +188,47 @@ export function DashboardMock({ className }: DashboardMockProps) {
           {
             icon: TrendingUp,
             label: "Total Impressions",
-            value: "688,405",
-            change: "+12.3%",
+            value: currentMetrics.impressions,
+            change: currentMetrics.changes[0],
           },
           {
             icon: Users,
             label: "Total Clicks",
-            value: "3,390",
-            change: "+8.7%",
+            value: currentMetrics.clicks,
+            change: currentMetrics.changes[1],
           },
           {
             icon: BarChart3,
             label: "Avg Position",
-            value: "~29",
-            change: "-15.2%",
+            value: currentMetrics.position,
+            change: currentMetrics.changes[2],
           },
           {
             icon: DollarSign,
             label: "Click-Through Rate",
-            value: "4.9%",
-            change: "+2.1%",
+            value: currentMetrics.ctr,
+            change: currentMetrics.changes[3],
           },
         ].map((metric, index) => (
           <div
             key={index}
             className={cn(
-              "border border-gray-200 dark:border-gray-700 rounded-xl p-2  shadow-sm transition-all duration-500 ease-out",
+              "border border-gray-200 dark:border-gray-700 rounded-xl p-2 shadow-sm transition-all duration-700 ease-out",
               animationStep >= 1 && isRunning
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95"
             )}
-            style={{ transitionDelay: `${index * 100}ms` }}
+            style={{
+              transitionDelay: `${index * 100}ms`,
+            }}
           >
             <div className="flex items-center justify-between mb-1">
               <metric.icon size={12} className="text-primary" />
-              <span className="text-xs font-medium text-primary bg-primary/10 px-1 py-0.5 rounded text-[10px]">
+              <span className="text-xs font-medium text-primary bg-primary/10 px-1 py-0.5 rounded text-[10px] transition-all duration-700">
                 {metric.change}
               </span>
             </div>
-            <div className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">
+            <div className="text-sm font-bold text-gray-900 dark:text-white mb-0.5 transition-all duration-700">
               {metric.value}
             </div>
             <div className="text-[10px] text-gray-600 dark:text-gray-300">
@@ -178,13 +248,13 @@ export function DashboardMock({ className }: DashboardMockProps) {
         )}
       >
         {/* Daily Click Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3  shadow-sm flex flex-col">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Click Performance
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <BarChart data={clickData}>
+              <BarChart data={currentChartData.clicks}>
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}
@@ -215,13 +285,13 @@ export function DashboardMock({ className }: DashboardMockProps) {
         </div>
 
         {/* Daily Impression Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3  shadow-sm flex flex-col">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Impression Performance
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <LineChart data={impressionData}>
+              <LineChart data={currentChartData.impressions}>
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}

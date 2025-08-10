@@ -74,32 +74,56 @@ PROJECTED IMPACT:
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isRunning) {
+    let interval: NodeJS.Timeout;
+
+    // Only run animations when component is visible
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        // Start immediately when visible
         setIsRunning(true);
         setCurrentCodeBlock(0);
         setShowResults(false);
-      } else if (currentCodeBlock < codeBlocks.length - 1) {
-        setCurrentCodeBlock((prev) => prev + 1);
-      } else if (currentCodeBlock === codeBlocks.length - 1 && !showResults) {
-        setTimeout(() => {
-          setShowResults(true);
-        }, 1000);
-      } else if (showResults) {
-        // Reset after showing results
-        setTimeout(() => {
-          setShowResults(false);
-          setIsRunning(false);
-          setCurrentCodeBlock(0);
-        }, 8000);
-      }
-    }, 2500);
 
-    return () => clearInterval(interval);
-  }, [currentCodeBlock, isRunning, showResults, codeBlocks.length]);
+        interval = setInterval(() => {
+          setCurrentCodeBlock((prev) => {
+            if (prev < codeBlocks.length - 1) {
+              return prev + 1;
+            } else {
+              // Reset to beginning to loop continuously
+              return 0;
+            }
+          });
+        }, 2500);
+      } else {
+        clearInterval(interval);
+        setIsRunning(false);
+        setCurrentCodeBlock(0);
+        setShowResults(false);
+      }
+    };
+
+    // Create intersection observer
+    const intersectionObserver = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1,
+      rootMargin: "50px",
+    });
+
+    // Find the component element and observe it
+    const element = document.getElementById("code-precision-mock");
+    if (element) {
+      intersectionObserver.observe(element);
+    }
+
+    return () => {
+      clearInterval(interval);
+      intersectionObserver?.disconnect();
+    };
+  }, [codeBlocks.length]);
 
   return (
     <div
+      id="code-precision-mock"
       className={cn(
         "w-full h-full p-2 flex flex-col relative overflow-hidden",
         className
