@@ -122,7 +122,7 @@ export default function RootLayout({
           <StructuredData />
           <div className="flex flex-col min-h-screen">
             <MainNavigation />
-            <main className="flex-1 flex flex-col items-center mx-auto">
+            <main className="flex-1 flex flex-col items-center mx-auto w-full">
               {children}
             </main>
             <Footer />

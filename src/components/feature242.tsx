@@ -45,7 +45,7 @@ const Feature242 = () => {
     <section className="overflow-hidden py-32">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
         <div className="relative z-10 w-full items-center justify-between lg:flex">
-          <h2 className="max-w-2xl">One-Click Results That Convert</h2>
+          <h2 className="max-w-2xl">1-Click Workflows That Just Work</h2>
           <p className="text-muted-foreground/80 mt-8 max-w-lg tracking-tight md:text-xl lg:mt-0">
             Stop wasting hours creating content that doesn't convert. Get AI
             that actually generates your ad campaigns, blog posts, email

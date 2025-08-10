@@ -29,7 +29,7 @@ const MainHero = ({
   description = "While others guess, you'll know. Connect your data sources, let our AI analyze your business patterns, then generate winning strategies with 1-click. Join 500+ teams getting 5x better ROI than generic AI tools.",
   button = {
     text: "Get Started",
-    url: "https://www.shadcnblocks.com",
+    url: "https://app.datapad.io",
   },
 }: MainHeroProps) => {
   return (
@@ -71,9 +71,9 @@ const MainHero = ({
           </p>
         </div>
         <div className="relative z-30 flex gap-4 items-center justify-center">
-          <ShimmerButton className="mt-10">
+          <Button asChild size="lg" className="mt-10">
             <a href={button.url}>{button.text}</a>
-          </ShimmerButton>
+          </Button>
           <Button asChild variant="secondary" size="lg" className="mt-10">
             <a href={button.url}>Book a Demo</a>
           </Button>
