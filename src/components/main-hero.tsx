@@ -34,7 +34,7 @@ const MainHero = ({
 }: MainHeroProps) => {
   return (
     <section className="pt-24">
-      <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden">
+      <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-4">
         <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
         <Boxes className="scale-150" />
 

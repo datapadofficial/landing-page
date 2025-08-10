@@ -16,6 +16,7 @@ const AnimatedLogo = ({
   return (
     <svg
       className={classNames([
+        "scale-x-[-1]",
         styles.logo,
         size === "large" ? "scale-[160%]" : "",
         isActive ? styles.active : "",
