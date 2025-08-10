@@ -73,22 +73,42 @@ export function DashboardMock({ className }: DashboardMockProps) {
     },
     {
       clicks: [
-        { day: "28", clicks: 421 },
-        { day: "29", clicks: 634 },
-        { day: "30", clicks: 189 },
-        { day: "31", clicks: 523 },
-        { day: "01", clicks: 712 },
-        { day: "02", clicks: 298 },
-        { day: "03", clicks: 645 },
+        { day: "28", clicks: 892 },
+        { day: "29", clicks: 234 },
+        { day: "30", clicks: 756 },
+        { day: "31", clicks: 123 },
+        { day: "01", clicks: 445 },
+        { day: "02", clicks: 834 },
+        { day: "03", clicks: 298 },
       ],
       impressions: [
-        { day: "28", impressions: 78200 },
-        { day: "29", impressions: 52100 },
-        { day: "30", impressions: 28900 },
-        { day: "31", impressions: 69800 },
-        { day: "01", impressions: 94500 },
-        { day: "02", impressions: 38700 },
-        { day: "03", impressions: 81200 },
+        { day: "28", impressions: 45200 },
+        { day: "29", impressions: 89700 },
+        { day: "30", impressions: 62100 },
+        { day: "31", impressions: 23800 },
+        { day: "01", impressions: 78900 },
+        { day: "02", impressions: 94500 },
+        { day: "03", impressions: 41300 },
+      ],
+    },
+    {
+      clicks: [
+        { day: "28", clicks: 156 },
+        { day: "29", clicks: 789 },
+        { day: "30", clicks: 423 },
+        { day: "31", clicks: 667 },
+        { day: "01", clicks: 234 },
+        { day: "02", clicks: 891 },
+        { day: "03", clicks: 512 },
+      ],
+      impressions: [
+        { day: "28", impressions: 67800 },
+        { day: "29", impressions: 33200 },
+        { day: "30", impressions: 85600 },
+        { day: "31", impressions: 49100 },
+        { day: "01", impressions: 72400 },
+        { day: "02", impressions: 28900 },
+        { day: "03", impressions: 91300 },
       ],
     },
   ];
@@ -254,7 +274,11 @@ export function DashboardMock({ className }: DashboardMockProps) {
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <BarChart data={currentChartData.clicks}>
+              <BarChart
+                data={currentChartData.clicks}
+                animationDuration={800}
+                isAnimationActive={true}
+              >
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}
@@ -291,7 +315,11 @@ export function DashboardMock({ className }: DashboardMockProps) {
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <LineChart data={currentChartData.impressions}>
+              <LineChart
+                data={currentChartData.impressions}
+                animationDuration={800}
+                isAnimationActive={true}
+              >
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}
