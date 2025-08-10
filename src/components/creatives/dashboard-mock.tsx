@@ -129,7 +129,6 @@ export function DashboardMock({ className }: DashboardMockProps) {
   };
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
     let dataInterval: NodeJS.Timeout;
 
     // Only run animations when component is visible
@@ -140,31 +139,18 @@ export function DashboardMock({ className }: DashboardMockProps) {
         setIsRunning(true);
         setAnimationStep(0);
 
-        interval = setInterval(() => {
-          setAnimationStep((prev) => {
-            if (prev < totalSteps - 1) {
-              return prev + 1;
-            } else {
-              // Mark as fully visible and start data updates
-              setIsFullyVisible(true);
-              clearInterval(interval);
+        // Show all elements immediately
+        setAnimationStep(totalSteps - 1);
+        setIsFullyVisible(true);
 
-              // Start first data update after a short delay
-              setTimeout(() => {
-                setDataUpdateCycle(1);
+        // Start data updates immediately
+        setDataUpdateCycle(1);
 
-                // Start continuous data updates every 5 seconds
-                dataInterval = setInterval(() => {
-                  setDataUpdateCycle((cycle) => (cycle + 1) % 3);
-                }, 5000);
-              }, 1500);
-
-              return prev;
-            }
-          });
-        }, 1200);
+        // Start continuous data updates every 3 seconds
+        dataInterval = setInterval(() => {
+          setDataUpdateCycle((cycle) => (cycle + 1) % 3);
+        }, 3000);
       } else {
-        clearInterval(interval);
         if (dataInterval) {
           clearInterval(dataInterval);
         }
@@ -188,7 +174,6 @@ export function DashboardMock({ className }: DashboardMockProps) {
     }
 
     return () => {
-      clearInterval(interval);
       if (dataInterval) {
         clearInterval(dataInterval);
       }
