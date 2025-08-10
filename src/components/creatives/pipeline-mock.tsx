@@ -7,9 +7,13 @@ import Image from "next/image";
 
 interface MockPipelineProps {
   className?: string;
+  showTable?: boolean;
 }
 
-export function PipelineMock({ className }: MockPipelineProps) {
+export function PipelineMock({
+  className,
+  showTable = false,
+}: MockPipelineProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
@@ -113,9 +117,18 @@ export function PipelineMock({ className }: MockPipelineProps) {
       } else if (currentStep < steps.length - 1) {
         setCurrentStep((prev) => prev + 1);
       } else if (currentStep === steps.length - 1 && !showResults) {
-        setTimeout(() => {
-          setShowResults(true);
-        }, 1000);
+        if (showTable) {
+          setTimeout(() => {
+            setShowResults(true);
+          }, 1000);
+        } else {
+          // If no table to show, restart immediately after a short delay
+          setTimeout(() => {
+            setShowResults(false);
+            setIsRunning(false);
+            setCurrentStep(0);
+          }, 1000);
+        }
       } else if (showResults) {
         // Reset after showing results
         setTimeout(() => {
@@ -127,7 +140,7 @@ export function PipelineMock({ className }: MockPipelineProps) {
     }, 1200);
 
     return () => clearInterval(interval);
-  }, [currentStep, isRunning, showResults, steps.length]);
+  }, [currentStep, isRunning, showResults, steps.length, showTable]);
 
   return (
     <div
@@ -246,55 +259,57 @@ export function PipelineMock({ className }: MockPipelineProps) {
       </div>
 
       {/* Data Table Section */}
-      <div
-        className={cn(
-          "absolute inset-x-4 bottom-4 top-4 transition-all duration-700 ease-in-out",
-          showResults
-            ? "translate-y-0 opacity-100"
-            : "translate-y-full opacity-0"
-        )}
-      >
-        <div className="h-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-lg">
-          {/* Table Header */}
-          <div className="grid grid-cols-4 bg-primary border-b border-gray-200 dark:border-gray-700">
-            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
-              Date
-            </div>
-            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
-              Sessions
-            </div>
-            <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
-              Attribution %
-            </div>
-            <div className="p-2 text-xs font-medium text-white">
-              Conversion %
-            </div>
-          </div>
-
-          {/* Table Rows */}
-          <div className="overflow-auto">
-            {mockData.slice(1).map((row, index) => (
-              <div
-                key={index}
-                className="grid grid-cols-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0"
-              >
-                <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
-                  {row.col1}
-                </div>
-                <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
-                  {row.col2}
-                </div>
-                <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
-                  {row.col3}
-                </div>
-                <div className="p-2 text-xs text-gray-800 dark:text-gray-200">
-                  {row.col4}
-                </div>
+      {showTable && (
+        <div
+          className={cn(
+            "absolute inset-x-4 bottom-4 top-4 transition-all duration-700 ease-in-out",
+            showResults
+              ? "translate-y-0 opacity-100"
+              : "translate-y-full opacity-0"
+          )}
+        >
+          <div className="h-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-lg">
+            {/* Table Header */}
+            <div className="grid grid-cols-4 bg-primary border-b border-gray-200 dark:border-gray-700">
+              <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
+                Date
               </div>
-            ))}
+              <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
+                Sessions
+              </div>
+              <div className="p-2 text-xs font-medium text-white border-r border-primary-foreground/20">
+                Attribution %
+              </div>
+              <div className="p-2 text-xs font-medium text-white">
+                Conversion %
+              </div>
+            </div>
+
+            {/* Table Rows */}
+            <div className="overflow-auto">
+              {mockData.slice(1).map((row, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0"
+                >
+                  <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
+                    {row.col1}
+                  </div>
+                  <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
+                    {row.col2}
+                  </div>
+                  <div className="p-2 text-xs text-gray-800 dark:text-gray-200 border-r border-gray-200 dark:border-gray-700">
+                    {row.col3}
+                  </div>
+                  <div className="p-2 text-xs text-gray-800 dark:text-gray-200">
+                    {row.col4}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
