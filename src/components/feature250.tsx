@@ -1,20 +1,24 @@
 "use client";
 
-import { Cpu, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
+import Image from "next/image";
 import React, { useRef } from "react";
 
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
+import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 
 const Feature250 = () => {
   return (
-    <section className="py-32">
+    <section className="py-32 w-full flex items-center justify-center max-w-6xl mx-auto">
       <div className="container">
-        <p className="text-muted-foreground mx-auto mb-4 max-w-sm text-center md:text-xl">
-          Bridging Developers, Building the Future
-        </p>
         <h1 className="mx-auto -mb-12 max-w-3xl text-center text-4xl font-medium tracking-tighter md:text-6xl lg:mb-5 lg:text-7xl">
-          Connecting Developers Worldwide
+          Connect Everything
         </h1>
+        <p className="text-muted-foreground mx-auto mb-4 max-w-2xl text-center md:text-xl">
+          Datapad seamlessly integrates with 200+ tools and platforms you
+          already use. No complex setup, no data silos—just instant insights
+          from all your business data in one unified dashboard.
+        </p>
         <AnimatedBeamIllustration />
       </div>
     </section>
@@ -47,7 +51,13 @@ function AnimatedBeamIllustration() {
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
               <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Cpu size={16} />
+                <Image
+                  alt="Google Analytics"
+                  src="/images/integrations/google-analytics.png"
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -57,7 +67,13 @@ function AnimatedBeamIllustration() {
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
               <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Cpu size={16} />
+                <Image
+                  alt="Stripe"
+                  src="/images/integrations/stripe.png"
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -67,7 +83,13 @@ function AnimatedBeamIllustration() {
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
               <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Cpu size={16} />
+                <Image
+                  alt="HubSpot"
+                  src="/images/integrations/hubspot.png"
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -77,7 +99,13 @@ function AnimatedBeamIllustration() {
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
               <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Cpu size={16} />
+                <Image
+                  alt="Shopify"
+                  src="/images/integrations/shopify.png"
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -87,7 +115,13 @@ function AnimatedBeamIllustration() {
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
               <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Cpu size={16} />
+                <Image
+                  alt="Google Ads"
+                  src="/images/integrations/google-ads.png"
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -96,11 +130,7 @@ function AnimatedBeamIllustration() {
           ref={div6Ref}
           className="bg-muted lg:size-42 z-10 flex size-32 items-center justify-center rounded-3xl border"
         >
-          <img
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg"
-            className="lg:size-18 size-14 dark:invert"
-            alt=""
-          />
+          <AnimatedLogo isActive={false} className="lg:scale-[150%]" />
         </div>
         <div
           ref={div7Ref}

@@ -6,6 +6,7 @@ import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
 import { Hero32 } from "@/components/hero32";
 import dynamic from "next/dynamic";
+import { Feature250 } from "@/components/feature250";
 
 // Only lazy load components with heavy charts/visualizations
 const Feature166 = dynamic(
@@ -43,7 +44,7 @@ export default function Home() {
       <Pricing32 />
 
       {/* Integrations Section */}
-      <Hero32 />
+      <Feature250 />
 
       {/* FAQ Section */}
       <Faq2 />

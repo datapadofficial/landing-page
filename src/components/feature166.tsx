@@ -10,7 +10,7 @@ interface Feature {
 }
 
 interface Feature166Props {
-  heading?: string;
+  heading?: React.ReactNode;
   description?: string;
   feature1?: Feature;
   feature2?: Feature;
@@ -19,31 +19,37 @@ interface Feature166Props {
 }
 
 const Feature166 = ({
-  heading = "The Only Agent With Real Data Super-Powers",
+  heading = (
+    <>
+      <span>The Only Agent</span> With
+      <br />
+      <span className="text-chart-purple">Data Super-Powers</span>
+    </>
+  ),
   description = "Connect any data source with a simple prompt and watch our AI dive deep into your numbers. Get sophisticated SQL analysis, predictive models, and data insights that would take data scientists weeks to uncover - all from natural language questions about your business.",
   feature1 = {
-    title: "Ask and Receive",
+    title: "Ask Anything, Get Expert Analysis",
     description:
       "Ask any business question in plain English. Get sophisticated statistical analysis, trend identification, and data-driven insights that reveal hidden patterns in your business metrics across any dataset.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
-    title: "Code-Level Precision",
+    title: "Any Data Source, Unified Insights",
     description:
-      "Watch SQL + Python analysis dive deep into your data to identify patterns, anomalies, and opportunities. Get predictive models, statistical correlations, churn probability scores, and advanced forecasting that reveals what your data is really telling you.",
+      "Connect databases, CRMs, financial systems, and any data source with drag-and-drop simplicity. Watch your fragmented data transform into unified, comprehensive insights in real-time.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   feature3 = {
-    title: "Blend Any Data, Effortlessly",
+    title: "SQL + Python, Best Tool for Every Job",
     description:
-      "Connect databases, CRMs, financial systems, and any data source with drag-and-drop simplicity. Watch your fragmented data transform into unified, comprehensive insights in real-time.",
+      "Unlike analysts who are limited to one tool, our AI seamlessly switches between SQL for data extraction and Python for advanced modeling. Transform any data source without restrictions - get the sophisticated analysis that requires both database expertise and statistical programming.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature4 = {
-    title: "Dashboards at the Speed of Thought",
+    title: "Instant Dashboards, Better Decisions",
     description:
       "Track KPIs, performance metrics, and business health across all systems in one unified dashboard. Get the complete operational picture that drives better decisions instantly.",
     image:
@@ -54,7 +60,7 @@ const Feature166 = ({
     <section className="py-32 max-w-7xl mx-auto">
       <div className="container">
         <div className="mb-24 flex flex-col items-center gap-6">
-          <h2 className="text-center max-w-4xl text-gradient">{heading}</h2>
+          <h2 className="text-center max-w-4xl">{heading}</h2>
           <p className="text-center text-lg font-medium text-muted-foreground md:max-w-4xl lg:text-xl">
             {description}
           </p>
@@ -73,7 +79,7 @@ const Feature166 = ({
                 <h4>{feature2.title}</h4>
                 <p className="text-muted-foreground">{feature2.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
-                  <CodePrecisionMock className="w-full h-full" />
+                  <PipelineMock className="w-full h-full" />
                 </div>
               </div>
             </div>
@@ -82,7 +88,7 @@ const Feature166 = ({
                 <h4>{feature3.title}</h4>
                 <p className="text-muted-foreground">{feature3.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
-                  <PipelineMock className="w-full h-full" />
+                  <CodePrecisionMock className="w-full h-full" />
                 </div>
               </div>
               <div className="flex flex-col justify-between p-10 lg:w-3/5">
