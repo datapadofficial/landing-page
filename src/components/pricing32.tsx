@@ -243,7 +243,7 @@ const PlanCard = ({
   if (isEnterprise) {
     return (
       <div
-        className={`relative h-full w-full rounded-xl border-2 px-8 py-8 ${className} border-muted-2 bg-background shadow-sm`}
+        className={`relative h-full w-full rounded-xl border-2 px-8 py-8 ${className} border-muted-2 bg-black-3 dark:bg-white-3 shadow-sm`}
       >
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
           {/* Left side - Plan info */}
@@ -305,7 +305,7 @@ const PlanCard = ({
         plan?.mostPopular
           ? "border-primary border-2 shadow-lg"
           : "border-muted-2 shadow-sm"
-      } bg-background transition-all duration-200 hover:shadow-md`}
+      } bg-black-3 dark:bg-white-3 transition-all duration-200 hover:shadow-md`}
     >
       <div className="text-2xl font-semibold">{plan.name}</div>
       <div className="h-[2.875rem] overflow-hidden">

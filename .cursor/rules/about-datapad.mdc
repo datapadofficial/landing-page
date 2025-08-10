@@ -59,58 +59,25 @@ Secondary goal is to look great and competitevly beautiful.
 **The Resource Bottleneck**: "Data analysis requires expensive specialists and takes forever"
 **The Analysis-Action Gap**: "I have data and insights, but I don't know what to actually DO with them"
 
+### Core Features
+
+**Key Features (sorted by conversion priority)**:
+
+1. **AI Assistant (Fully Agentic)** - Talk to your data like a human analyst, get instant answers with charts and visualizations
+2. **Generative Dashboards** - AI creates custom dashboards tailored to your business needs automatically
+3. **Text2SQL & Text2Python** - Convert natural language questions into executable code and queries
+4. **50+ Integrations** - Connect all your data sources: databases, marketing, sales, social platforms
+5. **Data Blending** - Combine data from multiple sources for comprehensive analysis
+6. **Shareable Reports & Dashboards** - Generate and share professional reports with stakeholders
+7. **Slack Bot** - Get data insights and alerts directly in your team's communication hub
+8. **Voice Mode with Real-time Data** - Present data insights through voice interaction with live updates
+9. **Scheduling** - Automate report generation and data analysis on custom schedules
+10. **Multi-model Support** - Leverage Claude, ChatGPT, and other AI models for optimal results
+11. **Memory/Learning Layer** - Personalized AI that learns from users, data sources, and workspace context
+12. **Web Access** - Real-time web data integration for comprehensive market and competitive analysis
+
 ### Goal
 
 This is a landing page for our company datapad.io.
 Our main goal is to build a website that converts and sells.
 Secondary goal is to look great and competitevly beautiful.
-
-### What is Datapad?
-
-- Datapad is an AI Data Analysis and workflow tool.
-- It connects to all your sources including databases, marketing, social, sales and other stacks.
-- It can fetch, blend and analyze data like a real analyst.
-- It can create data assets like dashboards, pipelines, datasets.
-- It can also create deliverables like SEO posts, Ad Optimization To-Do lists based on its analysis.
-
-#### Sources
-
-- Databases (SQL, BigQuery, Snowflake, etc.)
-- Marketing (Google Ads, Google Analytics, Facebook Ads, etc.)
-- Social (Twitter, LinkedIn, etc.)
-- Sales (CRM, Salesforce, etc.)
-- Other (APIs, CSV, Excel, etc.)
-
-### Categories
-
-- E-Commerce, Retail, Marketing, Agencies, SaaS, Startups, CSV and Spreadsheet Analysis, Data Science, Data Teams, Gaming, Entertainment, Finance, Banking, Healthcare, Life Sciences, Government, Public Sector, Education, Research, Energy, Utilities, Manufacturing, Logistics, etc.
-
-#### Deliverables
-
-- Customer LTV Dashboard
-- Data Optimized SEO Post
-- Ad Optimization To-Do Lists
-- List of Keywords to target on SEO
-- Daily Anomaly Detection E-mail
-- Weekly Cross-Source Executive Summary Report
-  ...
-
-#### Value Propositions
-
-**Primary**:
-
-- Talk to your data like you're talking to a human analyst
-- Get answers in seconds, not hours
-- Scale your data team's output at a fraction of the cost
-- While other AI tools give you generic advice, Datapad generates the actual content, campaigns, and strategies ready to deploy. Copy-paste ready. Implementation ready. Results ready.
-
-## Key Differentiators (vs Competition)
-
-- **vs Traditional BI**: They show charts → We create campaigns
-- **vs Generic AI**: They give generic advice → We use YOUR data
-- **vs Analytics Platforms**: They show what happened → We create what's next
-
-#### Problem Statements
-
-**The Resource Bottleneck**: "Data analysis requires expensive specialists and takes forever"
-**The Analysis-Action Gap**: "I have data and insights, but I don't know what to actually DO with them"

@@ -2,6 +2,7 @@ import { MainHero } from "@/components/main-hero";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { Logos } from "@/components/logos";
 import { Feature242 } from "@/components/feature242";
+import { Feature128 } from "@/components/feature128";
 import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
 import { Hero32 } from "@/components/hero32";
@@ -36,6 +37,9 @@ export default function Home() {
 
       {/* How it works Section */}
       <Feature242 />
+
+      {/* Key Features Section */}
+      <Feature128 />
 
       {/* Features Bento Section */}
       <Feature166 />
