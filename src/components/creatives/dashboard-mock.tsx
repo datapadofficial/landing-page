@@ -274,11 +274,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <BarChart
-                data={currentChartData.clicks}
-                animationDuration={800}
-                isAnimationActive={true}
-              >
+              <BarChart data={currentChartData.clicks}>
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}
@@ -296,6 +292,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
                   dataKey="clicks"
                   fill="var(--color-clicks)"
                   radius={[2, 2, 0, 0]}
+                  animationDuration={800}
                   className={cn(
                     "transition-all duration-1000 ease-out",
                     animationStep >= 2 && isRunning
@@ -315,11 +312,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
           </div>
           <div className="h-16 mb-2">
             <ChartContainer config={chartConfig}>
-              <LineChart
-                data={currentChartData.impressions}
-                animationDuration={800}
-                isAnimationActive={true}
-              >
+              <LineChart data={currentChartData.impressions}>
                 <XAxis
                   dataKey="day"
                   tick={{ fontSize: 10, fill: "#6b7280" }}
@@ -343,6 +336,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
                     strokeWidth: 2,
                     r: 3,
                   }}
+                  animationDuration={800}
                   className={cn(
                     "transition-all duration-1000 ease-out",
                     animationStep >= 2 && isRunning
