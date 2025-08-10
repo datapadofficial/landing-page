@@ -146,7 +146,16 @@ export function PipelineMock({ className }: MockPipelineProps) {
         {steps.map((step, index) => (
           <div key={index} className="relative flex items-center">
             {/* Step Number Badge */}
-            <div className="absolute z-20s left-[-36px] opacity-60 text-xs font-medium bg-primary/10 border border-primary/20 rounded-md h-6 w-6 flex items-center justify-center">
+            <div
+              className={cn(
+                "absolute z-20 left-[-36px] text-xs font-medium rounded-md h-6 w-6 flex items-center justify-center transition-all duration-300",
+                index === currentStep && isRunning
+                  ? "bg-primary text-primary-foreground border border-primary shadow-md shadow-primary/20"
+                  : index < currentStep && isRunning
+                  ? "bg-primary/20 border border-primary/30 text-primary opacity-80"
+                  : "opacity-60 bg-primary/10 border border-primary/20"
+              )}
+            >
               {index + 1}
             </div>
 
