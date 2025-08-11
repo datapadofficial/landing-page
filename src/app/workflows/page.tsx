@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getAllWorkflows, getWorkflowsByTeam } from "@/lib/workflows";
+import { getAllWorkflows } from "@/lib/workflows";
 import { getAllTeams } from "@/lib/teams";
 import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";
@@ -11,20 +11,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight, Search, Filter } from "lucide-react";
-import Link from "next/link";
+import { Search, Filter } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Analytics Workflows - Ready-to-Use Data Analysis Templates | Datapad",
+  title: "AI Workflows - Ready-to-Deploy Business Solutions | Datapad",
   description:
-    "Browse 50+ ready-to-use analytics workflows for marketing, sales, e-commerce, and more. Connect your data and get insights in minutes with AI-powered templates.",
+    "Browse 50+ AI-powered workflows that create actionable deliverables for marketing, sales, e-commerce, and more. Get copy-paste ready campaigns, strategies, and content from your data.",
   keywords:
-    "analytics workflows, data analysis templates, marketing analytics, sales analytics, business intelligence, Datapad",
+    "AI workflows, business automation, marketing campaigns, sales optimization, data-driven content, AI deliverables, Datapad",
   openGraph: {
-    title:
-      "Analytics Workflows - Ready-to-Use Data Analysis Templates | Datapad",
+    title: "AI Workflows - Ready-to-Deploy Business Solutions | Datapad",
     description:
-      "Browse 50+ ready-to-use analytics workflows for marketing, sales, e-commerce, and more. Connect your data and get insights in minutes with AI-powered templates.",
+      "Browse 50+ AI-powered workflows that create actionable deliverables for marketing, sales, e-commerce, and more. Get copy-paste ready campaigns, strategies, and content from your data.",
     type: "website",
   },
 };
@@ -33,12 +31,6 @@ export default async function WorkflowsPage() {
   const workflows = getAllWorkflows();
   const teams = getAllTeams();
 
-  // Group workflows by team for featured section
-  const featuredWorkflows = teams.slice(0, 4).map((team) => ({
-    team,
-    workflows: getWorkflowsByTeam(team.slug).slice(0, 3),
-  }));
-
   return (
     <>
       {/* Hero Section */}
@@ -46,17 +38,19 @@ export default async function WorkflowsPage() {
         <div className="container">
           <div className="mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Analytics Workflows
+              AI Workflows
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ready-to-use templates for the most common data analysis
-              questions. Just connect your data sources and get insights in
-              minutes, not hours.
+              Get actionable deliverables from your data. While other tools show
+              charts, Datapad creates campaigns, strategies, and content ready
+              to deploy. Copy-paste ready. Implementation ready. Results ready.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">Try a Workflow</a>
+                <a href="https://app.datapad.io">
+                  Create Your First Deliverable
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#browse">Browse All Workflows</a>
@@ -70,7 +64,7 @@ export default async function WorkflowsPage() {
                   {workflows.length}+
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Ready-to-Use Workflows
+                  AI-Powered Workflows
                 </div>
               </div>
               <div className="text-center">
@@ -84,7 +78,7 @@ export default async function WorkflowsPage() {
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary mb-1">15+</div>
                 <div className="text-sm text-muted-foreground">
-                  Data Integrations
+                  Data Sources Connected
                 </div>
               </div>
             </div>
@@ -92,62 +86,64 @@ export default async function WorkflowsPage() {
         </div>
       </section>
       {/* All Workflows */}
-      <section className="py-16" id="browse">
+      <section
+        className="py-16 w-full flex items-center flex-col max-w-5xl"
+        id="browse"
+      >
         <div className="container">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold mb-4">
-                All Analytics Workflows ({workflows.length})
-              </h2>
-              <p className="text-muted-foreground">
-                Browse all available workflows or filter by category and
-                difficulty
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold mb-4">
+              All AI Workflows ({workflows.length})
+            </h2>
+            <p className="text-muted-foreground">
+              Browse all available AI workflows that create actionable
+              deliverables from your data. Filter by business team and
+              complexity level.
+            </p>
+          </div>
 
-            {/* Filters - This would be enhanced with client-side filtering */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search workflows..."
-                  className="pl-10"
-                  // This would need client-side state management
-                />
-              </div>
-              <Select>
-                <SelectTrigger className="w-full sm:w-48">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="All Categories" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  {teams.map((category) => (
-                    <SelectItem key={category.slug} value={category.slug}>
-                      {category.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select>
-                <SelectTrigger className="w-full sm:w-48">
-                  <SelectValue placeholder="All Difficulties" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Difficulties</SelectItem>
-                  <SelectItem value="beginner">Beginner</SelectItem>
-                  <SelectItem value="intermediate">Intermediate</SelectItem>
-                  <SelectItem value="advanced">Advanced</SelectItem>
-                </SelectContent>
-              </Select>
+          {/* Filters - This would be enhanced with client-side filtering */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search workflows..."
+                className="pl-10"
+                // This would need client-side state management
+              />
             </div>
+            <Select>
+              <SelectTrigger className="w-full sm:w-48">
+                <Filter className="h-4 w-4 mr-2" />
+                <SelectValue placeholder="All Categories" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Categories</SelectItem>
+                {teams.map((category) => (
+                  <SelectItem key={category.slug} value={category.slug}>
+                    {category.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select>
+              <SelectTrigger className="w-full sm:w-48">
+                <SelectValue placeholder="All Difficulties" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Difficulties</SelectItem>
+                <SelectItem value="beginner">Beginner</SelectItem>
+                <SelectItem value="intermediate">Intermediate</SelectItem>
+                <SelectItem value="advanced">Advanced</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-            {/* Workflow Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {workflows.map((workflow) => (
-                <WorkflowCard key={workflow.slug} workflow={workflow} />
-              ))}
-            </div>
+          {/* Workflow Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {workflows.map((workflow) => (
+              <WorkflowCard key={workflow.slug} workflow={workflow} />
+            ))}
           </div>
         </div>
       </section>
@@ -157,15 +153,18 @@ export default async function WorkflowsPage() {
         <div className="container">
           <div className="mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4">
-              Ready to Transform Your Data Analysis?
+              Ready to Turn Your Data into Action?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Choose from {workflows.length}+ ready-to-use analytics workflows
-              and start getting insights in minutes, not hours.
+              Choose from {workflows.length}+ AI workflows and get actionable
+              deliverables in minutes. No more analysis paralysis - get
+              campaigns, strategies, and content ready to deploy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">Start Free Trial</a>
+                <a href="https://app.datapad.io">
+                  Create Your First Deliverable
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="https://app.datapad.io">Book a Demo</a>

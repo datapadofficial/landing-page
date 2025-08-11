@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
 import { Integration } from "@/lib/integrations";
 import { Workflow } from "@/lib/workflows";
 import { Badge } from "@/components/ui/badge";
@@ -26,77 +25,6 @@ interface IntegrationPageTemplateProps {
   workflows: Workflow[];
   customContent?: React.ReactNode;
 }
-
-// Reusing the Boxes component from FeatureHero
-export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  // Dramatically reduced grid size for performance
-  const rows = new Array(30).fill(1); // Reduced from 150 to 30
-  const cols = new Array(20).fill(1); // Reduced from 100 to 20
-  const colors = [
-    "var(--chart-red)",
-    "var(--chart-green)",
-    "var(--chart-purple)",
-    "var(--chart-yellow)",
-    "var(--chart-orange)",
-    "var(--chart-blue)",
-  ];
-  const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
-  return (
-    <div
-      style={{
-        transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
-        willChange: "transform", // Optimize for animations
-      }}
-      className={cn(
-        "absolute -top-1/4 left-1/4 z-0 flex h-full w-full -translate-x-1/2 -translate-y-1/2 p-4",
-        className
-      )}
-      {...rest}
-    >
-      {rows.map((_, i) => (
-        <motion.div
-          key={`row` + i}
-          className="border-muted-foreground/20 relative h-8 w-16 border-l"
-          initial={false} // Disable initial animation
-        >
-          {cols.map((_, j) => (
-            <motion.div
-              whileHover={{
-                backgroundColor: `${getRandomColor()}`,
-                transition: { duration: 0 },
-              }}
-              key={`col` + j}
-              className="border-muted-foreground/20 relative h-8 w-16 border-r border-t"
-              initial={false} // Disable initial animation
-            >
-              {j % 4 === 0 && i % 4 === 0 ? ( // Reduced icon frequency
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="text-muted pointer-events-none absolute -left-[22px] -top-[14px] h-6 w-10 stroke-[1px]"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m6-6H6"
-                  />
-                </svg>
-              ) : null}
-            </motion.div>
-          ))}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
-export const Boxes = React.memo(BoxesCore);
 
 export function IntegrationPageTemplate({
   integration,
@@ -144,9 +72,8 @@ export function IntegrationPageTemplate({
       <section className="pt-8 sm:pt-16">
         <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
           <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
-          <Boxes className="scale-150" />
 
-          <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-4xl">
+          <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-7xl">
             {/* Integration Icon */}
             <div className="flex justify-center mb-4">
               <div className="flex size-20 items-center justify-center rounded-2xl border bg-background drop-shadow-lg">
@@ -164,12 +91,9 @@ export function IntegrationPageTemplate({
             <div className="flex justify-center">
               <Badge
                 variant="secondary"
-                className={cn(
-                  "border-opacity-20 hover:bg-opacity-20",
-                  categoryColors[integration.category] || categoryColors.other
-                )}
+                className={cn("border-opacity-20 hover:bg-opacity-20")}
               >
-                <BarChart3 className="size-4 mr-2" />
+                <BarChart3 className="size-4 mr-0" />
                 {integration.category.charAt(0).toUpperCase() +
                   integration.category.slice(1)}{" "}
                 Integration
@@ -362,36 +286,36 @@ export function IntegrationPageTemplate({
 
       {/* Related Workflows */}
       {workflows.length > 0 && (
-        <section className="py-16">
-          <div className="container">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl font-bold mb-4">
-                  Workflows using {integration.name}
-                </h2>
-                <p className="text-muted-foreground">
-                  Ready-to-use analytics workflows that leverage{" "}
-                  {integration.name} data
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {workflows.slice(0, 6).map((workflow) => (
-                  <WorkflowCard key={workflow.slug} workflow={workflow} />
-                ))}
-              </div>
-
-              {workflows.length > 6 && (
-                <div className="text-center mt-8">
-                  <Button asChild variant="outline" size="lg">
-                    <Link href={`/workflows?integration=${integration.id}`}>
-                      View All {workflows.length} Workflows
-                    </Link>
-                  </Button>
-                </div>
-              )}
-            </div>
+        <section className="py-16 flex flex-col items-center justify-center w-full max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold mb-4">
+              Workflows using {integration.name}
+            </h2>
+            <p className="text-muted-foreground">
+              Ready-to-use analytics workflows that leverage {integration.name}{" "}
+              data
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            {workflows.slice(0, 9).map((workflow) => (
+              <WorkflowCard
+                key={workflow.slug}
+                workflow={workflow}
+                filterIntegration={integration.id}
+              />
+            ))}
+          </div>
+
+          {workflows.length > 6 && (
+            <div className="text-center mt-8">
+              <Button asChild variant="outline" size="lg">
+                <Link href={`/workflows?integration=${integration.id}`}>
+                  View All {workflows.length} Workflows
+                </Link>
+              </Button>
+            </div>
+          )}
         </section>
       )}
 

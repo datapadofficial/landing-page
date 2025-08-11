@@ -1,47 +1,28 @@
-import { Metadata } from "next";
-import { getTeamBySlug } from "@/lib/teams";
-import { getWorkflowsByTeam } from "@/lib/workflows";
-import { getIntegrationsByIds } from "@/lib/integrations";
-import { getFeatureBySlug } from "@/lib/features";
+"use client";
+
+import { Team } from "@/lib/teams";
+import { Workflow } from "@/lib/workflows";
+import { Integration } from "@/lib/integrations";
+import { Feature } from "@/lib/features";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
 import { TeamWorkflows } from "@/components/team/team-workflows";
 import { TeamFeatures } from "@/components/team/team-features";
 import { TeamCTA } from "@/components/team/team-cta";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const team = getTeamBySlug("marketing");
-
-  if (!team) {
-    return {
-      title: "Team Not Found",
-    };
-  }
-
-  return {
-    title: team.seoTitle || `${team.name} Analytics - Datapad`,
-    description: team.seoDescription || team.description,
-    openGraph: {
-      title: team.seoTitle || `${team.name} Analytics - Datapad`,
-      description: team.seoDescription || team.description,
-      type: "website",
-    },
-  };
+interface MarketingTeamPageProps {
+  team: Team;
+  workflows: Workflow[];
+  integrations: Integration[];
+  features: (Feature | undefined)[];
 }
 
-export default async function MarketingTeamPage() {
-  const team = getTeamBySlug("marketing");
-
-  if (!team) {
-    return <div>Team not found</div>;
-  }
-
-  const workflows = getWorkflowsByTeam("marketing");
-  const integrations = getIntegrationsByIds(team.featuredIntegrations);
-  const features = team.featuredFeatures
-    .map((slug) => getFeatureBySlug(slug))
-    .filter(Boolean);
-
+export default function MarketingTeamPage({
+  team,
+  workflows,
+  integrations,
+  features,
+}: MarketingTeamPageProps) {
   return (
     <>
       <TeamHero

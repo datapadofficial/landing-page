@@ -1,63 +1,72 @@
-import { Zap, Trees, Book, Sunset } from "lucide-react";
+import {
+  TrendingUp,
+  DollarSign,
+  ShoppingCart,
+  Search,
+  Users,
+  Package,
+  Calculator,
+  Building,
+  Truck,
+} from "lucide-react";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { getTeamsByPriority } from "@/lib/teams";
+
+// Icon mapping utility
+const iconMap = {
+  TrendingUp,
+  DollarSign,
+  ShoppingCart,
+  Search,
+  Users,
+  Package,
+  Calculator,
+  Building,
+  Truck,
+} as const;
+
+type IconName = keyof typeof iconMap;
 
 interface TeamsSubmenuProps {
   className?: string;
 }
 
-const TeamsSubmenu = ({ className }: TeamsSubmenuProps) => {
+const TeamsSubmenu = ({}: TeamsSubmenuProps) => {
+  // Get the top 6 teams by priority for the submenu
+  const featuredTeams = getTeamsByPriority(6);
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger>Teams</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-          <TeamLink
-            title="Marketing"
-            description="Campaign performance and ROI analysis"
-            icon={<Zap className="size-5 shrink-0" />}
-            url="/teams/marketing"
-          />
-          <TeamLink
-            title="Sales"
-            description="Sales performance and pipeline tracking"
-            icon={<Trees className="size-5 shrink-0" />}
-            url="/teams/sales"
-          />
-          <TeamLink
-            title="E-commerce"
-            description="Online store performance and optimization"
-            icon={<Book className="size-5 shrink-0" />}
-            url="/teams/retail-ecommerce"
-          />
-          <TeamLink
-            title="Finance"
-            description="Financial performance and cash flow analysis"
-            icon={<Sunset className="size-5 shrink-0" />}
-            url="/teams/finance"
-          />
-          <TeamLink
-            title="Content & SEO"
-            description="Content performance and search optimization"
-            icon={<Book className="size-5 shrink-0" />}
-            url="/teams/content-seo"
-          />
-          <TeamLink
-            title="Agency"
-            description="Multi-client reporting and management"
-            icon={<Zap className="size-5 shrink-0" />}
-            url="/teams/agency"
-          />
+        <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px]">
+          {featuredTeams.map((team) => {
+            const IconComponent = iconMap[team.icon as IconName];
+            return (
+              <TeamLink
+                key={team.slug}
+                title={team.name}
+                description={team.description}
+                icon={
+                  IconComponent ? (
+                    <IconComponent className="size-5 shrink-0" />
+                  ) : null
+                }
+                url={`/teams/${team.slug}`}
+              />
+            );
+          })}
 
           {/* View All Teams */}
           <div className="col-span-2">
             <TeamLink
               title="View All Teams"
               description="Browse solutions for all business teams"
-              icon={<Book className="size-5 shrink-0" />}
+              icon={<Building className="size-5 shrink-0" />}
               url="/teams"
             />
           </div>
@@ -70,7 +79,7 @@ const TeamsSubmenu = ({ className }: TeamsSubmenuProps) => {
 interface TeamLinkProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: React.ReactNode | null;
   url: string;
 }
 
@@ -80,7 +89,7 @@ const TeamLink = ({ title, description, icon, url }: TeamLinkProps) => {
       className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={url}
     >
-      <div className="text-foreground">{icon}</div>
+      {icon && <div className="text-foreground">{icon}</div>}
       <div>
         <div className="text-sm font-semibold">{title}</div>
         <p className="text-muted-foreground text-sm leading-snug">

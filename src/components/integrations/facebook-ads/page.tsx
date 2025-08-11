@@ -16,7 +16,7 @@ import { TrendingUp, Target, DollarSign, Users } from "lucide-react";
 
 interface FacebookAdsPageProps {
   integration: Integration;
-  recipes: Workflow[];
+  workflows: Workflow[];
 }
 
 // Custom components for Facebook Ads page
@@ -163,12 +163,12 @@ function FacebookAdsBestPractices() {
 
 export default function FacebookAdsPage({
   integration,
-  recipes,
+  workflows,
 }: FacebookAdsPageProps) {
   return (
     <IntegrationPageTemplate
       integration={integration}
-      recipes={recipes}
+      workflows={workflows}
       customContent={
         <>
           <FacebookAdsROICalculator />
