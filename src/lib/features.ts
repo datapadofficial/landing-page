@@ -43,8 +43,8 @@ export const features: Feature[] = [
     priority: 1,
   },
   {
-    slug: "generative-dashboards",
-    title: "Generative Dashboards",
+    slug: "dashboards",
+    title: "Dashboards",
     shortDescription:
       "AI creates custom dashboards tailored to your business needs automatically.",
     longDescription:

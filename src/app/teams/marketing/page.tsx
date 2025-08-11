@@ -83,7 +83,7 @@ export default async function MarketingTeamPage() {
         customContent={
           <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/10 dark:to-orange-950/10 py-16 mb-16">
             <div className="container">
-              <div className="max-w-4xl mx-auto text-center">
+              <div className="mx-auto text-center">
                 <h2 className="text-2xl font-bold mb-4">
                   AI-Powered Marketing Intelligence
                 </h2>
@@ -142,7 +142,7 @@ export default async function MarketingTeamPage() {
         customContent={
           <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white py-16">
             <div className="container">
-              <div className="max-w-4xl mx-auto text-center">
+              <div className="mx-auto text-center">
                 <h2 className="text-3xl font-bold mb-4">
                   Transform Your Marketing Analytics
                 </h2>

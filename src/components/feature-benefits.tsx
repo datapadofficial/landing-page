@@ -11,7 +11,7 @@ const FeatureBenefits = ({ feature }: FeatureBenefitsProps) => {
   return (
     <section className="py-16 sm:py-24 lg:py-32">
       <div className="container">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4">
               Key Benefits

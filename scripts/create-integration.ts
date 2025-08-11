@@ -117,7 +117,7 @@ export default function ${name.replace(
       customContent={
         <div className="py-16">
           <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="mx-auto text-center">
               <h2 className="text-2xl font-bold mb-4">
                 Custom ${name} Features
               </h2>

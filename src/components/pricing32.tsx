@@ -131,7 +131,7 @@ const Pricing32 = ({
     <section className={cn("py-32", className)}>
       <div className="container">
         <div className="flex flex-col items-center justify-center gap-9.5">
-          <div className="flex flex-col items-center gap-6 text-center max-w-4xl mx-auto">
+          <div className="flex flex-col items-center gap-6 text-center mx-auto">
             <h1 className="mb-8">Stop paying for insights you can't use</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               While other tools show you what happened, Datapad creates what

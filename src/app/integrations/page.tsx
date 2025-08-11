@@ -96,7 +96,7 @@ export default async function IntegrationsPage() {
       {/* Hero Section */}
       <section className="pt-16 sm:pt-24 pb-16">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               Connect Your Data Sources
             </h1>
@@ -453,7 +453,7 @@ export default async function IntegrationsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-primary/5">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4">
               Ready to Connect Your Data?
             </h2>

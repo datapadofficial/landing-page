@@ -38,7 +38,7 @@ export function TeamHero({ team, customContent }: TeamHeroProps) {
   return (
     <section className="pt-16 sm:pt-24 pb-16">
       <div className="container">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div
               className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg"

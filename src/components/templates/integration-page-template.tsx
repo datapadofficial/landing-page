@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+import { motion } from "motion/react";
 import { Integration } from "@/lib/integrations";
 import { Workflow } from "@/lib/workflows";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +30,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface IntegrationPageTemplateProps {
   integration: Integration;
@@ -35,37 +38,76 @@ interface IntegrationPageTemplateProps {
   customContent?: React.ReactNode;
 }
 
-// Markdown renderer component
-function MarkdownSection({ content }: { content: string }) {
-  // Simple markdown parsing - you could use a proper markdown parser here
-  const html = content
-    .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mb-6">$1</h1>')
-    .replace(
-      /^## (.*$)/gm,
-      '<h2 class="text-2xl font-semibold mb-4 mt-8">$1</h2>'
-    )
-    .replace(
-      /^### (.*$)/gm,
-      '<h3 class="text-xl font-semibold mb-3 mt-6">$1</h3>'
-    )
-    .replace(/^\* (.*$)/gm, '<li class="mb-2">$1</li>')
-    .replace(/^- (.*$)/gm, '<li class="mb-2">$1</li>')
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\n\n/g, '</p><p class="mb-4">')
-    .replace(/^(?!<[h|l])/gm, '<p class="mb-4">')
-    .replace(
-      /<\/p><p class="mb-4"><li/g,
-      '</p><ul class="list-disc list-inside mb-6"><li'
-    )
-    .replace(/<\/li>\n<p class="mb-4">(?!<li)/g, '</li></ul><p class="mb-4">');
+// Reusing the Boxes component from FeatureHero
+export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
+  // Dramatically reduced grid size for performance
+  const rows = new Array(30).fill(1); // Reduced from 150 to 30
+  const cols = new Array(20).fill(1); // Reduced from 100 to 20
+  const colors = [
+    "var(--chart-red)",
+    "var(--chart-green)",
+    "var(--chart-purple)",
+    "var(--chart-yellow)",
+    "var(--chart-orange)",
+    "var(--chart-blue)",
+  ];
+  const getRandomColor = () => {
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
 
   return (
     <div
-      className="prose prose-lg max-w-none"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+      style={{
+        transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
+        willChange: "transform", // Optimize for animations
+      }}
+      className={cn(
+        "absolute -top-1/4 left-1/4 z-0 flex h-full w-full -translate-x-1/2 -translate-y-1/2 p-4",
+        className
+      )}
+      {...rest}
+    >
+      {rows.map((_, i) => (
+        <motion.div
+          key={`row` + i}
+          className="border-muted-foreground/20 relative h-8 w-16 border-l"
+          initial={false} // Disable initial animation
+        >
+          {cols.map((_, j) => (
+            <motion.div
+              whileHover={{
+                backgroundColor: `${getRandomColor()}`,
+                transition: { duration: 0 },
+              }}
+              key={`col` + j}
+              className="border-muted-foreground/20 relative h-8 w-16 border-r border-t"
+              initial={false} // Disable initial animation
+            >
+              {j % 4 === 0 && i % 4 === 0 ? ( // Reduced icon frequency
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="text-muted pointer-events-none absolute -left-[22px] -top-[14px] h-6 w-10 stroke-[1px]"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6v12m6-6H6"
+                  />
+                </svg>
+              ) : null}
+            </motion.div>
+          ))}
+        </motion.div>
+      ))}
+    </div>
   );
-}
+};
+
+export const Boxes = React.memo(BoxesCore);
 
 export function IntegrationPageTemplate({
   integration,
@@ -116,65 +158,91 @@ export function IntegrationPageTemplate({
       </section>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-16 sm:pb-24">
-        <div className="container">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg">
+      <section className="pt-8 sm:pt-16">
+        <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
+          <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
+          <Boxes className="scale-150" />
+
+          <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-4xl">
+            {/* Integration Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="flex size-20 items-center justify-center rounded-2xl border bg-background drop-shadow-lg">
                 <Image
                   src={integration.icon}
                   alt={integration.name}
-                  width={32}
-                  height={32}
+                  width={40}
+                  height={40}
                   className="rounded"
                 />
               </div>
-              <div className="text-left">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                  {integration.name}
-                </h1>
-                <Badge
-                  className={`mt-2 ${
-                    categoryColors[integration.category] || categoryColors.other
-                  }`}
-                  variant="outline"
-                >
-                  {integration.category.charAt(0).toUpperCase() +
-                    integration.category.slice(1)}
-                </Badge>
-              </div>
             </div>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
+            {/* Category Badge */}
+            <div className="flex justify-center">
+              <Badge
+                variant="secondary"
+                className={cn(
+                  "border-opacity-20 hover:bg-opacity-20",
+                  categoryColors[integration.category] || categoryColors.other
+                )}
+              >
+                <BarChart3 className="size-4 mr-2" />
+                {integration.category.charAt(0).toUpperCase() +
+                  integration.category.slice(1)}{" "}
+                Integration
+              </Badge>
+            </div>
+
+            {/* Title */}
+            <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
+              {integration.name}
+            </h1>
+
+            {/* Description */}
+            <p className="text-muted-foreground text-balance text-base sm:text-lg lg:text-xl px-4 sm:px-0 max-w-3xl mx-auto">
               {integration.description}
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg">
-                <a href="https://app.datapad.io">Connect {integration.name}</a>
+          {/* CTA Buttons */}
+          <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
+            <Button asChild size="lg" className="w-full sm:w-auto">
+              <a href="https://app.datapad.io">Connect {integration.name}</a>
+            </Button>
+            {integration.website && (
+              <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                <a
+                  href={integration.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Website <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
               </Button>
-              {integration.website && (
-                <Button asChild variant="outline" size="lg">
-                  <a
-                    href={integration.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Visit Website <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              )}
-            </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* SEO Content Sections */}
+      {/* Overview Section */}
       {integration.seoContent?.overview && (
         <section className="py-16">
           <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <MarkdownSection content={integration.seoContent.overview} />
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6">
+                About {integration.name}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Connect your {integration.name} account to Datapad for
+                comprehensive analysis and insights. Get real-time data
+                synchronization and powerful analytics to optimize your{" "}
+                {integration.category} performance.
+              </p>
             </div>
           </div>
         </section>
@@ -186,7 +254,7 @@ export function IntegrationPageTemplate({
       {/* Technical Specs */}
       <section className="py-16">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Technical Specifications
             </h2>
@@ -257,16 +325,57 @@ export function IntegrationPageTemplate({
         </div>
       </section>
 
-      {/* Use Cases */}
-      {integration.seoContent?.useCases && (
-        <section className="py-16">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <MarkdownSection content={integration.seoContent.useCases} />
+      {/* Key Benefits */}
+      <section className="py-16 bg-muted/50">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                Why Connect {integration.name}?
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Unlock powerful insights and streamline your{" "}
+                {integration.category} analytics
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">Real-time Insights</h3>
+                <p className="text-sm text-muted-foreground">
+                  Get up-to-date data with{" "}
+                  {integration.specs.updateFrequency.toLowerCase()}{" "}
+                  synchronization
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">Historical Data</h3>
+                <p className="text-sm text-muted-foreground">
+                  Access {integration.specs.historicalData} of historical data
+                  for trend analysis
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">Easy Setup</h3>
+                <p className="text-sm text-muted-foreground">
+                  Connect in minutes with our guided setup process
+                </p>
+              </div>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Related Workflows */}
       {workflows.length > 0 && (
@@ -358,21 +467,28 @@ export function IntegrationPageTemplate({
         </section>
       )}
 
-      {/* Setup Guide */}
-      {integration.seoContent?.setup && (
-        <section className="py-16">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <MarkdownSection content={integration.seoContent.setup} />
-              <div className="text-center mt-8">
-                <Button asChild size="lg">
-                  <a href="https://app.datapad.io">Start Setup</a>
-                </Button>
-              </div>
+      {/* Final CTA */}
+      <section className="py-16 bg-primary/5">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              Ready to Connect {integration.name}?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Start analyzing your {integration.category} data with Datapad's
+              AI-powered analytics platform.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Button asChild size="lg">
+                <a href="https://app.datapad.io">Connect {integration.name}</a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="https://app.datapad.io">Book a Demo</a>
+              </Button>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
     </>
   );
 }

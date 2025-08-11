@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Sunset } from "lucide-react";
 import Image from "next/image";
 import {
@@ -138,22 +139,20 @@ const IntegrationsSubmenu = ({ className }: IntegrationsSubmenuProps) => {
           />
 
           {/* View All Integrations */}
-          <a
-            className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-3 rounded-md p-2.5 leading-none no-underline outline-none transition-colors"
+          <Link
+            className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
             href="/integrations"
           >
             <div className="text-foreground">
               <Sunset className="size-5 shrink-0" />
             </div>
-            <div className="min-w-0 flex-1">
-              <div className="text-sm font-semibold truncate">
-                View All Integrations
-              </div>
-              <p className="text-muted-foreground text-xs leading-snug line-clamp-2">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">View All Integrations</div>
+              <p className="text-muted-foreground text-xs leading-snug">
                 Browse all 50+ data source connections
               </p>
             </div>
-          </a>
+          </Link>
         </div>
       </NavigationMenuContent>
     </NavigationMenuItem>
@@ -174,28 +173,28 @@ const IntegrationLink = ({
   url,
 }: IntegrationLinkProps) => {
   return (
-    <a
-      className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-3 rounded-md p-2.5 leading-none no-underline outline-none transition-colors"
+    <Link
+      className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={url}
     >
       <div className="text-foreground">
-        <div className="flex-shrink-0 w-6 h-6 relative">
+        <div className="flex-shrink-0 w-5 h-5 relative">
           <Image
             src={iconSrc}
             alt={title}
-            width={24}
-            height={24}
+            width={20}
+            height={20}
             className="rounded object-contain"
           />
         </div>
       </div>
-      <div className="min-w-0 flex-1">
-        <div className="text-sm font-semibold truncate">{title}</div>
-        <p className="text-muted-foreground text-xs leading-snug line-clamp-2">
+      <div className="space-y-1">
+        <div className="text-sm font-semibold">{title}</div>
+        <p className="text-muted-foreground text-xs leading-snug">
           {description}
         </p>
       </div>
-    </a>
+    </Link>
   );
 };
 

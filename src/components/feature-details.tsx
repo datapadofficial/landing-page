@@ -37,10 +37,10 @@ const FeatureDetails = ({ feature }: FeatureDetailsProps) => {
   const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32">
+    <section className="py-16 sm:py-24 lg:py-32 max-w-7xl">
       <div className="container">
         <div className="border bg-black-3 dark:bg-white-3 rounded-2xl sm:rounded-3xl px-4 sm:px-8 py-8 sm:py-12 md:px-16 md:py-16">
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto">
             <div className="flex items-center gap-4 mb-8 justify-center">
               <div
                 className="flex size-16 items-center justify-center rounded-2xl border bg-background dark:bg-white-10 drop-shadow-lg"
