@@ -7,6 +7,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { OrbitingIntegrations } from "@/components/creatives/orbiting-integrations";
 import { AnimatedRecipeList } from "@/components/creatives/animated-recipe-list";
 
@@ -45,7 +46,17 @@ const Feature242 = () => {
     <section className="overflow-hidden py-32">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
         <div className="relative z-10 w-full items-center justify-between lg:flex">
-          <h2 className="max-w-2xl">1-Click Workflows That Just Work</h2>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <Badge
+                variant="secondary"
+                className="bg-chart-purple/10 text-chart-purple border-chart-purple/20 hover:bg-chart-purple/20"
+              >
+                🔥 Most Popular
+              </Badge>
+            </div>
+            <h2>1-Click Workflows That Just Work</h2>
+          </div>
           <p className="text-muted-foreground/80 mt-8 max-w-lg tracking-tight md:text-xl lg:mt-0">
             Stop wasting hours creating content that doesn't convert. Get AI
             that actually generates your ad campaigns, blog posts, email

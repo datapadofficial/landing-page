@@ -5,6 +5,7 @@ import { Feature242 } from "@/components/feature242";
 import { Feature128 } from "@/components/feature128";
 import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
+import { DatapadCasestudies } from "@/components/datapad-casestudies";
 
 import dynamic from "next/dynamic";
 import { Feature250 } from "@/components/feature250";
@@ -43,6 +44,9 @@ export default function Home() {
 
       {/* Features Bento Section */}
       <Feature166 />
+
+      {/* Case Studies Section */}
+      <DatapadCasestudies />
 
       {/* Pricing Section */}
       <Pricing32 />
