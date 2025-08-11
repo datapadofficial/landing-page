@@ -144,7 +144,7 @@ export default async function IntegrationsPage() {
       </section>
 
       {/* Featured Integrations by Category */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -387,7 +387,7 @@ export default async function IntegrationsPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">

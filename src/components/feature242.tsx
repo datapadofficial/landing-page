@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { OrbitingIntegrations } from "@/components/creatives/orbiting-integrations";
-import { AnimatedRecipeList } from "@/components/creatives/animated-recipe-list";
+import { AnimatedWorkflowList } from "@/components/creatives/animated-workflow-list";
 
 const Feature242 = () => {
   const steps = [
@@ -106,7 +106,7 @@ const Feature242 = () => {
                     <OrbitingIntegrations />
                   ) : index === 1 ? (
                     <div className="flex justify-center items-center py-8">
-                      <AnimatedRecipeList />
+                      <AnimatedWorkflowList />
                     </div>
                   ) : (
                     <Image

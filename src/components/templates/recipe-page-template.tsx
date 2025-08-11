@@ -144,7 +144,7 @@ export function WorkflowPageTemplate({
       </section>
 
       {/* Workflow Overview */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -338,7 +338,7 @@ export function WorkflowPageTemplate({
 
       {/* Mock Data Preview */}
       {workflow.mockData && (
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl font-bold mb-4">

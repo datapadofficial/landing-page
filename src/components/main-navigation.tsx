@@ -1,9 +1,13 @@
 "use client";
 
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
+import { ProductSubmenu } from "@/components/navigation/product-submenu";
+import { WorkflowsSubmenu } from "@/components/navigation/workflows-submenu";
+import { IntegrationsSubmenu } from "@/components/navigation/integrations-submenu";
+import { TeamsSubmenu } from "@/components/navigation/teams-submenu";
 
 import {
   Accordion,
@@ -28,183 +32,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-interface MenuItem {
-  title: string;
-  url: string;
-  description?: string;
-  icon?: React.ReactNode;
-  items?: MenuItem[];
-}
-
-interface Navbar1Props {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  menu?: MenuItem[];
-  auth?: {
-    login: {
-      title: string;
-      url: string;
-    };
-    signup: {
-      title: string;
-      url: string;
-    };
-  };
-}
-
-const MainNavigation = ({
-  logo = {
-    url: "/",
-    src: "/logo.png",
-    alt: "logo",
-    title: "datapad",
-  },
-  menu = [
-    { title: "Home", url: "/" },
-    {
-      title: "Product",
-      url: "/features",
-      items: [
-        {
-          title: "AI Data Agent",
-          description: "Talk to your data like a human analyst",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/features/ai-data-agent",
-        },
-        {
-          title: "Generative Dashboards",
-          description: "AI creates custom dashboards automatically",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/features/generative-dashboards",
-        },
-        {
-          title: "Text2SQL & Python",
-          description: "Convert natural language to executable code",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/features/text-to-sql-python",
-        },
-        {
-          title: "View All Features",
-          description: "Explore all AI-powered features",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/features",
-        },
-      ],
-    },
-    {
-      title: "Workflows",
-      url: "/workflows",
-      items: [
-        {
-          title: "Marketing Analytics",
-          description: "Campaign performance and ROI analysis workflows",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/teams/marketing",
-        },
-        {
-          title: "Sales Analytics",
-          description: "Sales performance and pipeline tracking workflows",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/teams/sales",
-        },
-        {
-          title: "E-commerce Analytics",
-          description: "Online store performance and optimization workflows",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/teams/retail-ecommerce",
-        },
-        {
-          title: "Browse All Workflows",
-          description: "View all 50+ ready-to-use analytics workflows",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/workflows",
-        },
-      ],
-    },
-    {
-      title: "Integrations",
-      url: "/integrations",
-      items: [
-        {
-          title: "Google Analytics",
-          description: "Web analytics and user behavior tracking",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/integrations/google-analytics",
-        },
-        {
-          title: "Facebook Ads",
-          description: "Social media advertising performance",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/integrations/facebook-ads",
-        },
-        {
-          title: "Shopify",
-          description: "E-commerce platform data integration",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/integrations/shopify",
-        },
-        {
-          title: "View All Integrations",
-          description: "Browse all 50+ data source connections",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/integrations",
-        },
-      ],
-    },
-    {
-      title: "Teams",
-      url: "/teams",
-      items: [
-        {
-          title: "Marketing",
-          description: "Campaign performance and ROI analysis",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/teams/marketing",
-        },
-        {
-          title: "Sales",
-          description: "Sales performance and pipeline tracking",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/teams/sales",
-        },
-        {
-          title: "E-commerce",
-          description: "Online store performance and optimization",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/teams/retail-ecommerce",
-        },
-        {
-          title: "Finance",
-          description: "Financial performance and cash flow analysis",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/teams/finance",
-        },
-        {
-          title: "View All Teams",
-          description: "Browse solutions for all business teams",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/teams",
-        },
-      ],
-    },
-    {
-      title: "Pricing",
-      url: "/pricing",
-    },
-    {
-      title: "Blog",
-      url: "/blog",
-    },
-  ],
-  auth = {
-    login: { title: "Sign In", url: "https://app.datapad.io" },
-    signup: { title: "Sign up", url: "https://app.datapad.io" },
-  },
-}: Navbar1Props) => {
+const MainNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -228,17 +56,58 @@ const MainNavigation = ({
         <nav className="hidden justify-between lg:flex">
           {/* Logo */}
           <div className="min-w-none lg:min-w-[191px]">
-            <a href={logo.url} className="flex w-fit items-center gap-2">
+            <a href="/" className="flex w-fit items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
               <span className="text-xl font-medium tracking-tight font-poppins">
-                {logo.title}
+                datapad
               </span>
             </a>
           </div>
+
           <div className="flex items-center">
             <NavigationMenu>
               <NavigationMenuList>
-                {menu.map((item) => renderMenuItem(item))}
+                {/* Home */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Home
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* Product Submenu */}
+                <ProductSubmenu />
+
+                {/* Workflows Submenu */}
+                <WorkflowsSubmenu />
+
+                {/* Integrations Submenu */}
+                <IntegrationsSubmenu />
+
+                {/* Teams Submenu */}
+                <TeamsSubmenu />
+
+                {/* Pricing */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/pricing"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Pricing
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* Blog */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/blog"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Blog
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -253,10 +122,10 @@ const MainNavigation = ({
               <AnimatedThemeToggler className="h-8 w-8" />
             </Button>
             <Button asChild variant="secondary" size="sm">
-              <a href={auth.login.url}>{auth.login.title}</a>
+              <a href="https://app.datapad.io">Sign In</a>
             </Button>
             <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.title}</a>
+              <a href="https://app.datapad.io">Sign up</a>
             </Button>
           </div>
         </nav>
@@ -265,7 +134,7 @@ const MainNavigation = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
             </a>
             <div className="flex gap-2 items-center">
@@ -287,7 +156,7 @@ const MainNavigation = ({
                   <SheetHeader>
                     <SheetTitle>
                       <a
-                        href={logo.url}
+                        href="/"
                         className="flex items-center gap-2 font-medium text-lg"
                       >
                         Menu
@@ -300,15 +169,71 @@ const MainNavigation = ({
                       collapsible
                       className="flex w-full flex-col gap-4"
                     >
-                      {menu.map((item) => renderMobileMenuItem(item))}
+                      {/* Home */}
+                      <a href="/" className="text-md font-semibold">
+                        Home
+                      </a>
+
+                      {/* Product */}
+                      <AccordionItem value="Product" className="border-b-0">
+                        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+                          Product
+                        </AccordionTrigger>
+                        <AccordionContent className="mt-2">
+                          <MobileProductMenu />
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      {/* Workflows */}
+                      <AccordionItem value="Workflows" className="border-b-0">
+                        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+                          Workflows
+                        </AccordionTrigger>
+                        <AccordionContent className="mt-2">
+                          <MobileWorkflowsMenu />
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      {/* Integrations */}
+                      <AccordionItem
+                        value="Integrations"
+                        className="border-b-0"
+                      >
+                        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+                          Integrations
+                        </AccordionTrigger>
+                        <AccordionContent className="mt-2">
+                          <MobileIntegrationsMenu />
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      {/* Teams */}
+                      <AccordionItem value="Teams" className="border-b-0">
+                        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+                          Teams
+                        </AccordionTrigger>
+                        <AccordionContent className="mt-2">
+                          <MobileTeamsMenu />
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      {/* Pricing */}
+                      <a href="/pricing" className="text-md font-semibold">
+                        Pricing
+                      </a>
+
+                      {/* Blog */}
+                      <a href="/blog" className="text-md font-semibold">
+                        Blog
+                      </a>
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
                       <Button asChild variant="outline">
-                        <a href={auth.login.url}>{auth.login.title}</a>
+                        <a href="https://app.datapad.io">Sign In</a>
                       </Button>
                       <Button asChild>
-                        <a href={auth.signup.url}>{auth.signup.title}</a>
+                        <a href="https://app.datapad.io">Sign up</a>
                       </Button>
                     </div>
                   </div>
@@ -322,74 +247,229 @@ const MainNavigation = ({
   );
 };
 
-const renderMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] place-items-center">
-            {item.items.map((subItem) => (
-              <SubMenuLink key={subItem.title} item={subItem} />
-            ))}
-          </div>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  return (
-    <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
-        href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
-      >
-        {item.title}
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  );
-};
-
-const renderMobileMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
-          {item.title}
-        </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
-      {item.title}
-    </a>
-  );
-};
-
-const SubMenuLink = ({ item }: { item: MenuItem }) => {
-  return (
+// Mobile menu components (simplified versions of the desktop submenus)
+const MobileProductMenu = () => (
+  <div className="flex flex-col gap-2">
     <a
-      className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
-      href={item.url}
+      href="/features/ai-data-agent"
+      className="text-sm hover:text-accent-foreground"
     >
-      <div className="text-foreground">{item.icon}</div>
-      <div>
-        <div className="text-sm font-semibold">{item.title}</div>
-        {item.description && (
-          <p className="text-muted-foreground text-sm leading-snug">
-            {item.description}
-          </p>
-        )}
-      </div>
+      AI Data Agent
     </a>
-  );
-};
+    <a
+      href="/features/generative-dashboards"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Generative Dashboards
+    </a>
+    <a
+      href="/features/text-to-sql-python"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Text2SQL & Python
+    </a>
+    <a
+      href="/features/integrations"
+      className="text-sm hover:text-accent-foreground"
+    >
+      50+ Integrations
+    </a>
+    <a
+      href="/features/data-blending"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Data Blending
+    </a>
+    <a
+      href="/features/shareable-reports"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Shareable Reports
+    </a>
+    <a
+      href="/features/slack-bot"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Slack Bot
+    </a>
+    <a
+      href="/features/voice-mode"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Voice Mode
+    </a>
+    <a
+      href="/features/automations"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Automations
+    </a>
+    <a
+      href="/features/multi-model-ai"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Multi-Model AI
+    </a>
+    <a
+      href="/features/learning-layer"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Learning Layer
+    </a>
+    <a
+      href="/features/web-access"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Web Access
+    </a>
+    <a
+      href="/features"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      View All Features
+    </a>
+  </div>
+);
+
+const MobileWorkflowsMenu = () => (
+  <div className="flex flex-col gap-2">
+    <a
+      href="/teams/marketing"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Marketing
+    </a>
+    <a
+      href="/teams/sales"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Sales
+    </a>
+    <a
+      href="/teams/retail-ecommerce"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      E-commerce
+    </a>
+    <a
+      href="/teams/content-seo"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Content & SEO
+    </a>
+    <a
+      href="/teams/agency"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Agency
+    </a>
+    <a
+      href="/teams/finance"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Finance
+    </a>
+    <a
+      href="/workflows"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      Browse All Workflows
+    </a>
+  </div>
+);
+
+const MobileIntegrationsMenu = () => (
+  <div className="flex flex-col gap-2">
+    <a
+      href="/integrations/google-analytics"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Google Analytics
+    </a>
+    <a
+      href="/integrations/facebook-ads"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Facebook Ads
+    </a>
+    <a
+      href="/integrations/google-ads"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Google Ads
+    </a>
+    <a
+      href="/integrations/shopify"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Shopify
+    </a>
+    <a
+      href="/integrations/hubspot"
+      className="text-sm hover:text-accent-foreground"
+    >
+      HubSpot
+    </a>
+    <a
+      href="/integrations/stripe"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Stripe
+    </a>
+    <a
+      href="/integrations/salesforce"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Salesforce
+    </a>
+    <a
+      href="/integrations/linkedin-ads"
+      className="text-sm hover:text-accent-foreground"
+    >
+      LinkedIn Ads
+    </a>
+    <a
+      href="/integrations"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      View All Integrations
+    </a>
+  </div>
+);
+
+const MobileTeamsMenu = () => (
+  <div className="flex flex-col gap-2">
+    <a href="/teams/marketing" className="text-sm hover:text-accent-foreground">
+      Marketing
+    </a>
+    <a href="/teams/sales" className="text-sm hover:text-accent-foreground">
+      Sales
+    </a>
+    <a
+      href="/teams/retail-ecommerce"
+      className="text-sm hover:text-accent-foreground"
+    >
+      E-commerce
+    </a>
+    <a href="/teams/finance" className="text-sm hover:text-accent-foreground">
+      Finance
+    </a>
+    <a
+      href="/teams/content-seo"
+      className="text-sm hover:text-accent-foreground"
+    >
+      Content & SEO
+    </a>
+    <a href="/teams/agency" className="text-sm hover:text-accent-foreground">
+      Agency
+    </a>
+    <a
+      href="/teams"
+      className="text-sm hover:text-accent-foreground font-medium"
+    >
+      View All Teams
+    </a>
+  </div>
+);
 
 export { MainNavigation };

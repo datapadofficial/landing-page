@@ -184,7 +184,7 @@ export function IntegrationPageTemplate({
       {customContent}
 
       {/* Technical Specs */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
@@ -270,7 +270,7 @@ export function IntegrationPageTemplate({
 
       {/* Related Workflows */}
       {workflows.length > 0 && (
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">

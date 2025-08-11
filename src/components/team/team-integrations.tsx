@@ -26,7 +26,7 @@ export function TeamIntegrations({
   customContent,
 }: TeamIntegrationsProps) {
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16">
       <div className="container">
         <div className="max-w-6xl mx-auto">
           {customContent}

@@ -36,7 +36,7 @@ export function TeamWorkflows({
   const featuredWorkflows = workflows.slice(0, 6);
 
   return (
-    <section className="py-16 bg-muted/30" id="workflows">
+    <section className="py-16" id="workflows">
       <div className="container">
         <div className="max-w-6xl mx-auto">
           {customContent}

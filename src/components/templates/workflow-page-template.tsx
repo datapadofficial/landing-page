@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Feature242 } from "@/components/feature242";
 
 interface WorkflowPageTemplateProps {
   workflow: Workflow;
@@ -144,7 +145,7 @@ export function WorkflowPageTemplate({
       </section>
 
       {/* Workflow Overview */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -279,66 +280,11 @@ export function WorkflowPageTemplate({
       </section>
 
       {/* How It Works */}
-      <section className="py-16">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              How It Works
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-primary">1</span>
-                  </div>
-                  <CardTitle className="text-lg">Connect Data</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Link your {integrations.map((i) => i.name).join(", ")}{" "}
-                    accounts with one-click authentication
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-primary">2</span>
-                  </div>
-                  <CardTitle className="text-lg">AI Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Our AI automatically analyzes your data and generates
-                    insights based on the workflow template
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-primary">3</span>
-                  </div>
-                  <CardTitle className="text-lg">Get Results</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Receive automated dashboards, reports, and actionable
-                    recommendations
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Feature242 />
 
       {/* Mock Data Preview */}
       {workflow.mockData && (
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl font-bold mb-4">

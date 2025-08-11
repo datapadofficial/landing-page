@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getAllTeams } from "@/lib/teams";
 
 import { getIntegrationsByIds } from "@/lib/integrations";
+import { getWorkflowsByTeam } from "@/lib/workflows";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -57,7 +58,7 @@ export default async function TeamsPage() {
 
   // Get stats for each team
   const teamsWithStats = teams.map((team) => {
-    const workflows = getWorkflowsByCategory(team.slug);
+    const workflows = getWorkflowsByTeam(team.slug);
     const integrations = getIntegrationsByIds(team.featuredIntegrations);
     return {
       ...team,
@@ -104,7 +105,8 @@ export default async function TeamsPage() {
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary mb-1">50+</div>
                 <div className="text-sm text-muted-foreground">
-                  Analytics Workflows
+                  1-Click, Data-Driven Workflows that Deliver 10x Business
+                  Results
                 </div>
               </div>
               <div className="text-center">
@@ -119,7 +121,7 @@ export default async function TeamsPage() {
       </section>
 
       {/* Teams Grid */}
-      <section className="py-16 bg-muted/30" id="teams">
+      <section className="py-16" id="teams">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
