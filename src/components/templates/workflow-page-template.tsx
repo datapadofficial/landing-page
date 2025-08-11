@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { WorkflowCard } from "@/components/ui/workflow-card";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -325,57 +326,11 @@ export function WorkflowPageTemplate({
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {relatedWorkflows.map((relatedWorkflow) => (
-                  <Card
+                  <WorkflowCard
                     key={relatedWorkflow.slug}
-                    className="hover:shadow-lg transition-shadow"
-                  >
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge
-                          className={
-                            difficultyColors[relatedWorkflow.difficulty]
-                          }
-                          variant="outline"
-                        >
-                          {relatedWorkflow.difficulty}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {relatedWorkflow.estimatedTime}
-                        </span>
-                      </div>
-                      <CardTitle className="text-base line-clamp-2">
-                        {relatedWorkflow.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between">
-                        <div className="flex -space-x-2">
-                          {relatedWorkflow.integrations
-                            .slice(0, 3)
-                            .map((integrationId) => (
-                              <div
-                                key={integrationId}
-                                className="w-6 h-6 rounded-full border-2 border-background overflow-hidden"
-                              >
-                                <Image
-                                  src={`/images/integrations/${integrationId}.png`}
-                                  alt={integrationId}
-                                  width={24}
-                                  height={24}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                            ))}
-                        </div>
-                        <Button asChild variant="ghost" size="sm">
-                          <Link href={`/workflows/${relatedWorkflow.slug}`}>
-                            View <ArrowRight className="ml-1 h-3 w-3" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    workflow={relatedWorkflow}
+                    variant="compact"
+                  />
                 ))}
               </div>
             </div>
@@ -397,7 +352,7 @@ export function WorkflowPageTemplate({
                 <a href="https://app.datapad.io">Start Free Trial</a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/workflows">Browse More Workflows</a>
+                <Link href="/workflows">Browse More Workflows</Link>
               </Button>
             </div>
           </div>

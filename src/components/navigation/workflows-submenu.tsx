@@ -274,7 +274,7 @@ const WorkflowCategory = ({
             {workflows.slice(0, 3).map((workflow) => (
               <Link
                 key={workflow.title}
-                className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-2 leading-none no-underline outline-none transition-colors"
+                className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-1 leading-none no-underline outline-none transition-colors"
                 href={workflow.url}
               >
                 <div className="min-w-0 flex-1">
@@ -287,7 +287,7 @@ const WorkflowCategory = ({
 
             {/* View All as last sub-item */}
             <Link
-              className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-2 leading-none no-underline outline-none transition-colors"
+              className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-1 leading-none no-underline outline-none transition-colors"
               href={url}
             >
               <div className="min-w-0 flex-1">
