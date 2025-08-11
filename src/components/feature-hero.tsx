@@ -2,77 +2,83 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-
-import { AnnouncementBadge } from "@/components/ui/announcement-badge";
-
-import { AnimatedTicker } from "@/components/ui/animated-ticker";
+import { Badge } from "@/components/ui/badge";
+import { Feature } from "@/lib/features";
+import {
+  Bot,
+  BarChart3,
+  Code2,
+  Plug,
+  Layers,
+  Share,
+  Slack,
+  Mic,
+  Zap,
+  Brain,
+  Globe,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface MainHeroProps {
-  heading?: string;
-  description?: string;
-  button?: {
-    text: string;
-    url: string;
-  };
-  reviews?: {
-    count: number;
-    rating?: number;
-    avatars: {
-      src: string;
-      alt: string;
-    }[];
-  };
+const iconMap = {
+  Bot,
+  BarChart3,
+  Code2,
+  Plug,
+  Layers,
+  Share,
+  Slack,
+  Mic,
+  Zap,
+  Brain,
+  Globe,
+};
+
+interface FeatureHeroProps {
+  feature: Feature;
 }
 
-const MainHero = ({
-  description = "While others guess, you'll know. Connect your data sources, let our AI analyze your business patterns, then generate winning strategies with 1-click. Join 500+ teams getting 5x better ROI than generic AI tools.",
-  button = {
-    text: "Get Started",
-    url: "https://app.datapad.io",
-  },
-}: MainHeroProps) => {
+const FeatureHero = ({ feature }: FeatureHeroProps) => {
+  const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
+
   return (
-    <section className="pt-16 sm:pt-24">
+    <section className="pt-8 sm:pt-16">
       <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
         <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
         <Boxes className="scale-150" />
 
-        <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6">
+        <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-4xl">
           <div className="flex justify-center">
-            <AnnouncementBadge
-              href="/blog/datapad-secures-over-500k-to-redefine-data-analytics-with-autonomous-ai-agents"
-              tag="NEW"
+            <Badge
+              variant="secondary"
+              className={cn(
+                "border-opacity-20 hover:bg-opacity-20",
+                `bg-${feature.color}/10 text-${feature.color} border-${feature.color}/20 hover:bg-${feature.color}/20`
+              )}
+              style={{
+                backgroundColor: `var(--${feature.color})10`,
+                color: `var(--${feature.color})`,
+                borderColor: `var(--${feature.color})20`,
+              }}
             >
-              Datapad Raises New Funding Round
-            </AnnouncementBadge>
+              {IconComponent && <IconComponent className="size-4 mr-2" />}
+              {feature.category.charAt(0).toUpperCase() +
+                feature.category.slice(1)}{" "}
+              Feature
+            </Badge>
           </div>
-          <h1 className="w-full relative text-center mx-auto">
-            <div className="">
-              <div>Stop Guessing. Start Winning.</div>
-              <AnimatedTicker
-                texts={[
-                  "Ad Strategies That Convert",
-                  "SEO Content That Ranks",
-                  "Email Campaigns That Sell",
-                  "Social Posts That Engage",
-                  "Reports That Drive Decisions",
-                  "Landing Pages That Close",
-                  "Product Descriptions That Move",
-                  "Sales Pitches That Win",
-                ]}
-                interval={3000}
-                className="text-chart-purple"
-              />{" "}
-            </div>
+
+          <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
+            {feature.title}
           </h1>
-          <p className="text-muted-foreground text-balance text-base sm:text-lg lg:text-xl px-4 sm:px-0">
-            {description}
+
+          <p className="text-muted-foreground text-balance text-base sm:text-lg lg:text-xl px-4 sm:px-0 max-w-3xl mx-auto">
+            {feature.longDescription}
           </p>
         </div>
+
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <a href={button.url}>{button.text}</a>
+            <a href={feature.ctaUrl}>{feature.ctaText}</a>
           </Button>
           <Button
             asChild
@@ -80,7 +86,7 @@ const MainHero = ({
             size="lg"
             className="w-full sm:w-auto"
           >
-            <a href={button.url}>Book a Demo</a>
+            <a href="https://app.datapad.io">Book a Demo</a>
           </Button>
         </div>
       </div>
@@ -88,13 +94,9 @@ const MainHero = ({
   );
 };
 
-export { MainHero };
+export { FeatureHero };
 
-// Below is the modified component from Aceternity UI
-// Original source: npx shadcn@latest add https://ui.aceternity.com/registry/background-boxes.json
-// Modified to follow our coding standards and design system
-// We respect copyright and attribution to the original creators
-
+// Reusing the Boxes component from MainHero
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   // Dramatically reduced grid size for performance
   const rows = new Array(30).fill(1); // Reduced from 150 to 30

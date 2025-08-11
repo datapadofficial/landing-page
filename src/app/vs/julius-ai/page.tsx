@@ -169,7 +169,6 @@ export default function JuliusComparisonPage() {
       <VsHero
         competitorName="Julius"
         competitorLogo="/images/julius-logo.png"
-        datapadLogo="/images/datapad-logo.svg"
         subtitle="No more wasting time on analyzing Excels, CSVs. Get instant answers anywhere, anytime."
       />
 
@@ -178,6 +177,7 @@ export default function JuliusComparisonPage() {
         competitorName="Julius"
         competitorTagline="AI data science tool"
         competitorDescription="Limited to in-chat results targeted towards data scientists"
+        competitorLogo="/images/julius-logo.png"
         features={JULIUS_FEATURES}
         title="Datapad is a comprehensive suite, Julius is a data-science tool."
       />

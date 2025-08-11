@@ -2,6 +2,7 @@ import { PipelineMock } from "./creatives/pipeline-mock";
 import { DashboardMock } from "./creatives/dashboard-mock";
 import { CodePrecisionMock } from "./creatives/code-precision-mock";
 import { AskReceiveMock } from "./creatives/ask-receive-mock";
+import Link from "next/link";
 
 interface Feature {
   title: string;
@@ -68,36 +69,56 @@ const Feature166 = ({
         <div className="relative flex justify-center">
           <div className="border bg-black-3 dark:bg-white-3 rounded-2xl relative flex w-full flex-col md:w-1/2 lg:w-full ">
             <div className="relative flex flex-col lg:flex-row">
-              <div className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-3/5 lg:border-r lg:border-b-0">
-                <h4>{feature1.title}</h4>
+              <Link
+                href="/features/ai-data-agent"
+                className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-3/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+              >
+                <h4 className="group-hover:text-foreground/90 transition-colors">
+                  {feature1.title}
+                </h4>
                 <p className="text-muted-foreground">{feature1.description}</p>
                 <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <AskReceiveMock className="w-full h-full" />
                 </div>
-              </div>
-              <div className="flex flex-col justify-between p-10 lg:w-2/5">
-                <h4>{feature2.title}</h4>
+              </Link>
+              <Link
+                href="/features/integrations"
+                className="flex flex-col justify-between p-10 lg:w-2/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+              >
+                <h4 className="group-hover:text-foreground/90 transition-colors">
+                  {feature2.title}
+                </h4>
                 <p className="text-muted-foreground">{feature2.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
                   <PipelineMock className="w-full h-full" />
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="border-muted2 relative flex flex-col border-t border-solid lg:flex-row">
-              <div className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-2/5 lg:border-r lg:border-b-0">
-                <h4>{feature3.title}</h4>
+              <Link
+                href="/features/text-to-sql-python"
+                className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-2/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+              >
+                <h4 className="group-hover:text-foreground/90 transition-colors">
+                  {feature3.title}
+                </h4>
                 <p className="text-muted-foreground">{feature3.description}</p>
                 <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
                   <CodePrecisionMock className="w-full h-full" />
                 </div>
-              </div>
-              <div className="flex flex-col justify-between p-10 lg:w-3/5">
-                <h4>{feature4.title}</h4>
+              </Link>
+              <Link
+                href="/features/generative-dashboards"
+                className="flex flex-col justify-between p-10 lg:w-3/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+              >
+                <h4 className="group-hover:text-foreground/90 transition-colors">
+                  {feature4.title}
+                </h4>
                 <p className="text-muted-foreground">{feature4.description}</p>
                 <div className="aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <DashboardMock className="w-full h-full" />
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

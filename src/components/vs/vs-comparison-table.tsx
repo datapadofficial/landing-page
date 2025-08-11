@@ -1,6 +1,8 @@
 import { CheckCircle, CircleMinus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
+import Image from "next/image";
 
 interface ComparisonFeature {
   feature: string;
@@ -19,6 +21,7 @@ interface VsComparisonTableProps {
   competitorName: string;
   competitorTagline: string;
   competitorDescription: string;
+  competitorLogo: string;
   features: ComparisonFeature[];
   title?: string;
 }
@@ -27,6 +30,7 @@ const VsComparisonTable = ({
   competitorName,
   competitorTagline,
   competitorDescription,
+  competitorLogo,
   features,
   title,
 }: VsComparisonTableProps) => {
@@ -52,8 +56,8 @@ const VsComparisonTable = ({
             </div>
             <div className="flex flex-col items-center gap-2 rounded-t-2xl border-b border-border bg-muted p-5">
               <div className="flex items-center gap-2">
-                <div className="size-8 bg-primary text-primary-foreground rounded flex items-center justify-center">
-                  <span className="font-bold text-sm">D</span>
+                <div className="size-8 flex items-center justify-center">
+                  <AnimatedLogo isActive={false} size="medium" />
                 </div>
                 <p className="text-lg font-semibold">Datapad</p>
               </div>
@@ -63,10 +67,14 @@ const VsComparisonTable = ({
             </div>
             <div className="flex flex-col items-center gap-2 border-b border-border p-5">
               <div className="flex items-center gap-2">
-                <div className="size-8 bg-muted rounded flex items-center justify-center">
-                  <span className="text-xs font-bold">
-                    {competitorName.charAt(0)}
-                  </span>
+                <div className="size-8 rounded flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={competitorLogo}
+                    alt={`${competitorName} logo`}
+                    width={32}
+                    height={32}
+                    className="object-contain"
+                  />
                 </div>
                 <p className="text-lg font-semibold">{competitorName}</p>
               </div>
@@ -86,16 +94,16 @@ const VsComparisonTable = ({
                   <span className="font-semibold">{feature.feature}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2 border-b border-border bg-muted p-5">
-                  <CheckCircle className="size-5 text-green-600" />
+                  <CheckCircle className="size-5 text-chart-purple" />
                   <span className="text-xs text-center text-muted-foreground">
                     {feature.datapad.description}
                   </span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2 border-b border-border p-5">
                   {feature.competitor.available ? (
-                    <CheckCircle className="size-5 text-green-600" />
+                    <CheckCircle className="size-5 text-chart-purple" />
                   ) : (
-                    <CircleMinus className="size-5 text-red-600" />
+                    <CircleMinus className="size-5 text-chart-red" />
                   )}
                   <span className="text-xs text-center text-muted-foreground">
                     {feature.competitor.description}

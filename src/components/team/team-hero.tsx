@@ -1,0 +1,85 @@
+"use client";
+
+import { Team } from "@/lib/teams";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  TrendingUp,
+  DollarSign,
+  ShoppingCart,
+  Search,
+  Users,
+  Package,
+  Calculator,
+  Building,
+  Truck,
+} from "lucide-react";
+
+const iconMap = {
+  TrendingUp,
+  DollarSign,
+  ShoppingCart,
+  Search,
+  Users,
+  Package,
+  Calculator,
+  Building,
+  Truck,
+};
+
+interface TeamHeroProps {
+  team: Team;
+  customContent?: React.ReactNode;
+}
+
+export function TeamHero({ team, customContent }: TeamHeroProps) {
+  const IconComponent = iconMap[team.icon as keyof typeof iconMap];
+
+  return (
+    <section className="pt-16 sm:pt-24 pb-16">
+      <div className="container">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div
+              className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg"
+              style={{ color: `var(--${team.color})` }}
+            >
+              {IconComponent && <IconComponent className="size-8" />}
+            </div>
+            <div className="text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                {team.name} Analytics
+              </h1>
+              <Badge
+                variant="secondary"
+                className="mt-2"
+                style={{
+                  backgroundColor: `var(--${team.color})10`,
+                  color: `var(--${team.color})`,
+                  borderColor: `var(--${team.color})20`,
+                }}
+              >
+                {team.name} Intelligence
+              </Badge>
+            </div>
+          </div>
+
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            {team.description}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button asChild size="lg">
+              <a href="https://app.datapad.io">Get Started Free</a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href="#workflows">View Workflows</a>
+            </Button>
+          </div>
+
+          {customContent}
+        </div>
+      </div>
+    </section>
+  );
+}

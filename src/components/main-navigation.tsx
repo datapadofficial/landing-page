@@ -64,65 +64,130 @@ const MainNavigation = ({
     title: "datapad",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "/" },
     {
-      title: "Products",
-      url: "#",
+      title: "Product",
+      url: "/features",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/blog",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
+          title: "AI Data Agent",
+          description: "Talk to your data like a human analyst",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
+          url: "/features/ai-data-agent",
+        },
+        {
+          title: "Generative Dashboards",
+          description: "AI creates custom dashboards automatically",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/features/generative-dashboards",
+        },
+        {
+          title: "Text2SQL & Python",
+          description: "Convert natural language to executable code",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/features/text-to-sql-python",
+        },
+        {
+          title: "View All Features",
+          description: "Explore all AI-powered features",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/features",
         },
       ],
     },
     {
-      title: "Resources",
-      url: "#",
+      title: "Workflows",
+      url: "/workflows",
       items: [
         {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
+          title: "Marketing Analytics",
+          description: "Campaign performance and ROI analysis workflows",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
+          url: "/teams/marketing",
         },
         {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
+          title: "Sales Analytics",
+          description: "Sales performance and pipeline tracking workflows",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
+          url: "/teams/sales",
         },
         {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
+          title: "E-commerce Analytics",
+          description: "Online store performance and optimization workflows",
           icon: <Book className="size-5 shrink-0" />,
-          url: "#",
+          url: "/teams/retail-ecommerce",
+        },
+        {
+          title: "Browse All Workflows",
+          description: "View all 50+ ready-to-use analytics workflows",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/workflows",
+        },
+      ],
+    },
+    {
+      title: "Integrations",
+      url: "/integrations",
+      items: [
+        {
+          title: "Google Analytics",
+          description: "Web analytics and user behavior tracking",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/integrations/google-analytics",
+        },
+        {
+          title: "Facebook Ads",
+          description: "Social media advertising performance",
+          icon: <Zap className="size-5 shrink-0" />,
+          url: "/integrations/facebook-ads",
+        },
+        {
+          title: "Shopify",
+          description: "E-commerce platform data integration",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/integrations/shopify",
+        },
+        {
+          title: "View All Integrations",
+          description: "Browse all 50+ data source connections",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/integrations",
+        },
+      ],
+    },
+    {
+      title: "Teams",
+      url: "/teams",
+      items: [
+        {
+          title: "Marketing",
+          description: "Campaign performance and ROI analysis",
+          icon: <Zap className="size-5 shrink-0" />,
+          url: "/teams/marketing",
+        },
+        {
+          title: "Sales",
+          description: "Sales performance and pipeline tracking",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/teams/sales",
+        },
+        {
+          title: "E-commerce",
+          description: "Online store performance and optimization",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/teams/retail-ecommerce",
+        },
+        {
+          title: "Finance",
+          description: "Financial performance and cash flow analysis",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/teams/finance",
+        },
+        {
+          title: "View All Teams",
+          description: "Browse solutions for all business teams",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/teams",
         },
       ],
     },
@@ -136,8 +201,8 @@ const MainNavigation = ({
     },
   ],
   auth = {
-    login: { title: "Sign In", url: "#" },
-    signup: { title: "Sign up", url: "#" },
+    login: { title: "Sign In", url: "https://app.datapad.io" },
+    signup: { title: "Sign up", url: "https://app.datapad.io" },
   },
 }: Navbar1Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -162,7 +227,7 @@ const MainNavigation = ({
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
           {/* Logo */}
-          <div className="min-w-[181px]">
+          <div className="min-w-none lg:min-w-[191px]">
             <a href={logo.url} className="flex w-fit items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
               <span className="text-xl font-medium tracking-tight font-poppins">
@@ -204,7 +269,14 @@ const MainNavigation = ({
               <AnimatedLogo isActive={false} className="w-5 h-5" />
             </a>
             <div className="flex gap-2 items-center">
-              <AnimatedThemeToggler className="h-9 w-9 flex items-center justify-center rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground" />
+              <Button
+                asChild
+                size="icon"
+                variant="ghost"
+                className="cursor-pointer h-9 w-9"
+              >
+                <AnimatedThemeToggler className="h-9 w-9 flex items-center justify-center rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground" />
+              </Button>
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">

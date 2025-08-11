@@ -20,7 +20,7 @@ const Feature242 = () => {
         "Link your Google Ads, Analytics, CRM, and social platforms. No complex setup - just secure connections to your existing tools.",
       imgSrc:
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-exchange-between-the-user-and-the-global-network.svg",
-      href: "#",
+      href: "/features/integrations",
     },
     {
       step: "02",
@@ -29,7 +29,7 @@ const Feature242 = () => {
         "Choose from 50+ proven recipes that solve real business problems. Each recipe connects your data and delivers actionable insights in minutes.",
       imgSrc:
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-letters-and-arrows-flying-out-of-a-black-hole.svg",
-      href: "#",
+      href: "/features/ai-data-agent",
     },
     {
       step: "03",
@@ -38,14 +38,14 @@ const Feature242 = () => {
         "Receive complete ad campaigns, blog posts, email sequences, product descriptions, and sales scripts - optimized from your data and ready to deploy immediately.",
       imgSrc:
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-loading-the-next-page.svg",
-      href: "#",
+      href: "/features/automations",
     },
   ];
 
   return (
-    <section className="overflow-hidden py-32">
+    <section className="overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
-        <div className="relative z-10 w-full items-center justify-between lg:flex">
+        <div className="relative z-10 w-full items-start justify-between lg:flex lg:items-center">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
               <Badge
@@ -55,9 +55,11 @@ const Feature242 = () => {
                 🔥 Most Popular
               </Badge>
             </div>
-            <h2>1-Click Workflows That Just Work</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+              1-Click Workflows That Just Work
+            </h2>
           </div>
-          <p className="text-muted-foreground/80 mt-8 max-w-lg tracking-tight md:text-xl lg:mt-0">
+          <p className="text-muted-foreground/80 mt-6 max-w-lg tracking-tight text-base sm:text-lg md:text-xl lg:mt-0">
             Stop wasting hours creating content that doesn't convert. Get AI
             that actually generates your ad campaigns, blog posts, email
             sequences, and sales scripts - ready to copy-paste in minutes.{" "}
@@ -70,12 +72,12 @@ const Feature242 = () => {
             </span>
           </p>
         </div>
-        <DottedDiv className="mt-8 w-full px-2 py-10">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <DottedDiv className="mt-8 w-full px-2 py-8 sm:py-10">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="bg-black-3 dark:bg-white-3 border group relative flex h-full min-h-96 w-full flex-col justify-between text-ellipsis rounded-3xl p-6"
+                className="bg-black-3 dark:bg-white-3 border group relative flex h-full min-h-80 sm:min-h-96 w-full flex-col justify-between text-ellipsis rounded-2xl sm:rounded-3xl p-4 sm:p-6"
               >
                 <div className="flex flex-col space-y-4">
                   <div className="flex items-center justify-between">

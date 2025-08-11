@@ -5,14 +5,13 @@ import {
   BarChart3,
   Users,
   Calendar,
-  Share2,
   TrendingUp,
   Zap,
 } from "lucide-react";
 
 import { VsHero } from "@/components/vs/vs-hero";
 import { VsComparisonTable } from "@/components/vs/vs-comparison-table";
-import { DatapadTestimonials } from "@/components/datapad-testimonials";
+import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { Logos5 } from "@/components/logos5";
 import { Cta18 } from "@/components/cta18";
 import { Faq2 } from "@/components/faq2";
@@ -173,6 +172,7 @@ export default function PowerBIComparisonPage() {
         competitorName="Power BI"
         competitorTagline="Microsoft's business intelligence platform"
         competitorDescription="Traditional BI tool focused on visualization and reporting"
+        competitorLogo="/images/datapad-logo.svg"
         features={POWERBI_FEATURES}
         title="Datapad delivers AI-powered business intelligence, Power BI offers traditional charts and dashboards."
       />
@@ -184,7 +184,7 @@ export default function PowerBIComparisonPage() {
       <Logos5 />
 
       {/* Testimonials */}
-      <DatapadTestimonials />
+      <DatapadCasestudies />
 
       {/* Power BI-specific FAQ */}
       <Faq2

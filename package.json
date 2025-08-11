@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "parse:workflows": "npx tsx scripts/parse-workflows-csv.ts",
+    "create:workflow": "npx tsx scripts/create-workflow.ts",
+    "create:integration": "npx tsx scripts/create-integration.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
