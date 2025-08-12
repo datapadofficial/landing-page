@@ -39,28 +39,30 @@ export function TeamHero({ team, customContent }: TeamHeroProps) {
     <section className="pt-16 sm:pt-24 pb-16">
       <div className="container">
         <div className="mx-auto text-center">
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex justify-center mb-6">
+            <Badge
+              variant="secondary"
+              style={{
+                backgroundColor: `var(--${team.color})10`,
+                color: `var(--${team.color})`,
+                borderColor: `var(--${team.color})20`,
+              }}
+            >
+              {team.name} Intelligence
+            </Badge>
+          </div>
+
+          <div className="flex flex-col items-center justify-center gap-6 mb-6">
             <div
               className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg"
               style={{ color: `var(--${team.color})` }}
             >
               {IconComponent && <IconComponent className="size-8" />}
             </div>
-            <div className="text-left">
+            <div className="text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
                 {team.name} Analytics
               </h1>
-              <Badge
-                variant="secondary"
-                className="mt-2"
-                style={{
-                  backgroundColor: `var(--${team.color})10`,
-                  color: `var(--${team.color})`,
-                  borderColor: `var(--${team.color})20`,
-                }}
-              >
-                {team.name} Intelligence
-              </Badge>
             </div>
           </div>
 

@@ -7,6 +7,9 @@ import {
   Users,
   Calculator,
   ArrowRight,
+  Package,
+  Truck,
+  Building,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -14,8 +17,22 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { getWorkflowsByTeam } from "@/lib/workflows";
 
 const WorkflowsSubmenu = () => {
+  // Get real workflows by team
+  const marketingWorkflows = getWorkflowsByTeam("marketing").slice(0, 3);
+  const salesWorkflows = getWorkflowsByTeam("sales").slice(0, 3);
+  const ecommerceWorkflows = getWorkflowsByTeam("retail-ecommerce").slice(0, 3);
+  const seoWorkflows = getWorkflowsByTeam("content-seo").slice(0, 3);
+  const agencyWorkflows = getWorkflowsByTeam("agency").slice(0, 3);
+  const financeWorkflows = getWorkflowsByTeam("finance").slice(0, 3);
+  const socialMediaWorkflows = getWorkflowsByTeam("social-media").slice(0, 3);
+  const productWorkflows = getWorkflowsByTeam("product-management").slice(0, 3);
+  const growthWorkflows = getWorkflowsByTeam("growth").slice(0, 3);
+  const supplyChainWorkflows = getWorkflowsByTeam("supply-chain").slice(0, 3);
+  const crmWorkflows = getWorkflowsByTeam("crm").slice(0, 3);
+
   const categories = [
     {
       title: "Marketing",
@@ -23,26 +40,12 @@ const WorkflowsSubmenu = () => {
       icon: <TrendingUp className="size-5 shrink-0" />,
       url: "/teams/marketing",
       color: "chart-blue",
-      workflows: [
-        {
-          title: "Facebook Ads Performance Analysis",
-          url: "/workflows/facebook-ads-performance-analysis",
-          difficulty: "beginner",
-          estimatedTime: "5 min",
-        },
-        {
-          title: "Google Ads ROI Optimization",
-          url: "/workflows/google-ads-roi-optimization",
-          difficulty: "intermediate",
-          estimatedTime: "10 min",
-        },
-        {
-          title: "Marketing Attribution Analysis",
-          url: "/workflows/marketing-attribution-analysis",
-          difficulty: "advanced",
-          estimatedTime: "15 min",
-        },
-      ],
+      workflows: marketingWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
     {
       title: "Sales",
@@ -50,26 +53,12 @@ const WorkflowsSubmenu = () => {
       icon: <DollarSign className="size-5 shrink-0" />,
       url: "/teams/sales",
       color: "chart-green",
-      workflows: [
-        {
-          title: "Sales Pipeline Analysis",
-          url: "/workflows/sales-pipeline-analysis",
-          difficulty: "beginner",
-          estimatedTime: "5 min",
-        },
-        {
-          title: "Lead Conversion Optimization",
-          url: "/workflows/lead-conversion-optimization",
-          difficulty: "intermediate",
-          estimatedTime: "8 min",
-        },
-        {
-          title: "Sales Forecasting Model",
-          url: "/workflows/sales-forecasting-model",
-          difficulty: "advanced",
-          estimatedTime: "20 min",
-        },
-      ],
+      workflows: salesWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
     {
       title: "E-commerce",
@@ -77,26 +66,12 @@ const WorkflowsSubmenu = () => {
       icon: <ShoppingCart className="size-5 shrink-0" />,
       url: "/teams/retail-ecommerce",
       color: "chart-orange",
-      workflows: [
-        {
-          title: "Shopify Revenue Analysis",
-          url: "/workflows/shopify-revenue-analysis",
-          difficulty: "beginner",
-          estimatedTime: "5 min",
-        },
-        {
-          title: "Product Performance Tracking",
-          url: "/workflows/product-performance-tracking",
-          difficulty: "intermediate",
-          estimatedTime: "12 min",
-        },
-        {
-          title: "Customer Lifetime Value",
-          url: "/workflows/customer-lifetime-value",
-          difficulty: "advanced",
-          estimatedTime: "18 min",
-        },
-      ],
+      workflows: ecommerceWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
     {
       title: "Content & SEO",
@@ -104,26 +79,12 @@ const WorkflowsSubmenu = () => {
       icon: <Search className="size-5 shrink-0" />,
       url: "/teams/content-seo",
       color: "chart-purple",
-      workflows: [
-        {
-          title: "SEO Performance Dashboard",
-          url: "/workflows/seo-performance-dashboard",
-          difficulty: "beginner",
-          estimatedTime: "7 min",
-        },
-        {
-          title: "Content Engagement Analysis",
-          url: "/workflows/content-engagement-analysis",
-          difficulty: "intermediate",
-          estimatedTime: "10 min",
-        },
-        {
-          title: "Keyword Ranking Tracker",
-          url: "/workflows/keyword-ranking-tracker",
-          difficulty: "advanced",
-          estimatedTime: "15 min",
-        },
-      ],
+      workflows: seoWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
     {
       title: "Agency",
@@ -131,26 +92,12 @@ const WorkflowsSubmenu = () => {
       icon: <Users className="size-5 shrink-0" />,
       url: "/teams/agency",
       color: "chart-red",
-      workflows: [
-        {
-          title: "Client Performance Dashboard",
-          url: "/workflows/client-performance-dashboard",
-          difficulty: "beginner",
-          estimatedTime: "8 min",
-        },
-        {
-          title: "Multi-Client ROI Comparison",
-          url: "/workflows/multi-client-roi-comparison",
-          difficulty: "intermediate",
-          estimatedTime: "12 min",
-        },
-        {
-          title: "Agency Growth Analytics",
-          url: "/workflows/agency-growth-analytics",
-          difficulty: "advanced",
-          estimatedTime: "20 min",
-        },
-      ],
+      workflows: agencyWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
     {
       title: "Finance",
@@ -158,26 +105,77 @@ const WorkflowsSubmenu = () => {
       icon: <Calculator className="size-5 shrink-0" />,
       url: "/teams/finance",
       color: "chart-yellow",
-      workflows: [
-        {
-          title: "Monthly Financial Report",
-          url: "/workflows/monthly-financial-report",
-          difficulty: "beginner",
-          estimatedTime: "10 min",
-        },
-        {
-          title: "Cash Flow Analysis",
-          url: "/workflows/cash-flow-analysis",
-          difficulty: "intermediate",
-          estimatedTime: "15 min",
-        },
-        {
-          title: "Budget vs Actual Variance",
-          url: "/workflows/budget-vs-actual-variance",
-          difficulty: "advanced",
-          estimatedTime: "18 min",
-        },
-      ],
+      workflows: financeWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
+    },
+    {
+      title: "Social Media",
+      description: "Social media performance and engagement analysis",
+      icon: <Users className="size-5 shrink-0" />,
+      url: "/teams/social-media",
+      color: "chart-orange",
+      workflows: socialMediaWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
+    },
+    {
+      title: "Product Management",
+      description: "Product usage and feature adoption analytics",
+      icon: <Package className="size-5 shrink-0" />,
+      url: "/teams/product-management",
+      color: "chart-yellow",
+      workflows: productWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
+    },
+    {
+      title: "Growth",
+      description: "Customer acquisition and retention analytics",
+      icon: <TrendingUp className="size-5 shrink-0" />,
+      url: "/teams/growth",
+      color: "chart-purple",
+      workflows: growthWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
+    },
+    {
+      title: "Supply Chain",
+      description: "Inventory and logistics optimization",
+      icon: <Truck className="size-5 shrink-0" />,
+      url: "/teams/supply-chain",
+      color: "chart-orange",
+      workflows: supplyChainWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
+    },
+    {
+      title: "CRM",
+      description: "Customer relationship and sales pipeline analytics",
+      icon: <Users className="size-5 shrink-0" />,
+      url: "/teams/crm",
+      color: "chart-blue",
+      workflows: crmWorkflows.map((w) => ({
+        title: w.title,
+        url: `/workflows/${w.slug}`,
+        difficulty: w.difficulty,
+        estimatedTime: w.estimatedTime,
+      })),
     },
   ];
 
@@ -185,8 +183,8 @@ const WorkflowsSubmenu = () => {
     <NavigationMenuItem>
       <NavigationMenuTrigger>Workflows</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <div className="w-[900px] gap-4 p-6 md:w-[1000px] lg:w-[1100px]">
-          <div className="grid grid-cols-3 gap-6">
+        <div className="w-[900px] gap-4 p-6 md:w-[1000px] lg:w-[1200px]">
+          <div className="grid grid-cols-4 gap-4">
             {categories.map((category) => (
               <WorkflowCategory
                 key={category.title}
@@ -200,7 +198,7 @@ const WorkflowsSubmenu = () => {
             ))}
 
             {/* View All Workflows */}
-            <div className="col-span-3 pt-4 border-t border-border">
+            <div className="col-span-4 pt-4 border-t border-border">
               <Link
                 className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors w-full"
                 href="/workflows"

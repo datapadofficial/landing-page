@@ -2,16 +2,7 @@ import { Metadata } from "next";
 import { getAllWorkflows } from "@/lib/workflows";
 import { getAllTeams } from "@/lib/teams";
 import { Button } from "@/components/ui/button";
-import { WorkflowCard } from "@/components/ui/workflow-card";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Search, Filter } from "lucide-react";
+import { WorkflowsFilter } from "@/components/ui/workflows-filter";
 
 export const metadata: Metadata = {
   title: "AI Workflows - Ready-to-Deploy Business Solutions | Datapad",
@@ -102,49 +93,8 @@ export default async function WorkflowsPage() {
             </p>
           </div>
 
-          {/* Filters - This would be enhanced with client-side filtering */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search workflows..."
-                className="pl-10"
-                // This would need client-side state management
-              />
-            </div>
-            <Select>
-              <SelectTrigger className="w-full sm:w-48">
-                <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {teams.map((category) => (
-                  <SelectItem key={category.slug} value={category.slug}>
-                    {category.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Select>
-              <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="All Difficulties" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Difficulties</SelectItem>
-                <SelectItem value="beginner">Beginner</SelectItem>
-                <SelectItem value="intermediate">Intermediate</SelectItem>
-                <SelectItem value="advanced">Advanced</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Workflow Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {workflows.map((workflow) => (
-              <WorkflowCard key={workflow.slug} workflow={workflow} />
-            ))}
-          </div>
+          {/* Workflows with Filtering */}
+          <WorkflowsFilter workflows={workflows} teams={teams} />
         </div>
       </section>
 
