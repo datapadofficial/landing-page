@@ -254,7 +254,7 @@ const WorkflowCard = ({ workflow }: { workflow: (typeof workflows)[0] }) => {
   };
 
   return (
-    <div className="bg-transparent border border-border/30 rounded-lg p-3 backdrop-blur-sm hover:border-border/60 transition-all duration-200">
+    <div className="bg-transparent  rounded-lg border p-3 backdrop-blur-sm hover:border-border/60 transition-all duration-200">
       <div className="flex items-center justify-between mb-2">
         <div className="rounded border border-border/20 overflow-hidden bg-background/50 flex-shrink-0">
           <Image
