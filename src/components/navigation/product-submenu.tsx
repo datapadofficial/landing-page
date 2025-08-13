@@ -64,7 +64,7 @@ const ProductSubmenu = ({}: ProductSubmenuProps) => {
                     <IconComponent className="size-5 shrink-0" />
                   ) : null
                 }
-                url={`/features/${feature.slug}`}
+                url={feature.redirectUrl || `/features/${feature.slug}`}
                 color={feature.color}
               />
             );

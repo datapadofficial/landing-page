@@ -11,6 +11,8 @@ export interface Feature {
   ctaUrl: string;
   category: "core" | "integration" | "automation" | "advanced";
   priority: number;
+  // Special redirect URL for features that don't follow the standard /features/[slug] pattern
+  redirectUrl?: string;
 }
 
 export const features: Feature[] = [
@@ -239,32 +241,33 @@ export const features: Feature[] = [
     priority: 8,
   },
   {
-    slug: "automations",
-    title: "Automations",
+    slug: "workflows",
+    title: "AI Workflows",
     shortDescription:
-      "Schedule the AI system to pre-analyze all metrics, data, dashboards and prepare synthesized analysis with alerts.",
+      "50+ ready-to-use AI workflows that create actionable deliverables from your data - campaigns, strategies, and content ready to deploy.",
     longDescription:
-      "Never miss important changes in your data. Set up intelligent automations that continuously monitor your metrics, detect anomalies, and deliver proactive insights with context and recommendations - all while you focus on strategic work.",
+      "Transform your data into actionable business outcomes with AI-powered workflows. Get copy-paste ready marketing campaigns, SEO strategies, ad optimizations, and business plans generated from your actual data. While other tools show you charts, our workflows create what you need to execute and grow your business.",
     icon: "Zap",
     color: "chart-purple",
     benefits: [
-      "Proactive monitoring",
-      "Anomaly detection",
-      "Scheduled analysis",
-      "Smart alerts",
-      "Automated insights",
+      "50+ ready-to-use workflows",
+      "Copy-paste ready deliverables",
+      "Data-driven campaign generation",
+      "Automated content creation",
+      "Implementation-ready strategies",
     ],
     useCases: [
-      "Performance monitoring",
-      "Anomaly detection",
-      "Regular reporting",
-      "Threshold alerts",
-      "Trend analysis",
+      "Marketing campaign generation",
+      "SEO content optimization",
+      "Ad performance improvement",
+      "Business strategy development",
+      "Competitive analysis reports",
     ],
-    ctaText: "Setup Automations",
+    ctaText: "Browse Workflows",
     ctaUrl: "https://app.datapad.io",
     category: "automation",
     priority: 9,
+    redirectUrl: "/workflows",
   },
   {
     slug: "multi-model-ai",

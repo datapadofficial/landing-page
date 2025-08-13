@@ -298,11 +298,8 @@ const MobileProductMenu = () => (
     >
       Voice Mode
     </a>
-    <a
-      href="/features/automations"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Automations
+    <a href="/workflows" className="text-sm hover:text-accent-foreground">
+      Workflows
     </a>
     <a
       href="/features/multi-model-ai"

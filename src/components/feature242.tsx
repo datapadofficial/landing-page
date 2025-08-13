@@ -38,7 +38,7 @@ const Feature242 = () => {
         "Receive complete ad campaigns, blog posts, email sequences, product descriptions, and sales scripts - optimized from your data and ready to deploy immediately.",
       imgSrc:
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-loading-the-next-page.svg",
-      href: "/features/automations",
+      href: "/workflows",
     },
   ];
 
@@ -56,7 +56,7 @@ const Feature242 = () => {
               </Badge>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-              1-Click Workflows That Just Work
+              1-Click Workflows That Deliver Results
             </h2>
           </div>
           <p className="text-muted-foreground/80 mt-6 max-w-lg tracking-tight text-base sm:text-lg md:text-xl lg:mt-0">

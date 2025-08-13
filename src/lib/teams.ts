@@ -52,7 +52,7 @@ export const teams: Team[] = [
     seoDescription:
       "Monitor sales performance, pipeline health, and revenue metrics with AI-powered sales analytics and dashboards.",
     featuredIntegrations: ["salesforce", "hubspot", "stripe"],
-    featuredFeatures: ["ai-data-agent", "automations", "shareable-reports"],
+    featuredFeatures: ["ai-data-agent", "workflows", "shareable-reports"],
     priority: 2,
   },
   {
@@ -66,7 +66,7 @@ export const teams: Team[] = [
     seoDescription:
       "Optimize your online store with comprehensive e-commerce analytics. Track sales, inventory, customer behavior, and conversion rates.",
     featuredIntegrations: ["shopify", "stripe", "google-analytics"],
-    featuredFeatures: ["generative-dashboards", "data-blending", "automations"],
+    featuredFeatures: ["generative-dashboards", "data-blending", "workflows"],
     priority: 3,
   },
   {
@@ -79,7 +79,7 @@ export const teams: Team[] = [
     seoDescription:
       "Improve your SEO strategy with AI-powered content and search analytics. Track rankings, organic traffic, and content performance.",
     featuredIntegrations: ["google-analytics", "google-searchconsole"],
-    featuredFeatures: ["ai-data-agent", "web-access", "automations"],
+    featuredFeatures: ["ai-data-agent", "web-access", "workflows"],
     priority: 4,
   },
   {
@@ -112,7 +112,7 @@ export const teams: Team[] = [
     seoDescription:
       "Understand product usage and user behavior with advanced product analytics. Track feature adoption, user journeys, and engagement.",
     featuredIntegrations: ["mixpanel", "google-analytics"],
-    featuredFeatures: ["ai-data-agent", "learning-layer", "automations"],
+    featuredFeatures: ["ai-data-agent", "learning-layer", "workflows"],
     priority: 6,
   },
   {
@@ -162,7 +162,7 @@ export const teams: Team[] = [
     seoDescription:
       "Optimize growth strategies with customer acquisition, retention, and lifecycle analytics. Track LTV, CAC, and growth metrics.",
     featuredIntegrations: ["mixpanel", "stripe", "google-analytics"],
-    featuredFeatures: ["ai-data-agent", "learning-layer", "automations"],
+    featuredFeatures: ["ai-data-agent", "learning-layer", "workflows"],
     priority: 9,
   },
   {

@@ -132,7 +132,11 @@ export function TeamFeatures({
 
                       <div className="flex items-center justify-between pt-2">
                         <Button asChild variant="ghost" size="sm">
-                          <Link href={`/features/${feature.slug}`}>
+                          <Link
+                            href={
+                              feature.redirectUrl || `/features/${feature.slug}`
+                            }
+                          >
                             Learn More <ArrowRight className="ml-1 h-3 w-3" />
                           </Link>
                         </Button>

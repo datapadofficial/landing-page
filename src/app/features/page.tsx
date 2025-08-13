@@ -110,7 +110,10 @@ export default function FeaturesPage() {
                 const IconComponent =
                   iconMap[feature.icon as keyof typeof iconMap];
                 return (
-                  <Link key={feature.slug} href={`/features/${feature.slug}`}>
+                  <Link
+                    key={feature.slug}
+                    href={feature.redirectUrl || `/features/${feature.slug}`}
+                  >
                     <div className="border bg-black-3 dark:bg-white-3 rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 group cursor-pointer">
                       <div className="flex items-start gap-4 mb-4">
                         <div
@@ -147,7 +150,10 @@ export default function FeaturesPage() {
                 const IconComponent =
                   iconMap[feature.icon as keyof typeof iconMap];
                 return (
-                  <Link key={feature.slug} href={`/features/${feature.slug}`}>
+                  <Link
+                    key={feature.slug}
+                    href={feature.redirectUrl || `/features/${feature.slug}`}
+                  >
                     <div className="border bg-black-3 dark:bg-white-3 rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 group cursor-pointer">
                       <div className="flex items-start gap-4 mb-4">
                         <div
@@ -184,7 +190,10 @@ export default function FeaturesPage() {
                 const IconComponent =
                   iconMap[feature.icon as keyof typeof iconMap];
                 return (
-                  <Link key={feature.slug} href={`/features/${feature.slug}`}>
+                  <Link
+                    key={feature.slug}
+                    href={feature.redirectUrl || `/features/${feature.slug}`}
+                  >
                     <div className="border bg-black-3 dark:bg-white-3 rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 group cursor-pointer">
                       <div className="flex items-start gap-4 mb-4">
                         <div
@@ -221,7 +230,10 @@ export default function FeaturesPage() {
                 const IconComponent =
                   iconMap[feature.icon as keyof typeof iconMap];
                 return (
-                  <Link key={feature.slug} href={`/features/${feature.slug}`}>
+                  <Link
+                    key={feature.slug}
+                    href={feature.redirectUrl || `/features/${feature.slug}`}
+                  >
                     <div className="border bg-black-3 dark:bg-white-3 rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 group cursor-pointer">
                       <div className="flex items-start gap-4 mb-4">
                         <div
