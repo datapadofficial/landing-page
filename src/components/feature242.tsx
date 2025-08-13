@@ -1,7 +1,6 @@
 "use client";
 
 import { ChevronRight, Plus } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 
 import { cn } from "@/lib/utils";
@@ -10,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { OrbitingIntegrations } from "@/components/creatives/orbiting-integrations";
 import { AnimatedWorkflowList } from "@/components/creatives/animated-workflow-list";
+import { KpiBarAnimationMock } from "@/components/creatives/kpi-bar-animation-mock";
 
 const Feature242 = () => {
   const steps = [
@@ -24,7 +24,7 @@ const Feature242 = () => {
     },
     {
       step: "02",
-      title: "Pick a Recipe",
+      title: "Execute a Workflow",
       description:
         "Choose from 50+ proven recipes that solve real business problems. Each recipe connects your data and delivers actionable insights in minutes.",
       imgSrc:
@@ -109,13 +109,9 @@ const Feature242 = () => {
                       <AnimatedWorkflowList />
                     </div>
                   ) : (
-                    <Image
-                      className="max-h-48 w-full opacity-100 transition-all ease-in-out group-hover:scale-95 group-hover:opacity-70"
-                      src={step.imgSrc}
-                      alt={step.title}
-                      width={300}
-                      height={200}
-                    />
+                    <div className="flex justify-center items-center py-8">
+                      <KpiBarAnimationMock />
+                    </div>
                   )}
                 </div>
               </div>
