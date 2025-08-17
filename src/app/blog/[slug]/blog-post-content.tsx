@@ -271,21 +271,6 @@ export function BlogPostContent({
                 </ul>
               </div>
             )}
-
-            {/* Back to Top Button */}
-            {showBackToTop && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full"
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-              >
-                <ArrowUp className="mr-2 h-4 w-4" />
-                Back to Top
-              </Button>
-            )}
           </aside>
 
           {/* Main Content */}
@@ -329,7 +314,7 @@ export function BlogPostContent({
               <p className="text-muted-foreground text-sm font-medium mb-3">
                 ON THIS PAGE
               </p>
-              <div className="max-h-[calc(100vh-12rem)] overflow-y-auto">
+              <div className="max-h-[calc(100vh-16rem)] overflow-y-auto">
                 <ul className="text-muted-foreground text-sm space-y-1">
                   {headings.map(({ id, text, level }) => (
                     <li key={id}>
@@ -355,6 +340,23 @@ export function BlogPostContent({
                   ))}
                 </ul>
               </div>
+
+              {/* Back to Top Button */}
+              {showBackToTop && (
+                <div className="mt-4 pt-4 border-t border-border">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <ArrowUp className="mr-2 h-4 w-4" />
+                    Back to Top
+                  </Button>
+                </div>
+              )}
             </nav>
           )}
         </div>

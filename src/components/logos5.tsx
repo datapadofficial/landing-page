@@ -99,7 +99,7 @@ const Logos5 = () => {
                     alt={`${company.name} logo`}
                     width={company.width}
                     height={company.height}
-                    className="max-h-4 max-w-full object-contain opacity-100 transition-opacity sm:max-h-5 lg:max-h-6"
+                    className="max-h-4 max-w-full object-contain opacity-60 dark:opacity-100 transition-opacity sm:max-h-5 lg:max-h-6 invert dark:invert-0"
                   />
                 </div>
               </a>
@@ -121,7 +121,7 @@ const Logos5 = () => {
                     alt={`${company.name} logo`}
                     width={company.width}
                     height={company.height}
-                    className="max-h-4 max-w-full object-contain opacity-100 transition-opacity sm:max-h-5 lg:max-h-6"
+                    className="max-h-4 max-w-full object-contain opacity-60 dark:opacity-100 transition-opacity sm:max-h-5 lg:max-h-6 invert dark:invert-0"
                   />
                 </div>
               </a>

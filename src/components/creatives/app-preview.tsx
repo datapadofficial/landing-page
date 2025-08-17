@@ -2,8 +2,17 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function AppPreview() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="my-8 sm:my-12 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -23,7 +32,9 @@ export function AppPreview() {
       >
         <div className="w-full overflow-hidden rounded-lg sm:rounded-xl border border-white/10 p-1 sm:p-1.5 bg-background">
           <Image
-            src="/images/hero-1.png"
+            src={`/images/hero-${
+              mounted && resolvedTheme === "dark" ? "1" : "2"
+            }.png`}
             alt="Landing page preview"
             width={1920}
             height={1080}

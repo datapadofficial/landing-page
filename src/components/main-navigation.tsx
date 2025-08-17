@@ -31,6 +31,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Link from "next/link";
 
 const MainNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,12 +57,12 @@ const MainNavigation = () => {
         <nav className="hidden justify-between lg:flex">
           {/* Logo */}
           <div className="min-w-none lg:min-w-[191px]">
-            <a href="/" className="flex w-fit items-center gap-2">
+            <Link href="/" className="flex w-fit items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
               <span className="text-xl font-medium tracking-tight font-poppins">
                 datapad
               </span>
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center">
@@ -122,10 +123,10 @@ const MainNavigation = () => {
               <AnimatedThemeToggler className="h-8 w-8" />
             </Button>
             <Button asChild variant="secondary" size="sm">
-              <a href="https://app.datapad.io">Sign In</a>
+              <Link href="https://app.datapad.io">Sign In</Link>
             </Button>
             <Button asChild size="sm">
-              <a href="https://app.datapad.io">Sign up</a>
+              <Link href="https://app.datapad.io">Sign up</Link>
             </Button>
           </div>
         </nav>
@@ -134,9 +135,9 @@ const MainNavigation = () => {
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <AnimatedLogo isActive={false} className="w-5 h-5" />
-            </a>
+            </Link>
             <div className="flex gap-2 items-center">
               <Button
                 asChild
@@ -155,12 +156,12 @@ const MainNavigation = () => {
                 <SheetContent className="overflow-y-auto">
                   <SheetHeader>
                     <SheetTitle>
-                      <a
+                      <Link
                         href="/"
                         className="flex items-center gap-2 font-medium text-lg"
                       >
                         Menu
-                      </a>
+                      </Link>
                     </SheetTitle>
                   </SheetHeader>
                   <div className="flex flex-col gap-6 p-4">
@@ -170,9 +171,9 @@ const MainNavigation = () => {
                       className="flex w-full flex-col gap-4"
                     >
                       {/* Home */}
-                      <a href="/" className="text-md font-semibold">
+                      <Link href="/" className="text-md font-semibold">
                         Home
-                      </a>
+                      </Link>
 
                       {/* Product */}
                       <AccordionItem value="Product" className="border-b-0">
@@ -218,22 +219,22 @@ const MainNavigation = () => {
                       </AccordionItem>
 
                       {/* Pricing */}
-                      <a href="/pricing" className="text-md font-semibold">
+                      <Link href="/pricing" className="text-md font-semibold">
                         Pricing
-                      </a>
+                      </Link>
 
                       {/* Blog */}
-                      <a href="/blog" className="text-md font-semibold">
+                      <Link href="/blog" className="text-md font-semibold">
                         Blog
-                      </a>
+                      </Link>
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
                       <Button asChild variant="outline">
-                        <a href="https://app.datapad.io">Sign In</a>
+                        <Link href="https://app.datapad.io">Sign In</Link>
                       </Button>
                       <Button asChild>
-                        <a href="https://app.datapad.io">Sign up</a>
+                        <Link href="https://app.datapad.io">Sign up</Link>
                       </Button>
                     </div>
                   </div>
@@ -250,222 +251,228 @@ const MainNavigation = () => {
 // Mobile menu components (simplified versions of the desktop submenus)
 const MobileProductMenu = () => (
   <div className="flex flex-col gap-2">
-    <a
+    <Link
       href="/features/ai-data-agent"
       className="text-sm hover:text-accent-foreground"
     >
       AI Data Agent
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/generative-dashboards"
       className="text-sm hover:text-accent-foreground"
     >
       Generative Dashboards
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/text-to-sql-python"
       className="text-sm hover:text-accent-foreground"
     >
       Text2SQL & Python
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/integrations"
       className="text-sm hover:text-accent-foreground"
     >
       50+ Integrations
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/data-blending"
       className="text-sm hover:text-accent-foreground"
     >
       Data Blending
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/shareable-reports"
       className="text-sm hover:text-accent-foreground"
     >
       Shareable Reports
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/slack-bot"
       className="text-sm hover:text-accent-foreground"
     >
       Slack Bot
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/voice-mode"
       className="text-sm hover:text-accent-foreground"
     >
       Voice Mode
-    </a>
-    <a href="/workflows" className="text-sm hover:text-accent-foreground">
+    </Link>
+    <Link href="/workflows" className="text-sm hover:text-accent-foreground">
       Workflows
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/multi-model-ai"
       className="text-sm hover:text-accent-foreground"
     >
       Multi-Model AI
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/learning-layer"
       className="text-sm hover:text-accent-foreground"
     >
       Learning Layer
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features/web-access"
       className="text-sm hover:text-accent-foreground"
     >
       Web Access
-    </a>
-    <a
+    </Link>
+    <Link
       href="/features"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       View All Features
-    </a>
+    </Link>
   </div>
 );
 
 const MobileWorkflowsMenu = () => (
   <div className="flex flex-col gap-2">
-    <a
+    <Link
       href="/teams/marketing"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Marketing
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/sales"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Sales
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/retail-ecommerce"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       E-commerce
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/content-seo"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Content & SEO
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/agency"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Agency
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/finance"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Finance
-    </a>
-    <a
+    </Link>
+    <Link
       href="/workflows"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       Browse All Workflows
-    </a>
+    </Link>
   </div>
 );
 
 const MobileIntegrationsMenu = () => (
   <div className="flex flex-col gap-2">
-    <a
+    <Link
       href="/integrations/google-analytics"
       className="text-sm hover:text-accent-foreground"
     >
       Google Analytics
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/facebook-ads"
       className="text-sm hover:text-accent-foreground"
     >
       Facebook Ads
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/google-ads"
       className="text-sm hover:text-accent-foreground"
     >
       Google Ads
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/shopify"
       className="text-sm hover:text-accent-foreground"
     >
       Shopify
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/hubspot"
       className="text-sm hover:text-accent-foreground"
     >
       HubSpot
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/stripe"
       className="text-sm hover:text-accent-foreground"
     >
       Stripe
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/salesforce"
       className="text-sm hover:text-accent-foreground"
     >
       Salesforce
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations/linkedin-ads"
       className="text-sm hover:text-accent-foreground"
     >
       LinkedIn Ads
-    </a>
-    <a
+    </Link>
+    <Link
       href="/integrations"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       View All Integrations
-    </a>
+    </Link>
   </div>
 );
 
 const MobileTeamsMenu = () => (
   <div className="flex flex-col gap-2">
-    <a href="/teams/marketing" className="text-sm hover:text-accent-foreground">
+    <Link
+      href="/teams/marketing"
+      className="text-sm hover:text-accent-foreground"
+    >
       Marketing
-    </a>
-    <a href="/teams/sales" className="text-sm hover:text-accent-foreground">
+    </Link>
+    <Link href="/teams/sales" className="text-sm hover:text-accent-foreground">
       Sales
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/retail-ecommerce"
       className="text-sm hover:text-accent-foreground"
     >
       E-commerce
-    </a>
-    <a href="/teams/finance" className="text-sm hover:text-accent-foreground">
+    </Link>
+    <Link
+      href="/teams/finance"
+      className="text-sm hover:text-accent-foreground"
+    >
       Finance
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams/content-seo"
       className="text-sm hover:text-accent-foreground"
     >
       Content & SEO
-    </a>
-    <a href="/teams/agency" className="text-sm hover:text-accent-foreground">
+    </Link>
+    <Link href="/teams/agency" className="text-sm hover:text-accent-foreground">
       Agency
-    </a>
-    <a
+    </Link>
+    <Link
       href="/teams"
       className="text-sm hover:text-accent-foreground font-medium"
     >
       View All Teams
-    </a>
+    </Link>
   </div>
 );
 
