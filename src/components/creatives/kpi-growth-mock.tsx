@@ -120,7 +120,7 @@ export function KpiGrowthMock({ className }: KpiGrowthMockProps) {
 
         {/* KPI Grid */}
         <div className="grid grid-cols-2 gap-3">
-          {kpiData.map((kpi, index) => {
+          {kpiData.map((kpi) => {
             const Icon = kpi.icon;
             const currentValue = isVisible
               ? kpi.initialValue +

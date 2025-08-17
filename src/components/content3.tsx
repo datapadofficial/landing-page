@@ -15,6 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Content3 = () => {
   const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
@@ -121,11 +122,13 @@ const Content3 = () => {
           </aside>
           <div className="gap-6 lg:col-span-3">
             <div className="max-w-prose lg:mx-auto">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-                alt="placeholder"
-                className="border-border aspect-video rounded-2xl border object-cover"
-              />
+              <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+        alt="placeholder"
+        width={24}
+        height={24}
+        className="border-border aspect-video rounded-2xl border object-cover"
+      />
               <div className="prose dark:prose-invert prose-h3:mt-14 prose-h3:scroll-mt-14 prose-h3:text-lg mt-12">
                 <h2 className="text-4xl font-semibold">Beginner's Guide</h2>
                 <h3

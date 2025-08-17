@@ -8,13 +8,7 @@ import {
 import { getIntegrationsByIds } from "@/lib/integrations";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { WorkflowCard } from "@/components/ui/workflow-card";
 import {
   Breadcrumb,
@@ -26,7 +20,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   Clock,
-  Users,
   BarChart3,
   ArrowRight,
   Play,
@@ -370,7 +363,6 @@ export default async function WorkflowPage({ params }: WorkflowPageProps) {
                   <WorkflowCard
                     key={relatedWorkflow.slug}
                     workflow={relatedWorkflow}
-                    variant="compact"
                   />
                 ))}
               </div>

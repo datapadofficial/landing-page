@@ -48,34 +48,34 @@ export interface Integration {
 }
 
 // Helper function to create integration objects with consistent structure
-const createIntegration = (
-  id: string,
-  name: string,
-  description: string,
-  category: Integration["category"],
-  website: string,
-  dataTypes: string[],
-  updateFrequency: string = "Real-time",
-  historicalData: string = "Unlimited",
-  apiDocs?: string,
-  seoContent?: Integration["seoContent"],
-  hasCustomPage: boolean = false
-): Integration => ({
-  id,
-  name,
-  description,
-  category,
-  icon: `/images/integrations/${id}.png`,
-  website,
-  specs: {
-    dataTypes,
-    updateFrequency,
-    historicalData,
-    apiDocs,
-  },
-  seoContent,
-  hasCustomPage,
-});
+// const createIntegration = (
+//   id: string,
+//   name: string,
+//   description: string,
+//   category: Integration["category"],
+//   website: string,
+//   dataTypes: string[],
+//   updateFrequency: string = "Real-time",
+//   historicalData: string = "Unlimited",
+//   apiDocs?: string,
+//   seoContent?: Integration["seoContent"],
+//   hasCustomPage: boolean = false
+// ): Integration => ({
+//   id,
+//   name,
+//   description,
+//   category,
+//   icon: `/images/integrations/${id}.png`,
+//   website,
+//   specs: {
+//     dataTypes,
+//     updateFrequency,
+//     historicalData,
+//     apiDocs,
+//   },
+//   seoContent,
+//   hasCustomPage,
+// });
 
 export const integrations: Integration[] = [
   {

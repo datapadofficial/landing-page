@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 export const metadata = {
@@ -131,12 +132,14 @@ export default async function BlogsPage() {
           </div>
           <div className="mx-auto max-w-7xl">
             <div className="my-16 grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-16">
-              <img
+              <Image
                 src={
                   featuredPost.image ||
                   "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                 }
                 alt={featuredPost.imageAlt || featuredPost.title}
+                width={600}
+                height={400}
                 className="aspect-video rounded-lg object-cover"
               />
               <div className="flex flex-col items-start gap-4">
@@ -165,12 +168,14 @@ export default async function BlogsPage() {
                   key={post.slug}
                   className="flex flex-col items-start gap-4"
                 >
-                  <img
+                  <Image
                     src={
                       post.image ||
                       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
                     }
                     alt={post.imageAlt || post.title}
+                    width={400}
+                    height={300}
                     className="aspect-video rounded-lg object-cover"
                   />
                   <Badge variant="secondary" className="shrink">

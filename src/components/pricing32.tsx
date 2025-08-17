@@ -119,7 +119,6 @@ const PLANS: PricingPlan[] = [
 ];
 
 const Pricing32 = ({
-  showHeadline = true,
   className,
 }: {
   showHeadline?: boolean;

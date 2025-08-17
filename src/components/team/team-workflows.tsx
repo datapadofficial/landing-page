@@ -28,11 +28,7 @@ export function TeamWorkflows({
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredWorkflows.map((workflow) => (
-              <WorkflowCard
-                key={workflow.slug}
-                workflow={workflow}
-                variant="detailed"
-              />
+              <WorkflowCard key={workflow.slug} workflow={workflow} />
             ))}
           </div>
 

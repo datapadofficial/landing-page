@@ -26,12 +26,6 @@ interface FooterProps {
 }
 
 const Footer = ({
-  logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "Shadcnblocks.com",
-    url: "https://www.shadcnblocks.com",
-  },
   tagline = "Datapad. All Rights Reserved. 2025",
   tagline2 = "Made with ❤️ in San Francisco",
   menuItems = [

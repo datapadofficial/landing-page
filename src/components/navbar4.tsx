@@ -43,6 +43,7 @@ import {
   X,
 } from "lucide-react";
 import { Fragment, useState } from "react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -227,21 +228,24 @@ const productCategories = [
         title: "Task Management",
         description: "Organize and track work efficiently.",
         href: "#",
-        image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
+        image:
+          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
       },
       {
         id: "product-2",
         title: "Team Calendar",
         description: "Coordinate schedules and deadlines.",
         href: "#",
-        image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-2.svg",
+        image:
+          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-2.svg",
       },
       {
         id: "product-3",
         title: "Workflows",
         description: "Automate your business processes.",
         href: "#",
-        image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-3.svg",
+        image:
+          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-3.svg",
       },
     ],
   },
@@ -253,14 +257,16 @@ const productCategories = [
         title: "Portfolio Management",
         description: "Track and optimize project portfolios at scale.",
         href: "#",
-        image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-4.svg",
+        image:
+          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-4.svg",
       },
       {
         id: "product-5",
         title: "Resource Planning",
         description: "Optimize team workload and capacity.",
         href: "#",
-        image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-5.svg",
+        image:
+          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-5.svg",
       },
     ],
   },
@@ -553,9 +559,11 @@ const SolutionsMenu = () => (
           </p>
         </div>
         <div className="relative aspect-2/1 overflow-clip rounded-t pl-6 lg:max-w-[22rem] lg:pl-0">
-          <img
+          <Image
             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
             alt="placeholder"
+            width={24}
+            height={24}
             className="aspect-2/1 h-full w-full translate-y-px object-cover object-center"
           />
         </div>
@@ -628,9 +636,11 @@ const ProductsMenu = () => (
       >
         <div className="relative z-10 flex w-full flex-col space-y-12 text-left lg:space-y-0">
           <div className="relative flex aspect-2/1 max-h-[11rem] w-full flex-1 justify-center">
-            <img
+            <Image
               src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
               alt="placeholder"
+              width={24}
+              height={24}
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -662,7 +672,12 @@ const ProductsMenu = () => (
                 className="group flex flex-row items-center space-x-6 border-b border-border py-5 text-left sm:py-7 lg:space-x-4 lg:border-0 lg:py-2"
               >
                 <div className="relative flex aspect-square w-6 shrink-0 items-center justify-center overflow-clip rounded md:size-9 md:p-2">
-                  <img src={product.image} alt={product.title} />
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 <div className="flex-1">
                   <div className="text-sm font-medium text-foreground/85 group-hover:text-foreground">
@@ -692,9 +707,11 @@ const GlobalGuidanceMenu = () => (
         >
           <div className="relative z-10 flex w-full flex-col-reverse text-left lg:flex-col">
             <div className="relative flex aspect-4/3 max-h-[18rem] w-full flex-1 justify-center">
-              <img
+              <Image
                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg"
                 alt="placeholder"
+                width={24}
+                height={24}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -804,9 +821,11 @@ const CustomersMenu = () => (
           <div className="flex h-full border-t border-border sm:mr-[20%] sm:w-[110px] sm:border-none">
             <div className="relative grid w-1/2 border-x border-border sm:w-full">
               <div className="relative flex items-center justify-center border-b p-4">
-                <img
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg"
                   alt="placeholder"
+                  width={24}
+                  height={24}
                   className="h-4 w-full"
                 />
                 <div className="absolute top-0 left-0 flex translate-x-[-50%] translate-y-[-50%] items-center justify-center bg-accent p-2">
@@ -823,9 +842,11 @@ const CustomersMenu = () => (
                 </div>
               </div>
               <div className="relative flex items-center justify-center border-b p-4">
-                <img
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/vercel-wordmark.svg"
                   alt="placeholder"
+                  width={24}
+                  height={24}
                   className="h-4 w-full"
                 />
                 <div className="absolute bottom-0 left-0 flex translate-x-[-50%] translate-y-[50%] items-center justify-center bg-accent p-2">
@@ -836,9 +857,11 @@ const CustomersMenu = () => (
                 </div>
               </div>
               <div className="relative flex items-center justify-center border-b p-4">
-                <img
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcn-ui-wordmark.svg"
                   alt="placeholder"
+                  width={24}
+                  height={24}
                   className="h-4 w-full"
                 />
                 <div className="absolute bottom-0 left-0 flex translate-x-[-50%] translate-y-[50%] items-center justify-center bg-accent p-2">
@@ -849,9 +872,11 @@ const CustomersMenu = () => (
                 </div>
               </div>
               <div className="relative flex items-center justify-center p-4">
-                <img
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/supabase-wordmark.svg"
                   alt="placeholder"
+                  width={24}
+                  height={24}
                   className="h-4 w-full"
                 />
                 <div className="absolute bottom-0 left-0 flex translate-x-[-50%] translate-y-[50%] items-center justify-center bg-accent p-2">
@@ -884,9 +909,11 @@ const CustomersMenu = () => (
           <div className="absolute right-0 bottom-0 flex translate-x-[50%] translate-y-[50%] items-center justify-center bg-primary p-2">
             <div className="size-1 rounded-full bg-primary-foreground"></div>
           </div>
-          <img
+          <Image
             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg"
             alt="placeholder"
+            width={24}
+            height={24}
             className="w-1/2 object-contain object-center opacity-100 invert transition-all duration-100 group-hover:scale-[1.1]"
           />
         </div>
@@ -900,9 +927,11 @@ const CustomersMenu = () => (
       >
         <div className="mb-5 flex justify-between border-y border-border pl-6 md:mt-12 md:mb-0">
           <div className="relative aspect-square w-16 border-x border-border p-4">
-            <img
+            <Image
               src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg"
               alt="placeholder"
+              width={24}
+              height={24}
               className="h-auto w-full object-contain"
             />
             <div className="absolute top-0 left-0 flex translate-x-[-50%] translate-y-[-50%] items-center justify-center bg-accent p-2">
@@ -960,9 +989,11 @@ const PartnersMenu = () => (
             </p>
           </div>
           <div className="absolute inset-0 top-[32%] bg-accent invert md:top-0">
-            <img
+            <Image
               src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
               alt="placeholder"
+              width={24}
+              height={24}
               className="object-fit h-full w-full object-top-right opacity-100 md:h-2/3 md:object-top"
             />
           </div>
@@ -985,9 +1016,11 @@ const PartnersMenu = () => (
             </p>
           </div>
           <div className="absolute inset-0 top-[32%] md:top-0">
-            <img
+            <Image
               src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
               alt="placeholder"
+              width={24}
+              height={24}
               className="object-fit h-full w-full object-top-right md:h-2/3 md:object-top"
             />
           </div>
@@ -1050,9 +1083,11 @@ const ResourcesMenu = () => (
             </p>
           </div>
           <div className="absolute inset-0">
-            <img
+            <Image
               src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg"
               alt="placeholder"
+              width={24}
+              height={24}
               className="h-full w-full object-cover object-center invert"
             />
           </div>
@@ -1140,10 +1175,12 @@ const Navbar4 = () => {
               href="https://www.shadcnblocks.com"
               className="flex items-center gap-2"
             >
-              <img
+              <Image
                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
-                className="max-h-8"
                 alt="Shadcn UI Navbar"
+                width={24}
+                height={24}
+                className="max-h-8"
               />
               <span className="text-lg font-semibold tracking-tighter">
                 Shadcnblocks.com

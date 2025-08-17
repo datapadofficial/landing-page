@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 const TESTIMONIALS = [
   {
@@ -7,7 +8,8 @@ const TESTIMONIALS = [
     link: "#",
     author: {
       name: "Sarah Williams",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
+      image:
+        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
       role: "CTO, ARC",
     },
     company: {
@@ -21,7 +23,8 @@ const TESTIMONIALS = [
     link: "#",
     author: {
       name: "John Doe",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
+      image:
+        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
       role: "CEO & Founder, descript",
     },
     company: {
@@ -43,10 +46,12 @@ const CASE_STUDIES = [
     ],
     author: {
       name: "John Doe",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
+      image:
+        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
       role: "Head of Marketing",
     },
-    background: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/ivan-bandura-hqnUYXsN5oY-unsplash.jpg",
+    background:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/ivan-bandura-hqnUYXsN5oY-unsplash.jpg",
   },
   {
     title: "How Mercury Reduced Speed-to-Lead by 80%",
@@ -59,10 +64,12 @@ const CASE_STUDIES = [
     ],
     author: {
       name: "Jane Smith",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
+      image:
+        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
       role: "Sales Director",
     },
-    background: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/jeremy-bishop-iEjCQtcsVPY-unsplash.jpg",
+    background:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/jeremy-bishop-iEjCQtcsVPY-unsplash.jpg",
   },
   {
     title: "From Zero to $7M in Pipeline",
@@ -75,10 +82,12 @@ const CASE_STUDIES = [
     ],
     author: {
       name: "John Doe",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
+      image:
+        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
       role: "Head of Marketing",
     },
-    background: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/kevin-charit-1fL2Q1JcbNc-unsplash.jpg",
+    background:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/kevin-charit-1fL2Q1JcbNc-unsplash.jpg",
   },
 ];
 
@@ -140,10 +149,12 @@ const Testimonial27 = () => {
                   name={testimonial.author.name}
                 />
                 <div className="w-24">
-                  <img
+                  <Image
                     className="w-full object-contain object-center opacity-80"
                     src={testimonial.company.logo}
                     alt={testimonial.company.name}
+                    width={96}
+                    height={32}
                   />
                 </div>
               </div>

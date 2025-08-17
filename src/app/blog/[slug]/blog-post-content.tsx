@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,17 +37,13 @@ interface BlogPostContentProps {
   children: ReactNode; // This will be the rendered MDX content
 }
 
-export function BlogPostContent({
-  post,
-  slug,
-  children,
-}: BlogPostContentProps) {
+export function BlogPostContent({ post, children }: BlogPostContentProps) {
   const [activeHeading, setActiveHeading] = useState<string>("");
   const [headings, setHeadings] = useState<
     Array<{ id: string; text: string; level: number }>
   >([]);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const sectionRefs = useRef<Record<string, HTMLElement>>({});
+  // const sectionRefs = useRef<Record<string, HTMLElement>>({});
 
   // Extract headings from MDX content
   useEffect(() => {
@@ -140,11 +136,11 @@ export function BlogPostContent({
     };
   }, [headings]);
 
-  const addSectionRef = (id: string, ref: HTMLElement | null) => {
-    if (ref) {
-      sectionRefs.current[id] = ref;
-    }
-  };
+  // const addSectionRef = (id: string, ref: HTMLElement | null) => {
+  //   if (ref) {
+  //     sectionRefs.current[id] = ref;
+  //   }
+  // };
 
   return (
     <section className="py-8">

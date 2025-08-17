@@ -1,6 +1,7 @@
 import { Calendar } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface DataItem {
   id: number;
@@ -17,7 +18,8 @@ const DATA: DataItem[] = [
     title: "Streamline your workflow",
     description:
       "Automate repetitive tasks and focus on what truly matters for your business growth.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
   },
   {
     id: 2,
@@ -25,7 +27,8 @@ const DATA: DataItem[] = [
     title: "Collaborate seamlessly",
     description:
       "Work together with your team in real-time, no matter where you are.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
   },
   {
     id: 3,
@@ -33,7 +36,8 @@ const DATA: DataItem[] = [
     title: "Scale effortlessly",
     description:
       "Our tools grow with your business, ensuring you’re always ready for the next step.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
   },
 ];
 
@@ -75,9 +79,11 @@ const Feature191 = () => {
               </div>
               <div className="mt-auto flex min-h-[200px] justify-center rounded-b-2xl">
                 <div className="h-[200px] w-full">
-                  <img
+                  <Image
                     src={feature.image}
                     alt="placeholder"
+                    width={400}
+                    height={200}
                     className="h-full w-full rounded-b-2xl object-cover"
                   />
                 </div>

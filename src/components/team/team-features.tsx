@@ -100,7 +100,7 @@ export function TeamFeatures({
                             color: `var(--${feature.color})`,
                           }}
                         >
-                          {feature.team}
+                          {team.name}
                         </Badge>
                       </div>
                     </div>

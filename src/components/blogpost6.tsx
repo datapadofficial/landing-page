@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface BreadcrumbItem {
   label: string;
@@ -242,11 +243,13 @@ const Blogpost6 = () => {
               </p>
               <a href="#">Explore more</a>
               <div className="w-full max-w-[40rem] overflow-hidden">
-                <img
-                  src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-                  alt=""
-                  className="size-full object-cover object-center"
-                />
+                <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+        alt=""
+        width={24}
+        height={24}
+        className="size-full object-cover object-center"
+      />
               </div>
               <h3>2. Navigation Components</h3>
               <p>
@@ -260,11 +263,13 @@ const Blogpost6 = () => {
                 to various screen sizes.
               </p>
               <div className="w-full max-w-[40rem] overflow-hidden">
-                <img
-                  src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
-                  alt=""
-                  className="size-full object-cover object-center"
-                />
+                <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
+        alt=""
+        width={24}
+        height={24}
+        className="size-full object-cover object-center"
+      />
               </div>
               <h3>3. Feedback Components</h3>
               <p>
@@ -277,11 +282,13 @@ const Blogpost6 = () => {
                 actions like form submissions or file uploads.
               </p>
               <div className="w-full max-w-[40rem] overflow-hidden">
-                <img
-                  src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg"
-                  alt=""
-                  className="size-full object-cover object-center"
-                />
+                <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg"
+        alt=""
+        width={24}
+        height={24}
+        className="size-full object-cover object-center"
+      />
               </div>
               <h3>4. Layout Components</h3>
               <p>
@@ -293,11 +300,13 @@ const Blogpost6 = () => {
                 supports scalability as the application grows in complexity.
               </p>
               <div className="w-full max-w-[40rem] overflow-hidden">
-                <img
-                  src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg"
-                  alt=""
-                  className="size-full object-cover object-center"
-                />
+                <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg"
+        alt=""
+        width={24}
+        height={24}
+        className="size-full object-cover object-center"
+      />
               </div>
               <h2 id="heading-3" className="scroll-mt-24">
                 End Paragraph

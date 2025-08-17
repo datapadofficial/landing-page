@@ -11,7 +11,7 @@ export function OrbitingIntegrations() {
         duration={30}
         delay={10}
         radius={50}
-        iconSize={28}
+        iconSize={20}
       >
         <Image
           src="/images/integrations/google-analytics.png"
@@ -33,7 +33,7 @@ export function OrbitingIntegrations() {
         duration={35}
         delay={20}
         radius={100}
-        iconSize={28}
+        iconSize={20}
         reverse
       >
         <Image
@@ -63,7 +63,7 @@ export function OrbitingIntegrations() {
         duration={25}
         delay={4}
         radius={140}
-        iconSize={28}
+        iconSize={20}
       >
         <Image
           src="/images/integrations/salesforce.png"

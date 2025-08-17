@@ -13,6 +13,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import Image from "next/image";
 
 const Feature3 = () => {
   return (
@@ -35,10 +36,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>
@@ -53,10 +56,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>
@@ -71,10 +76,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>
@@ -89,10 +96,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>
@@ -107,10 +116,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>
@@ -125,10 +136,12 @@ const Feature3 = () => {
                 </p>
               </CardContent>
               <CardFooter className="justify-end pr-0 pb-0">
-                <img
-                  className="h-40 w-full rounded-tl-md object-cover object-center"
+                <Image
                   src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
                   alt="placeholder"
+                  width={400}
+                  height={160}
+                  className="h-40 w-full rounded-tl-md object-cover object-center"
                 />
               </CardFooter>
             </Card>

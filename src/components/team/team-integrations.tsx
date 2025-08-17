@@ -21,7 +21,6 @@ interface TeamIntegrationsProps {
 }
 
 export function TeamIntegrations({
-  team,
   integrations,
   customContent,
 }: TeamIntegrationsProps) {
@@ -53,7 +52,7 @@ export function TeamIntegrations({
                         {integration.name}
                       </CardTitle>
                       <CardDescription className="text-sm">
-                        {integration.team}
+                        {integration.description}
                       </CardDescription>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Team } from "@/lib/categories";
+import { Team } from "@/lib/teams";
 import { Workflow } from "@/lib/workflows";
 import {
   Card,

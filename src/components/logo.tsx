@@ -1,6 +1,7 @@
 "use client";
 
 import { Download } from "lucide-react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -95,30 +96,33 @@ const Logo = ({ url, className, children, ...props }: LogoProps) => {
   );
 };
 
-const LogoImage = ({ src, alt, className, ...props }: LogoImageProps) => (
-  <img src={src} alt={alt} className={cn("block h-8", className)} {...props} />
-);
-
-const LogoImageMobile = ({ src, alt, className, ...props }: LogoImageProps) => (
-  <img
+const LogoImage = ({ src, alt, className }: LogoImageProps) => (
+  <Image
     src={src}
     alt={alt}
-    className={cn("flex h-8 md:hidden", className)}
-    {...props}
+    width={120}
+    height={32}
+    className={cn("block h-8", className)}
   />
 );
 
-const LogoImageDesktop = ({
-  src,
-  alt,
-  className,
-  ...props
-}: LogoImageProps) => (
-  <img
+const LogoImageMobile = ({ src, alt, className }: LogoImageProps) => (
+  <Image
+    src={src}
+    width={120}
+    height={32}
+    alt={alt}
+    className={cn("flex h-8 md:hidden", className)}
+  />
+);
+
+const LogoImageDesktop = ({ src, alt, className }: LogoImageProps) => (
+  <Image
     src={src}
     alt={alt}
+    width={120}
+    height={32}
     className={cn("hidden h-8 md:flex", className)}
-    {...props}
   />
 );
 
@@ -135,7 +139,7 @@ const LogoTextMobile = ({ children, className, ...props }: LogoTextProps) => (
   <span
     className={cn(
       "text-lg font-semibold tracking-tighter md:hidden",
-      className,
+      className
     )}
     {...props}
   >
@@ -147,7 +151,7 @@ const LogoTextDesktop = ({ children, className, ...props }: LogoTextProps) => (
   <span
     className={cn(
       "hidden text-lg font-semibold tracking-tighter md:flex",
-      className,
+      className
     )}
     {...props}
   >

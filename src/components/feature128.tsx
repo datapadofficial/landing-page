@@ -7,7 +7,6 @@ import {
   Plug,
   Layers,
   Share,
-  MessageSquare,
   Mic,
   Zap,
   Brain,

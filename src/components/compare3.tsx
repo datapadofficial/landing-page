@@ -10,6 +10,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Compare3 = () => {
   return (
@@ -29,22 +30,26 @@ const Compare3 = () => {
           <div className="mt-14 grid min-w-2xl grid-cols-3">
             <div className="border-b border-border p-5"></div>
             <div className="flex flex-col items-center gap-2 rounded-t-2xl border-b border-border bg-muted p-5">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg"
-                alt="Acme logo"
-                className="size-8"
-              />
+              <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg"
+        alt="Acme logo"
+        width={24}
+        height={24}
+        className="size-8"
+      />
               <p className="text-lg font-semibold">Acme</p>
               <p className="mt-1 text-center text-sm text-muted-foreground">
                 Built with customer needs in mind
               </p>
             </div>
             <div className="flex flex-col items-center gap-2 border-b border-border p-5">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-2.svg"
-                alt="Biz logo"
-                className="size-8"
-              />
+              <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-2.svg"
+        alt="Biz logo"
+        width={24}
+        height={24}
+        className="size-8"
+      />
               <p className="text-lg font-semibold">Biz</p>
               <p className="mt-1 text-center text-sm text-muted-foreground">
                 A popular alternative solution

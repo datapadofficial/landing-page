@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 type Category =
   | "Technology"
@@ -20,28 +21,32 @@ const posts: Post[] = [
     category: "Technology",
     description:
       "Discover how AI is transforming industries and learn about the latest advancements in artificial intelligence. Discover how AI is transforming industries and learn about the latest advancements in artificial intelligence.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   {
     title: "Strategies for Effective Business Growth in 2025",
     category: "Business",
     description:
       "Learn proven strategies to grow your business and stay competitive in the ever-evolving market landscape.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   {
     title: "Top Wellness Trends to Improve Your Health in 2025",
     category: "Health & Wellness",
     description:
       "Explore the top wellness trends that can help you achieve a healthier and more balanced lifestyle.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg",
   },
   {
     title: "Boosting Productivity with Smart Tools and Techniques",
     category: "Productivity",
     description:
       "Find out how to enhance your productivity using the latest tools and techniques for better time management.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
+    image:
+      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
   },
 ];
 
@@ -60,9 +65,11 @@ const Blog14 = () => {
         </div>
         <div className="mx-auto max-w-7xl">
           <div className="my-16 grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-16">
-            <img
+            <Image
               src={posts[0].image}
               alt="placeholder"
+              width={600}
+              height={400}
               className="aspect-video rounded-lg object-cover"
             />
             <div className="flex flex-col items-start gap-4">
@@ -81,9 +88,11 @@ const Blog14 = () => {
           <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
             {posts.slice(1).map((post) => (
               <div key={post.title} className="flex flex-col items-start gap-4">
-                <img
+                <Image
                   src={post.image}
                   alt="placeholder"
+                  width={400}
+                  height={300}
                   className="aspect-video rounded-lg object-cover"
                 />
                 <Badge variant="secondary" className="shrink">

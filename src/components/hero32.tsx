@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface Integration {
   id: string;
@@ -27,51 +28,61 @@ const Hero32 = ({
       {
         id: "google-analytics",
         icon: (
-          <img
-            alt="Google Analytics"
-            src="/images/integrations/google-analytics.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/google-analytics.png"
+        alt="Google Analytics"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "google-ads",
         icon: (
-          <img
-            alt="Google Ads"
-            src="/images/integrations/google-ads.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/google-ads.png"
+        alt="Google Ads"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "facebook-ads",
         icon: (
-          <img
-            alt="Facebook Ads"
-            src="/images/integrations/facebook-ads.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/facebook-ads.png"
+        alt="Facebook Ads"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "linkedin-ads",
         icon: (
-          <img
-            alt="LinkedIn Ads"
-            src="/images/integrations/linkedin-ads.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/linkedin-ads.png"
+        alt="LinkedIn Ads"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "stripe",
         icon: (
-          <img
-            alt="Stripe"
-            src="/images/integrations/stripe.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/stripe.png"
+        alt="Stripe"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
     ],
@@ -79,51 +90,61 @@ const Hero32 = ({
       {
         id: "salesforce",
         icon: (
-          <img
-            alt="Salesforce"
-            src="/images/integrations/salesforce.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/salesforce.png"
+        alt="Salesforce"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "hubspot",
         icon: (
-          <img
-            alt="HubSpot"
-            src="/images/integrations/hubspot.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/hubspot.png"
+        alt="HubSpot"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "shopify",
         icon: (
-          <img
-            alt="Shopify"
-            src="/images/integrations/shopify.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/shopify.png"
+        alt="Shopify"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "mixpanel",
         icon: (
-          <img
-            alt="Mixpanel"
-            src="/images/integrations/mixpanel.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/mixpanel.png"
+        alt="Mixpanel"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "intercom",
         icon: (
-          <img
-            alt="Intercom"
-            src="/images/integrations/intercom.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/intercom.png"
+        alt="Intercom"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
     ],
@@ -131,51 +152,61 @@ const Hero32 = ({
       {
         id: "google-bigquery",
         icon: (
-          <img
-            alt="Google BigQuery"
-            src="/images/integrations/google-bigquery.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/google-bigquery.png"
+        alt="Google BigQuery"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "snowflake",
         icon: (
-          <img
-            alt="Snowflake"
-            src="/images/integrations/snowflake.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/snowflake.png"
+        alt="Snowflake"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "postgres",
         icon: (
-          <img
-            alt="PostgreSQL"
-            src="/images/integrations/postgres.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/postgres.png"
+        alt="PostgreSQL"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "google-sheets",
         icon: (
-          <img
-            alt="Google Sheets"
-            src="/images/integrations/google-sheets.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/google-sheets.png"
+        alt="Google Sheets"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
       {
         id: "zapier",
         icon: (
-          <img
-            alt="Zapier"
-            src="/images/integrations/zapier.png"
-            className="h-full w-full object-contain"
-          />
+          <Image
+        src="/images/integrations/zapier.png"
+        alt="Zapier"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
         ),
       },
     ],
@@ -184,11 +215,13 @@ const Hero32 = ({
   return (
     <section className="relative overflow-hidden w-full">
       <div className="absolute inset-x-0 top-0 flex h-full w-full items-center justify-center opacity-100">
-        <img
-          alt="background"
-          src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/square-alt-grid.svg"
-          className="opacity-30 dark:opacity-60 dark:invert [mask-image:radial-gradient(60%_60%_at_center,white,transparent)]"
-        />
+        <Image
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/square-alt-grid.svg"
+        alt="background"
+        width={24}
+        height={24}
+        className="opacity-30 dark:opacity-60 dark:invert [mask-image:radial-gradient(60%_60%_at_center,white,transparent)]"
+      />
       </div>
       <div className="relative">
         <div className="md:-space-x-26 container relative flex flex-col items-start md:flex-row md:items-center">

@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { getAllIntegrations, Integration } from "@/lib/integrations";
 
-interface IntegrationsSubmenuProps {
-  className?: string;
-}
+// interface IntegrationsSubmenuProps {
+//   className?: string;
+// }
 
-const IntegrationsSubmenu = ({ className }: IntegrationsSubmenuProps) => {
+const IntegrationsSubmenu = () => {
   // Get featured integrations for the navigation menu
   const allIntegrations = getAllIntegrations();
 
