@@ -19,6 +19,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Feature187 } from "@/components/feature187";
+import { Integration12 } from "@/components/integration12";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -284,6 +285,11 @@ export default async function IntegrationPage({
               <div className="col-span-full">
                 <Feature187 integration={integration} />
               </div>
+            </div>
+
+            {/* Integration Connection Interface */}
+            <div className="mt-16">
+              <Integration12 integration={integration} />
             </div>
           </div>
         </section>

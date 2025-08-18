@@ -96,7 +96,12 @@ const Feature197 = ({ features }: Feature197Props) => {
                 const colors = chartColors[index % chartColors.length];
                 return (
                   <AccordionItem key={tab.id} value={`item-${tab.id}`}>
-                    <AccordionTrigger className="cursor-pointer py-5 no-underline! transition">
+                    <AccordionTrigger className="cursor-pointer py-5 no-underline! transition flex items-center justify-start">
+                      {IconComponent && (
+                        <div className="h-10 w-10 flex items-center justify-center bg-black-3 dark:bg-white-3 rounded-lg border border-input">
+                          <IconComponent className={`${colors.text} size-5`} />
+                        </div>
+                      )}
                       <h4
                         className={`flex items-center transition-colors ${
                           colors.hover
@@ -106,9 +111,6 @@ const Feature197 = ({ features }: Feature197Props) => {
                             : "text-foreground/50"
                         }`}
                       >
-                        {IconComponent && (
-                          <IconComponent className="size-5 mr-3" />
-                        )}
                         {tab.title}
                       </h4>
                     </AccordionTrigger>

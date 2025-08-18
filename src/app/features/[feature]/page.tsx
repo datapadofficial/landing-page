@@ -1,6 +1,7 @@
 import { getFeatureBySlug, getAllFeatures } from "@/lib/features";
 import { notFound } from "next/navigation";
 import { FeatureHero } from "@/components/feature-hero";
+import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { FeatureDetails } from "@/components/feature-details";
 import { FeatureBenefits } from "@/components/feature-benefits";
 import { FeatureUseCases } from "@/components/feature-use-cases";
@@ -81,6 +82,9 @@ export default async function FeaturePage({ params }: FeaturePageProps) {
 
       {/* Feature Hero */}
       <FeatureHero feature={feature} />
+
+      {/* Video Preview Section */}
+      <AppVideoPreview videoUrl={feature.videoUrl} />
 
       {/* Feature Details */}
       <FeatureDetails feature={feature} />

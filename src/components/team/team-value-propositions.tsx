@@ -20,9 +20,7 @@ export function TeamValuePropositions({
   return (
     <div className={cn("py-36", className)}>
       <div className="container mx-auto text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-          Why {team.name} Teams Choose Datapad
-        </h2>
+        <h2>Why {team.name} Teams Choose Datapad</h2>
         <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
           Discover how Datapad transforms {team.name.toLowerCase()} analytics
           and reporting

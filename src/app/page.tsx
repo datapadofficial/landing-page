@@ -1,4 +1,5 @@
 import { MainHero } from "@/components/main-hero";
+import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { Logos5 } from "@/components/logos5";
 import { Feature242 } from "@/components/feature242";
@@ -30,8 +31,15 @@ export default function Home() {
       {/* Hero Section */}
       <MainHero />
 
+      {/* Video Preview Section */}
+      <AppVideoPreview
+        videoUrl={
+          "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4"
+        }
+      />
+
       {/* App Preview Section */}
-      <AppPreview />
+      {/* <AppPreview /> */}
 
       {/* Logos section */}
       <Logos5 />
