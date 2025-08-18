@@ -20,6 +20,7 @@ export interface Team {
     image: string;
     description: string;
     videoUrl?: string;
+    icon?: string; // Icon name as string
   }>;
 
   // Meta info
@@ -57,6 +58,7 @@ export const teams: Team[] = [
           "Let your AI agent track, analyze, and summarize your campaign performance — across platforms, files, and chaos. So you can focus on strategy, not spreadsheets.",
         videoUrl:
           "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+        icon: "layers",
       },
       {
         id: 2,
@@ -66,6 +68,7 @@ export const teams: Team[] = [
           "Transform raw campaign data into executive-ready presentations in seconds. Create interactive marketing dashboards, multi-channel performance reports, and stakeholder presentations that update automatically with real-time campaign metrics.",
         videoUrl:
           "https://framerusercontent.com/assets/thPIwKlb7YCJTJdvbkG5ElHzKo.mp4",
+        icon: "gauge",
       },
       {
         id: 3,
@@ -75,6 +78,7 @@ export const teams: Team[] = [
           'Stop waiting for data analysts to answer simple questions. Get instant, conversational insights from your marketing data with natural language queries. Ask "Why did our Facebook CPA increase?" and receive actionable optimization recommendations within seconds.',
         videoUrl:
           "https://framerusercontent.com/assets/LKtWdwOvk8HVJMGaT2vcTCrfM.mp4",
+        icon: "bar-chart-3",
       },
       {
         id: 4,
@@ -84,6 +88,7 @@ export const teams: Team[] = [
           "Eliminate manual marketing report creation and fragmented analytics forever. Get automated weekly insights with performance trend analysis, unified campaign tracking, and AI-powered optimization recommendations delivered to your inbox every Monday morning.",
         videoUrl:
           "https://framerusercontent.com/assets/Vdh41xKMlsuFhTKFCtv6lkEXGE0.mp4",
+        icon: "message-circle",
       },
     ],
     priority: 1,

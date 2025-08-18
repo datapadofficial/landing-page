@@ -11,6 +11,7 @@ export interface Feature {
   ctaUrl: string;
   category: "core" | "integration" | "automation" | "advanced";
   priority: number;
+  videoUrl: string;
   // Special redirect URL for features that don't follow the standard /features/[slug] pattern
   redirectUrl?: string;
 }
@@ -43,6 +44,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 1,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "dashboards",
@@ -71,6 +74,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 2,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "text-to-sql-python",
@@ -99,6 +104,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 3,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "integrations",
@@ -127,6 +134,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "integration",
     priority: 4,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "data-blending",
@@ -155,6 +164,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 5,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "shareable-reports",
@@ -183,6 +194,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 6,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "slack-bot",
@@ -211,6 +224,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "integration",
     priority: 7,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "voice-mode",
@@ -239,6 +254,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "advanced",
     priority: 8,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "workflows",
@@ -267,6 +284,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "automation",
     priority: 9,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
     redirectUrl: "/workflows",
   },
   {
@@ -296,6 +315,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "advanced",
     priority: 10,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "learning-layer",
@@ -324,6 +345,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "advanced",
     priority: 11,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
   {
     slug: "web-access",
@@ -352,6 +375,8 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "advanced",
     priority: 12,
+    videoUrl:
+      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
 ];
 

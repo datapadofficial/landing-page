@@ -6,11 +6,11 @@ import { getIntegrationsByIds } from "@/lib/integrations";
 import { getFeatureBySlug } from "@/lib/features";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
-import { TeamValuePropositions } from "@/components/team/team-value-propositions";
 import { TeamWorkflows } from "@/components/team/team-workflows";
 import { TeamFeatures } from "@/components/team/team-features";
 import { TeamCTA } from "@/components/team/team-cta";
 import { Logos5 } from "@/components/logos5";
+import { TeamValuePropositions } from "@/components/team/team-value-propositions";
 
 interface TeamPageProps {
   params: Promise<{
@@ -81,21 +81,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
 
   return (
     <>
-      <TeamHero
-        team={team}
-        customContent={
-          <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border">
-            <h3 className="text-lg font-semibold mb-2">
-              {team.name} Analytics Made Simple
-            </h3>
-            <p className="text-muted-foreground">
-              Transform your {team.name.toLowerCase()} data into actionable
-              insights with AI-powered analytics. Connect your tools and get
-              answers to your most important questions in seconds.
-            </p>
-          </div>
-        }
-      />
+      <TeamHero team={team} />
 
       {/* Logos section */}
       <Logos5
@@ -111,6 +97,10 @@ export default async function TeamPage({ params }: TeamPageProps) {
           </div>
         }
       />
+
+      <TeamValuePropositions team={team} />
+
+      <TeamFeatures team={team} features={features} />
 
       <TeamIntegrations
         team={team}
@@ -129,8 +119,6 @@ export default async function TeamPage({ params }: TeamPageProps) {
         }
       />
 
-      <TeamValuePropositions team={team} />
-
       <TeamWorkflows
         team={team}
         workflows={workflows}
@@ -145,8 +133,6 @@ export default async function TeamPage({ params }: TeamPageProps) {
           </div>
         }
       />
-
-      <TeamFeatures team={team} features={features} />
 
       <TeamCTA team={team} />
     </>

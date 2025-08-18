@@ -652,7 +652,7 @@ body {
   }
 
   h5 {
-    @apply text-lg xl:text-xl font-display font-medium;
+    @apply text-lg xl:text-2xl font-display font-medium;
   }
 
   /* Responsive variants - using @apply for consistency */

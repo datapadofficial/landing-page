@@ -3,29 +3,7 @@
 import { Team } from "@/lib/teams";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  TrendingUp,
-  DollarSign,
-  ShoppingCart,
-  Search,
-  Users,
-  Package,
-  Calculator,
-  Building,
-  Truck,
-} from "lucide-react";
-
-const iconMap = {
-  TrendingUp,
-  DollarSign,
-  ShoppingCart,
-  Search,
-  Users,
-  Package,
-  Calculator,
-  Building,
-  Truck,
-};
+import { PieChart } from "lucide-react";
 
 interface TeamHeroProps {
   team: Team;
@@ -33,35 +11,20 @@ interface TeamHeroProps {
 }
 
 export function TeamHero({ team, customContent }: TeamHeroProps) {
-  const IconComponent = iconMap[team.icon as keyof typeof iconMap];
-
   return (
     <section className="pt-16 sm:pt-24 pb-16">
       <div className="container">
         <div className="mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <Badge
-              variant="secondary"
-              style={{
-                backgroundColor: `var(--${team.color})10`,
-                color: `var(--${team.color})`,
-                borderColor: `var(--${team.color})20`,
-              }}
-            >
-              {team.name} Intelligence
-            </Badge>
-          </div>
-
           <div className="flex flex-col items-center justify-center gap-6 mb-6">
             <div
               className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg"
               style={{ color: `var(--${team.color})` }}
             >
-              {IconComponent && <IconComponent className="size-8" />}
+              <PieChart className="size-8" />
             </div>
             <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                {team.name} Analytics
+              <h1 className="max-w-6xl">
+                Crunch {team.name} Data Like a Real Boss
               </h1>
             </div>
           </div>

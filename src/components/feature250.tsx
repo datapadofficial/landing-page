@@ -50,15 +50,13 @@ function AnimatedBeamIllustration() {
             className="size-18 bg-background absolute left-0 top-40 z-10 flex -translate-y-1/2 items-center justify-center rounded-full p-1 lg:left-0 lg:top-1/2"
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
-              <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Image
-                  alt="Google Analytics"
-                  src="/images/integrations/google-analytics.png"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-              </div>
+              <Image
+                alt="Google Analytics"
+                src="/images/integrations/google-analytics.png"
+                width={20}
+                height={20}
+                className="h-6 w-6 object-contain"
+              />
             </div>
           </div>
           <div
@@ -66,15 +64,13 @@ function AnimatedBeamIllustration() {
             className="size-18 bg-background absolute right-0 top-40 z-10 flex -translate-y-1/2 items-center justify-center rounded-full p-1 lg:left-20 lg:top-20"
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
-              <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Image
-                  alt="Stripe"
-                  src="/images/integrations/stripe.png"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-              </div>
+              <Image
+                alt="Stripe"
+                src="/images/integrations/stripe.png"
+                width={20}
+                height={20}
+                className="h-6 w-6 object-contain"
+              />
             </div>
           </div>
           <div
@@ -82,15 +78,13 @@ function AnimatedBeamIllustration() {
             className="size-18 bg-background absolute bottom-0 left-6 z-10 flex -translate-y-1/2 items-center justify-center rounded-full p-1 lg:bottom-2 lg:left-20"
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
-              <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Image
-                  alt="HubSpot"
-                  src="/images/integrations/hubspot.png"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-              </div>
+              <Image
+                alt="HubSpot"
+                src="/images/integrations/hubspot.png"
+                width={20}
+                height={20}
+                className="h-6 w-6 object-contain"
+              />
             </div>
           </div>
           <div
@@ -98,15 +92,13 @@ function AnimatedBeamIllustration() {
             className="size-18 bg-background lg:left-50 absolute bottom-0 right-6 z-10 flex -translate-y-1/2 items-center justify-center rounded-full p-1 lg:top-0"
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
-              <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Image
-                  alt="Shopify"
-                  src="/images/integrations/shopify.png"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-              </div>
+              <Image
+                alt="Shopify"
+                src="/images/integrations/shopify.png"
+                width={20}
+                height={20}
+                className="h-6 w-6 object-contain"
+              />
             </div>
           </div>
           <div
@@ -114,15 +106,13 @@ function AnimatedBeamIllustration() {
             className="size-18 bg-background lg:top-100 lg:left-50 absolute top-20 z-10 flex -translate-y-1/2 items-center justify-center rounded-full p-1"
           >
             <div className="border-border bg-background flex size-10 items-center justify-center rounded-lg border p-[5px]">
-              <div className="border-border bg-muted flex size-full items-center justify-center rounded-md border">
-                <Image
-                  alt="Google Ads"
-                  src="/images/integrations/google-ads.png"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-              </div>
+              <Image
+                alt="Google Ads"
+                src="/images/integrations/google-ads.png"
+                width={20}
+                height={20}
+                className="h-6 w-6 object-contain"
+              />
             </div>
           </div>
         </div>
