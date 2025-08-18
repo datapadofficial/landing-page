@@ -23,9 +23,7 @@ export function TeamHero({ team, customContent }: TeamHeroProps) {
               <PieChart className="size-8" />
             </div>
             <div className="text-center">
-              <h1 className="max-w-6xl">
-                Crunch {team.name} Data Like a Real Boss
-              </h1>
+              <h1 className="max-w-6xl">Crunch {team.name} Data Like a Boss</h1>
             </div>
           </div>
 
