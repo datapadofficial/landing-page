@@ -44,23 +44,23 @@ export default function Home() {
       {/* Logos section */}
       <Logos5 />
 
-      {/* How it works Section */}
+      {/* Data Agent Section */}
+      <Feature166 />
+
+      {/* Workflows Section */}
       <Feature242 />
 
       {/* Key Features Section */}
       <Feature128 />
 
-      {/* Features Bento Section */}
-      <Feature166 />
-
       {/* Case Studies Section */}
       <DatapadCasestudies />
 
-      {/* Pricing Section */}
-      <Pricing32 />
-
       {/* Integrations Section */}
       <Feature250 />
+
+      {/* Pricing Section */}
+      <Pricing32 />
 
       {/* FAQ Section */}
       <Faq2 />
