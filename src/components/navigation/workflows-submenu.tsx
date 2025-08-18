@@ -14,6 +14,7 @@ import Link from "next/link";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getWorkflowsByTeam } from "@/lib/workflows";
@@ -198,7 +199,7 @@ const WorkflowsSubmenu = () => {
 
             {/* View All Workflows */}
             <div className="col-span-4 pt-4 border-t border-border">
-              <Link
+              <NavigationMenuLink
                 className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors w-full"
                 href="/workflows"
               >
@@ -213,7 +214,7 @@ const WorkflowsSubmenu = () => {
                     View all 50+ ready-to-use analytics workflows
                   </p>
                 </div>
-              </Link>
+              </NavigationMenuLink>
             </div>
           </div>
         </div>
@@ -269,7 +270,7 @@ const WorkflowCategory = ({
           {/* Workflows List - now aligned with the title */}
           <div className="space-y-1">
             {workflows.slice(0, 3).map((workflow) => (
-              <Link
+              <NavigationMenuLink
                 key={workflow.title}
                 className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-1 leading-none no-underline outline-none transition-colors"
                 href={workflow.url}
@@ -279,11 +280,11 @@ const WorkflowCategory = ({
                     {workflow.title}
                   </div>
                 </div>
-              </Link>
+              </NavigationMenuLink>
             ))}
 
             {/* View All as last sub-item */}
-            <Link
+            <NavigationMenuLink
               className="hover:bg-muted/50 hover:text-accent-foreground flex select-none items-start rounded-md p-1 leading-none no-underline outline-none transition-colors"
               href={url}
             >
@@ -293,7 +294,7 @@ const WorkflowCategory = ({
                   <ArrowRight className="h-3 w-3" />
                 </div>
               </div>
-            </Link>
+            </NavigationMenuLink>
           </div>
         </div>
       </div>

@@ -98,7 +98,7 @@ export default async function IntegrationsPage() {
         <div className="container">
           <div className="mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Connect Your Data Sources
+              +100 Data Sources in AI Workflows
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Unify all your business data with 50+ pre-built integrations.

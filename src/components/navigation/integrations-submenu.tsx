@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Sunset } from "lucide-react";
 import Image from "next/image";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getAllIntegrations, Integration } from "@/lib/integrations";
@@ -64,7 +64,7 @@ const IntegrationsSubmenu = () => {
 
             {/* View All Integrations */}
             <div className="col-span-full pt-4 border-t border-border">
-              <Link
+              <NavigationMenuLink
                 className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors w-full"
                 href="/integrations"
               >
@@ -79,7 +79,7 @@ const IntegrationsSubmenu = () => {
                     Browse all {allIntegrations.length}+ data source connections
                   </p>
                 </div>
-              </Link>
+              </NavigationMenuLink>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ const IntegrationLink = ({
   url,
 }: IntegrationLinkProps) => {
   return (
-    <Link
+    <NavigationMenuLink
       className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={url}
     >
@@ -123,7 +123,7 @@ const IntegrationLink = ({
           {description}
         </p>
       </div>
-    </Link>
+    </NavigationMenuLink>
   );
 };
 

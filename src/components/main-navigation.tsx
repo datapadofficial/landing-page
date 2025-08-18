@@ -80,7 +80,7 @@ const MainNavigation = () => {
                 <ProductSubmenu />
 
                 {/* Workflows Submenu */}
-                <WorkflowsSubmenu />
+                {/* <WorkflowsSubmenu /> */}
 
                 {/* Integrations Submenu */}
                 <IntegrationsSubmenu />

@@ -7,7 +7,7 @@ const Cta18 = () => {
   return (
     <section className="py-32">
       <div className="container overflow-hidden">
-        <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-6 overflow-hidden rounded-xl border bg-muted/50 md:flex-row">
+        <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-6 overflow-hidden rounded-xl border md:flex-row">
           <div className="max-w-xl self-center p-6 md:p-12">
             <h2 className="text-3xl font-semibold md:text-4xl">
               Ready to Turn Your Data Into Action?
@@ -26,13 +26,13 @@ const Cta18 = () => {
             </div>
           </div>
           <div className="relative ml-6 max-h-96 md:mt-8 md:ml-0">
-            <Image
+            {/* <Image
               src="/images/block-3.svg"
               alt="Decorative element"
               width={192}
               height={192}
               className="absolute -bottom-12 left-4 h-48 -translate-x-1/2 -rotate-[120deg]"
-            />
+            /> */}
             <Image
               src="/images/hero-2.png"
               alt="Datapad AI Analytics Dashboard"

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   Bot,
   BarChart3,
@@ -16,6 +15,7 @@ import {
 import {
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getAllFeatures } from "@/lib/features";
@@ -98,7 +98,7 @@ const ProductFeatureLink = ({
   color,
 }: ProductFeatureLinkProps) => {
   return (
-    <Link
+    <NavigationMenuLink
       className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={url}
     >
@@ -113,7 +113,7 @@ const ProductFeatureLink = ({
           {description}
         </p>
       </div>
-    </Link>
+    </NavigationMenuLink>
   );
 };
 
