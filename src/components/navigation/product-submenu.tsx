@@ -18,7 +18,7 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getAllFeatures } from "@/lib/features";
+import { getAllFeatures } from "@/lib/feature-utils";
 
 // Icon mapping utility
 const iconMap = {

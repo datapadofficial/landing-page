@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getPostBySlug, getPostSlugs } from "@/lib/blog";
+import { getPostBySlug, getPostSlugs } from "@/lib/blog-utils";
 import { BlogPostContent } from "./blog-post-content";
 import { MDXContent } from "./mdx-content";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";

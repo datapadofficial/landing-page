@@ -4,8 +4,8 @@ import {
   getWorkflowBySlug,
   getAllWorkflows,
   getRelatedWorkflows,
-} from "@/lib/workflows";
-import { getIntegrationsByIds } from "@/lib/integrations";
+} from "@/lib/workflow-template-helpers";
+import { getIntegrationsByIds } from "@/lib/integration-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

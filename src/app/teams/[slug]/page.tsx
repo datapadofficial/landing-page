@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getTeamBySlug, getAllTeams } from "@/lib/teams";
-import { getWorkflowsByTeam } from "@/lib/workflows";
-import { getIntegrationsByIds } from "@/lib/integrations";
-import { getFeatureBySlug } from "@/lib/features";
+import { getTeamBySlug, getAllTeams } from "@/lib/team-utils";
+import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
+import { getIntegrationsByIds } from "@/lib/integration-helpers";
+import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
 import { TeamWorkflows } from "@/components/team/team-workflows";

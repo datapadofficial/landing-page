@@ -1,6 +1,6 @@
 "use client";
 
-import { Team } from "@/lib/teams";
+import { Team } from "../../data/teams/teams";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PieChart } from "lucide-react";

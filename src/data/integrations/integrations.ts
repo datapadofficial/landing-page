@@ -1,81 +1,4 @@
-export interface Integration {
-  id: string;
-  name: string;
-  description: string;
-  category:
-    | "advertising"
-    | "analytics"
-    | "crm"
-    | "ecommerce"
-    | "social"
-    | "database"
-    | "finance"
-    | "email"
-    | "other";
-  icon: string;
-  website?: string;
-
-  // Technical specs
-  specs: {
-    dataTypes: string[];
-    updateFrequency: string;
-    historicalData: string;
-    apiDocs?: string;
-  };
-
-  // SEO content (markdown strings for 30% custom content)
-  seoContent?: {
-    overview?: string;
-    useCases?: string;
-    setup?: string;
-    benefits?: string;
-  };
-
-  // Conversion-focused messaging
-  conversionCopy?: {
-    whyConnect: {
-      headline: string;
-      description: string;
-      benefits: string[];
-      cta: string;
-    };
-    painPoints: string[];
-    solutions: string[];
-  };
-
-  // For custom components (30% custom)
-  hasCustomPage?: boolean;
-}
-
-// Helper function to create integration objects with consistent structure
-// const createIntegration = (
-//   id: string,
-//   name: string,
-//   description: string,
-//   category: Integration["category"],
-//   website: string,
-//   dataTypes: string[],
-//   updateFrequency: string = "Real-time",
-//   historicalData: string = "Unlimited",
-//   apiDocs?: string,
-//   seoContent?: Integration["seoContent"],
-//   hasCustomPage: boolean = false
-// ): Integration => ({
-//   id,
-//   name,
-//   description,
-//   category,
-//   icon: `/images/integrations/${id}.png`,
-//   website,
-//   specs: {
-//     dataTypes,
-//     updateFrequency,
-//     historicalData,
-//     apiDocs,
-//   },
-//   seoContent,
-//   hasCustomPage,
-// });
+import { Integration } from "@/types/integration";
 
 export const integrations: Integration[] = [
   {
@@ -138,7 +61,6 @@ Connect your Facebook Ads account to Datapad for comprehensive campaign analysis
 4. **Set Refresh Rate**: Choose how often to update your data
 5. **Start Analyzing**: Begin exploring your campaign data`,
     },
-    hasCustomPage: true,
   },
   {
     id: "google-ads",
@@ -1226,26 +1148,3 @@ Connect your Instagram Business account to Datapad for comprehensive social medi
     },
   },
 ];
-
-export function getIntegrationById(id: string): Integration | undefined {
-  return integrations.find((integration) => integration.id === id);
-}
-
-export function getAllIntegrations(): Integration[] {
-  return integrations;
-}
-
-export function getIntegrationsByCategory(
-  category: Integration["category"]
-): Integration[] {
-  return integrations.filter(
-    (integration) => integration.category === category
-  );
-}
-
-export function getIntegrationsByIds(ids: string[]): Integration[] {
-  return integrations.filter((integration) => ids.includes(integration.id));
-}
-
-// Note: This function references workflows, but we keep it here for cross-referencing
-// The actual implementation would be: getWorkflowsByIntegration(integrationId)

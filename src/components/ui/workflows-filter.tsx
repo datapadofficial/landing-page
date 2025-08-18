@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Workflow } from "@/lib/workflows";
-import { Team } from "@/lib/teams";
+import { Workflow } from "../../data/workflow-templates/workflow-templates";
+import { Team } from "../../data/teams/teams";
 import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";
 import { Input } from "@/components/ui/input";

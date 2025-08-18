@@ -4,14 +4,14 @@ import { ArrowLeftRight, Check } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import { Integration } from "@/lib/integrations";
-import { getFeatureBySlug } from "@/lib/features";
+import { Integration } from "@/types/integration";
+import { getFeatureBySlug } from "@/lib/feature-utils";
 
-interface Integration12Props {
+interface Props {
   integration: Integration;
 }
 
-const Integration12 = ({ integration }: Integration12Props) => {
+const ConnectIntegration = ({ integration }: Props) => {
   // Get the integrations feature data for benefits
   const integrationsFeature = getFeatureBySlug("integrations");
   const benefits = integrationsFeature?.benefits || [
@@ -80,4 +80,4 @@ const Integration12 = ({ integration }: Integration12Props) => {
   );
 };
 
-export { Integration12 };
+export { ConnectIntegration };

@@ -1,6 +1,6 @@
 "use client";
 
-import { Team } from "@/lib/teams";
+import { Team } from "../../data/teams/teams";
 import { Button } from "@/components/ui/button";
 
 interface TeamCTAProps {

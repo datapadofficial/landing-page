@@ -1,20 +1,4 @@
-export interface Feature {
-  slug: string;
-  title: string;
-  shortDescription: string;
-  longDescription: string;
-  icon: string;
-  color: string;
-  benefits: string[];
-  useCases: string[];
-  ctaText: string;
-  ctaUrl: string;
-  category: "core" | "integration" | "automation" | "advanced";
-  priority: number;
-  videoUrl: string;
-  // Special redirect URL for features that don't follow the standard /features/[slug] pattern
-  redirectUrl?: string;
-}
+import { Feature } from "@/types/feature";
 
 export const features: Feature[] = [
   {
@@ -379,19 +363,3 @@ export const features: Feature[] = [
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
   },
 ];
-
-export function getFeatureBySlug(slug: string): Feature | undefined {
-  return features.find((feature) => feature.slug === slug);
-}
-
-export function getAllFeatures(): Feature[] {
-  return features.sort((a, b) => a.priority - b.priority);
-}
-
-export function getFeaturesByCategory(
-  category: Feature["category"]
-): Feature[] {
-  return features
-    .filter((feature) => feature.category === category)
-    .sort((a, b) => a.priority - b.priority);
-}

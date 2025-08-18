@@ -6,7 +6,8 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getAllIntegrations, Integration } from "@/lib/integrations";
+import { getAllIntegrations } from "@/lib/integration-helpers";
+import { Integration } from "@/types/integration";
 
 // interface IntegrationsSubmenuProps {
 //   className?: string;

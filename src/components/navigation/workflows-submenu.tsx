@@ -17,7 +17,7 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getWorkflowsByTeam } from "@/lib/workflows";
+import { getWorkflowsByTeam } from "../../data/workflow-templates/workflow-templates";
 
 const WorkflowsSubmenu = () => {
   // Get real workflows by team

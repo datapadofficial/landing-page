@@ -1,17 +1,6 @@
-export interface Workflow {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  team: string;
-  integrations: string[];
-  difficulty: "beginner" | "intermediate" | "advanced";
-  estimatedTime: string;
-  prompt: string;
-  mockData?: string;
-}
+import { WorkflowTemplate } from "@/types/template";
 
-export const workflows: Workflow[] = [
+export const workflows: WorkflowTemplate[] = [
   {
     id: "RCP-1",
     slug: "crosschannel-marketing-roi-analysis",
@@ -854,41 +843,3 @@ export const workflows: Workflow[] = [
     mockData: "tiktok-campaign-roi-analysis_mock_data.csv",
   },
 ];
-
-export function getWorkflowBySlug(slug: string): Workflow | undefined {
-  return workflows.find((workflow) => workflow.slug === slug);
-}
-
-export function getAllWorkflows(): Workflow[] {
-  return workflows;
-}
-
-export function getWorkflowsByTeam(team: string): Workflow[] {
-  return workflows.filter((workflow) => workflow.team === team);
-}
-
-export function getWorkflowsByIntegration(integrationId: string): Workflow[] {
-  return workflows.filter((workflow) =>
-    workflow.integrations.includes(integrationId)
-  );
-}
-
-export function getWorkflowsByDifficulty(
-  difficulty: Workflow["difficulty"]
-): Workflow[] {
-  return workflows.filter((workflow) => workflow.difficulty === difficulty);
-}
-
-export function getRelatedWorkflows(
-  workflow: Workflow,
-  limit: number = 4
-): Workflow[] {
-  return workflows
-    .filter((w) => w.slug !== workflow.slug)
-    .filter(
-      (w) =>
-        w.team === workflow.team ||
-        w.integrations.some((i) => workflow.integrations.includes(i))
-    )
-    .slice(0, limit);
-}

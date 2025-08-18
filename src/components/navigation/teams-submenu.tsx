@@ -15,7 +15,7 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getTeamsByPriority } from "@/lib/teams";
+import { getTeamsByPriority } from "@/lib/team-utils";
 
 // Icon mapping utility
 const iconMap = {

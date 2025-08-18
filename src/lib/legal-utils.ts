@@ -2,18 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { cache } from "react";
-
-export interface LegalDocument {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  lastModified?: string;
-  content: string;
-  // SEO fields
-  seoTitle?: string;
-  seoDescription?: string;
-}
+import { LegalDocument } from "@/types/legal-document";
 
 const legalDirectory = path.join(process.cwd(), "content/legal");
 

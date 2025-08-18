@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getLegalDocumentBySlug } from "@/lib/legal";
+import { getLegalDocumentBySlug } from "@/lib/legal-utils";
 import { LegalPageContent } from "@/components/legal-page";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { useMDXComponents as getMDXComponents } from "../../../mdx-components";

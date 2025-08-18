@@ -1,7 +1,7 @@
 "use client";
 
-import { Team } from "@/lib/teams";
-import { Workflow } from "@/lib/workflows";
+import { Team } from "../../data/teams/teams";
+import { Workflow } from "../../data/workflow-templates/workflow-templates";
 import {
   Card,
   CardContent,

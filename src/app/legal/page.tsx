@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getAllLegalDocuments } from "@/lib/legal";
+import { getAllLegalDocuments } from "@/lib/legal-utils";
 import Link from "next/link";
 
 export const metadata: Metadata = {

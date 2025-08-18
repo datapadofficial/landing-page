@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getIntegrationById, getAllIntegrations } from "@/lib/integrations";
-import { getWorkflowsByIntegration } from "@/lib/workflows";
+import {
+  getIntegrationById,
+  getAllIntegrations,
+} from "@/lib/integration-helpers";
+import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,7 +22,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Feature187 } from "@/components/feature187";
-import { Integration12 } from "@/components/integration12";
+import { ConnectIntegration } from "@/components/integration12";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -106,18 +109,6 @@ export default async function IntegrationPage({
   }
 
   const relatedWorkflows = getWorkflowsByIntegration(integration.id);
-
-  // Check for custom page override
-  try {
-    const CustomPage = await import(
-      `../../../components/integrations/${integration.id}/page`
-    ).then((module) => module.default);
-    return (
-      <CustomPage integration={integration} workflows={relatedWorkflows} />
-    );
-  } catch {
-    // No custom page found, use inline template
-  }
 
   return (
     <>
@@ -289,7 +280,7 @@ export default async function IntegrationPage({
 
             {/* Integration Connection Interface */}
             <div className="mt-16">
-              <Integration12 integration={integration} />
+              <ConnectIntegration integration={integration} />
             </div>
           </div>
         </section>

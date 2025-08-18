@@ -1,6 +1,6 @@
 "use client";
 
-import { Workflow } from "@/lib/workflows";
+import { Workflow } from "../../data/workflow-templates/workflow-templates";
 import { Button } from "@/components/ui/button";
 import {
   Card,

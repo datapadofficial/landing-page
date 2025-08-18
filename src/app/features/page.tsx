@@ -1,4 +1,4 @@
-import { getFeaturesByCategory } from "@/lib/features";
+import { getFeaturesByCategory } from "@/lib/feature-utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";

@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import {
   getAllIntegrations,
   getIntegrationsByCategory,
-} from "@/lib/integrations";
-import { getWorkflowsByIntegration } from "@/lib/workflows";
+} from "@/lib/integration-helpers";
+import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

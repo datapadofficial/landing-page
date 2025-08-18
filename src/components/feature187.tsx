@@ -1,5 +1,5 @@
 import React from "react";
-import { Integration } from "@/lib/integrations";
+import { Integration } from "../data/integrations/integrations";
 
 type DataItem = {
   id: number;

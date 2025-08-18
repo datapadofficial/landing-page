@@ -108,7 +108,7 @@ const Feature166 = ({
                 </div>
               </Link>
               <Link
-                href="/features/generative-dashboards"
+                href="/features/dashboards"
                 className="flex flex-col justify-between p-10 lg:w-3/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
               >
                 <h4 className="group-hover:text-foreground/90 transition-colors">

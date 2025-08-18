@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import { getAllTeams } from "@/lib/teams";
-
-import { getIntegrationsByIds } from "@/lib/integrations";
-import { getWorkflowsByTeam } from "@/lib/workflows";
+import { getAllTeams } from "@/lib/team-utils";
+import { getIntegrationsByIds } from "@/lib/integration-helpers";
+import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

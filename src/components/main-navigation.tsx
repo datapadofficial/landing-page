@@ -256,7 +256,7 @@ const MobileProductMenu = () => (
       AI Data Agent
     </Link>
     <Link
-      href="/features/generative-dashboards"
+      href="/features/dashboards"
       className="text-sm hover:text-accent-foreground"
     >
       Generative Dashboards

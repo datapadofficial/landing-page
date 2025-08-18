@@ -1,4 +1,4 @@
-import { getFeatureBySlug, getAllFeatures } from "@/lib/features";
+import { getFeatureBySlug, getAllFeatures } from "@/lib/feature-utils";
 import { notFound } from "next/navigation";
 import { FeatureHero } from "@/components/feature-hero";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Feature } from "@/lib/features";
+import { Feature } from "../data/features/features";
 import { ArrowRight } from "lucide-react";
 
 interface FeatureUseCasesProps {

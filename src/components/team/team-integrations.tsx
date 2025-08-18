@@ -1,7 +1,7 @@
 "use client";
 
-import { Team } from "@/lib/teams";
-import { Integration } from "@/lib/integrations";
+import { Team } from "../../data/teams/teams";
+import { Integration } from "../../data/integrations/integrations";
 import {
   Card,
   CardContent,

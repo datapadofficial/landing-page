@@ -32,11 +32,12 @@ export default function Home() {
       <MainHero />
 
       {/* Video Preview Section */}
-      <AppVideoPreview
+      {/* <AppVideoPreview
         videoUrl={
           "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4"
         }
-      />
+      /> */}
+      <AppPreview />
 
       {/* App Preview Section */}
       {/* <AppPreview /> */}
