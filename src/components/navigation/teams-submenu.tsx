@@ -12,6 +12,7 @@ import {
 import {
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getTeamsByPriority } from "@/lib/teams";
@@ -57,6 +58,7 @@ const TeamsSubmenu = ({}: TeamsSubmenuProps) => {
                   ) : null
                 }
                 url={`/teams/${team.slug}`}
+                color={team.color}
               />
             );
           })}
@@ -81,22 +83,30 @@ interface TeamLinkProps {
   description: string;
   icon: React.ReactNode | null;
   url: string;
+  color?: string;
 }
 
-const TeamLink = ({ title, description, icon, url }: TeamLinkProps) => {
+const TeamLink = ({ title, description, icon, url, color }: TeamLinkProps) => {
   return (
-    <a
+    <NavigationMenuLink
       className="hover:bg-muted hover:text-accent-foreground flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={url}
     >
-      {icon && <div className="text-foreground">{icon}</div>}
+      {icon && (
+        <div
+          className="text-foreground"
+          style={color ? { color: `var(--${color})` } : {}}
+        >
+          {icon}
+        </div>
+      )}
       <div>
         <div className="text-sm font-semibold">{title}</div>
         <p className="text-muted-foreground text-sm leading-snug">
           {description}
         </p>
       </div>
-    </a>
+    </NavigationMenuLink>
   );
 };
 

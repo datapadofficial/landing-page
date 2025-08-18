@@ -6,9 +6,11 @@ import { getIntegrationsByIds } from "@/lib/integrations";
 import { getFeatureBySlug } from "@/lib/features";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
+import { TeamValuePropositions } from "@/components/team/team-value-propositions";
 import { TeamWorkflows } from "@/components/team/team-workflows";
 import { TeamFeatures } from "@/components/team/team-features";
 import { TeamCTA } from "@/components/team/team-cta";
+import { Logos5 } from "@/components/logos5";
 
 interface TeamPageProps {
   params: Promise<{
@@ -95,6 +97,21 @@ export default async function TeamPage({ params }: TeamPageProps) {
         }
       />
 
+      {/* Logos section */}
+      <Logos5
+        title={
+          <div className="text-center">
+            <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
+              Powering the world's best {team.name.toLowerCase()} teams.
+              <br className="max-md:hidden" />
+              <span className="text-muted-foreground">
+                From next-gen startups to established enterprises.
+              </span>
+            </h2>
+          </div>
+        }
+      />
+
       <TeamIntegrations
         team={team}
         integrations={integrations}
@@ -111,6 +128,8 @@ export default async function TeamPage({ params }: TeamPageProps) {
           </div>
         }
       />
+
+      <TeamValuePropositions team={team} />
 
       <TeamWorkflows
         team={team}

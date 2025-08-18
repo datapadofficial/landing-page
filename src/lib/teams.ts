@@ -13,6 +13,15 @@ export interface Team {
   featuredIntegrations: string[]; // Integration IDs
   featuredFeatures: string[]; // Feature slugs
 
+  // Value propositions for Feature197 component
+  valuePropositions?: Array<{
+    id: number;
+    title: string;
+    image: string;
+    description: string;
+    videoUrl?: string;
+  }>;
+
   // Meta info
   priority: number;
 }
@@ -38,6 +47,44 @@ export const teams: Team[] = [
       "ai-data-agent",
       "generative-dashboards",
       "data-blending",
+    ],
+    valuePropositions: [
+      {
+        id: 1,
+        title: "Blend All Your Marketing Data",
+        image: "/images/hero-1.png",
+        description:
+          "Let your AI agent track, analyze, and summarize your campaign performance — across platforms, files, and chaos. So you can focus on strategy, not spreadsheets.",
+        videoUrl:
+          "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+      },
+      {
+        id: 2,
+        title: "Analyze Campaigns on Auto-Pilot",
+        image: "/images/hero-2.png",
+        description:
+          "Transform raw campaign data into executive-ready presentations in seconds. Create interactive marketing dashboards, multi-channel performance reports, and stakeholder presentations that update automatically with real-time campaign metrics.",
+        videoUrl:
+          "https://framerusercontent.com/assets/thPIwKlb7YCJTJdvbkG5ElHzKo.mp4",
+      },
+      {
+        id: 3,
+        title: "Build Dashboards, Decks, Reports...",
+        image: "/images/datapad-ai-analyst.png",
+        description:
+          'Stop waiting for data analysts to answer simple questions. Get instant, conversational insights from your marketing data with natural language queries. Ask "Why did our Facebook CPA increase?" and receive actionable optimization recommendations within seconds.',
+        videoUrl:
+          "https://framerusercontent.com/assets/LKtWdwOvk8HVJMGaT2vcTCrfM.mp4",
+      },
+      {
+        id: 4,
+        title: "Chat With Your Data",
+        image: "/images/block-3.svg",
+        description:
+          "Eliminate manual marketing report creation and fragmented analytics forever. Get automated weekly insights with performance trend analysis, unified campaign tracking, and AI-powered optimization recommendations delivered to your inbox every Monday morning.",
+        videoUrl:
+          "https://framerusercontent.com/assets/Vdh41xKMlsuFhTKFCtv6lkEXGE0.mp4",
+      },
     ],
     priority: 1,
   },
