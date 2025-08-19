@@ -8,13 +8,13 @@ interface MainLogosProps {
 const MainLogos = ({
   title = (
     <div className="text-center">
-      <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
+      <h6>
         Powering the world's best product teams.
         <br className="max-md:hidden" />
         <span className="text-muted-foreground">
           From next-gen startups to established enterprises.
         </span>
-      </h2>
+      </h6>
     </div>
   ),
 }: MainLogosProps) => {
@@ -89,7 +89,7 @@ const MainLogos = ({
 
   return (
     <section className="py-32">
-      <div className="container space-y-10 lg:space-y-16">
+      <div className="container flex flex-col gap-10">
         {title}
 
         <div className="flex w-full flex-col items-center gap-6">

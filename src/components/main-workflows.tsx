@@ -17,7 +17,7 @@ const MainWorkflows = ({
   description = "Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ad campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.",
   integration,
 }: {
-  title?: string;
+  title?: React.ReactNode;
   description?: string;
   integration?: Integration;
 }) => {
@@ -56,7 +56,7 @@ const MainWorkflows = ({
     <section className="overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
         <div className="relative z-10 w-full justify-between flex items-center flex-col gap-6">
-          <div className="max-w-2xl">
+          <div className="max-w-7xl">
             <h2 className="text-center">{title}</h2>
           </div>
           <p className="text-muted-foreground/80 max-w-3xl text-base sm:text-lg md:text-xl text-center">

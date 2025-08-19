@@ -23,15 +23,18 @@ export const integrations: Integration[] = [
         title: "Manual Analysis Hours",
         description:
           "Spending hours in Ads Manager trying to figure out what's working",
+        icon: "clock",
       },
       {
         title: "Missed Optimization Opportunities",
         description:
           "Missing optimization opportunities while campaigns burn budget",
+        icon: "target",
       },
       {
         title: "Audience Scaling Confusion",
         description: "Can't quickly identify which audiences to scale or pause",
+        icon: "users",
       },
     ],
     solutions: [
@@ -73,21 +76,24 @@ export const integrations: Integration[] = [
       "Generate high-converting ad copy variations from your best performers",
     ],
     cta: "Connect Google Ads",
-    secondaryCta: "See a Live Optimization Plan",
+    secondaryCta: "Optimize Your Campaigns",
     painPoints: [
       {
         title: "Spending with No Conversions",
         description: "Your ads are getting clicks but nobody's buying anything",
+        icon: "credit-card",
       },
       {
         title: "Don't Know Which Keywords to Target",
         description:
           "Shooting in the dark with keyword choices while competitors steal your traffic",
+        icon: "search",
       },
       {
         title: "Can't Tell What's Working vs. What's Not",
         description:
           "Drowning in Google Ads data with no clear picture of what drives results",
+        icon: "bar-chart-3",
       },
     ],
     solutions: [
@@ -130,16 +136,19 @@ export const integrations: Integration[] = [
         title: "Confusing GA4 Interface",
         description:
           "GA4 interface is confusing and hard to get actionable insights from",
+        icon: "help-circle",
       },
       {
         title: "Revenue Source Clarity",
         description:
           "Can't quickly identify which traffic sources actually drive revenue",
+        icon: "dollar-sign",
       },
       {
         title: "Hidden Conversion Opportunities",
         description:
           "Missing conversion opportunities buried in complex reports",
+        icon: "eye-off",
       },
     ],
     solutions: [
@@ -186,16 +195,19 @@ export const integrations: Integration[] = [
         title: "Hidden Product Costs",
         description:
           "Can't identify which products are actually profitable after all costs",
+        icon: "package",
       },
       {
         title: "Missed Lifetime Value",
         description:
           "Missing opportunities to increase customer lifetime value",
+        icon: "heart",
       },
       {
         title: "Gut-Based Inventory Decisions",
         description:
           "Inventory decisions based on gut feeling rather than data",
+        icon: "warehouse",
       },
     ],
     solutions: [
@@ -241,16 +253,19 @@ export const integrations: Integration[] = [
       {
         title: "Failed Payment Revenue",
         description: "Losing revenue to failed payments and subscription churn",
+        icon: "x-circle",
       },
       {
         title: "Unpredictable Subscription Churn",
         description:
           "Can't predict which customers are likely to cancel subscriptions",
+        icon: "trending-down",
       },
       {
         title: "Payment Dispute Strategy",
         description:
           "No clear strategy for reducing payment disputes and chargebacks",
+        icon: "alert-triangle",
       },
     ],
     solutions: [
@@ -297,14 +312,17 @@ export const integrations: Integration[] = [
       {
         title: "Stalled Pipeline Deals",
         description: "Deals stalling in the pipeline with no clear next steps",
+        icon: "pause-circle",
       },
       {
         title: "Lead Quality Uncertainty",
         description: "Can't identify which leads are actually worth pursuing",
+        icon: "user-question",
       },
       {
         title: "Poor Lead Generation",
         description: "Marketing campaigns not generating quality leads",
+        icon: "user-x",
       },
     ],
     solutions: [
@@ -352,16 +370,19 @@ export const integrations: Integration[] = [
         title: "Expensive Low Quality",
         description:
           "LinkedIn ads are expensive but not generating quality leads",
+        icon: "banknote",
       },
       {
         title: "Professional Audience Mystery",
         description:
           "Can't identify which professional audiences actually convert",
+        icon: "briefcase",
       },
       {
         title: "Impressions Without Engagement",
         description:
           "B2B campaigns getting impressions but no meaningful engagement",
+        icon: "eye",
       },
     ],
     solutions: [
@@ -429,15 +450,18 @@ export const integrations: Integration[] = [
       {
         title: "Stalled Pipeline Deals",
         description: "Deals stalling in the pipeline without clear next steps",
+        icon: "pause-circle",
       },
       {
         title: "Inaccurate Deal Predictions",
         description: "Can't accurately predict which deals will actually close",
+        icon: "crystal-ball",
       },
       {
         title: "Missed Sales Opportunities",
         description:
           "Sales team missing opportunities and not following best practices",
+        icon: "target",
       },
     ],
     solutions: [
@@ -485,16 +509,19 @@ export const integrations: Integration[] = [
         title: "No Growth Despite",
         description:
           "Posting consistently but not seeing follower or engagement growth",
+        icon: "trending-down",
       },
       {
         title: "Content Resonance Mystery",
         description:
           "Can't identify which content types resonate with your audience",
+        icon: "message-square",
       },
       {
         title: "Wasted Hashtag Time",
         description:
           "Wasting time on hashtags that don't actually increase reach",
+        icon: "hash",
       },
     ],
     solutions: [
@@ -542,16 +569,19 @@ export const integrations: Integration[] = [
         title: "Manual Analysis Hours",
         description:
           "Spending hours manually analyzing spreadsheet data for insights",
+        icon: "clock",
       },
       {
         title: "Hidden Trends Anomalies",
         description:
           "Missing important trends and anomalies buried in your data",
+        icon: "trending-up",
       },
       {
         title: "Professional Report Creation",
         description:
           "Can't easily create professional reports from spreadsheet data",
+        icon: "file-text",
       },
     ],
     solutions: [
@@ -729,15 +759,18 @@ export const integrations: Integration[] = [
         title: "Complex SQL Required",
         description:
           "Need to write complex SQL queries to get basic business insights",
+        icon: "code",
       },
       {
         title: "Unnoticed Data Patterns",
         description: "Important data patterns and anomalies going unnoticed",
+        icon: "search",
       },
       {
         title: "Database Report Creation",
         description:
           "Can't easily create reports and dashboards from database data",
+        icon: "database",
       },
     ],
     solutions: [

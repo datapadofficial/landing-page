@@ -19,7 +19,7 @@ export function IntegrationHero({ integration }: IntegrationHeroProps) {
         <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-7xl">
           {/* Integration Icon */}
           <div className="flex justify-center mb-4">
-            <div className="flex size-20 items-center justify-center rounded-2xl border bg-background drop-shadow-lg">
+            <div className="flex size-20 items-center justify-center rounded-2xl border bg-black-3 dark:bg-white-10 drop-shadow-lg">
               <Image
                 src={integration.icon}
                 alt={integration.name}

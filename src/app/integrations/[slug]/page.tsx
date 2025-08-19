@@ -111,32 +111,45 @@ export default async function IntegrationPage({
       <MainLogos
         title={
           <div className="text-center">
-            <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
+            <h6 className="mb-4">
               Powering the world's best {integration.category} teams.
               <br className="max-md:hidden" />
               <span className="text-muted-foreground">
                 From next-gen startups to established enterprises.
               </span>
-            </h2>
+            </h6>
           </div>
         }
       />
 
+      {/* Pain Points Component */}
+      <IntegrationPainPoints integration={integration} />
+
       {/* Main Workflows */}
       <MainWorkflows
-        title={`Press a Button, Watch Your ROI Increase`}
+        title={
+          <>
+            <span className="text-primary">We Fixed It With AI</span>
+            <br />
+            Press a Button, Watch Your ROI Increase
+          </>
+        }
         description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${integration.name} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
         integration={integration}
       />
 
       {/* Related Workflows */}
       {relatedWorkflows.length > 0 && (
-        <section className="py-16 flex flex-col items-center justify-center w-full max-w-5xl">
-          <div className="flex flex-col text-center mb-12 gap-4">
-            <h2>Workflows using {integration.name}</h2>
-            <p className="text-muted-foreground text-lg">
-              Ready-to-use analytics workflows that leverage {integration.name}{" "}
-              data
+        <section className="py-16 flex flex-col items-center justify-center w-full max-w-7xl">
+          <div className="flex flex-col text-center mb-12 gap-8 items-center">
+            <h2>
+              A Battle-Tested Recipe <br />
+              For Every {integration.name} Scenario
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl text-center">
+              Get actionable campaigns and strategies from your{" "}
+              {integration.name} data in seconds, not spreadsheets. Copy-paste
+              ready.
             </p>
           </div>
 
@@ -161,9 +174,6 @@ export default async function IntegrationPage({
           )}
         </section>
       )}
-
-      {/* Pain Points Component */}
-      <IntegrationPainPoints integration={integration} />
 
       {/* Home Data Agent */}
       <HomeDataAgent />

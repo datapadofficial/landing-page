@@ -21,6 +21,7 @@ export interface Integration {
   painPoints?: Array<{
     title: string;
     description: string;
+    icon: string;
   }>;
   solutions?: Array<{
     title: string;
