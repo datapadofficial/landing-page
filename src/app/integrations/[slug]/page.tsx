@@ -5,9 +5,6 @@ import {
   getAllIntegrations,
 } from "@/lib/integration-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
-import { Button } from "@/components/ui/button";
-import { WorkflowCard } from "@/components/ui/workflow-card";
-import Link from "next/link";
 import { IntegrationConnection } from "@/components/integrations/integration-connection";
 import { MainCTA } from "@/components/main-cta";
 import { IntegrationHero } from "@/components/integrations/integration-hero";
@@ -15,6 +12,7 @@ import { MainLogos } from "@/components/main-logos";
 import { HomeDataAgent } from "@/components/home-data-agent";
 import { WorkflowsSection } from "@/components/workflows-section";
 import { PainPoints } from "@/components/pain-points";
+import { WorkflowGallery } from "@/components/workflows/workflow-gallery";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -144,43 +142,31 @@ export default async function IntegrationPage({
         }
         description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${integration.name} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
         integration={integration}
+        workflows={relatedWorkflows}
       />
 
       {/* Related Workflows */}
       {relatedWorkflows.length > 0 && (
-        <section className="py-16 flex flex-col items-center justify-center w-full max-w-7xl">
-          <div className="flex flex-col text-center mb-12 gap-8 items-center">
-            <h2>
+        <WorkflowGallery
+          workflows={relatedWorkflows}
+          title={
+            <>
               A Battle-Tested Recipe <br />
               For Every {integration.name} Scenario
-            </h2>
+            </>
+          }
+          subtitle={
             <p className="text-muted-foreground text-lg max-w-2xl text-center">
               Get actionable campaigns and strategies from your{" "}
               {integration.name} data in seconds, not spreadsheets. Copy-paste
               ready.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-            {relatedWorkflows.slice(0, 9).map((workflow) => (
-              <WorkflowCard
-                key={workflow.slug}
-                workflow={workflow}
-                filterIntegration={integration.id}
-              />
-            ))}
-          </div>
-
-          {relatedWorkflows.length > 6 && (
-            <div className="text-center mt-8">
-              <Button asChild variant="outline" size="lg">
-                <Link href={`/workflows?integration=${integration.id}`}>
-                  View All {relatedWorkflows.length} Workflows
-                </Link>
-              </Button>
-            </div>
-          )}
-        </section>
+          }
+          maxDisplay={9}
+          viewAllLink={`/workflows?integration=${integration.id}`}
+          viewAllText={`View All ${relatedWorkflows.length} Workflows`}
+          filterIntegration={integration.id}
+        />
       )}
 
       {/* Home Data Agent */}

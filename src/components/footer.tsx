@@ -40,6 +40,35 @@ const Footer = ({
       ],
     },
     {
+      title: "Compare",
+      links: [
+        { text: "vs Julius", url: "/vs/julius-ai" },
+        { text: "vs Tableau", url: "/vs/tableau" },
+        { text: "vs Power BI", url: "/vs/powerbi" },
+        { text: "vs Sisense", url: "/vs/sisense" },
+        { text: "vs Thoughtspot", url: "/vs/thoughtspot" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        {
+          text: "Funding News",
+          url: "/blog/datapad-secures-over-500k-to-redefine-data-analytics-with-autonomous-ai-agents",
+        },
+        {
+          text: "Conversational Analytics Guide",
+          url: "/blog/conversational-analytics-guide-2025",
+        },
+        { text: "How to Analyze Data", url: "/blog/analyze-data" },
+        { text: "KPI Examples", url: "/blog/kpi-examples" },
+        {
+          text: "Best AI Tools for Data Analysis",
+          url: "/blog/best-ai-tools-for-data-analysis",
+        },
+      ],
+    },
+    {
       title: "Company",
       links: [
         { text: "About", url: "/#about" },
@@ -49,27 +78,11 @@ const Footer = ({
         { text: "Terms", url: "/terms-of-service" },
       ],
     },
-    {
-      title: "Resources",
-      links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
-      ],
-    },
   ],
   copyright = "© 2025 Datapad. All rights reserved.",
   bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
+    { text: "Terms and Conditions", url: "/terms-of-service" },
+    { text: "Privacy Policy", url: "/privacy-policy" },
   ],
 }: FooterProps) => {
   return (

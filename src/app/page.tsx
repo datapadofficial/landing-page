@@ -3,7 +3,7 @@ import { MainHero } from "@/components/main-hero";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
 import { WorkflowsSection } from "@/components/workflows-section";
-import { Feature128 } from "@/components/feature128";
+import { FeatureGrid } from "@/components/features/feature-grid";
 import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
@@ -49,7 +49,7 @@ export default function Home() {
       <WorkflowsSection />
 
       {/* Key Features Section */}
-      <Feature128 />
+      <FeatureGrid />
 
       {/* Case Studies Section */}
       <DatapadCasestudies />

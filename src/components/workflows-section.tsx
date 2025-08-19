@@ -5,21 +5,23 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button";
 import { OrbitingIntegrations } from "@/components/creatives/orbiting-integrations";
 import { AnimatedWorkflowList } from "@/components/creatives/animated-workflow-list";
 import { KpiBarAnimationMock } from "@/components/creatives/kpi-bar-animation-mock";
 import { SingleIntegrationBeams } from "./creatives/single-integration-beams";
 import { Integration } from "@/types/integration";
+import { WorkflowTemplate } from "@/types/template";
 
 const WorkflowsSection = ({
   title = "1-Click Workflows That Deliver Results",
   description = "Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ad campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.",
   integration,
+  workflows,
 }: {
   title?: React.ReactNode;
   description?: string;
   integration?: Integration;
+  workflows?: WorkflowTemplate[];
 }) => {
   const steps = [
     {
@@ -101,8 +103,11 @@ const WorkflowsSection = ({
                       )}
                     </>
                   ) : index === 1 ? (
-                    <div className="flex justify-center items-center py-8">
-                      <AnimatedWorkflowList integration="google-ads" />
+                    <div className="flex justify-center items-center py-8 w-full">
+                      <AnimatedWorkflowList
+                        integration={integration}
+                        workflows={workflows}
+                      />
                     </div>
                   ) : (
                     <div className="flex justify-center items-center py-8">

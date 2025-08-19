@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { cache } from "react";
 import { BlogPost } from "@/types/blog-post";
 
-const postsDirectory = path.join(process.cwd(), "content/posts");
+const postsDirectory = path.join(process.cwd(), "src/data/posts");
 
 // Cache the function to avoid re-reading files on every request
 export const getAllPosts = cache(async (): Promise<BlogPost[]> => {

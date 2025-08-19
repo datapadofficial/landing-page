@@ -12,6 +12,8 @@ import { MainLogos } from "@/components/main-logos";
 import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
 import { FeatureAccordion } from "@/components/features/feature-accordion";
 import { PainPoints } from "@/components/pain-points";
+import { WorkflowsSection } from "@/components/workflows-section";
+import { WorkflowGallery } from "@/components/workflows/workflow-gallery";
 
 interface TeamPageProps {
   params: Promise<{
@@ -98,6 +100,42 @@ export default async function TeamPage({ params }: TeamPageProps) {
         }
         subtitle={`See why ${team.name.toLowerCase()} teams are struggling with data analysis and reporting.`}
       />
+
+      {/* Workflows Section */}
+      <WorkflowsSection
+        title={
+          <>
+            <span className="text-primary">We Fixed It With AI</span>
+            <br />
+            Press a Button, Watch Your {team.name} ROI Increase
+          </>
+        }
+        description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${team.name.toLowerCase()} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
+        workflows={workflows}
+      />
+
+      {/* Related Workflows Gallery */}
+      {workflows.length > 0 && (
+        <WorkflowGallery
+          workflows={workflows}
+          title={
+            <>
+              A Battle-Tested Recipe <br />
+              For Every {team.name} Scenario
+            </>
+          }
+          subtitle={
+            <p className="text-muted-foreground text-lg max-w-2xl text-center">
+              Get actionable campaigns and strategies from your{" "}
+              {team.name.toLowerCase()} data in seconds, not spreadsheets.
+              Copy-paste ready.
+            </p>
+          }
+          maxDisplay={9}
+          viewAllLink={`/workflows?team=${team.slug}`}
+          viewAllText={`View All ${workflows.length} ${team.name} Workflows`}
+        />
+      )}
 
       <FeatureAccordion
         title={<h2>Why {team.name} Teams Choose Datapad</h2>}

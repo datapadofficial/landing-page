@@ -29,7 +29,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "How is our sales team performing this quarter? Show me individual performance, pipeline, and deal conversion rates. Create a sales dashboard.",
     team: "sales",
-    integrations: ["database"],
+    integrations: ["postgres"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -94,7 +94,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "How are users engaging with our product features? Show me feature adoption rates, user journey analysis, and identify areas where users are dropping off.",
     team: "product-management",
-    integrations: ["database", "google-analytics", "mixpanel"],
+    integrations: ["postgres", "google-analytics", "mixpanel"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -109,7 +109,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What are our most profitable products, channels, and customer segments? Calculate profit margins, contribution margins, and identify optimization opportunities.",
     team: "finance",
-    integrations: ["database", "google-sheets", "stripe"],
+    integrations: ["postgres", "google-sheets", "stripe"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -124,7 +124,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What will our cash flow look like over the next 6 months? Create predictive models based on historical patterns, seasonality, and current pipeline",
     team: "finance",
-    integrations: ["database", "google-sheets"],
+    integrations: ["postgres", "google-sheets"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -220,7 +220,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Predict SKU‑level stock‑out dates using historical sales and current inventory. Flag items at risk within 14 days.",
     team: "supply-chain",
-    integrations: ["database", "google-sheets"],
+    integrations: ["postgres", "google-sheets"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -235,7 +235,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Show daily active users of new feature X vs control features, compute 7‑day rolling adoption and surface segments with lowest uptake.",
     team: "product-management",
-    integrations: ["database", "mixpanel"],
+    integrations: ["postgres", "mixpanel"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -250,7 +250,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "How do different pricing tiers/packages perform? Show me conversion rates by package",
     team: "product-management",
-    integrations: ["database", "stripe"],
+    integrations: ["postgres", "stripe"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -443,7 +443,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Calculate blended CAC and channel‑level CAC for the last 90 days. Include CAC ÷ LTV ratios and highlight channels above the 0.8 threshold.",
     team: "marketing",
-    integrations: ["database", "google-ads", "linkedin-ads", "stripe"],
+    integrations: ["postgres", "google-ads", "linkedin-ads", "stripe"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -563,7 +563,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products will I run out of next month? Show me current inventory vs sales velocity",
     team: "retail-ecommerce",
-    integrations: ["database", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -578,7 +578,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "How much should I order for Black Friday? Show me last year's sales patterns and current trends.",
     team: "retail-ecommerce",
-    integrations: ["database", "google-analytics", "shopify"],
+    integrations: ["postgres", "google-analytics", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -591,7 +591,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products are most profitable after advertising costs? Show me profit per product after ad spend.",
     team: "retail-ecommerce",
-    integrations: ["database", "facebook-ads", "google-ads", "shopify"],
+    integrations: ["postgres", "facebook-ads", "google-ads", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -604,7 +604,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products will sell out in the next 2 weeks based on current sales velocity?",
     team: "retail-ecommerce",
-    integrations: ["database", "shopify"],
+    integrations: ["postgres", "shopify"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -617,7 +617,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products are frequently bought together? Show me product combinations that could increase order value",
     team: "retail-ecommerce",
-    integrations: ["database", "google-analytics", "shopify"],
+    integrations: ["postgres", "google-analytics", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -630,7 +630,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Did my recent price changes increase total profit? Show me volume increase vs margin decrease by product.",
     team: "retail-ecommerce",
-    integrations: ["database", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -643,7 +643,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products haven't sold in 90 days? Show me slow-moving inventory with quantities and cost tied up.",
     team: "retail-ecommerce",
-    integrations: ["database", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -701,7 +701,7 @@ export const workflows: WorkflowTemplate[] = [
       "How much have we grown this client's business? Show me leads, sales, and revenue growth since we started",
     team: "agency",
     integrations: [
-      "database",
+      "postgres",
       "facebook-ads",
       "google-ads",
       "google-analytics",
@@ -732,7 +732,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What's the long-term value we've created? Show me customer lifetime value and retention improvements since we started.",
     team: "agency",
-    integrations: ["database", "google-analytics", "google-sheets", "stripe"],
+    integrations: ["postgres", "google-analytics", "google-sheets", "stripe"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
