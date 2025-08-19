@@ -93,7 +93,9 @@ export default async function BlogsPage() {
   };
 
   // Get featured post (first post or first featured post)
-  const featuredPost = posts.find((post) => post.featured) || posts[0];
+  const featuredPost =
+    posts.find((post) => post.slug === "conversational-analytics-guide-2025") ||
+    posts[0];
 
   // Get remaining posts for the list
   const otherPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
