@@ -7,86 +7,15 @@ interface MainLogosProps {
 
 const MainLogos = ({
   title = (
-    <div className="text-center">
-      <h6>
-        Powering the world's best product teams.
-        <br className="max-md:hidden" />
-        <span className="text-muted-foreground">
-          From next-gen startups to established enterprises.
-        </span>
-      </h6>
-    </div>
+    <h6 className="text-center">
+      Powering the world's best product teams.
+      <br className="max-md:hidden" />
+      <span className="text-muted-foreground">
+        From next-gen startups to established enterprises.
+      </span>
+    </h6>
   ),
 }: MainLogosProps) => {
-  const topRowCompanies = [
-    {
-      name: "McKinsey & Company",
-      logo: "/images/company-logos/mckinsey-logo.svg",
-      width: 143,
-      height: 26,
-      href: "https://mckinsey.com",
-    },
-    {
-      name: "Revolut",
-      logo: "/images/company-logos/revolut-logo.svg",
-      width: 154,
-      height: 31,
-      href: "https://revolut.com",
-    },
-    {
-      name: "Maersk",
-      logo: "/images/company-logos/maersk-logo.svg",
-      width: 113,
-      height: 22,
-      href: "https://maersk.com",
-    },
-    {
-      name: "Contentful",
-      logo: "/images/company-logos/contentful-logo.svg",
-      width: 112,
-      height: 27,
-      href: "https://contentful.com",
-    },
-  ];
-
-  const bottomRowCompanies = [
-    {
-      name: "Dentsu",
-      logo: "/images/company-logos/dentsu-logo.svg",
-      width: 141,
-      height: 32,
-      href: "https://dentsu.com",
-    },
-    {
-      name: "Delta Air Lines",
-      logo: "/images/company-logos/delta-logo.svg",
-      width: 104,
-      height: 18,
-      href: "https://delta.com",
-    },
-    {
-      name: "Spendesk",
-      logo: "/images/company-logos/spendesk-logo.svg",
-      width: 105,
-      height: 28,
-      href: "https://spendesk.com",
-    },
-    {
-      name: "Shangri-La Hotels",
-      logo: "/images/company-logos/shangrila-logo.svg",
-      width: 128,
-      height: 33,
-      href: "https://shangri-la.com",
-    },
-    {
-      name: "Corsair",
-      logo: "/images/company-logos/corsair-logo.svg",
-      width: 90,
-      height: 28,
-      href: "https://corsair.com",
-    },
-  ];
-
   return (
     <section className="py-32">
       <div className="container flex flex-col gap-10">
@@ -141,5 +70,74 @@ const MainLogos = ({
     </section>
   );
 };
+
+const topRowCompanies = [
+  {
+    name: "McKinsey & Company",
+    logo: "/images/company-logos/mckinsey-logo.svg",
+    width: 143,
+    height: 26,
+    href: "https://mckinsey.com",
+  },
+  {
+    name: "Revolut",
+    logo: "/images/company-logos/revolut-logo.svg",
+    width: 154,
+    height: 31,
+    href: "https://revolut.com",
+  },
+  {
+    name: "Maersk",
+    logo: "/images/company-logos/maersk-logo.svg",
+    width: 113,
+    height: 22,
+    href: "https://maersk.com",
+  },
+  {
+    name: "Contentful",
+    logo: "/images/company-logos/contentful-logo.svg",
+    width: 112,
+    height: 27,
+    href: "https://contentful.com",
+  },
+];
+
+const bottomRowCompanies = [
+  {
+    name: "Dentsu",
+    logo: "/images/company-logos/dentsu-logo.svg",
+    width: 141,
+    height: 32,
+    href: "https://dentsu.com",
+  },
+  {
+    name: "Delta Air Lines",
+    logo: "/images/company-logos/delta-logo.svg",
+    width: 104,
+    height: 18,
+    href: "https://delta.com",
+  },
+  {
+    name: "Spendesk",
+    logo: "/images/company-logos/spendesk-logo.svg",
+    width: 105,
+    height: 28,
+    href: "https://spendesk.com",
+  },
+  {
+    name: "Shangri-La Hotels",
+    logo: "/images/company-logos/shangrila-logo.svg",
+    width: 128,
+    height: 33,
+    href: "https://shangri-la.com",
+  },
+  {
+    name: "Corsair",
+    logo: "/images/company-logos/corsair-logo.svg",
+    width: 90,
+    height: 28,
+    href: "https://corsair.com",
+  },
+];
 
 export { MainLogos };

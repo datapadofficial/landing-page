@@ -8,7 +8,7 @@ export const features: Feature[] = [
       "Talk to your data like a human analyst. Get instant answers with charts and visualizations.",
     longDescription:
       "Transform how you interact with data through natural conversation. Our AI agent understands context, asks clarifying questions, and delivers sophisticated statistical analysis with professional visualizations. No SQL knowledge required - just ask questions in plain English and get expert-level insights instantly.",
-    icon: "Bot",
+    icon: "bot",
     color: "chart-red",
     benefits: [
       "Natural language data queries",
@@ -28,8 +28,7 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 1,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    videoUrl: "/videos/features/ai-data-agent.mp4",
   },
   {
     slug: "dashboards",
@@ -38,7 +37,7 @@ export const features: Feature[] = [
       "AI creates custom dashboards tailored to your business needs automatically.",
     longDescription:
       "Skip the manual dashboard building. Our AI analyzes your data sources and business context to automatically generate relevant dashboards with the right metrics, visualizations, and layouts. Get operational insights without the setup time.",
-    icon: "BarChart3",
+    icon: "bar-chart-3",
     color: "chart-green",
     benefits: [
       "Automatic dashboard creation",
@@ -58,8 +57,7 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 2,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    videoUrl: "/videos/features/dashboards.mp4",
   },
   {
     slug: "text-to-sql-python",
@@ -68,7 +66,7 @@ export const features: Feature[] = [
       "Convert natural language questions into executable code and database queries.",
     longDescription:
       "Bridge the gap between business questions and technical implementation. Our AI seamlessly converts your natural language questions into optimized SQL queries and Python code, giving you the power of both database expertise and statistical programming without the learning curve.",
-    icon: "Code2",
+    icon: "code-2",
     color: "chart-purple",
     benefits: [
       "Natural language to code conversion",
@@ -98,7 +96,7 @@ export const features: Feature[] = [
       "Connect all your data sources: databases, marketing, sales, and social platforms.",
     longDescription:
       "Unify your entire data ecosystem with seamless integrations across marketing, sales, social, and database platforms. No more data silos - get a complete view of your business with drag-and-drop connections to over 50 popular tools and platforms.",
-    icon: "Plug",
+    icon: "plug",
     color: "chart-yellow",
     benefits: [
       "50+ pre-built connectors",
@@ -118,8 +116,7 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "integration",
     priority: 4,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    videoUrl: "/videos/features/integrations.mp4",
   },
   {
     slug: "data-blending",
@@ -128,7 +125,7 @@ export const features: Feature[] = [
       "Combine data from multiple sources for comprehensive cross-platform analysis.",
     longDescription:
       "Break down data silos and get the complete picture. Our intelligent data blending automatically identifies relationships across your different data sources, creating unified datasets that reveal insights impossible to see in isolation.",
-    icon: "Layers",
+    icon: "layers",
     color: "chart-orange",
     benefits: [
       "Automatic data relationships",
@@ -158,7 +155,7 @@ export const features: Feature[] = [
       "Generate and share professional reports and dashboards with stakeholders instantly.",
     longDescription:
       "Transform your insights into professional, branded reports that stakeholders actually want to read. Generate comprehensive reports with executive summaries, key insights, and actionable recommendations - all formatted for easy sharing and presentation.",
-    icon: "Share",
+    icon: "share",
     color: "chart-blue",
     benefits: [
       "Professional report templates",
@@ -178,8 +175,7 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 6,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    videoUrl: "/videos/features/shareable-reports.mp4",
   },
   {
     slug: "slack-bot",
@@ -188,7 +184,7 @@ export const features: Feature[] = [
       "Get data insights and alerts directly in your team's communication hub.",
     longDescription:
       "Bring data insights directly into your team's workflow. Our Slack bot delivers proactive alerts, answers data questions in real-time, and keeps your team informed without leaving their communication hub.",
-    icon: "Slack",
+    icon: "slack",
     color: "chart-red",
     benefits: [
       "Real-time data alerts",
@@ -218,7 +214,7 @@ export const features: Feature[] = [
       "Present data insights through voice interaction with real-time updates.",
     longDescription:
       "Present your data like never before. Voice mode transforms your dashboards into interactive presentations with real-time narration, perfect for meetings, presentations, or hands-free data exploration.",
-    icon: "Mic",
+    icon: "mic",
     color: "chart-green",
     benefits: [
       "Voice-powered presentations",
@@ -238,8 +234,7 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "advanced",
     priority: 8,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    videoUrl: "/videos/features/voice-mode.mp4",
   },
   {
     slug: "workflows",
@@ -248,7 +243,7 @@ export const features: Feature[] = [
       "50+ ready-to-use AI workflows that create actionable deliverables from your data - campaigns, strategies, and content ready to deploy.",
     longDescription:
       "Transform your data into actionable business outcomes with AI-powered workflows. Get copy-paste ready marketing campaigns, SEO strategies, ad optimizations, and business plans generated from your actual data. While other tools show you charts, our workflows create what you need to execute and grow your business.",
-    icon: "Zap",
+    icon: "zap",
     color: "chart-purple",
     benefits: [
       "50+ ready-to-use workflows",
@@ -279,7 +274,7 @@ export const features: Feature[] = [
       "Leverage Claude, ChatGPT, and other AI models for optimal results.",
     longDescription:
       "Get the best of all AI worlds. Our platform intelligently routes tasks to the most suitable AI model - whether it's Claude for analysis, GPT for content generation, or specialized models for specific use cases - ensuring optimal results for every query.",
-    icon: "Brain",
+    icon: "brain",
     color: "chart-yellow",
     benefits: [
       "Best-in-class AI models",
@@ -309,7 +304,7 @@ export const features: Feature[] = [
       "Personalized AI that learns from users, data sources, and workspace context.",
     longDescription:
       "Experience AI that gets smarter with every interaction. Our learning layer adapts to your business context, remembers your preferences, and continuously improves its understanding of your data patterns and business needs.",
-    icon: "Brain",
+    icon: "brain",
     color: "chart-orange",
     benefits: [
       "Personalized AI responses",
@@ -339,7 +334,7 @@ export const features: Feature[] = [
       "Real-time web data integration for comprehensive market analysis.",
     longDescription:
       "Enhance your internal data with real-time web intelligence. Access market trends, competitor insights, and external data sources to create comprehensive analysis that goes beyond your internal metrics.",
-    icon: "Globe",
+    icon: "globe",
     color: "chart-blue",
     benefits: [
       "Real-time web data",

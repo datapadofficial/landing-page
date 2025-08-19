@@ -1,14 +1,5 @@
-import {
-  TrendingUp,
-  DollarSign,
-  ShoppingCart,
-  Search,
-  Users,
-  Package,
-  Calculator,
-  Building,
-  Truck,
-} from "lucide-react";
+import { Building } from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
@@ -16,21 +7,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getTeamsByPriority } from "@/lib/team-utils";
-
-// Icon mapping utility
-const iconMap = {
-  TrendingUp,
-  DollarSign,
-  ShoppingCart,
-  Search,
-  Users,
-  Package,
-  Calculator,
-  Building,
-  Truck,
-} as const;
-
-type IconName = keyof typeof iconMap;
 
 interface TeamsSubmenuProps {
   className?: string;
@@ -46,16 +22,16 @@ const TeamsSubmenu = ({}: TeamsSubmenuProps) => {
       <NavigationMenuContent>
         <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px]">
           {featuredTeams.map((team) => {
-            const IconComponent = iconMap[team.icon as IconName];
             return (
               <TeamLink
                 key={team.slug}
                 title={team.name}
                 description={team.description}
                 icon={
-                  IconComponent ? (
-                    <IconComponent className="size-5 shrink-0" />
-                  ) : null
+                  <DynamicIcon
+                    name={team.icon as IconName}
+                    className="size-5 shrink-0"
+                  />
                 }
                 url={`/teams/${team.slug}`}
                 color={team.color}

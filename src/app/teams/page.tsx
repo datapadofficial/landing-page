@@ -12,31 +12,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  ArrowRight,
   TrendingUp,
   DollarSign,
   ShoppingCart,
   Search,
-  Users,
-  Package,
   Calculator,
-  Building,
-  Truck,
-  ArrowRight,
+  Package,
 } from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import Link from "next/link";
 import Image from "next/image";
-
-const iconMap = {
-  TrendingUp,
-  DollarSign,
-  ShoppingCart,
-  Search,
-  Users,
-  Package,
-  Calculator,
-  Building,
-  Truck,
-};
 
 export const metadata: Metadata = {
   title: "Analytics Teams - Business Intelligence by Function | Datapad",
@@ -136,9 +122,6 @@ export default async function TeamsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {teamsWithStats.map((team) => {
-                const IconComponent =
-                  iconMap[team.icon as keyof typeof iconMap];
-
                 return (
                   <Card
                     key={team.slug}
@@ -150,9 +133,10 @@ export default async function TeamsPage() {
                           className="flex size-12 items-center justify-center rounded-xl border bg-background drop-shadow-sm"
                           style={{ color: `var(--${team.color})` }}
                         >
-                          {IconComponent && (
-                            <IconComponent className="size-6" />
-                          )}
+                          <DynamicIcon
+                            name={team.icon as IconName}
+                            className="size-6"
+                          />
                         </div>
                         <div>
                           <CardTitle className="text-xl">{team.name}</CardTitle>

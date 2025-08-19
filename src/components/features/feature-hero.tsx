@@ -4,42 +4,14 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Feature } from "@/types/feature";
-import {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-} from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import { cn } from "@/lib/utils";
-
-const iconMap = {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-};
 
 interface FeatureHeroProps {
   feature: Feature;
 }
 
 const FeatureHero = ({ feature }: FeatureHeroProps) => {
-  const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
-
   return (
     <section className="pt-8 sm:pt-16">
       <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
@@ -60,7 +32,10 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
                 borderColor: `var(--${feature.color})20`,
               }}
             >
-              {IconComponent && <IconComponent className="size-4 mr-2" />}
+              <DynamicIcon
+                name={feature.icon as IconName}
+                className="size-4 mr-2"
+              />
               {feature.category.charAt(0).toUpperCase() +
                 feature.category.slice(1)}{" "}
               Feature

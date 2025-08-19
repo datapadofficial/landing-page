@@ -1,6 +1,5 @@
 "use client";
 
-import { integrations } from "@/data/integrations/integrations";
 import { Team } from "@/types/team";
 import { Integration } from "@/types/integration";
 import {
@@ -14,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { getIntegrationsForTeam } from "@/lib/integration-utils";
 
 interface TeamIntegrationsProps {
   team: Team;
@@ -21,15 +21,20 @@ interface TeamIntegrationsProps {
   customContent?: React.ReactNode;
 }
 
-export function TeamIntegrations({
-  integrations,
-  customContent,
-}: TeamIntegrationsProps) {
+export function TeamIntegrations({ team }: TeamIntegrationsProps) {
+  const integrations = getIntegrationsForTeam(team.slug);
   return (
     <section className="py-16">
       <div className="container">
         <div className="max-w-6xl mx-auto">
-          {customContent}
+          <div className="text-center flex flex-col items-center gap-8">
+            <h2>Connect Your {team.name} Stack</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Integrate all your {team.name.toLowerCase()} tools and get a
+              unified view of your performance, metrics, and insights across
+              every platform.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {integrations.map((integration) => (

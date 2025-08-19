@@ -10,11 +10,11 @@ import { WorkflowCard } from "@/components/ui/workflow-card";
 import Link from "next/link";
 import { IntegrationConnection } from "@/components/integrations/integration-connection";
 import { MainCTA } from "@/components/main-cta";
-import { IntegrationPainPoints } from "@/components/integrations/integration-pain-points";
 import { IntegrationHero } from "@/components/integrations/integration-hero";
 import { MainLogos } from "@/components/main-logos";
 import { HomeDataAgent } from "@/components/home-data-agent";
-import { MainWorkflows } from "@/components/main-workflows";
+import { WorkflowsSection } from "@/components/workflows-section";
+import { PainPoints } from "@/components/pain-points";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -112,7 +112,7 @@ export default async function IntegrationPage({
         title={
           <div className="text-center">
             <h6 className="mb-4">
-              Powering the world's best {integration.category} teams.
+              Powering teams across every business function.
               <br className="max-md:hidden" />
               <span className="text-muted-foreground">
                 From next-gen startups to established enterprises.
@@ -123,10 +123,18 @@ export default async function IntegrationPage({
       />
 
       {/* Pain Points Component */}
-      <IntegrationPainPoints integration={integration} />
+      <PainPoints
+        painPoints={integration.painPoints || []}
+        title={
+          <>
+            It's Easy to <span className="text-chart-red">Get Lost</span> in{" "}
+            {integration.name}
+          </>
+        }
+      />
 
       {/* Main Workflows */}
-      <MainWorkflows
+      <WorkflowsSection
         title={
           <>
             <span className="text-primary">We Fixed It With AI</span>

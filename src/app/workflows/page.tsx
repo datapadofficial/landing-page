@@ -27,9 +27,9 @@ export default async function WorkflowsPage() {
       {/* Hero Section */}
       <section className="pt-16 sm:pt-24 pb-16">
         <div className="container">
-          <div className="mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              AI Workflows
+          <div className="mx-auto text-center flex flex-col items-center gap-8 max-w-7xl">
+            <h1 className="mb-6">
+              An AI Workflow for <br /> Every Situation
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Get actionable deliverables from your data. While other tools show

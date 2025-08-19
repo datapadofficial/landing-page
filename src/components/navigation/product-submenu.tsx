@@ -1,17 +1,5 @@
-import {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-  LayoutGrid,
-} from "lucide-react";
+import { LayoutGrid } from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
@@ -19,24 +7,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getAllFeatures } from "@/lib/feature-utils";
-
-// Icon mapping utility
-const iconMap = {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-  LayoutGrid,
-} as const;
-
-type IconName = keyof typeof iconMap;
 
 interface ProductSubmenuProps {
   className?: string;
@@ -53,16 +23,16 @@ const ProductSubmenu = ({}: ProductSubmenuProps) => {
       <NavigationMenuContent>
         <div className="grid w-[600px] gap-3 p-4 md:w-[800px] md:grid-cols-2 lg:w-[900px] lg:grid-cols-4">
           {featuresForMenu.map((feature) => {
-            const IconComponent = iconMap[feature.icon as IconName];
             return (
               <ProductFeatureLink
                 key={feature.slug}
                 title={feature.title}
                 description={feature.shortDescription}
                 icon={
-                  IconComponent ? (
-                    <IconComponent className="size-5 shrink-0" />
-                  ) : null
+                  <DynamicIcon
+                    name={feature.icon as IconName}
+                    className="size-5 shrink-0"
+                  />
                 }
                 url={feature.redirectUrl || `/features/${feature.slug}`}
                 color={feature.color}

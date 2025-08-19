@@ -2,33 +2,7 @@ import { getFeaturesByCategory } from "@/lib/feature-utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-} from "lucide-react";
-
-const iconMap = {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-};
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 export default function FeaturesPage() {
   const coreFeatures = getFeaturesByCategory("core");
@@ -107,8 +81,6 @@ export default function FeaturesPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {coreFeatures.map((feature) => {
-                const IconComponent =
-                  iconMap[feature.icon as keyof typeof iconMap];
                 return (
                   <Link
                     key={feature.slug}
@@ -120,9 +92,10 @@ export default function FeaturesPage() {
                           className="flex size-12 items-center justify-center rounded-xl border bg-background dark:bg-white-10 transition-all duration-300 group-hover:scale-110"
                           style={{ color: `var(--${feature.color})` }}
                         >
-                          {IconComponent && (
-                            <IconComponent className="size-6" />
-                          )}
+                          <DynamicIcon
+                            name={feature.icon as IconName}
+                            className="size-6"
+                          />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold mb-2 group-hover:text-foreground/90 transition-colors">
@@ -147,8 +120,6 @@ export default function FeaturesPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {integrationFeatures.map((feature) => {
-                const IconComponent =
-                  iconMap[feature.icon as keyof typeof iconMap];
                 return (
                   <Link
                     key={feature.slug}
@@ -160,9 +131,10 @@ export default function FeaturesPage() {
                           className="flex size-12 items-center justify-center rounded-xl border bg-background dark:bg-white-10 transition-all duration-300 group-hover:scale-110"
                           style={{ color: `var(--${feature.color})` }}
                         >
-                          {IconComponent && (
-                            <IconComponent className="size-6" />
-                          )}
+                          <DynamicIcon
+                            name={feature.icon as IconName}
+                            className="size-6"
+                          />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold mb-2 group-hover:text-foreground/90 transition-colors">
@@ -187,8 +159,6 @@ export default function FeaturesPage() {
             </h3>
             <div className="grid grid-cols-1 gap-6">
               {automationFeatures.map((feature) => {
-                const IconComponent =
-                  iconMap[feature.icon as keyof typeof iconMap];
                 return (
                   <Link
                     key={feature.slug}
@@ -200,9 +170,10 @@ export default function FeaturesPage() {
                           className="flex size-12 items-center justify-center rounded-xl border bg-background dark:bg-white-10 transition-all duration-300 group-hover:scale-110"
                           style={{ color: `var(--${feature.color})` }}
                         >
-                          {IconComponent && (
-                            <IconComponent className="size-6" />
-                          )}
+                          <DynamicIcon
+                            name={feature.icon as IconName}
+                            className="size-6"
+                          />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold mb-2 group-hover:text-foreground/90 transition-colors">
@@ -227,8 +198,6 @@ export default function FeaturesPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {advancedFeatures.map((feature) => {
-                const IconComponent =
-                  iconMap[feature.icon as keyof typeof iconMap];
                 return (
                   <Link
                     key={feature.slug}
@@ -240,9 +209,10 @@ export default function FeaturesPage() {
                           className="flex size-12 items-center justify-center rounded-xl border bg-background dark:bg-white-10 transition-all duration-300 group-hover:scale-110"
                           style={{ color: `var(--${feature.color})` }}
                         >
-                          {IconComponent && (
-                            <IconComponent className="size-6" />
-                          )}
+                          <DynamicIcon
+                            name={feature.icon as IconName}
+                            className="size-6"
+                          />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold mb-2 group-hover:text-foreground/90 transition-colors">

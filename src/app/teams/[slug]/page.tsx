@@ -7,10 +7,11 @@ import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
 import { TeamWorkflows } from "@/components/team/team-workflows";
-import { TeamFeatures } from "@/components/team/team-features";
 import { TeamCTA } from "@/components/team/team-cta";
 import { MainLogos } from "@/components/main-logos";
-import { TeamValuePropositions } from "@/components/team/team-value-propositions";
+import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
+import { FeatureAccordion } from "@/components/features/feature-accordion";
+import { PainPoints } from "@/components/pain-points";
 
 interface TeamPageProps {
   params: Promise<{
@@ -84,47 +85,39 @@ export default async function TeamPage({ params }: TeamPageProps) {
       <TeamHero team={team} />
 
       {/* Logos section */}
-      <MainLogos
+      <MainLogos />
+
+      {/* Pain Points Component */}
+      <PainPoints
+        painPoints={team.painPoints || []}
         title={
-          <div className="text-center">
-            <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
-              Powering the world's best {team.name.toLowerCase()} teams.
-              <br className="max-md:hidden" />
-              <span className="text-muted-foreground">
-                From next-gen startups to established enterprises.
-              </span>
-            </h2>
-          </div>
+          <>
+            Common {team.name}{" "}
+            <span className="text-chart-red">Pain Points</span>
+          </>
         }
+        subtitle={`See why ${team.name.toLowerCase()} teams are struggling with data analysis and reporting.`}
       />
 
-      <TeamValuePropositions team={team} />
-
-      <TeamFeatures team={team} features={features} />
-
-      <TeamIntegrations
-        team={team}
-        integrations={integrations}
-        customContent={
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-4">
-              Connect Your {team.name} Stack
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Integrate all your {team.name.toLowerCase()} tools and get a
-              unified view of your performance, metrics, and insights across
-              every platform.
-            </p>
-          </div>
+      <FeatureAccordion
+        title={<h2>Why {team.name} Teams Choose Datapad</h2>}
+        subtitle={
+          <p className="mx-auto text-muted-foreground md:text-xl">
+            Discover how Datapad transforms {team.name.toLowerCase()} analytics
+            and reporting
+          </p>
         }
+        features={getFeaturedFeaturesForTeam(slug)}
       />
+
+      <TeamIntegrations team={team} integrations={integrations} />
 
       <TeamWorkflows
         team={team}
         workflows={workflows}
         customContent={
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold mb-4">{team.name} Workflows</h2>
+          <div className="text-center mb-12 flex flex-col items-center gap-8">
+            <h2>{team.name} Workflows</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Ready-to-use analytics workflows designed specifically for{" "}
               {team.name.toLowerCase()} teams. Get instant insights without the

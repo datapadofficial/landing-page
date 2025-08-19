@@ -1,41 +1,13 @@
 "use client";
 
 import { Feature } from "@/types/feature";
-import {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-} from "lucide-react";
-
-const iconMap = {
-  Bot,
-  BarChart3,
-  Code2,
-  Plug,
-  Layers,
-  Share,
-  Slack,
-  Mic,
-  Zap,
-  Brain,
-  Globe,
-};
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 interface FeatureDetailsProps {
   feature: Feature;
 }
 
 const FeatureDetails = ({ feature }: FeatureDetailsProps) => {
-  const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
-
   return (
     <section className="py-16 sm:py-24 lg:py-32 max-w-7xl">
       <div className="container">
@@ -46,7 +18,10 @@ const FeatureDetails = ({ feature }: FeatureDetailsProps) => {
                 className="flex size-16 items-center justify-center rounded-2xl border bg-background dark:bg-white-10 drop-shadow-lg"
                 style={{ color: `var(--${feature.color})` }}
               >
-                {IconComponent && <IconComponent className="size-8" />}
+                <DynamicIcon
+                  name={feature.icon as IconName}
+                  className="size-8"
+                />
               </div>
               <div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium">

@@ -16,5 +16,10 @@ export interface Team {
     videoUrl?: string;
     icon?: string;
   }>;
+  painPoints?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
   priority: number;
 }

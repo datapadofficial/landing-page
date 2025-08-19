@@ -2,7 +2,7 @@ import { MainHero } from "@/components/main-hero";
 // import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
-import { MainWorkflows } from "@/components/main-workflows";
+import { WorkflowsSection } from "@/components/workflows-section";
 import { Feature128 } from "@/components/feature128";
 import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
@@ -46,7 +46,7 @@ export default function Home() {
       <HomeDataAgent />
 
       {/* Workflows Section */}
-      <MainWorkflows />
+      <WorkflowsSection />
 
       {/* Key Features Section */}
       <Feature128 />

@@ -3,6 +3,7 @@ import {
   getAllIntegrations,
   getIntegrationsByCategory,
 } from "@/lib/integration-utils";
+import { getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
 
 export default async function IntegrationsPage() {
   const integrations = getAllIntegrations();
+  const teams = getAllTeams();
 
   const categoryColors: { [key: string]: string } = {
     advertising: "bg-red-100 text-red-800 border-red-200",
@@ -54,33 +56,15 @@ export default async function IntegrationsPage() {
     other: "bg-gray-100 text-gray-800 border-gray-200",
   };
 
-  // Group integrations by category for featured section
-  const integrationsByCategory = [
-    {
-      name: "Advertising",
-      slug: "advertising",
-      description: "Connect your advertising platforms for ROI analysis",
-      integrations: getIntegrationsByCategory("advertising"),
-    },
-    {
-      name: "Analytics",
-      slug: "analytics",
-      description: "Web and product analytics platforms",
-      integrations: getIntegrationsByCategory("analytics"),
-    },
-    {
-      name: "E-commerce",
-      slug: "ecommerce",
-      description: "Online store and payment platforms",
-      integrations: getIntegrationsByCategory("ecommerce"),
-    },
-    {
-      name: "CRM & Sales",
-      slug: "crm",
-      description: "Customer relationship and sales management",
-      integrations: getIntegrationsByCategory("crm"),
-    },
-  ];
+  // Group integrations by team for featured section
+  const integrationsByTeam = teams.slice(0, 4).map((team) => ({
+    name: team.name,
+    slug: team.slug,
+    description: team.description,
+    integrations: integrations.filter((integration) =>
+      team.featuredIntegrations.includes(integration.id)
+    ),
+  }));
 
   // Get integrations with recipe counts
   const integrationsWithStats = integrations.map((integration) => {
@@ -158,24 +142,24 @@ export default async function IntegrationsPage() {
             </div>
 
             <div className="space-y-12">
-              {integrationsByCategory.map((category) => (
-                <div key={category.slug}>
+              {integrationsByTeam.map((team) => (
+                <div key={team.slug}>
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h3 className="text-xl font-semibold mb-2">
-                        {category.name} Platforms
+                        {team.name} Integrations
                       </h3>
                       <p className="text-muted-foreground text-sm">
-                        {category.description}
+                        {team.description}
                       </p>
                     </div>
                     <Badge variant="outline">
-                      {category.integrations.length} integrations
+                      {team.integrations.length} integrations
                     </Badge>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {category.integrations.map((integration) => {
+                    {team.integrations.map((integration) => {
                       const recipeCount = getWorkflowsByIntegration(
                         integration.id
                       ).length;
