@@ -3,7 +3,7 @@ import { Inter, Poppins, Geist_Mono, Funnel_Display } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { StructuredData } from "@/components/structured-data";
+import { StructuredData } from "@/data/structured-data";
 import { MainNavigation } from "@/components/main-navigation";
 import { Footer } from "@/components/footer";
 

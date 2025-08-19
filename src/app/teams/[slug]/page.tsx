@@ -15,7 +15,7 @@ import { WorkflowsSection } from "@/components/workflows-section";
 import { WorkflowGallery } from "@/components/workflows/workflow-gallery";
 import { MainCTA } from "@/components/main-cta";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
-import { HomeDataAgent } from "@/components/home-data-agent";
+import { AIDataAgentSection } from "@/components/ai-data-agent";
 
 interface TeamPageProps {
   params: Promise<{
@@ -116,7 +116,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
         workflows={workflows}
       />
 
-      <HomeDataAgent />
+      <AIDataAgentSection />
 
       {/* Related Workflows Gallery */}
       {workflows.length > 0 && (

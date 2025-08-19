@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Pricing32 } from "@/components/pricing32";
+import { PricingSection } from "@/components/pricing-section";
 import { Faq2 } from "@/components/faq2";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainCTA } from "@/components/main-cta";
@@ -112,7 +112,7 @@ export default function PricingPage() {
       />
 
       {/* Pricing Table */}
-      <Pricing32 />
+      <PricingSection />
 
       {/* Social Proof - Case Studies */}
       <DatapadCasestudies />

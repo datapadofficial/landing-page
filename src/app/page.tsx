@@ -5,17 +5,17 @@ import { MainLogos } from "@/components/main-logos";
 import { WorkflowsSection } from "@/components/workflows-section";
 import { FeatureGrid } from "@/components/features/feature-grid";
 import { Faq2 } from "@/components/faq2";
-import { Pricing32 } from "@/components/pricing32";
+import { PricingSection } from "@/components/pricing-section";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 
 import dynamic from "next/dynamic";
-import { Feature250 } from "@/components/feature250";
+import { IntegrationsSection } from "@/components/integrations/integrations-section";
 
 // Only lazy load components with heavy charts/visualizations
-const HomeDataAgent = dynamic(
+const AIDataAgentSection = dynamic(
   () =>
-    import("@/components/home-data-agent").then((mod) => ({
-      default: mod.HomeDataAgent,
+    import("@/components/ai-data-agent").then((mod) => ({
+      default: mod.AIDataAgentSection,
     })),
   {
     ssr: true, // Keep SSR for SEO
@@ -43,7 +43,7 @@ export default function Home() {
       <MainLogos />
 
       {/* Data Agent Section */}
-      <HomeDataAgent />
+      <AIDataAgentSection />
 
       {/* Workflows Section */}
       <WorkflowsSection />
@@ -55,10 +55,10 @@ export default function Home() {
       <DatapadCasestudies />
 
       {/* Integrations Section */}
-      <Feature250 />
+      <IntegrationsSection />
 
       {/* Pricing Section */}
-      <Pricing32 />
+      <PricingSection />
 
       {/* FAQ Section */}
       <Faq2 />

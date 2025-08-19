@@ -118,7 +118,7 @@ const PLANS: PricingPlan[] = [
   },
 ];
 
-const Pricing32 = ({
+const PricingSection = ({
   className,
 }: {
   showHeadline?: boolean;
@@ -352,4 +352,4 @@ const PlanCard = ({
   );
 };
 
-export { Pricing32 };
+export { PricingSection };

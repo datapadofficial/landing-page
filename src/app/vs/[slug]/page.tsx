@@ -8,7 +8,7 @@ import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainLogos } from "@/components/main-logos";
 import { MainCTA } from "@/components/main-cta";
 import { Faq2 } from "@/components/faq2";
-import { HomeDataAgent } from "@/components/home-data-agent";
+import { AIDataAgentSection } from "@/components/ai-data-agent";
 
 interface CompetitorPageProps {
   params: Promise<{
@@ -119,7 +119,7 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
       <MainLogos />
 
       {/* Data Agent */}
-      <HomeDataAgent />
+      <AIDataAgentSection />
 
       {/* Testimonials */}
       <DatapadCasestudies />

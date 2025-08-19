@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 
-const Feature250 = () => {
+const IntegrationsSection = () => {
   return (
     <section className="py-32 w-full flex items-center justify-center max-w-6xl mx-auto">
       <div className="container">
@@ -25,7 +25,7 @@ const Feature250 = () => {
   );
 };
 
-export { Feature250 };
+export { IntegrationsSection };
 
 const REVERSE = false;
 

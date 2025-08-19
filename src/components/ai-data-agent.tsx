@@ -10,7 +10,7 @@ interface Feature {
   image: string;
 }
 
-interface HomeDataAgentProps {
+interface AIDataAgentSectionProps {
   heading?: React.ReactNode;
   description?: string;
   feature1?: Feature;
@@ -19,7 +19,7 @@ interface HomeDataAgentProps {
   feature4?: Feature;
 }
 
-const HomeDataAgent = ({
+const AIDataAgentSection = ({
   heading = (
     <>
       <span>The Only Agent</span> With
@@ -56,7 +56,7 @@ const HomeDataAgent = ({
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
-}: HomeDataAgentProps) => {
+}: AIDataAgentSectionProps) => {
   return (
     <section className="py-32 max-w-7xl mx-auto">
       <div className="container">
@@ -127,4 +127,4 @@ const HomeDataAgent = ({
   );
 };
 
-export { HomeDataAgent };
+export { AIDataAgentSection };

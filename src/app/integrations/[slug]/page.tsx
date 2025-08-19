@@ -9,7 +9,7 @@ import { IntegrationConnection } from "@/components/integrations/integration-con
 import { MainCTA } from "@/components/main-cta";
 import { IntegrationHero } from "@/components/integrations/integration-hero";
 import { MainLogos } from "@/components/main-logos";
-import { HomeDataAgent } from "@/components/home-data-agent";
+import { AIDataAgentSection } from "@/components/ai-data-agent";
 import { WorkflowsSection } from "@/components/workflows-section";
 import { PainPoints } from "@/components/pain-points";
 import { WorkflowGallery } from "@/components/workflows/workflow-gallery";
@@ -170,7 +170,7 @@ export default async function IntegrationPage({
       )}
 
       {/* Home Data Agent */}
-      <HomeDataAgent />
+      <AIDataAgentSection />
 
       {/* Integration Connection CTA */}
       <IntegrationConnection integration={integration} />
