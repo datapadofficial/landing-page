@@ -30,16 +30,47 @@ export const integrations: Integration[] = [
         cta: "Connect Facebook Ads & Get Optimization Actions",
       },
       painPoints: [
-        "Spending hours in Ads Manager trying to figure out what's working",
-        "Missing optimization opportunities while campaigns burn budget",
-        "Can't quickly identify which audiences to scale or pause",
-        "No clear action plan from your ad data",
+        {
+          title: "Manual Analysis Hours",
+          description:
+            "Spending hours in Ads Manager trying to figure out what's working",
+        },
+        {
+          title: "Missed Optimization Opportunities",
+          description:
+            "Missing optimization opportunities while campaigns burn budget",
+        },
+        {
+          title: "Audience Scaling Confusion",
+          description:
+            "Can't quickly identify which audiences to scale or pause",
+        },
+        {
+          title: "No Action Plans",
+          description: "No clear action plan from your ad data",
+        },
       ],
       solutions: [
-        "AI analyzes your data and creates specific optimization to-do lists",
-        "Real-time alerts prevent budget waste on underperforming campaigns",
-        "Instant audience insights with expansion recommendations",
-        "Generate campaign briefs and ad copy based on your best performers",
+        {
+          title: "AI Optimization Lists",
+          description:
+            "AI analyzes your data and creates specific optimization to-do lists",
+        },
+        {
+          title: "Real-time Budget Alerts",
+          description:
+            "Real-time alerts prevent budget waste on underperforming campaigns",
+        },
+        {
+          title: "Instant Audience Insights",
+          description:
+            "Instant audience insights with expansion recommendations",
+        },
+        {
+          title: "Generated Campaign Briefs",
+          description:
+            "Generate campaign briefs and ad copy based on your best performers",
+        },
       ],
     },
     seoContent: {
@@ -91,29 +122,39 @@ Connect your Facebook Ads account to Datapad for comprehensive campaign analysis
         cta: "Connect Google Ads & Optimize Keywords Now",
       },
       painPoints: [
-        "Wasting budget on keywords that don't convert",
-        "Missing profitable keyword opportunities competitors are capturing",
-        "Can't quickly identify which campaigns need attention",
-        "No clear strategy for improving quality scores and reducing costs",
+        {
+          title: "Spending with No Conversions",
+          description:
+            "Your ads are getting clicks but nobody's buying anything",
+        },
+        {
+          title: "Don't Know Which Keywords to Target",
+          description:
+            "Shooting in the dark with keyword choices while competitors steal your traffic",
+        },
+        {
+          title: "Can't Tell What's Working vs. What's Not",
+          description:
+            "Drowning in Google Ads data with no clear picture of what drives results",
+        },
       ],
       solutions: [
-        "AI identifies your most profitable keywords and suggests bid optimizations",
-        "Discover untapped keyword opportunities with conversion potential",
-        "Get specific quality score improvement recommendations",
-        "Generate campaign optimization checklists based on your data",
+        {
+          title: "See Exactly Which Keywords Convert",
+          description:
+            "Get instant clarity on which keywords actually drive sales, not just clicks",
+        },
+        {
+          title: "Get Profitable Keyword Recommendations",
+          description:
+            "AI finds high-converting keywords your competitors are using that you're missing",
+        },
+        {
+          title: "Clear Performance Breakdown by Campaign",
+          description:
+            "See exactly which campaigns, ad groups, and keywords are making you money",
+        },
       ],
-    },
-    seoContent: {
-      overview: `# Google Ads Integration
-
-Integrate Google Ads with Datapad to analyze your search, display, and video campaign performance. Get actionable insights to optimize your ad spend and improve campaign results.`,
-      useCases: `## Common Use Cases
-
-- **Keyword Performance**: Analyze which keywords drive the best ROI
-- **Campaign Optimization**: Identify underperforming campaigns and ad groups
-- **Quality Score Monitoring**: Track and improve ad relevance scores
-- **Competitive Analysis**: Compare performance against industry benchmarks
-- **Budget Allocation**: Optimize spend across campaigns and keywords`,
     },
   },
   {
@@ -145,16 +186,46 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect Google Analytics & Get Growth Insights",
       },
       painPoints: [
-        "GA4 interface is confusing and hard to get actionable insights from",
-        "Can't quickly identify which traffic sources actually drive revenue",
-        "Missing conversion opportunities buried in complex reports",
-        "No clear strategy for improving website performance",
+        {
+          title: "Confusing GA4 Interface",
+          description:
+            "GA4 interface is confusing and hard to get actionable insights from",
+        },
+        {
+          title: "Revenue Source Clarity",
+          description:
+            "Can't quickly identify which traffic sources actually drive revenue",
+        },
+        {
+          title: "Hidden Conversion Opportunities",
+          description:
+            "Missing conversion opportunities buried in complex reports",
+        },
+        {
+          title: "Website Performance Strategy",
+          description: "No clear strategy for improving website performance",
+        },
       ],
       solutions: [
-        "AI simplifies GA4 data into clear, actionable growth recommendations",
-        "Identify your most profitable traffic sources and how to scale them",
-        "Get specific conversion rate optimization suggestions",
-        "Generate content and SEO strategies based on your best-performing pages",
+        {
+          title: "Simplified Growth Recommendations",
+          description:
+            "AI simplifies GA4 data into clear, actionable growth recommendations",
+        },
+        {
+          title: "Profitable Traffic Identification",
+          description:
+            "Identify your most profitable traffic sources and how to scale them",
+        },
+        {
+          title: "CRO Optimization Suggestions",
+          description: "Get specific conversion rate optimization suggestions",
+        },
+        {
+          title: "Content SEO Strategies",
+          description:
+            "Generate content and SEO strategies based on your best-performing pages",
+        },
       ],
     },
   },
@@ -187,16 +258,47 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect Shopify & Boost E-commerce Revenue",
       },
       painPoints: [
-        "Can't identify which products are actually profitable after all costs",
-        "Missing opportunities to increase customer lifetime value",
-        "Inventory decisions based on gut feeling rather than data",
-        "No clear strategy for reducing cart abandonment",
+        {
+          title: "Hidden Product Costs",
+          description:
+            "Can't identify which products are actually profitable after all costs",
+        },
+        {
+          title: "Missed Lifetime Value",
+          description:
+            "Missing opportunities to increase customer lifetime value",
+        },
+        {
+          title: "Gut-Based Inventory Decisions",
+          description:
+            "Inventory decisions based on gut feeling rather than data",
+        },
+        {
+          title: "Cart Abandonment Strategy",
+          description: "No clear strategy for reducing cart abandonment",
+        },
       ],
       solutions: [
-        "AI calculates true product profitability including all costs and fees",
-        "Get specific customer retention and upselling strategies",
-        "Smart inventory recommendations based on seasonal trends and demand",
-        "Generate personalized email campaigns for cart recovery and retention",
+        {
+          title: "True Profitability Calculations",
+          description:
+            "AI calculates true product profitability including all costs and fees",
+        },
+        {
+          title: "Retention Upselling Strategies",
+          description:
+            "Get specific customer retention and upselling strategies",
+        },
+        {
+          title: "Smart Inventory Recommendations",
+          description:
+            "Smart inventory recommendations based on seasonal trends and demand",
+        },
+        {
+          title: "Personalized Cart Recovery",
+          description:
+            "Generate personalized email campaigns for cart recovery and retention",
+        },
       ],
     },
   },
@@ -234,16 +336,47 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect Stripe & Optimize Revenue Flows",
       },
       painPoints: [
-        "Losing revenue to failed payments and subscription churn",
-        "Can't predict which customers are likely to cancel subscriptions",
-        "No clear strategy for reducing payment disputes and chargebacks",
-        "Missing insights about optimal pricing strategies",
+        {
+          title: "Failed Payment Revenue",
+          description:
+            "Losing revenue to failed payments and subscription churn",
+        },
+        {
+          title: "Unpredictable Subscription Churn",
+          description:
+            "Can't predict which customers are likely to cancel subscriptions",
+        },
+        {
+          title: "Payment Dispute Strategy",
+          description:
+            "No clear strategy for reducing payment disputes and chargebacks",
+        },
+        {
+          title: "Pricing Strategy Insights",
+          description: "Missing insights about optimal pricing strategies",
+        },
       ],
       solutions: [
-        "AI identifies payment failure patterns and suggests fixes to increase success rates",
-        "Get early warning alerts for customers likely to churn with retention strategies",
-        "Reduce disputes with AI-powered transaction monitoring and alerts",
-        "Generate pricing optimization recommendations based on customer payment behavior",
+        {
+          title: "Payment Failure Analysis",
+          description:
+            "AI identifies payment failure patterns and suggests fixes to increase success rates",
+        },
+        {
+          title: "Churn Warning Alerts",
+          description:
+            "Get early warning alerts for customers likely to churn with retention strategies",
+        },
+        {
+          title: "AI Transaction Monitoring",
+          description:
+            "Reduce disputes with AI-powered transaction monitoring and alerts",
+        },
+        {
+          title: "Pricing Optimization Recommendations",
+          description:
+            "Generate pricing optimization recommendations based on customer payment behavior",
+        },
       ],
     },
   },
@@ -276,16 +409,46 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect HubSpot & Accelerate Sales Growth",
       },
       painPoints: [
-        "Deals stalling in the pipeline with no clear next steps",
-        "Can't identify which leads are actually worth pursuing",
-        "Marketing campaigns not generating quality leads",
-        "No visibility into what's working in your sales process",
+        {
+          title: "Stalled Pipeline Deals",
+          description:
+            "Deals stalling in the pipeline with no clear next steps",
+        },
+        {
+          title: "Lead Quality Uncertainty",
+          description: "Can't identify which leads are actually worth pursuing",
+        },
+        {
+          title: "Poor Lead Generation",
+          description: "Marketing campaigns not generating quality leads",
+        },
+        {
+          title: "Sales Process Visibility",
+          description:
+            "No visibility into what's working in your sales process",
+        },
       ],
       solutions: [
-        "AI analyzes deal patterns and suggests specific actions to move deals forward",
-        "Get data-driven lead scoring that identifies your best prospects",
-        "Optimize campaigns with insights about your highest-converting audiences",
-        "Generate sales playbooks based on your top performers' successful strategies",
+        {
+          title: "Deal Pattern Analysis",
+          description:
+            "AI analyzes deal patterns and suggests specific actions to move deals forward",
+        },
+        {
+          title: "Data-Driven Lead Scoring",
+          description:
+            "Get data-driven lead scoring that identifies your best prospects",
+        },
+        {
+          title: "Campaign Audience Optimization",
+          description:
+            "Optimize campaigns with insights about your highest-converting audiences",
+        },
+        {
+          title: "Generated Sales Playbooks",
+          description:
+            "Generate sales playbooks based on your top performers' successful strategies",
+        },
       ],
     },
   },
@@ -324,16 +487,48 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect LinkedIn Ads & Generate Quality B2B Leads",
       },
       painPoints: [
-        "LinkedIn ads are expensive but not generating quality leads",
-        "Can't identify which professional audiences actually convert",
-        "B2B campaigns getting impressions but no meaningful engagement",
-        "No clear strategy for optimizing LinkedIn ad creative for professionals",
+        {
+          title: "Expensive Low Quality",
+          description:
+            "LinkedIn ads are expensive but not generating quality leads",
+        },
+        {
+          title: "Professional Audience Mystery",
+          description:
+            "Can't identify which professional audiences actually convert",
+        },
+        {
+          title: "Impressions Without Engagement",
+          description:
+            "B2B campaigns getting impressions but no meaningful engagement",
+        },
+        {
+          title: "Professional Creative Strategy",
+          description:
+            "No clear strategy for optimizing LinkedIn ad creative for professionals",
+        },
       ],
       solutions: [
-        "AI analyzes your B2B conversion data to identify your ideal professional audience",
-        "Get specific targeting recommendations based on job titles that actually convert",
-        "Optimize ad creative with messaging that resonates with B2B decision makers",
-        "Generate lead nurturing strategies based on LinkedIn campaign performance",
+        {
+          title: "B2B Conversion Analysis",
+          description:
+            "AI analyzes your B2B conversion data to identify your ideal professional audience",
+        },
+        {
+          title: "Job Title Targeting",
+          description:
+            "Get specific targeting recommendations based on job titles that actually convert",
+        },
+        {
+          title: "B2B Creative Optimization",
+          description:
+            "Optimize ad creative with messaging that resonates with B2B decision makers",
+        },
+        {
+          title: "Lead Nurturing Strategies",
+          description:
+            "Generate lead nurturing strategies based on LinkedIn campaign performance",
+        },
       ],
     },
   },
@@ -395,16 +590,47 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect Salesforce & Accelerate Revenue Growth",
       },
       painPoints: [
-        "Deals stalling in the pipeline without clear next steps",
-        "Can't accurately predict which deals will actually close",
-        "Sales team missing opportunities and not following best practices",
-        "No early warning system for customers likely to churn",
+        {
+          title: "Stalled Pipeline Deals",
+          description:
+            "Deals stalling in the pipeline without clear next steps",
+        },
+        {
+          title: "Inaccurate Deal Predictions",
+          description:
+            "Can't accurately predict which deals will actually close",
+        },
+        {
+          title: "Missed Sales Opportunities",
+          description:
+            "Sales team missing opportunities and not following best practices",
+        },
+        {
+          title: "No Churn Warning",
+          description: "No early warning system for customers likely to churn",
+        },
       ],
       solutions: [
-        "AI analyzes your deal patterns and suggests specific actions to move opportunities forward",
-        "Get accurate deal probability predictions with recommended next steps",
-        "Identify your top sales performers' strategies and replicate them across the team",
-        "Receive early alerts for at-risk customers with specific retention strategies",
+        {
+          title: "Deal Pattern Analysis",
+          description:
+            "AI analyzes your deal patterns and suggests specific actions to move opportunities forward",
+        },
+        {
+          title: "Accurate Deal Predictions",
+          description:
+            "Get accurate deal probability predictions with recommended next steps",
+        },
+        {
+          title: "Top Performer Strategies",
+          description:
+            "Identify your top sales performers' strategies and replicate them across the team",
+        },
+        {
+          title: "Early Risk Alerts",
+          description:
+            "Receive early alerts for at-risk customers with specific retention strategies",
+        },
       ],
     },
   },
@@ -437,16 +663,47 @@ Integrate Google Ads with Datapad to analyze your search, display, and video cam
         cta: "Connect Instagram & Accelerate Social Growth",
       },
       painPoints: [
-        "Posting consistently but not seeing follower or engagement growth",
-        "Can't identify which content types resonate with your audience",
-        "Wasting time on hashtags that don't actually increase reach",
-        "Stories getting low views despite having followers",
+        {
+          title: "No Growth Despite",
+          description:
+            "Posting consistently but not seeing follower or engagement growth",
+        },
+        {
+          title: "Content Resonance Mystery",
+          description:
+            "Can't identify which content types resonate with your audience",
+        },
+        {
+          title: "Wasted Hashtag Time",
+          description:
+            "Wasting time on hashtags that don't actually increase reach",
+        },
+        {
+          title: "Low Story Views",
+          description: "Stories getting low views despite having followers",
+        },
       ],
       solutions: [
-        "AI identifies your most engaging content patterns and suggests similar post ideas",
-        "Get data-driven hashtag strategies that actually increase your reach",
-        "Optimize posting schedule based on when your audience is most active",
-        "Generate content calendars based on your highest-performing post types",
+        {
+          title: "Engaging Content Patterns",
+          description:
+            "AI identifies your most engaging content patterns and suggests similar post ideas",
+        },
+        {
+          title: "Data-Driven Hashtag Strategies",
+          description:
+            "Get data-driven hashtag strategies that actually increase your reach",
+        },
+        {
+          title: "Optimized Posting Schedule",
+          description:
+            "Optimize posting schedule based on when your audience is most active",
+        },
+        {
+          title: "Generated Content Calendars",
+          description:
+            "Generate content calendars based on your highest-performing post types",
+        },
       ],
     },
     seoContent: {
@@ -499,16 +756,48 @@ Connect your Instagram Business account to Datapad for comprehensive social medi
         cta: "Connect Google Sheets & Get Intelligent Analysis",
       },
       painPoints: [
-        "Spending hours manually analyzing spreadsheet data for insights",
-        "Missing important trends and anomalies buried in your data",
-        "Can't easily create professional reports from spreadsheet data",
-        "No way to predict future trends based on historical spreadsheet data",
+        {
+          title: "Manual Analysis Hours",
+          description:
+            "Spending hours manually analyzing spreadsheet data for insights",
+        },
+        {
+          title: "Hidden Trends Anomalies",
+          description:
+            "Missing important trends and anomalies buried in your data",
+        },
+        {
+          title: "Professional Report Creation",
+          description:
+            "Can't easily create professional reports from spreadsheet data",
+        },
+        {
+          title: "No Predictive Insights",
+          description:
+            "No way to predict future trends based on historical spreadsheet data",
+        },
       ],
       solutions: [
-        "AI automatically analyzes your sheets and highlights key insights and trends",
-        "Get instant alerts when important metrics change significantly",
-        "Generate professional reports and dashboards from your spreadsheet data",
-        "Use predictive AI to forecast trends based on your historical data",
+        {
+          title: "Automated Sheet Analysis",
+          description:
+            "AI automatically analyzes your sheets and highlights key insights and trends",
+        },
+        {
+          title: "Instant Metric Alerts",
+          description:
+            "Get instant alerts when important metrics change significantly",
+        },
+        {
+          title: "Professional Report Generation",
+          description:
+            "Generate professional reports and dashboards from your spreadsheet data",
+        },
+        {
+          title: "Predictive Trend Forecasting",
+          description:
+            "Use predictive AI to forecast trends based on your historical data",
+        },
       ],
     },
   },
@@ -754,16 +1043,46 @@ Connect your Instagram Business account to Datapad for comprehensive social medi
         cta: "Connect PostgreSQL & Get Instant Database Insights",
       },
       painPoints: [
-        "Need to write complex SQL queries to get basic business insights",
-        "Important data patterns and anomalies going unnoticed",
-        "Can't easily create reports and dashboards from database data",
-        "No way to monitor data quality and catch issues early",
+        {
+          title: "Complex SQL Required",
+          description:
+            "Need to write complex SQL queries to get basic business insights",
+        },
+        {
+          title: "Unnoticed Data Patterns",
+          description: "Important data patterns and anomalies going unnoticed",
+        },
+        {
+          title: "Database Report Creation",
+          description:
+            "Can't easily create reports and dashboards from database data",
+        },
+        {
+          title: "No Data Quality",
+          description: "No way to monitor data quality and catch issues early",
+        },
       ],
       solutions: [
-        "Ask questions in plain English and get instant database insights",
-        "AI continuously monitors your data and alerts you to important changes",
-        "Generate professional reports and dashboards without writing SQL",
-        "Automated data quality checks ensure your insights are always accurate",
+        {
+          title: "Plain English Queries",
+          description:
+            "Ask questions in plain English and get instant database insights",
+        },
+        {
+          title: "Continuous Data Monitoring",
+          description:
+            "AI continuously monitors your data and alerts you to important changes",
+        },
+        {
+          title: "SQL-Free Report Generation",
+          description:
+            "Generate professional reports and dashboards without writing SQL",
+        },
+        {
+          title: "Automated Quality Checks",
+          description:
+            "Automated data quality checks ensure your insights are always accurate",
+        },
       ],
     },
   },

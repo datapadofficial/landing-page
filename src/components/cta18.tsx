@@ -1,9 +1,14 @@
+"use client";
+
 import { Play } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 const Cta18 = () => {
+  const { theme } = useTheme();
+
   return (
     <section className="py-32">
       <div className="container overflow-hidden">
@@ -25,22 +30,19 @@ const Cta18 = () => {
               </Button>
             </div>
           </div>
-          <div className="relative ml-6 max-h-96 md:mt-8 md:ml-0">
-            {/* <Image
-              src="/images/block-3.svg"
-              alt="Decorative element"
-              width={192}
-              height={192}
-              className="absolute -bottom-12 left-4 h-48 -translate-x-1/2 -rotate-[120deg]"
-            /> */}
-            <Image
-              src="/images/hero-2.png"
-              alt="Datapad AI Analytics Dashboard"
-              width={600}
-              height={400}
-              className="z-10 aspect-video h-full w-full rounded-tl-xl border-t border-l object-cover pt-3.5 pl-3.5 backdrop-blur-sm"
-            />
-          </div>
+          {theme && (
+            <div className="relative ml-6 max-h-96 md:mt-8 md:ml-0">
+              <Image
+                src={
+                  theme === "dark" ? "/images/hero-1.png" : "/images/hero-2.png"
+                }
+                alt="Datapad AI Analytics Dashboard"
+                width={600}
+                height={400}
+                className="z-10 aspect-video h-full w-full rounded-tl-xl border-t border-l object-cover pt-3.5 pl-3.5 backdrop-blur-sm"
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

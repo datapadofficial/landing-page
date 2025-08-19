@@ -33,7 +33,13 @@ export interface Integration {
       benefits: string[];
       cta: string;
     };
-    painPoints: string[];
-    solutions: string[];
+    painPoints: Array<{
+      title: string;
+      description: string;
+    }>;
+    solutions: Array<{
+      title: string;
+      description: string;
+    }>;
   };
 }

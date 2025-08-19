@@ -21,8 +21,8 @@ const getTransformationSteps = (integration: Integration): DataItem[] => {
       .slice(0, 3)
       .map((solution, index) => ({
         id: index + 1,
-        title: `Step ${index + 1}: ${getStepTitle(index)}`,
-        description: solution,
+        title: `Step ${index + 1}: ${solution.title}`,
+        description: solution.description,
       }));
   }
 

@@ -23,6 +23,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Feature187 } from "@/components/feature187";
 import { ConnectIntegration } from "@/components/integration12";
+import { Cta18 } from "@/components/cta18";
+import { PainPoints } from "@/components/integrations/pain-points";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -223,54 +225,8 @@ export default async function IntegrationPage({
                 </Button>
               </div>
 
-              {/* Benefits and Pain Points in Cards */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                <Card className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-6 h-6 bg-green-500/10 rounded-lg flex items-center justify-center">
-                      <BarChart3 className="h-4 w-4 text-green-600" />
-                    </div>
-                    <h3 className="font-semibold">What You'll Get</h3>
-                  </div>
-                  <div className="space-y-3">
-                    {integration.conversionCopy.whyConnect.benefits
-                      .slice(0, 3)
-                      .map((benefit, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <div className="w-4 h-4 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                          </div>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {benefit}
-                          </p>
-                        </div>
-                      ))}
-                  </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-6 h-6 bg-orange-500/10 rounded-lg flex items-center justify-center">
-                      <Users className="h-4 w-4 text-orange-600" />
-                    </div>
-                    <h3 className="font-semibold">Problems We Solve</h3>
-                  </div>
-                  <div className="space-y-3">
-                    {integration.conversionCopy.painPoints
-                      .slice(0, 3)
-                      .map((painPoint, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <div className="w-4 h-4 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                          </div>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {painPoint}
-                          </p>
-                        </div>
-                      ))}
-                  </div>
-                </Card>
-              </div>
+              {/* Pain Points Component */}
+              <PainPoints integration={integration} />
 
               {/* Dynamic transformation steps using Feature187 */}
               <div className="col-span-full">
@@ -290,10 +246,8 @@ export default async function IntegrationPage({
       {integration.seoContent?.overview && (
         <section className="py-16">
           <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6">
-                About {integration.name}
-              </h2>
+            <div className="max-w-4xl mx-auto text-center gap-6 flex flex-col">
+              <h2>About {integration.name}</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Connect your {integration.name} account to Datapad for
                 comprehensive analysis and insights. Get real-time data
@@ -308,10 +262,8 @@ export default async function IntegrationPage({
       {/* Technical Specs */}
       <section className="py-16 max-w-5xl">
         <div className="container">
-          <div className="mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Technical Specifications
-            </h2>
+          <div className="mx-auto flex flex-col gap-8">
+            <h4 className="text-center">Technical Specifications</h4>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
               <Card>
                 <CardHeader>
@@ -382,11 +334,9 @@ export default async function IntegrationPage({
       {/* Related Workflows */}
       {relatedWorkflows.length > 0 && (
         <section className="py-16 flex flex-col items-center justify-center w-full max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold mb-4">
-              Workflows using {integration.name}
-            </h2>
-            <p className="text-muted-foreground">
+          <div className="flex flex-col text-center mb-12 gap-4">
+            <h2>Workflows using {integration.name}</h2>
+            <p className="text-muted-foreground text-lg">
               Ready-to-use analytics workflows that leverage {integration.name}{" "}
               data
             </p>
@@ -469,27 +419,7 @@ export default async function IntegrationPage({
       )}
 
       {/* Final CTA */}
-      <section className="py-16 bg-primary/5">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Ready to Connect {integration.name}?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Start analyzing your {integration.category} data with Datapad's
-              AI-powered analytics platform.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Button asChild size="lg">
-                <a href="https://app.datapad.io">Connect {integration.name}</a>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="https://app.datapad.io">Book a Demo</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Cta18 />
     </>
   );
 }
