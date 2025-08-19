@@ -41,7 +41,7 @@ const VsComparisonTable = ({
       <div className="container">
         <div className="flex flex-col items-center gap-4 mb-16">
           <Badge variant="outline">HOW IT COMPARES</Badge>
-          <h2 className="mx-auto max-w-4xl text-center text-4xl font-semibold sm:text-5xl">
+          <h2 className="mx-auto max-w-5xl text-center">
             {title || defaultTitle}
           </h2>
         </div>
@@ -54,7 +54,7 @@ const VsComparisonTable = ({
                 Features
               </h3>
             </div>
-            <div className="flex flex-col items-center gap-2 rounded-t-2xl border-b border-border bg-muted p-5">
+            <div className="flex flex-col items-center gap-2 rounded-t-2xl border-b border-border bg-black-5 dark:bg-white-5 p-5">
               <div className="flex items-center gap-2">
                 <div className="size-8 flex items-center justify-center">
                   <AnimatedLogo isActive={false} size="medium" />
@@ -93,7 +93,7 @@ const VsComparisonTable = ({
                   {feature.icon && <feature.icon className="size-4 shrink-0" />}
                   <span className="font-semibold">{feature.feature}</span>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-2 border-b border-border bg-muted p-5">
+                <div className="flex flex-col items-center justify-center gap-2 border-b border-border bg-black-5 dark:bg-white-5 p-5">
                   <CheckCircle className="size-5 text-chart-purple" />
                   <span className="text-xs text-center text-muted-foreground">
                     {feature.datapad.description}
@@ -114,7 +114,7 @@ const VsComparisonTable = ({
 
             {/* CTA row */}
             <div className="border-border p-5"></div>
-            <div className="flex items-center justify-center gap-2 rounded-b-2xl border-border bg-muted p-5">
+            <div className="flex items-center justify-center gap-2 rounded-b-2xl border-border bg-black-5 dark:bg-white-5 p-5">
               <Button className="w-full">Setup Your Assistant</Button>
             </div>
             <div className="flex items-center justify-center gap-2 p-5">

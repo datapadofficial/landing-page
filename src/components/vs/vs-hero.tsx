@@ -8,13 +8,17 @@ interface VsHeroProps {
   competitorLogo?: string;
   subtitle?: string;
   ctaText?: string;
+  secondaryCtaText?: string;
+  badgeText?: string;
 }
 
 const VsHero = ({
   competitorName,
   competitorLogo,
   subtitle = "No more wasting time on analyzing Excels, CSVs. Get instant answers anywhere, anytime.",
-  ctaText = "Setup Your Assistant",
+  ctaText = "Try 100% Free",
+  secondaryCtaText = "Book a 15m Demo",
+  badgeText,
 }: VsHeroProps) => {
   return (
     <section className="py-20 bg-background relative overflow-hidden">
@@ -22,10 +26,10 @@ const VsHero = ({
         <div className="flex flex-col items-center gap-12">
           {/* Top Badge */}
           <Badge
-            variant="secondary"
-            className="text-sm font-medium bg-blue-100 text-blue-700 border-blue-200"
+            variant="outline"
+            className="text-xs uppercase font-medium text-chart-green"
           >
-            NEW Datapad Raises $500k Pre-Seed Round
+            {badgeText}
           </Badge>
 
           {/* Main Layout with Large Logos */}
@@ -61,7 +65,12 @@ const VsHero = ({
               </p>
 
               {/* CTA Button */}
-              <Button size="lg">{ctaText}</Button>
+              <div className="flex gap-4">
+                <Button size="lg">{ctaText}</Button>
+                <Button variant="outline" size="lg">
+                  {secondaryCtaText}
+                </Button>
+              </div>
             </div>
 
             {/* Right Logo - Competitor */}

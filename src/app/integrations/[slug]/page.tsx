@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";
 import Link from "next/link";
 import { IntegrationConnection } from "@/components/integrations/integration-connection";
-import { Cta18 } from "@/components/cta18";
+import { MainCTA } from "@/components/main-cta";
 import { IntegrationPainPoints } from "@/components/integrations/integration-pain-points";
 import { IntegrationHero } from "@/components/integrations/integration-hero";
 import { MainLogos } from "@/components/main-logos";
@@ -182,7 +182,7 @@ export default async function IntegrationPage({
       <IntegrationConnection integration={integration} />
 
       {/* Final CTA */}
-      <Cta18 />
+      <MainCTA />
     </main>
   );
 }

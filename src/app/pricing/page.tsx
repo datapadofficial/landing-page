@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Pricing32 } from "@/components/pricing32";
 import { Faq2 } from "@/components/faq2";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
-import { Cta18 } from "@/components/cta18";
+import { MainCTA } from "@/components/main-cta";
 export const metadata: Metadata = {
   title: "Pricing - Datapad | AI Data Analysis Platform",
   description:
@@ -118,7 +118,7 @@ export default function PricingPage() {
       <DatapadCasestudies />
 
       {/* Call to Action */}
-      <Cta18 />
+      <MainCTA />
 
       {/* FAQ Section */}
       <Faq2 heading="Pricing FAQ" items={pricingFAQs} />

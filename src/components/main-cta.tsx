@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const Cta18 = () => {
+const MainCTA = () => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -52,4 +52,4 @@ const Cta18 = () => {
   );
 };
 
-export { Cta18 };
+export { MainCTA };
