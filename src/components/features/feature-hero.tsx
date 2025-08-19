@@ -44,6 +44,11 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
 
           <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
             {feature.title}
+
+            <br />
+            <span className={cn("text-primary", `text-${feature.color}`)}>
+              Will Blow Your Mind
+            </span>
           </h1>
 
           <p className="text-muted-foreground text-balance text-base sm:text-lg lg:text-xl px-4 sm:px-0 max-w-3xl mx-auto">

@@ -12,6 +12,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { HowItWorksSection } from "@/components/how-it-works-section";
+import { Faq } from "@/components/faq";
+import { MainCTA } from "@/components/main-cta";
 
 interface FeaturePageProps {
   params: Promise<{
@@ -87,9 +89,15 @@ export default async function FeaturePage({ params }: FeaturePageProps) {
       {/* How It Works Section */}
       <HowItWorksSection
         steps={feature.steps}
-        title={<h1>How {feature.title} Works</h1>}
+        title={<h2>How {feature.title} Works</h2>}
         description={feature.shortDescription}
       />
+
+      {/* Main CTA Section */}
+      <MainCTA />
+
+      {/* FAQ Section */}
+      <Faq />
     </>
   );
 }

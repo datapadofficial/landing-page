@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { cache } from "react";
 import { LegalDocument } from "@/types/legal-document";
 
-const legalDirectory = path.join(process.cwd(), "content/legal");
+const legalDirectory = path.join(process.cwd(), "src/data/legal");
 
 // Cache the function to avoid re-reading files on every request
 export const getAllLegalDocuments = cache(

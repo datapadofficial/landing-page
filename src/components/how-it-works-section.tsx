@@ -13,7 +13,7 @@ interface HowItWorksStep {
 
 const HowItWorksSection = ({
   steps,
-  title = <h1>How It Works</h1>,
+  title = <h3>How It Works</h3>,
   description = "Get started in three simple steps and see immediate results.",
 }: {
   title: React.ReactNode;
