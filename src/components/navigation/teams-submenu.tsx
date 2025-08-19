@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getTeamsByPriority } from "@/lib/team-utils";
+import { cn } from "@/lib/utils";
 
 interface TeamsSubmenuProps {
   className?: string;
@@ -30,11 +31,10 @@ const TeamsSubmenu = ({}: TeamsSubmenuProps) => {
                 icon={
                   <DynamicIcon
                     name={team.icon as IconName}
-                    className="size-5 shrink-0"
+                    className={cn("size-5 shrink-0", `text-${team.color}`)}
                   />
                 }
                 url={`/teams/${team.slug}`}
-                color={team.color}
               />
             );
           })}

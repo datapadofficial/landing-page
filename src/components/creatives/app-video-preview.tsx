@@ -8,12 +8,20 @@ interface AppVideoPreviewProps {
   videoUrl?: string;
   poster?: string;
   title?: string;
+  controls?: boolean;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
 }
 
 export function AppVideoPreview({
   videoUrl = "/videos/datapad-demo.mp4",
   poster,
   title = "Datapad Demo Video",
+  controls = true,
+  autoPlay = true,
+  loop = true,
+  muted = true,
 }: AppVideoPreviewProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -42,10 +50,10 @@ export function AppVideoPreview({
         <div className="w-full overflow-hidden rounded-lg sm:rounded-xl border border-white/10 p-1 sm:p-1.5 bg-background">
           <video
             className="w-full h-auto rounded-md min-h-[200px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[500px] xl:min-h-[600px]"
-            controls={false}
-            autoPlay={true}
-            loop={true}
-            muted
+            controls={controls}
+            autoPlay={autoPlay}
+            loop={loop}
+            muted={muted}
             poster={poster}
             preload="metadata"
             style={{

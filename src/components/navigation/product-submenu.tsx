@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { getAllFeatures } from "@/lib/feature-utils";
+import { cn } from "@/lib/utils";
 
 interface ProductSubmenuProps {
   className?: string;
@@ -31,7 +32,7 @@ const ProductSubmenu = ({}: ProductSubmenuProps) => {
                 icon={
                   <DynamicIcon
                     name={feature.icon as IconName}
-                    className="size-5 shrink-0"
+                    className={cn("size-5 shrink-0", `text-${feature.color}`)}
                   />
                 }
                 url={feature.redirectUrl || `/features/${feature.slug}`}
