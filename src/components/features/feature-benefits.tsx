@@ -1,6 +1,6 @@
 "use client";
 
-import { Feature } from "../data/features/features";
+import { Feature } from "../../data/features/features";
 import { Check } from "lucide-react";
 
 interface FeatureBenefitsProps {

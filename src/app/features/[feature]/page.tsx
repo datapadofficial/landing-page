@@ -1,11 +1,11 @@
 import { getFeatureBySlug, getAllFeatures } from "@/lib/feature-utils";
 import { notFound } from "next/navigation";
-import { FeatureHero } from "@/components/feature-hero";
+import { FeatureHero } from "@/components/features/feature-hero";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
-import { FeatureDetails } from "@/components/feature-details";
-import { FeatureBenefits } from "@/components/feature-benefits";
-import { FeatureUseCases } from "@/components/feature-use-cases";
-import { FeatureCTA } from "@/components/feature-cta";
+import { FeatureDetails } from "@/components/features/feature-details";
+import { FeatureBenefits } from "@/components/features/feature-benefits";
+import { FeatureUseCases } from "@/components/features/feature-use-cases";
+import { FeatureCTA } from "@/components/features/feature-cta";
 import {
   Breadcrumb,
   BreadcrumbItem,

@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Feature } from "../data/features/features";
+import { Feature } from "../../data/features/features";
 import {
   Bot,
   BarChart3,
