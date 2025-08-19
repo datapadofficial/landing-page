@@ -22,7 +22,8 @@ const IntegrationPainPoints = ({ integration }: PainPointsProps) => {
       <div className="to-background absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-transparent"></div>
       <div className="container relative gap-12 flex flex-col items-center">
         <h2 className="max-w-5xl text-center mx-auto">
-          It's Easy to Get Lost in {integration.name}
+          It's Easy to <span className="text-chart-red">Get Lost</span> in{" "}
+          {integration.name}
         </h2>
         <div className="z-30 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {painPoints.map((painPoint, index) => (

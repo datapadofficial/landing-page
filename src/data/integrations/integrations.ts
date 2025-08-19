@@ -455,7 +455,7 @@ export const integrations: Integration[] = [
       {
         title: "Inaccurate Deal Predictions",
         description: "Can't accurately predict which deals will actually close",
-        icon: "crystal-ball",
+        icon: "trending-up-down",
       },
       {
         title: "Missed Sales Opportunities",
