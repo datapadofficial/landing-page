@@ -34,7 +34,7 @@ const PainPoints = ({
       <div className="to-background absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-transparent"></div>
       <div className="container relative gap-12 flex flex-col items-center">
         <div className="text-center">
-          <h2 className="max-w-5xl text-center mx-auto">{title}</h2>
+          <h2 className="max-w-7xl text-center mx-auto">{title}</h2>
           {subtitle && (
             <p className="text-muted-foreground mt-4 max-w-3xl mx-auto">
               {subtitle}

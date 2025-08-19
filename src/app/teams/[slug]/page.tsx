@@ -6,7 +6,6 @@ import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
-import { TeamWorkflows } from "@/components/team/team-workflows";
 import { TeamCTA } from "@/components/team/team-cta";
 import { MainLogos } from "@/components/main-logos";
 import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
@@ -14,6 +13,9 @@ import { FeatureAccordion } from "@/components/features/feature-accordion";
 import { PainPoints } from "@/components/pain-points";
 import { WorkflowsSection } from "@/components/workflows-section";
 import { WorkflowGallery } from "@/components/workflows/workflow-gallery";
+import { MainCTA } from "@/components/main-cta";
+import { DatapadCasestudies } from "@/components/datapad-casestudies";
+import { HomeDataAgent } from "@/components/home-data-agent";
 
 interface TeamPageProps {
   params: Promise<{
@@ -94,8 +96,8 @@ export default async function TeamPage({ params }: TeamPageProps) {
         painPoints={team.painPoints || []}
         title={
           <>
-            Common {team.name}{" "}
-            <span className="text-chart-red">Pain Points</span>
+            Working with{" "}
+            <span className="text-chart-red">{team.name} Data is a Pain</span>
           </>
         }
         subtitle={`See why ${team.name.toLowerCase()} teams are struggling with data analysis and reporting.`}
@@ -113,6 +115,8 @@ export default async function TeamPage({ params }: TeamPageProps) {
         description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${team.name.toLowerCase()} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
         workflows={workflows}
       />
+
+      <HomeDataAgent />
 
       {/* Related Workflows Gallery */}
       {workflows.length > 0 && (
@@ -150,22 +154,9 @@ export default async function TeamPage({ params }: TeamPageProps) {
 
       <TeamIntegrations team={team} integrations={integrations} />
 
-      <TeamWorkflows
-        team={team}
-        workflows={workflows}
-        customContent={
-          <div className="text-center mb-12 flex flex-col items-center gap-8">
-            <h2>{team.name} Workflows</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Ready-to-use analytics workflows designed specifically for{" "}
-              {team.name.toLowerCase()} teams. Get instant insights without the
-              complexity.
-            </p>
-          </div>
-        }
-      />
+      <DatapadCasestudies />
 
-      <TeamCTA team={team} />
+      <MainCTA />
     </>
   );
 }

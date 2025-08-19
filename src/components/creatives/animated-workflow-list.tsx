@@ -21,7 +21,11 @@ const WorkflowCard = ({
       <div className="flex items-center justify-between mb-2">
         <div className="rounded border border-border/20 overflow-hidden bg-background/50 flex-shrink-0">
           <Image
-            src={`/images/integrations/${integration?.id}.png`}
+            src={
+              integration
+                ? `/images/integrations/${integration?.id}.png`
+                : `/images/integrations/${workflow.integrations[0]}.png`
+            }
             alt={integration?.name || "Integration"}
             width={18}
             height={18}
