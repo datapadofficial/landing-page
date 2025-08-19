@@ -124,7 +124,7 @@ export default async function IntegrationPage({
 
       {/* Main Workflows */}
       <MainWorkflows
-        title={`${integration.name} Workflows That Deliver Results`}
+        title={`Press a Button, Watch Your ROI Increase`}
         description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${integration.name} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
         integration={integration}
       />
