@@ -10,14 +10,13 @@ import {
   Package,
   Truck,
 } from "lucide-react";
-import Link from "next/link";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getWorkflowsByTeam } from "../../data/workflow-templates/workflow-templates";
+import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 
 const WorkflowsSubmenu = () => {
   // Get real workflows by team

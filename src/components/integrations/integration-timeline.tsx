@@ -25,26 +25,13 @@ const getTransformationSteps = (integration: Integration): DataItem[] => {
   return getDefaultSteps(integration);
 };
 
-const getStepTitle = (index: number): string => {
-  const stepTitles = {
-    0: "Connect & Sync",
-    1: "AI Analysis",
-    2: "Actionable Insights",
-  };
-  return stepTitles[index as keyof typeof stepTitles] || `Step ${index + 1}`;
-};
-
 const getDefaultSteps = (integration: Integration): DataItem[] => {
   const categorySteps = {
     social: [
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Automatically pull all your ${
-          integration.name
-        } metrics - ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} - in real-time.`,
+        description: `Automatically pull all your ${integration.name} metrics in real-time.`,
       },
       {
         id: 2,
@@ -61,13 +48,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Automatically sync your ${
-          integration.name
-        } campaign data - ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(
-            ", "
-          )} - with ${integration.specs.updateFrequency.toLowerCase()} updates.`,
+        description: `Automatically sync your ${integration.name} campaign data - with updates.`,
       },
       {
         id: 2,
@@ -84,11 +65,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Connect your ${
-          integration.name
-        } account and sync ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} data automatically.`,
+        description: `Connect your ${integration.name} account and sync data automatically.`,
       },
       {
         id: 2,
@@ -105,11 +82,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Sync your ${
-          integration.name
-        } store data - ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} - with real-time updates.`,
+        description: `Sync your ${integration.name} store data - with real-time updates.`,
       },
       {
         id: 2,
@@ -126,11 +99,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Connect ${
-          integration.name
-        } and sync your ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} data automatically.`,
+        description: `Connect ${integration.name} and sync your data automatically.`,
       },
       {
         id: 2,
@@ -147,11 +116,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Connect to your ${
-          integration.name
-        } database and access ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} in real-time.`,
+        description: `Connect to your ${integration.name} database and access in real-time.`,
       },
       {
         id: 2,
@@ -168,11 +133,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Sync your ${
-          integration.name
-        } financial data - ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} - automatically.`,
+        description: `Sync your ${integration.name} financial data - automatically.`,
       },
       {
         id: 2,
@@ -189,11 +150,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Connect ${
-          integration.name
-        } and sync ${integration.specs.dataTypes
-          .slice(0, 3)
-          .join(", ")} data in real-time.`,
+        description: `Connect ${integration.name} and sync data in real-time.`,
       },
       {
         id: 2,
@@ -210,9 +167,7 @@ const getDefaultSteps = (integration: Integration): DataItem[] => {
       {
         id: 1,
         title: "Connect & Sync",
-        description: `Connect your ${
-          integration.name
-        } data source and sync information automatically with ${integration.specs.updateFrequency.toLowerCase()} updates.`,
+        description: `Connect your ${integration.name} data source and sync information automatically with updates.`,
       },
       {
         id: 2,

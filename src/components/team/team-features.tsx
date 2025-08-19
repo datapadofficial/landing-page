@@ -1,7 +1,8 @@
 "use client";
 
-import { Team } from "../../data/teams/teams";
-import { Feature } from "../../data/features/features";
+import { teams } from "@/data/teams/teams";
+import { Feature } from "@/types/feature";
+import { Team } from "@/types/team";
 import {
   Card,
   CardContent,

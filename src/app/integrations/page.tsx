@@ -218,9 +218,6 @@ export default async function IntegrationsPage() {
 
                             <div className="flex items-center justify-between text-sm">
                               <div className="flex items-center gap-4">
-                                <span className="text-muted-foreground">
-                                  {integration.specs.updateFrequency}
-                                </span>
                                 {recipeCount > 0 && (
                                   <Badge
                                     variant="secondary"
@@ -327,36 +324,6 @@ export default async function IntegrationsPage() {
                     <CardDescription className="mb-4 flex-1">
                       {integration.description}
                     </CardDescription>
-
-                    {/* Specs */}
-                    <div className="space-y-3 mb-4">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">
-                          Update Frequency:
-                        </span>
-                        <span className="font-medium">
-                          {integration.specs.updateFrequency}
-                        </span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">
-                          Historical Data:
-                        </span>
-                        <span className="font-medium">
-                          {integration.specs.historicalData}
-                        </span>
-                      </div>
-                      {integration.recipeCount > 0 && (
-                        <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">
-                            Workflows Available:
-                          </span>
-                          <Badge variant="secondary" className="text-xs">
-                            {integration.recipeCount}
-                          </Badge>
-                        </div>
-                      )}
-                    </div>
 
                     <div className="flex items-center justify-between pt-2">
                       <div className="flex gap-2">

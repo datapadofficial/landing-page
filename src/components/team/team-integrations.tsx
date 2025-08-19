@@ -1,7 +1,8 @@
 "use client";
 
-import { Team } from "../../data/teams/teams";
-import { Integration } from "../../data/integrations/integrations";
+import { integrations } from "@/data/integrations/integrations";
+import { Team } from "@/types/team";
+import { Integration } from "@/types/integration";
 import {
   Card,
   CardContent,
@@ -62,9 +63,6 @@ export function TeamIntegrations({
                     {integration.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <div className="text-xs text-muted-foreground">
-                      {integration.specs.updateFrequency} updates
-                    </div>
                     <Button asChild variant="ghost" size="sm">
                       <Link href={`/integrations/${integration.id}`}>
                         Learn More <ArrowRight className="ml-1 h-3 w-3" />

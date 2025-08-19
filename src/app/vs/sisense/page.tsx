@@ -13,7 +13,7 @@ import {
 import { VsHero } from "@/components/vs/vs-hero";
 import { VsComparisonTable } from "@/components/vs/vs-comparison-table";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
-import { Logos5 } from "@/components/main-logos";
+import { MainLogos } from "@/components/main-logos";
 import { Cta18 } from "@/components/cta18";
 import { Faq2 } from "@/components/faq2";
 
@@ -211,7 +211,7 @@ export default function SisenseComparisonPage() {
       />
 
       {/* Trusted By Section */}
-      <Logos5 />
+      <MainLogos />
 
       {/* Testimonials */}
       <DatapadCasestudies />

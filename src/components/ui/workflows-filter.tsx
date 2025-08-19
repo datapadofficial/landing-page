@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Workflow } from "../../data/workflow-templates/workflow-templates";
-import { Team } from "../../data/teams/teams";
+import { workflows } from "@/data/workflow-templates/workflow-templates";
+import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";
 import { Input } from "@/components/ui/input";
@@ -14,9 +14,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Search, Filter, X } from "lucide-react";
+import { WorkflowTemplate } from "@/types/template";
 
 interface WorkflowsFilterProps {
-  workflows: Workflow[];
+  workflows: WorkflowTemplate[];
   teams: Team[];
 }
 

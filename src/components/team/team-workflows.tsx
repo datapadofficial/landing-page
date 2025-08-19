@@ -1,14 +1,15 @@
 "use client";
 
-import { Team } from "../../data/teams/teams";
-import { Workflow } from "../../data/workflow-templates/workflow-templates";
+import { workflows } from "@/data/workflow-templates/workflow-templates";
+import { Team } from "@/types/team";
+import { WorkflowTemplate } from "@/types/template";
 import { WorkflowCard } from "@/components/ui/workflow-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 interface TeamWorkflowsProps {
   team: Team;
-  workflows: Workflow[];
+  workflows: WorkflowTemplate[];
   customContent?: React.ReactNode;
 }
 

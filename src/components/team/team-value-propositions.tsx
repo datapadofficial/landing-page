@@ -1,7 +1,8 @@
 "use client";
 
 import { Feature197 } from "@/components/feature197";
-import type { Team } from "../../data/teams/teams";
+import { teams } from "@/data/teams/teams";
+import { Team } from "@/types/team";
 import { cn } from "@/lib/utils";
 
 interface TeamValuePropositionsProps {

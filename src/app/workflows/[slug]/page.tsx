@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Feature242 } from "@/components/main-workflows";
+import { MainWorkflows } from "@/components/main-workflows";
 
 interface WorkflowPageProps {
   params: Promise<{
@@ -315,7 +315,7 @@ export default async function WorkflowPage({ params }: WorkflowPageProps) {
       </section>
 
       {/* How It Works */}
-      <Feature242 />
+      <MainWorkflows />
 
       {/* Mock Data Preview */}
       {workflow.mockData && (

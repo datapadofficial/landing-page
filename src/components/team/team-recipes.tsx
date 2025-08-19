@@ -1,7 +1,8 @@
 "use client";
 
-import { Team } from "../../data/teams/teams";
-import { Workflow } from "../../data/workflow-templates/workflow-templates";
+import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
+import { Team } from "@/types/team";
+import { WorkflowTemplate } from "@/types/template";
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ import Image from "next/image";
 
 interface TeamWorkflowsProps {
   team: Team;
-  workflows: Workflow[];
+  workflows: WorkflowTemplate[];
   customContent?: React.ReactNode;
 }
 
@@ -33,7 +34,7 @@ export function TeamWorkflows({
   };
 
   // Show top 6 workflows
-  const featuredWorkflows = workflows.slice(0, 6);
+  const featuredWorkflows = getWorkflowsByTeam(team.slug).slice(0, 6);
 
   return (
     <section className="py-16" id="workflows">
