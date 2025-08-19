@@ -2,10 +2,7 @@ import { getFeatureBySlug, getAllFeatures } from "@/lib/feature-utils";
 import { notFound } from "next/navigation";
 import { FeatureHero } from "@/components/features/feature-hero";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
-import { FeatureDetails } from "@/components/features/feature-details";
-import { FeatureBenefits } from "@/components/features/feature-benefits";
-import { FeatureUseCases } from "@/components/features/feature-use-cases";
-import { FeatureCTA } from "@/components/features/feature-cta";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -86,17 +83,7 @@ export default async function FeaturePage({ params }: FeaturePageProps) {
       {/* Video Preview Section */}
       <AppVideoPreview videoUrl={feature.videoUrl} />
 
-      {/* Feature Details */}
-      <FeatureDetails feature={feature} />
-
-      {/* Feature Benefits */}
-      <FeatureBenefits feature={feature} />
-
-      {/* Feature Use Cases */}
-      <FeatureUseCases feature={feature} />
-
-      {/* Feature CTA */}
-      <FeatureCTA feature={feature} />
+      {}
     </>
   );
 }

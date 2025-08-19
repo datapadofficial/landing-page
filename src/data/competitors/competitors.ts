@@ -351,7 +351,7 @@ export const competitors: Competitor[] = [
   {
     id: "powerbi",
     name: "Power BI",
-    logo: "/images/datapad-logo.svg", // Placeholder - needs actual Power BI logo
+    logo: "https://framerusercontent.com/images/yr68YzOuPmqYczRHbw8ZgNlV8dg.png?scale-down-to=512", // Placeholder - needs actual Power BI logo
     tagline: "Microsoft's business intelligence platform",
     description: "Traditional BI tool focused on visualization and reporting",
     subtitle:

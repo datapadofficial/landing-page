@@ -75,7 +75,7 @@ const VsHero = ({
 
             {/* Right Logo - Competitor */}
             <div className="flex-shrink-0 p-4">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-white flex items-center justify-center shadow-2xl border border-gray-200 rotate-12">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-black-10 dark:bg-white-10 flex items-center justify-center shadow-2xl border border-input rotate-12">
                 {competitorLogo ? (
                   <Image
                     src={competitorLogo}
