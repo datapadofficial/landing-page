@@ -24,9 +24,10 @@ const MainWorkflows = ({
   const steps = [
     {
       step: "01",
-      title: "Connect Your Data",
-      description:
-        "Link your Google Ads, Analytics, CRM, and social platforms. No complex setup - just secure connections to your existing tools.",
+      title: integration ? `Connect ${integration.name}` : "Connect Your Data",
+      description: integration
+        ? `Link your ${integration.name} to your existing tools. No complex setup - just secure connections to your existing tools.`
+        : "Link your Google Ads, Analytics, CRM, and social platforms. No complex setup - just secure connections to your existing tools.",
       imgSrc:
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-exchange-between-the-user-and-the-global-network.svg",
       href: "/features/integrations",
