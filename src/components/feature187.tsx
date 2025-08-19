@@ -14,10 +14,10 @@ type Feature187Props = {
 const getTransformationSteps = (integration: Integration): DataItem[] => {
   // If the integration has custom solutions, use those
   if (
-    integration.conversionCopy?.solutions &&
-    integration.conversionCopy.solutions.length >= 3
+    integration.solutions &&
+    integration.solutions.length >= 3
   ) {
-    return integration.conversionCopy.solutions
+    return integration.solutions
       .slice(0, 3)
       .map((solution, index) => ({
         id: index + 1,

@@ -4,25 +4,17 @@ export interface Team {
   description: string;
   icon: string;
   color: string;
-
-  // SEO content
   seoTitle?: string;
   seoDescription?: string;
-
-  // Featured content
-  featuredIntegrations: string[]; // Integration IDs
-  featuredFeatures: string[]; // Feature slugs
-
-  // Value propositions for Feature197 component
+  featuredIntegrations: string[];
+  featuredFeatures: string[];
   valuePropositions?: Array<{
     id: number;
     title: string;
     image: string;
     description: string;
     videoUrl?: string;
-    icon?: string; // Icon name as string
+    icon?: string;
   }>;
-
-  // Meta info
   priority: number;
 }

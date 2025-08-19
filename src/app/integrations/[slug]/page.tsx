@@ -206,22 +206,18 @@ export default async function IntegrationPage({
       </section>
 
       {/* Why Connect - Conversion Section */}
-      {integration.conversionCopy && (
+      {integration.headline && (
         <section className="py-32">
           <div className="container">
             <div className="max-w-5xl mx-auto">
               {/* Compact Conversion Header */}
               <div className="text-center mb-12">
-                <h2 className="mb-4">
-                  {integration.conversionCopy.whyConnect.headline}
-                </h2>
+                <h2 className="mb-4">{integration.headline}</h2>
                 <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-                  {integration.conversionCopy.whyConnect.description}
+                  {integration.conversionDescription}
                 </p>
                 <Button asChild size="lg">
-                  <a href="https://app.datapad.io">
-                    {integration.conversionCopy.whyConnect.cta}
-                  </a>
+                  <a href="https://app.datapad.io">{integration.cta}</a>
                 </Button>
               </div>
 
@@ -365,7 +361,7 @@ export default async function IntegrationPage({
       )}
 
       {/* Key Benefits - Only show if no conversion copy */}
-      {!integration.conversionCopy && (
+      {!integration.headline && (
         <section className="py-16 bg-black-5 dark:bg-white-5 border rounded-xl">
           <div className="container">
             <div className="max-w-7xl mx-auto">

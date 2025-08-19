@@ -7,8 +7,8 @@ interface PainPointsProps {
 }
 
 const PainPoints = ({ integration }: PainPointsProps) => {
-  const painPoints = integration.conversionCopy?.painPoints || [];
-  const solutions = integration.conversionCopy?.solutions || [];
+  const painPoints = integration.painPoints || [];
+  const solutions = integration.solutions || [];
 
   // Don't render if there are no pain points or solutions
   if (painPoints.length === 0 && solutions.length === 0) {

@@ -26,20 +26,16 @@ export interface Integration {
     setup?: string;
     benefits?: string;
   };
-  conversionCopy?: {
-    whyConnect: {
-      headline: string;
-      description: string;
-      benefits: string[];
-      cta: string;
-    };
-    painPoints: Array<{
-      title: string;
-      description: string;
-    }>;
-    solutions: Array<{
-      title: string;
-      description: string;
-    }>;
-  };
+  headline?: string;
+  conversionDescription?: string;
+  conversionBenefits?: string[];
+  cta?: string;
+  painPoints?: Array<{
+    title: string;
+    description: string;
+  }>;
+  solutions?: Array<{
+    title: string;
+    description: string;
+  }>;
 }
