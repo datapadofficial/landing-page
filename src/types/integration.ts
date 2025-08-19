@@ -1,7 +1,11 @@
 export interface Integration {
   id: string;
   name: string;
+  headline: string;
   description: string;
+  cta?: string;
+  secondaryCta?: string;
+  website?: string;
   category:
     | "advertising"
     | "analytics"
@@ -13,23 +17,7 @@ export interface Integration {
     | "email"
     | "other";
   icon: string;
-  website?: string;
-  specs: {
-    dataTypes: string[];
-    updateFrequency: string;
-    historicalData: string;
-    apiDocs?: string;
-  };
-  seoContent?: {
-    overview?: string;
-    useCases?: string;
-    setup?: string;
-    benefits?: string;
-  };
-  headline?: string;
-  conversionDescription?: string;
-  conversionBenefits?: string[];
-  cta?: string;
+  benefits?: string[];
   painPoints?: Array<{
     title: string;
     description: string;

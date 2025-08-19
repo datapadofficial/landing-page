@@ -11,7 +11,7 @@ interface Props {
   integration: Integration;
 }
 
-const ConnectIntegration = ({ integration }: Props) => {
+const IntegrationConnection = ({ integration }: Props) => {
   // Get the integrations feature data for benefits
   const integrationsFeature = getFeatureBySlug("integrations");
   const benefits = integrationsFeature?.benefits || [
@@ -23,10 +23,10 @@ const ConnectIntegration = ({ integration }: Props) => {
   ];
 
   return (
-    <section className="flex items-center justify-center py-32  bg-black-3 dark:bg-white-3 border border-input rounded-xl">
+    <section className="flex w-full  items-center justify-center py-32  bg-black-3 dark:bg-white-3 border border-input rounded-xl">
       <div className="container">
         <div className="mx-auto flex w-full max-w-md flex-col items-center gap-6 p-0">
-          <div className="flex w-full flex-col items-center gap-2 border-b pb-4">
+          <div className="flex w-full flex-col items-center gap-2">
             <div className="mb-2 mt-2 flex items-center justify-center gap-4">
               <div className="bg-background flex h-12 w-12 items-center justify-center rounded-lg border p-3 shadow">
                 <Image
@@ -53,25 +53,10 @@ const ConnectIntegration = ({ integration }: Props) => {
               {integration.description}
             </p>
           </div>
-          <div className="w-full py-6">
-            <ul className="space-y-3">
-              {benefits.slice(0, 5).map((benefit, i) => (
-                <li
-                  key={i}
-                  className="text-foreground flex items-center gap-3 text-sm"
-                >
-                  <Check className="text-primary size-4" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex w-full items-center justify-end gap-2 pb-2">
-            <Button variant="outline" type="button">
-              Cancel
-            </Button>
-            <Button type="button" asChild>
-              <a href="https://app.datapad.io">Connect now</a>
+
+          <div className="flex w-full items-center justify-center gap-2 pb-2">
+            <Button type="button" size="lg" asChild>
+              <a href="https://app.datapad.io">Connect Free in 2 Minutes</a>
             </Button>
           </div>
         </div>
@@ -80,4 +65,4 @@ const ConnectIntegration = ({ integration }: Props) => {
   );
 };
 
-export { ConnectIntegration };
+export { IntegrationConnection };

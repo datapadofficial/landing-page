@@ -7,24 +7,14 @@ import {
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { WorkflowCard } from "@/components/ui/workflow-card";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { ExternalLink, Clock, Users, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Feature187 } from "@/components/feature187";
-import { ConnectIntegration } from "@/components/integration12";
+import { IntegrationConnection } from "@/components/integration-connection";
 import { Cta18 } from "@/components/cta18";
-import { PainPoints } from "@/components/integrations/pain-points";
+import { IntegrationPainPoints } from "@/components/integrations/integration-pain-points";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -113,30 +103,7 @@ export default async function IntegrationPage({
   const relatedWorkflows = getWorkflowsByIntegration(integration.id);
 
   return (
-    <>
-      {/* Breadcrumb Navigation */}
-      <section className="pt-16 sm:pt-24">
-        <div className="container">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/integrations">
-                  Integrations
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{integration.name}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-      </section>
-
+    <main className="flex flex-col max-w-7xl mx-auto items-center">
       {/* Hero Section */}
       <section className="pt-8 sm:pt-16">
         <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
@@ -171,7 +138,7 @@ export default async function IntegrationPage({
 
             {/* Title */}
             <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight">
-              {integration.name}
+              {integration.headline}
             </h1>
 
             {/* Description */}
@@ -185,147 +152,25 @@ export default async function IntegrationPage({
             <Button asChild size="lg" className="w-full sm:w-auto">
               <a href="https://app.datapad.io">Connect {integration.name}</a>
             </Button>
-            {integration.website && (
+
+            <Link href="https://app.datapad.io">
               <Button
-                asChild
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"
               >
-                <a
-                  href={integration.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Website <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
+                {integration.secondaryCta ?? "Book a 15m Demo"}
               </Button>
-            )}
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Connect - Conversion Section */}
-      {integration.headline && (
-        <section className="py-32">
-          <div className="container">
-            <div className="max-w-5xl mx-auto">
-              {/* Compact Conversion Header */}
-              <div className="text-center mb-12">
-                <h2 className="mb-4">{integration.headline}</h2>
-                <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-                  {integration.conversionDescription}
-                </p>
-                <Button asChild size="lg">
-                  <a href="https://app.datapad.io">{integration.cta}</a>
-                </Button>
-              </div>
+      {/* Pain Points Component */}
+      <IntegrationPainPoints integration={integration} />
 
-              {/* Pain Points Component */}
-              <PainPoints integration={integration} />
-
-              {/* Dynamic transformation steps using Feature187 */}
-              <div className="col-span-full">
-                <Feature187 integration={integration} />
-              </div>
-            </div>
-
-            {/* Integration Connection Interface */}
-            <div className="mt-16">
-              <ConnectIntegration integration={integration} />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Overview Section */}
-      {integration.seoContent?.overview && (
-        <section className="py-16">
-          <div className="container">
-            <div className="max-w-4xl mx-auto text-center gap-6 flex flex-col">
-              <h2>About {integration.name}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Connect your {integration.name} account to Datapad for
-                comprehensive analysis and insights. Get real-time data
-                synchronization and powerful analytics to optimize your{" "}
-                {integration.category} performance.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Technical Specs */}
-      <section className="py-16 max-w-5xl">
-        <div className="container">
-          <div className="mx-auto flex flex-col gap-8">
-            <h4 className="text-center">Technical Specifications</h4>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5" />
-                    Data Types
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {integration.specs.dataTypes.map((type) => (
-                      <Badge key={type} variant="secondary">
-                        {type}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Clock className="h-5 w-5" />
-                    Update Frequency
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg font-medium">
-                    {integration.specs.updateFrequency}
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Historical Data</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg font-medium">
-                    {integration.specs.historicalData}
-                  </p>
-                </CardContent>
-              </Card>
-
-              {integration.specs.apiDocs && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle>API Documentation</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Button asChild variant="outline" className="w-full">
-                      <a
-                        href={integration.specs.apiDocs}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View API Docs <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Integration Connection Interface */}
+      <IntegrationConnection integration={integration} />
 
       {/* Related Workflows */}
       {relatedWorkflows.length > 0 && (
@@ -360,62 +205,8 @@ export default async function IntegrationPage({
         </section>
       )}
 
-      {/* Key Benefits - Only show if no conversion copy */}
-      {!integration.headline && (
-        <section className="py-16 bg-black-5 dark:bg-white-5 border rounded-xl">
-          <div className="container">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                  Why Connect {integration.name}?
-                </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Unlock powerful insights and streamline your{" "}
-                  {integration.category} analytics
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Real-time Insights</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Get up-to-date data with{" "}
-                    {integration.specs.updateFrequency.toLowerCase()}{" "}
-                    synchronization
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Clock className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Historical Data</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Access {integration.specs.historicalData} of historical data
-                    for trend analysis
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Easy Setup</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Connect in minutes with our guided setup process
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Final CTA */}
       <Cta18 />
-    </>
+    </main>
   );
 }

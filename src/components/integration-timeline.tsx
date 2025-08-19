@@ -1,5 +1,5 @@
 import React from "react";
-import { Integration } from "../data/integrations/integrations";
+import { Integration } from "@/types/integration";
 
 type DataItem = {
   id: number;
@@ -7,23 +7,18 @@ type DataItem = {
   description: string;
 };
 
-type Feature187Props = {
+type IntegrationTimelineProps = {
   integration: Integration;
 };
 
 const getTransformationSteps = (integration: Integration): DataItem[] => {
   // If the integration has custom solutions, use those
-  if (
-    integration.solutions &&
-    integration.solutions.length >= 3
-  ) {
-    return integration.solutions
-      .slice(0, 3)
-      .map((solution, index) => ({
-        id: index + 1,
-        title: `Step ${index + 1}: ${solution.title}`,
-        description: solution.description,
-      }));
+  if (integration.solutions && integration.solutions.length >= 3) {
+    return integration.solutions.slice(0, 3).map((solution, index) => ({
+      id: index + 1,
+      title: `Step ${index + 1}: ${solution.title}`,
+      description: solution.description,
+    }));
   }
 
   // Default steps based on category
@@ -261,7 +256,9 @@ const StepItem: React.FC<StepItemProps> = ({ step, isLast }) => {
   );
 };
 
-const Feature187: React.FC<Feature187Props> = ({ integration }) => {
+const IntegrationTimeline: React.FC<IntegrationTimelineProps> = ({
+  integration,
+}) => {
   const transformationSteps = getTransformationSteps(integration);
 
   return (
@@ -291,4 +288,4 @@ const Feature187: React.FC<Feature187Props> = ({ integration }) => {
   );
 };
 
-export { Feature187 };
+export { IntegrationTimeline };

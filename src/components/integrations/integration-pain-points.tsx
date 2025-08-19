@@ -1,4 +1,4 @@
-import { AlertCircle, CheckCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { Integration } from "@/types/integration";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -6,7 +6,7 @@ interface PainPointsProps {
   integration: Integration;
 }
 
-const PainPoints = ({ integration }: PainPointsProps) => {
+const IntegrationPainPoints = ({ integration }: PainPointsProps) => {
   const painPoints = integration.painPoints || [];
   const solutions = integration.solutions || [];
 
@@ -40,4 +40,4 @@ const PainPoints = ({ integration }: PainPointsProps) => {
   );
 };
 
-export { PainPoints };
+export { IntegrationPainPoints };

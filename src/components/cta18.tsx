@@ -5,9 +5,14 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Cta18 = () => {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section className="py-32">
@@ -30,7 +35,7 @@ const Cta18 = () => {
               </Button>
             </div>
           </div>
-          {theme && (
+          {mounted && (
             <div className="relative ml-6 max-h-96 md:mt-8 md:ml-0">
               <Image
                 src={
