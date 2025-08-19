@@ -1,8 +1,8 @@
 import { MainHero } from "@/components/main-hero";
-import { AppVideoPreview } from "@/components/creatives/app-video-preview";
+// import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { AppPreview } from "@/components/creatives/app-preview";
-import { Logos5 } from "@/components/logos5";
-import { Feature242 } from "@/components/feature242";
+import { MainLogos } from "@/components/main-logos";
+import { MainWorkflows } from "@/components/main-workflows";
 import { Feature128 } from "@/components/feature128";
 import { Faq2 } from "@/components/faq2";
 import { Pricing32 } from "@/components/pricing32";
@@ -12,10 +12,10 @@ import dynamic from "next/dynamic";
 import { Feature250 } from "@/components/feature250";
 
 // Only lazy load components with heavy charts/visualizations
-const Feature166 = dynamic(
+const HomeDataAgent = dynamic(
   () =>
-    import("@/components/feature166").then((mod) => ({
-      default: mod.Feature166,
+    import("@/components/home-data-agent").then((mod) => ({
+      default: mod.HomeDataAgent,
     })),
   {
     ssr: true, // Keep SSR for SEO
@@ -39,17 +39,14 @@ export default function Home() {
       /> */}
       <AppPreview />
 
-      {/* App Preview Section */}
-      {/* <AppPreview /> */}
-
       {/* Logos section */}
-      <Logos5 />
+      <MainLogos />
 
       {/* Data Agent Section */}
-      <Feature166 />
+      <HomeDataAgent />
 
       {/* Workflows Section */}
-      <Feature242 />
+      <MainWorkflows />
 
       {/* Key Features Section */}
       <Feature128 />

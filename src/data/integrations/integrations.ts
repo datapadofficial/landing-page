@@ -33,10 +33,6 @@ export const integrations: Integration[] = [
         title: "Audience Scaling Confusion",
         description: "Can't quickly identify which audiences to scale or pause",
       },
-      {
-        title: "No Action Plans",
-        description: "No clear action plan from your ad data",
-      },
     ],
     solutions: [
       {
@@ -145,10 +141,6 @@ export const integrations: Integration[] = [
         description:
           "Missing conversion opportunities buried in complex reports",
       },
-      {
-        title: "Website Performance Strategy",
-        description: "No clear strategy for improving website performance",
-      },
     ],
     solutions: [
       {
@@ -205,10 +197,6 @@ export const integrations: Integration[] = [
         description:
           "Inventory decisions based on gut feeling rather than data",
       },
-      {
-        title: "Cart Abandonment Strategy",
-        description: "No clear strategy for reducing cart abandonment",
-      },
     ],
     solutions: [
       {
@@ -264,10 +252,6 @@ export const integrations: Integration[] = [
         description:
           "No clear strategy for reducing payment disputes and chargebacks",
       },
-      {
-        title: "Pricing Strategy Insights",
-        description: "Missing insights about optimal pricing strategies",
-      },
     ],
     solutions: [
       {
@@ -321,10 +305,6 @@ export const integrations: Integration[] = [
       {
         title: "Poor Lead Generation",
         description: "Marketing campaigns not generating quality leads",
-      },
-      {
-        title: "Sales Process Visibility",
-        description: "No visibility into what's working in your sales process",
       },
     ],
     solutions: [
@@ -382,11 +362,6 @@ export const integrations: Integration[] = [
         title: "Impressions Without Engagement",
         description:
           "B2B campaigns getting impressions but no meaningful engagement",
-      },
-      {
-        title: "Professional Creative Strategy",
-        description:
-          "No clear strategy for optimizing LinkedIn ad creative for professionals",
       },
     ],
     solutions: [
@@ -464,10 +439,6 @@ export const integrations: Integration[] = [
         description:
           "Sales team missing opportunities and not following best practices",
       },
-      {
-        title: "No Churn Warning",
-        description: "No early warning system for customers likely to churn",
-      },
     ],
     solutions: [
       {
@@ -525,10 +496,6 @@ export const integrations: Integration[] = [
         description:
           "Wasting time on hashtags that don't actually increase reach",
       },
-      {
-        title: "Low Story Views",
-        description: "Stories getting low views despite having followers",
-      },
     ],
     solutions: [
       {
@@ -585,11 +552,6 @@ export const integrations: Integration[] = [
         title: "Professional Report Creation",
         description:
           "Can't easily create professional reports from spreadsheet data",
-      },
-      {
-        title: "No Predictive Insights",
-        description:
-          "No way to predict future trends based on historical spreadsheet data",
       },
     ],
     solutions: [
@@ -776,10 +738,6 @@ export const integrations: Integration[] = [
         title: "Database Report Creation",
         description:
           "Can't easily create reports and dashboards from database data",
-      },
-      {
-        title: "No Data Quality",
-        description: "No way to monitor data quality and catch issues early",
       },
     ],
     solutions: [

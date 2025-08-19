@@ -5,7 +5,7 @@ import {
   getAllWorkflows,
   getRelatedWorkflows,
 } from "@/lib/workflow-template-helpers";
-import { getIntegrationsByIds } from "@/lib/integration-helpers";
+import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Feature242 } from "@/components/feature242";
+import { Feature242 } from "@/components/main-workflows";
 
 interface WorkflowPageProps {
   params: Promise<{

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import {
   getIntegrationById,
   getAllIntegrations,
-} from "@/lib/integration-helpers";
+} from "@/lib/integration-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";
@@ -12,6 +12,9 @@ import { IntegrationConnection } from "@/components/integrations/integration-con
 import { Cta18 } from "@/components/cta18";
 import { IntegrationPainPoints } from "@/components/integrations/integration-pain-points";
 import { IntegrationHero } from "@/components/integrations/integration-hero";
+import { MainLogos } from "@/components/main-logos";
+import { HomeDataAgent } from "@/components/home-data-agent";
+import { MainWorkflows } from "@/components/main-workflows";
 
 interface IntegrationPageProps {
   params: Promise<{
@@ -104,11 +107,27 @@ export default async function IntegrationPage({
       {/* Hero Section */}
       <IntegrationHero integration={integration} />
 
-      {/* Pain Points Component */}
-      <IntegrationPainPoints integration={integration} />
+      {/* Main Logos */}
+      <MainLogos
+        title={
+          <div className="text-center">
+            <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
+              Powering the world's best {integration.category} teams.
+              <br className="max-md:hidden" />
+              <span className="text-muted-foreground">
+                From next-gen startups to established enterprises.
+              </span>
+            </h2>
+          </div>
+        }
+      />
 
-      {/* Integration Connection Interface */}
-      <IntegrationConnection integration={integration} />
+      {/* Main Workflows */}
+      <MainWorkflows
+        title={`${integration.name} Workflows That Deliver Results`}
+        description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${integration.name} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
+        integration={integration}
+      />
 
       {/* Related Workflows */}
       {relatedWorkflows.length > 0 && (
@@ -142,6 +161,15 @@ export default async function IntegrationPage({
           )}
         </section>
       )}
+
+      {/* Pain Points Component */}
+      <IntegrationPainPoints integration={integration} />
+
+      {/* Home Data Agent */}
+      <HomeDataAgent />
+
+      {/* Integration Connection CTA */}
+      <IntegrationConnection integration={integration} />
 
       {/* Final CTA */}
       <Cta18 />

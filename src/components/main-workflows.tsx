@@ -1,17 +1,26 @@
 "use client";
 
-import { ChevronRight, Plus } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import React from "react";
 
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { OrbitingIntegrations } from "@/components/creatives/orbiting-integrations";
 import { AnimatedWorkflowList } from "@/components/creatives/animated-workflow-list";
 import { KpiBarAnimationMock } from "@/components/creatives/kpi-bar-animation-mock";
+import { SingleIntegrationBeams } from "./creatives/single-integration-beams";
+import { Integration } from "@/types/integration";
 
-const Feature242 = () => {
+const MainWorkflows = ({
+  title = "1-Click Workflows That Deliver Results",
+  description = "Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ad campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.",
+  integration,
+}: {
+  title?: string;
+  description?: string;
+  integration?: Integration;
+}) => {
   const steps = [
     {
       step: "01",
@@ -45,24 +54,12 @@ const Feature242 = () => {
   return (
     <section className="overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
-        <div className="relative z-10 w-full items-start justify-between lg:flex lg:items-center">
+        <div className="relative z-10 w-full justify-between flex items-center flex-col gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Badge
-                variant="secondary"
-                className="bg-chart-purple/10 text-chart-purple border-chart-purple/20 hover:bg-chart-purple/20"
-              >
-                🔥 Most Popular
-              </Badge>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-              1-Click Workflows That Deliver Results
-            </h2>
+            <h2 className="text-center">{title}</h2>
           </div>
-          <p className="text-muted-foreground/80 mt-6 max-w-lg tracking-tight text-base sm:text-lg md:text-xl lg:mt-0">
-            Stop wasting hours creating content that doesn't convert. Get AI
-            that actually generates your ad campaigns, blog posts, email
-            sequences, and sales scripts - ready to copy-paste in minutes.{" "}
+          <p className="text-muted-foreground/80 max-w-3xl text-base sm:text-lg md:text-xl text-center">
+            {description}
             <span className="text-foreground group inline-flex cursor-pointer items-center font-medium transition-all ease-in-out">
               See it in action{" "}
               <ChevronRight
@@ -82,17 +79,6 @@ const Feature242 = () => {
                 <div className="flex flex-col space-y-4">
                   <div className="flex items-center justify-between">
                     <h4 className="text-primary">{step.step}</h4>
-                    <a
-                      href={step.href}
-                      className="relative z-10 cursor-pointer"
-                    >
-                      <Button
-                        variant="outline"
-                        className="hover:bg-muted h-10 w-10 rounded-full bg-transparent transition-all ease-in-out"
-                      >
-                        <Plus className="scale-125" />
-                      </Button>
-                    </a>
                   </div>
                   <div className="flex w-full flex-col space-y-2">
                     <h5 className="transition-all ease-in-out">{step.title}</h5>
@@ -101,12 +87,21 @@ const Feature242 = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center justify-center h-full">
                   {index === 0 ? (
-                    <OrbitingIntegrations />
+                    <>
+                      {integration ? (
+                        <SingleIntegrationBeams
+                          className="mt-20"
+                          integration={integration}
+                        />
+                      ) : (
+                        <OrbitingIntegrations />
+                      )}
+                    </>
                   ) : index === 1 ? (
                     <div className="flex justify-center items-center py-8">
-                      <AnimatedWorkflowList />
+                      <AnimatedWorkflowList integration="google-ads" />
                     </div>
                   ) : (
                     <div className="flex justify-center items-center py-8">
@@ -123,7 +118,7 @@ const Feature242 = () => {
   );
 };
 
-export { Feature242 };
+export { MainWorkflows };
 
 const DottedDiv = ({
   children,

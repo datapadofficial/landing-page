@@ -1,6 +1,6 @@
 "use client";
 
-import { Workflow } from "../../data/workflow-templates/workflow-templates";
+import { WorkflowTemplate } from "@/types/template";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,12 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { getTeamBySlug } from "@/lib/team-utils";
 
 interface WorkflowCardProps {
-  workflow: Workflow;
+  workflow: WorkflowTemplate;
   className?: string;
   filterIntegration?: string; // Show only this integration's icon if provided
 }
@@ -24,10 +26,24 @@ export function WorkflowCard({
   className = "",
   filterIntegration,
 }: WorkflowCardProps) {
+  const team = getTeamBySlug(workflow.team);
+
   return (
     <Card className={`hover:shadow-lg transition-shadow h-full ${className}`}>
       <CardHeader>
-        <CardTitle className="text-lg line-clamp-2">{workflow.title}</CardTitle>
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <CardTitle className="text-lg line-clamp-2 flex-1">
+            {workflow.title}
+          </CardTitle>
+          {team && (
+            <Badge
+              variant="secondary"
+              className={`text-xs shrink-0 bg-${team.color}/10 text-${team.color} border-${team.color}/20 hover:bg-${team.color}/20`}
+            >
+              {team.name}
+            </Badge>
+          )}
+        </div>
         <CardDescription className="line-clamp-3">
           {workflow.description}
         </CardDescription>
@@ -40,12 +56,12 @@ export function WorkflowCard({
               if (filterIntegration) {
                 if (workflow.integrations.includes(filterIntegration)) {
                   return (
-                    <div className="w-5 h-5 rounded-sm border-2 border-background overflow-hidden">
+                    <div className="w-10 h-10 rounded-md bg-black-3 dark:bg-white-3 border border-input p-3 self-end">
                       <Image
                         src={`/images/integrations/${filterIntegration}.png`}
                         alt={filterIntegration}
-                        width={24}
-                        height={24}
+                        width={16}
+                        height={16}
                         className="w-full h-full object-cover"
                       />
                     </div>

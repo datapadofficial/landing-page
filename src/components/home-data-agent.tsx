@@ -10,7 +10,7 @@ interface Feature {
   image: string;
 }
 
-interface Feature166Props {
+interface HomeDataAgentProps {
   heading?: React.ReactNode;
   description?: string;
   feature1?: Feature;
@@ -19,7 +19,7 @@ interface Feature166Props {
   feature4?: Feature;
 }
 
-const Feature166 = ({
+const HomeDataAgent = ({
   heading = (
     <>
       <span>The Only Agent</span> With
@@ -56,7 +56,7 @@ const Feature166 = ({
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
-}: Feature166Props) => {
+}: HomeDataAgentProps) => {
   return (
     <section className="py-32 max-w-7xl mx-auto">
       <div className="container">
@@ -127,4 +127,4 @@ const Feature166 = ({
   );
 };
 
-export { Feature166 };
+export { HomeDataAgent };

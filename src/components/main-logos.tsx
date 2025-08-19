@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
-interface Logos5Props {
+interface MainLogosProps {
   title?: ReactNode;
 }
 
-const Logos5 = ({
+const MainLogos = ({
   title = (
     <div className="text-center">
       <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
@@ -17,7 +17,7 @@ const Logos5 = ({
       </h2>
     </div>
   ),
-}: Logos5Props) => {
+}: MainLogosProps) => {
   const topRowCompanies = [
     {
       name: "McKinsey & Company",
@@ -142,4 +142,4 @@ const Logos5 = ({
   );
 };
 
-export { Logos5 };
+export { MainLogos };

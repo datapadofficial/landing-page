@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { getAllWorkflows } from "../../data/workflow-templates/workflow-templates";
-import { getAllTeams } from "../../data/teams/teams";
+import { getAllWorkflows } from "@/lib/workflow-template-helpers";
+import { getAllTeams } from "@/lib/team-utils";
 import { Button } from "@/components/ui/button";
 import { WorkflowsFilter } from "@/components/ui/workflows-filter";
 

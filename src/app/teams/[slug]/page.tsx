@@ -2,14 +2,14 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getTeamBySlug, getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
-import { getIntegrationsByIds } from "@/lib/integration-helpers";
+import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { TeamIntegrations } from "@/components/team/team-integrations";
 import { TeamWorkflows } from "@/components/team/team-workflows";
 import { TeamFeatures } from "@/components/team/team-features";
 import { TeamCTA } from "@/components/team/team-cta";
-import { Logos5 } from "@/components/logos5";
+import { MainLogos } from "@/components/main-logos";
 import { TeamValuePropositions } from "@/components/team/team-value-propositions";
 
 interface TeamPageProps {
@@ -84,7 +84,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
       <TeamHero team={team} />
 
       {/* Logos section */}
-      <Logos5
+      <MainLogos
         title={
           <div className="text-center">
             <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
