@@ -7,7 +7,7 @@ import { VsComparisonTable } from "@/components/vs/vs-comparison-table";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainLogos } from "@/components/main-logos";
 import { MainCTA } from "@/components/main-cta";
-import { Faq2 } from "@/components/faq2";
+import { Faq } from "@/components/faq";
 import { AIDataAgentSection } from "@/components/ai-data-agent";
 
 interface CompetitorPageProps {
@@ -125,7 +125,7 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
       <DatapadCasestudies />
 
       {/* Competitor-specific FAQ */}
-      <Faq2
+      <Faq
         heading={`${competitor.name} vs Datapad: Common Questions`}
         items={competitor.faqItems}
       />

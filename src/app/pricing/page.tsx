@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { PricingSection } from "@/components/pricing-section";
-import { Faq2 } from "@/components/faq2";
+import { Faq } from "@/components/faq";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainCTA } from "@/components/main-cta";
 export const metadata: Metadata = {
@@ -121,7 +121,7 @@ export default function PricingPage() {
       <MainCTA />
 
       {/* FAQ Section */}
-      <Faq2 heading="Pricing FAQ" items={pricingFAQs} />
+      <Faq heading="Pricing FAQ" items={pricingFAQs} />
     </>
   );
 }

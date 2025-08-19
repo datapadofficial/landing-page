@@ -65,7 +65,7 @@ export const teams: Team[] = [
           "Deal visibility is limited to what's in CRM, but data is often outdated or incomplete. Can't see which deals are really at risk.",
       },
       {
-        icon: "crystal-ball",
+        icon: "trending-up-down",
         title: "Forecasting By Gut",
         description:
           "Monthly forecasts are based on intuition, not data. Revenue predictions are consistently off, making planning impossible.",

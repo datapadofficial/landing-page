@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { HowItWorksSection } from "@/components/how-it-works-section";
 
 interface FeaturePageProps {
   params: Promise<{
@@ -83,7 +84,12 @@ export default async function FeaturePage({ params }: FeaturePageProps) {
       {/* Video Preview Section */}
       <AppVideoPreview videoUrl={feature.videoUrl} />
 
-      {}
+      {/* How It Works Section */}
+      <HowItWorksSection
+        steps={feature.steps}
+        title={<h1>How {feature.title} Works</h1>}
+        description={feature.shortDescription}
+      />
     </>
   );
 }

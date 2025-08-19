@@ -12,6 +12,12 @@ export interface Feature {
   category: "core" | "integration" | "automation" | "advanced";
   priority: number;
   videoUrl: string;
-  // Special redirect URL for features that don't follow the standard /features/[slug] pattern
   redirectUrl?: string;
+  steps: {
+    title: string;
+    description: string;
+    image?: string;
+    icon?: string;
+    color?: string;
+  }[];
 }

@@ -5,7 +5,7 @@ import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
-import { TeamIntegrations } from "@/components/team/team-integrations";
+import { IntegrationList } from "@/components/integrations/integration-list";
 import { TeamCTA } from "@/components/team/team-cta";
 import { MainLogos } from "@/components/main-logos";
 import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
@@ -85,7 +85,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
   }
 
   return (
-    <>
+    <main className="flex flex-col max-w-7xl items-center mx-auto">
       <TeamHero team={team} />
 
       {/* Logos section */}
@@ -152,11 +152,11 @@ export default async function TeamPage({ params }: TeamPageProps) {
         features={getFeaturedFeaturesForTeam(slug)}
       />
 
-      <TeamIntegrations team={team} integrations={integrations} />
+      <IntegrationList team={team} integrations={integrations} />
 
       <DatapadCasestudies />
 
       <MainCTA />
-    </>
+    </main>
   );
 }

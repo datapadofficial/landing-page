@@ -29,6 +29,29 @@ export const features: Feature[] = [
     category: "core",
     priority: 1,
     videoUrl: "/videos/features/ai-data-agent.mp4",
+    steps: [
+      {
+        title: "Connect Your Data",
+        description:
+          "Link your databases, spreadsheets, and tools in seconds with our secure connectors.",
+        icon: "plug",
+        color: "chart-blue",
+      },
+      {
+        title: "Ask Questions Naturally",
+        description:
+          "Type or speak your questions in plain English - no SQL or technical knowledge needed.",
+        icon: "message-circle",
+        color: "chart-green",
+      },
+      {
+        title: "Get Instant Insights",
+        description:
+          "Receive professional charts, analysis, and actionable insights in seconds.",
+        icon: "trending-up",
+        color: "chart-red",
+      },
+    ],
   },
   {
     slug: "dashboards",
@@ -58,6 +81,29 @@ export const features: Feature[] = [
     category: "core",
     priority: 2,
     videoUrl: "/videos/features/dashboards.mp4",
+    steps: [
+      {
+        title: "Connect Data Sources",
+        description:
+          "Link all your business tools and databases with one-click integrations.",
+        icon: "database",
+        color: "chart-blue",
+      },
+      {
+        title: "AI Builds Your Dashboard",
+        description:
+          "Our AI analyzes your business and automatically creates relevant dashboards with the right metrics.",
+        icon: "bot",
+        color: "chart-purple",
+      },
+      {
+        title: "View & Customize",
+        description:
+          "Get live dashboards instantly, then customize layouts and branding to match your needs.",
+        icon: "layout",
+        color: "chart-green",
+      },
+    ],
   },
   {
     slug: "text-to-sql-python",
@@ -88,6 +134,29 @@ export const features: Feature[] = [
     priority: 3,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Ask Your Question",
+        description:
+          "Describe what you want to know in plain English - no coding required.",
+        icon: "message-square",
+        color: "chart-green",
+      },
+      {
+        title: "AI Converts to Code",
+        description:
+          "Watch as AI instantly converts your question into optimized SQL queries and Python scripts.",
+        icon: "code",
+        color: "chart-purple",
+      },
+      {
+        title: "Execute & Get Results",
+        description:
+          "Run the code with one click and get your data results with professional visualizations.",
+        icon: "play",
+        color: "chart-red",
+      },
+    ],
   },
   {
     slug: "integrations",
@@ -117,6 +186,29 @@ export const features: Feature[] = [
     category: "integration",
     priority: 4,
     videoUrl: "/videos/features/integrations.mp4",
+    steps: [
+      {
+        title: "Choose Your Sources",
+        description:
+          "Select from 50+ popular business tools, databases, and marketing platforms.",
+        icon: "grid",
+        color: "chart-yellow",
+      },
+      {
+        title: "One-Click Connection",
+        description:
+          "Secure, enterprise-grade connections established in seconds with no technical setup.",
+        icon: "zap",
+        color: "chart-green",
+      },
+      {
+        title: "Data Flows Automatically",
+        description:
+          "Real-time data synchronization starts immediately - your complete business view is ready.",
+        icon: "refresh-cw",
+        color: "chart-blue",
+      },
+    ],
   },
   {
     slug: "data-blending",
@@ -147,6 +239,29 @@ export const features: Feature[] = [
     priority: 5,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Connect Multiple Sources",
+        description:
+          "Link data from different platforms - CRM, marketing tools, databases, and more.",
+        icon: "layers",
+        color: "chart-orange",
+      },
+      {
+        title: "AI Identifies Relationships",
+        description:
+          "Smart algorithms automatically find connections and relationships across your data sources.",
+        icon: "link",
+        color: "chart-purple",
+      },
+      {
+        title: "Get Unified Insights",
+        description:
+          "See the complete picture with cross-platform analysis that reveals hidden business insights.",
+        icon: "eye",
+        color: "chart-green",
+      },
+    ],
   },
   {
     slug: "shareable-reports",
@@ -176,6 +291,29 @@ export const features: Feature[] = [
     category: "core",
     priority: 6,
     videoUrl: "/videos/features/shareable-reports.mp4",
+    steps: [
+      {
+        title: "Generate Report with AI",
+        description:
+          "AI automatically creates professional reports with executive summaries and key insights.",
+        icon: "file-text",
+        color: "chart-blue",
+      },
+      {
+        title: "Customize & Brand",
+        description:
+          "Add your branding, adjust layouts, and tailor the presentation for your audience.",
+        icon: "palette",
+        color: "chart-purple",
+      },
+      {
+        title: "Share Instantly",
+        description:
+          "Share via link, email, or download - stakeholders get beautiful reports they actually read.",
+        icon: "share-2",
+        color: "chart-green",
+      },
+    ],
   },
   {
     slug: "slack-bot",
@@ -206,6 +344,29 @@ export const features: Feature[] = [
     priority: 7,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Install Datapad Bot",
+        description:
+          "Add Datapad to your Slack workspace in one click - no setup or configuration needed.",
+        icon: "download",
+        color: "chart-green",
+      },
+      {
+        title: "Ask Questions in Channels",
+        description:
+          "Type questions about your data directly in any Slack channel or DM the bot.",
+        icon: "message-circle",
+        color: "chart-blue",
+      },
+      {
+        title: "Get Instant Answers",
+        description:
+          "Receive charts, insights, and alerts without leaving Slack - keep your team informed.",
+        icon: "zap",
+        color: "chart-red",
+      },
+    ],
   },
   {
     slug: "voice-mode",
@@ -235,6 +396,29 @@ export const features: Feature[] = [
     category: "advanced",
     priority: 8,
     videoUrl: "/videos/features/voice-mode.mp4",
+    steps: [
+      {
+        title: "Activate Voice Mode",
+        description:
+          "Turn on voice interaction with one click - perfect for presentations and meetings.",
+        icon: "mic",
+        color: "chart-green",
+      },
+      {
+        title: "Ask Questions Naturally",
+        description:
+          "Speak your data questions naturally - AI understands context and follow-up questions.",
+        icon: "volume-2",
+        color: "chart-blue",
+      },
+      {
+        title: "Hear Insights & Stories",
+        description:
+          "Get narrated insights, explanations, and data stories that engage your audience.",
+        icon: "headphones",
+        color: "chart-purple",
+      },
+    ],
   },
   {
     slug: "workflows",
@@ -266,6 +450,29 @@ export const features: Feature[] = [
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
     redirectUrl: "/workflows",
+    steps: [
+      {
+        title: "Choose Workflow Template",
+        description:
+          "Select from 50+ ready-made workflows for campaigns, strategies, content, and more.",
+        icon: "template",
+        color: "chart-purple",
+      },
+      {
+        title: "Connect Your Data",
+        description:
+          "Link your data sources - workflows automatically pull the right metrics and insights.",
+        icon: "link-2",
+        color: "chart-blue",
+      },
+      {
+        title: "Get Ready Deliverables",
+        description:
+          "Receive copy-paste campaigns, strategies, and content ready to implement immediately.",
+        icon: "check-circle",
+        color: "chart-green",
+      },
+    ],
   },
   {
     slug: "multi-model-ai",
@@ -296,6 +503,29 @@ export const features: Feature[] = [
     priority: 10,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Ask Your Question",
+        description:
+          "Ask any data question - from simple queries to complex analysis requests.",
+        icon: "help-circle",
+        color: "chart-green",
+      },
+      {
+        title: "AI Routes to Best Model",
+        description:
+          "Smart routing system automatically selects Claude, GPT, or specialized models for optimal results.",
+        icon: "shuffle",
+        color: "chart-yellow",
+      },
+      {
+        title: "Get Superior Results",
+        description:
+          "Receive the best possible answer leveraging each AI model's unique strengths.",
+        icon: "award",
+        color: "chart-orange",
+      },
+    ],
   },
   {
     slug: "learning-layer",
@@ -326,6 +556,29 @@ export const features: Feature[] = [
     priority: 11,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Use Datapad Naturally",
+        description:
+          "Work with your data as you normally would - ask questions, create dashboards, generate reports.",
+        icon: "activity",
+        color: "chart-blue",
+      },
+      {
+        title: "AI Learns Your Patterns",
+        description:
+          "The system observes your preferences, business context, and data relationships over time.",
+        icon: "brain",
+        color: "chart-orange",
+      },
+      {
+        title: "Get Personalized Results",
+        description:
+          "Receive increasingly tailored insights, recommendations, and automations specific to your business.",
+        icon: "user-check",
+        color: "chart-green",
+      },
+    ],
   },
   {
     slug: "web-access",
@@ -356,5 +609,28 @@ export const features: Feature[] = [
     priority: 12,
     videoUrl:
       "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
+    steps: [
+      {
+        title: "Connect Internal Data",
+        description:
+          "Start with your existing business data - analytics, CRM, sales, and marketing platforms.",
+        icon: "hard-drive",
+        color: "chart-blue",
+      },
+      {
+        title: "Add External Web Sources",
+        description:
+          "Automatically pull in market trends, competitor data, and industry insights from the web.",
+        icon: "globe",
+        color: "chart-purple",
+      },
+      {
+        title: "Get Complete Market View",
+        description:
+          "Analyze your performance against market trends and competitors with comprehensive intelligence.",
+        icon: "target",
+        color: "chart-green",
+      },
+    ],
   },
 ];

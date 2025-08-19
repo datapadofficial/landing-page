@@ -4,7 +4,7 @@ import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
 import { WorkflowsSection } from "@/components/workflows-section";
 import { FeatureGrid } from "@/components/features/feature-grid";
-import { Faq2 } from "@/components/faq2";
+import { Faq } from "@/components/faq";
 import { PricingSection } from "@/components/pricing-section";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 
@@ -27,7 +27,7 @@ const AIDataAgentSection = dynamic(
 
 export default function Home() {
   return (
-    <>
+    <main className="flex flex-col max-w-7xl items-center mx-auto">
       {/* Hero Section */}
       <MainHero />
 
@@ -61,7 +61,7 @@ export default function Home() {
       <PricingSection />
 
       {/* FAQ Section */}
-      <Faq2 />
-    </>
+      <Faq />
+    </main>
   );
 }
