@@ -127,17 +127,19 @@ const PricingSection = ({
   const [checked, setChecked] = useState(true);
 
   return (
-    <section className={cn("py-32", className)}>
+    <section className={cn("py-8 sm:py-32 px-4 sm:px-0", className)}>
       <div className="container">
-        <div className="flex flex-col items-center justify-center gap-9.5">
+        <div className="flex flex-col items-center justify-center gap-4 sm:gap-9.5">
           <div className="flex flex-col items-center gap-6 text-center mx-auto">
-            <h1 className="mb-8">Stop paying for insights you can't use</h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <h1 className="mb-4 sm:mb-8">
+              Stop paying for insights you can't use
+            </h1>
+            <p className="text-base sm:text-xl text-muted-foreground mb-4 sm:mb-8 max-w-2xl mx-auto">
               While other tools show you what happened, Datapad creates what
               happens next. Get implementation-ready campaigns, SEO content, and
               optimization strategies—not just charts.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-8">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-4 sm:mb-8">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-4 h-4 text-chart-green"

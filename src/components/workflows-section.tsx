@@ -55,7 +55,7 @@ const WorkflowsSection = ({
   ];
 
   return (
-    <section className="overflow-hidden py-8 sm:py-32">
+    <section className="overflow-hidden py-8 sm:py-32 px-4 sm:px-0">
       <div className="container relative flex flex-col items-center md:px-0 lg:pt-8">
         <div className="relative z-10 w-full justify-between flex items-center flex-col gap-6">
           <div className="max-w-7xl">

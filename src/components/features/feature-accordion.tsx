@@ -59,7 +59,7 @@ export function FeatureAccordion({
   };
 
   return (
-    <div className={cn("py-36", className)}>
+    <div className={cn("py-8 sm:py-32 px-4 sm:px-0", className)}>
       <div className="container mx-auto text-center mb-12 flex flex-col gap-6">
         {title ?? <h2>Features</h2>}
         {subtitle ?? (
@@ -68,7 +68,7 @@ export function FeatureAccordion({
           </p>
         )}
       </div>
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="container mx-auto">
           <div className="mb-12 flex w-full items-start justify-between gap-20">
             <div className="w-full md:w-1/2">
@@ -107,7 +107,7 @@ export function FeatureAccordion({
                         </h4>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="mt-3 text-lg text-foreground/50">
+                        <p className="mt-3 sm:text-lg text-foreground/50">
                           {feature.longDescription}
                         </p>
                         <div className="mt-4 md:hidden">

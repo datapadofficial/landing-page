@@ -24,7 +24,7 @@ interface IntegrationListProps {
 export function IntegrationList({ team }: IntegrationListProps) {
   const integrations = getIntegrationsForTeam(team.slug);
   return (
-    <section className="py-16 max-w-7xl mx-auto container flex flex-col gap-16">
+    <section className="py-8 sm:py-32 px-4 sm:px-0 max-w-7xl mx-auto container flex flex-col gap-8 sm:gap-16">
       <div className="text-center flex flex-col items-center gap-8">
         <h2>Connect Your {team.name} Stack</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">

@@ -11,7 +11,7 @@ interface TeamHeroProps {
 
 export function TeamHero({ team, customContent }: TeamHeroProps) {
   return (
-    <section className="pt-16 sm:pt-24 pb-16">
+    <section className="pt-8 sm:pt-32 pb-8 sm:pb-32 px-4 sm:px-0">
       <div className="container">
         <div className="mx-auto text-center">
           <div className="flex flex-col items-center justify-center gap-6 mb-6">

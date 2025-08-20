@@ -1,29 +1,18 @@
 "use client";
 
-import { ArrowLeftRight, Check } from "lucide-react";
+import { ArrowLeftRight } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { Integration } from "@/types/integration";
-import { getFeatureBySlug } from "@/lib/feature-utils";
 
 interface Props {
   integration: Integration;
 }
 
 const IntegrationConnection = ({ integration }: Props) => {
-  // Get the integrations feature data for benefits
-  const integrationsFeature = getFeatureBySlug("integrations");
-  const benefits = integrationsFeature?.benefits || [
-    "50+ pre-built connectors",
-    "Secure data connections",
-    "Real-time synchronization",
-    "No-code setup",
-    "Enterprise-grade security",
-  ];
-
   return (
-    <section className="flex w-full  items-center justify-center py-32  bg-black-3 dark:bg-white-3 border border-input rounded-xl">
+    <section className="flex w-full  items-center justify-center py-8 sm:py-32 px-4 sm:px-0 bg-black-3 dark:bg-white-3 border border-input sm:rounded-xl">
       <div className="container">
         <div className="mx-auto flex w-full max-w-md flex-col items-center gap-6 p-0">
           <div className="flex w-full flex-col items-center gap-2">

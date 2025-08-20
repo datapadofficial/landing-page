@@ -42,12 +42,14 @@ export function IntegrationHero({ integration }: IntegrationHeroProps) {
         </div>
 
         {/* CTA Buttons */}
-        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
-          <Button asChild size="lg" className="w-full sm:w-auto">
-            <a href="https://app.datapad.io">Connect {integration.name}</a>
-          </Button>
+        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
+          <Link href="https://app.datapad.io" className="w-full">
+            <Button size="lg" className="w-full sm:w-auto">
+              Connect {integration.name}
+            </Button>
+          </Link>
 
-          <Link href="https://app.datapad.io">
+          <Link href="https://app.datapad.io" className="w-full">
             <Button variant="secondary" size="lg" className="w-full sm:w-auto">
               {integration.secondaryCta ?? "Book a 15m Demo"}
             </Button>

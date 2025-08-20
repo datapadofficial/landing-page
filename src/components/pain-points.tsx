@@ -28,11 +28,8 @@ const PainPoints = ({
   }
 
   return (
-    <section
-      className={`before:bg-primary/10 relative py-32 before:absolute before:inset-0 before:[mask-image:url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/waves.svg')] before:[mask-repeat:repeat] before:[mask-size:64px_32px] ${className}`}
-    >
-      <div className="to-background absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-transparent"></div>
-      <div className="container relative gap-12 flex flex-col items-center">
+    <section className={`relative py-8 sm:py-32 px-4 sm:px-0 ${className}`}>
+      <div className="container relative gap-4 sm:gap-12 flex flex-col items-center">
         <div className="text-center">
           <h2 className="max-w-7xl text-center mx-auto">{title}</h2>
           {subtitle && (

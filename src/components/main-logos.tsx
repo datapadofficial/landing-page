@@ -17,7 +17,7 @@ const MainLogos = ({
   ),
 }: MainLogosProps) => {
   return (
-    <section className="py-8 sm:py-32">
+    <section className="py-8 sm:py-32 px-4 sm:px-0">
       <div className="container flex flex-col gap-10">
         {title}
 
@@ -29,7 +29,7 @@ const MainLogos = ({
                 href={company.href}
                 target="_blank"
                 key={index}
-                className="group"
+                className="group flex items-center justify-center w-full"
               >
                 <div className="flex h-20 w-full items-center justify-center rounded-lg border border-border bg-card transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 lg:h-28 lg:w-56">
                   <Image
@@ -37,7 +37,7 @@ const MainLogos = ({
                     alt={`${company.name} logo`}
                     width={company.width}
                     height={company.height}
-                    className="max-h-4 max-w-full object-contain opacity-60 dark:opacity-100 transition-opacity sm:max-h-5 lg:max-h-6 invert dark:invert-0"
+                    className="max-h-4 object-contain opacity-60 dark:opacity-100 transition-opacity sm:max-h-5 lg:max-h-6 invert dark:invert-0"
                   />
                 </div>
               </a>
@@ -45,13 +45,13 @@ const MainLogos = ({
           </div>
 
           {/* Bottom row - 5 logos */}
-          <div className="grid grid-cols-2 items-center justify-items-center gap-3 max-md:w-full sm:grid-cols-5 lg:gap-6">
+          <div className="hidden sm:grid grid-cols-5 items-center justify-items-center gap-3 max-md:w-full lg:gap-6">
             {bottomRowCompanies.map((company, index) => (
               <a
                 href={company.href}
                 target="_blank"
                 key={index}
-                className="group"
+                className="group flex items-center justify-center w-full"
               >
                 <div className="flex h-20 w-full items-center justify-center rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 lg:h-28 lg:w-56">
                   <Image

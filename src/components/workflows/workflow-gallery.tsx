@@ -47,9 +47,9 @@ export function WorkflowGallery({
 
   return (
     <section
-      className={`py-16 flex flex-col items-center justify-center w-full max-w-7xl ${className}`}
+      className={`py-8 sm:py-32 px-4 sm:px-0 flex flex-col items-center justify-center w-full max-w-7xl ${className}`}
     >
-      <div className="flex flex-col text-center mb-12 gap-8 items-center">
+      <div className="flex flex-col text-center mb-12 gap-4 sm:gap-8 items-center">
         <h2>{title}</h2>
         {subtitle}
       </div>

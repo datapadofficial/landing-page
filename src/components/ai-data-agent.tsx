@@ -60,9 +60,9 @@ const AIDataAgentSection = ({
   return (
     <section className="py-8 sm:py-32 max-w-7xl mx-auto px-4 sm:px-0">
       <div className="container">
-        <div className="mb-24 flex flex-col items-center gap-6">
+        <div className="mb-8 sm:mb-24 flex flex-col items-center gap-4 sm:gap-6">
           <h2 className="text-center max-w-4xl">{heading}</h2>
-          <p className="text-center text-lg font-medium text-muted-foreground md:max-w-4xl lg:text-xl">
+          <p className="text-center sm:text-lg font-medium text-muted-foreground md:max-w-4xl lg:text-xl">
             {description}
           </p>
         </div>

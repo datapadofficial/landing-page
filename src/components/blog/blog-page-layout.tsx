@@ -55,18 +55,18 @@ export function BlogPageLayout({
       <ScrollProgress />
 
       {/* Header Section - Based on blog14.tsx */}
-      <section className="py-32">
+      <section className="py-8 sm:py-32 px-4 sm:px-0">
         <div className="container">
-          <div className="mb-16 text-center">
-            <h1 className="text-5xl font-medium md:text-6xl">
+          <div className="mb-8 sm:mb-16 text-center">
+            <h1 className="text-3xl sm:text-5xl font-medium md:text-6xl">
               {translations.headerTitle}
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl sm:text-lg text-muted-foreground">
               {translations.headerDescription}
             </p>
           </div>
           <div className="mx-auto max-w-7xl">
-            <div className="my-16 grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-16">
+            <div className="my-8 sm:my-16 grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-16">
               <Image
                 src={
                   featuredPost.image ||

@@ -143,7 +143,7 @@ export function BlogPostContent({ post, children }: BlogPostContentProps) {
   // };
 
   return (
-    <section className="py-8">
+    <section className="py-8 sm:py-32 px-4 sm:px-0">
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-8">
@@ -165,16 +165,16 @@ export function BlogPostContent({ post, children }: BlogPostContentProps) {
         {/* Header - Simplified like content3 */}
         <h1
           id="main-title"
-          className="mt-10 text-balance text-4xl font-bold md:text-5xl lg:text-6xl"
+          className="mt-4 sm:mt-10 text-balance text-2xl sm:text-4xl font-bold md:text-5xl lg:text-6xl"
         >
           {post.title}
         </h1>
         {post.description && (
-          <p className="mt-5 max-w-2xl text-balance text-xl font-medium">
+          <p className="mt-4 sm:mt-5 max-w-2xl text-balance text-base sm:text-xl font-medium">
             {post.description}
           </p>
         )}
-        <div className="mt-8 flex items-center gap-3">
+        <div className="mt-4 sm:mt-8 flex items-center gap-3">
           <Button size="lg" asChild>
             <Link href="/blog">Back to Blog</Link>
           </Button>
@@ -194,10 +194,10 @@ export function BlogPostContent({ post, children }: BlogPostContentProps) {
         {/* Main Content Layout - Match content3 spacing */}
         <div className="relative mt-16 grid gap-10 lg:mt-28 lg:grid-cols-5">
           {/* Left Sidebar - All Metadata */}
-          <aside className="top-24 flex h-fit w-full max-w-56 flex-col gap-5 lg:sticky">
+          <aside className="top-24 flex h-fit w-full sm:max-w-56 sm:flex-col gap-5 lg:sticky">
             {/* Article Status */}
             {(post.featured || post.popular) && (
-              <div>
+              <div className="hidden sm:block">
                 <h5 className="font-semibold">Article Status</h5>
                 <div className="mt-2 flex flex-col gap-2">
                   {post.featured && (
@@ -216,14 +216,14 @@ export function BlogPostContent({ post, children }: BlogPostContentProps) {
 
             {/* Author */}
             {post.author && (
-              <div>
+              <div className="w-full">
                 <h5 className="font-semibold">Author</h5>
                 <p className="text-muted-foreground text-sm">{post.author}</p>
               </div>
             )}
 
             {/* Publication Date */}
-            <div>
+            <div className="w-full">
               <h5 className="font-semibold">Published</h5>
               <time
                 className="text-muted-foreground text-sm"
@@ -239,7 +239,7 @@ export function BlogPostContent({ post, children }: BlogPostContentProps) {
 
             {/* Last Updated */}
             {post.lastModified && post.lastModified !== post.date && (
-              <div>
+              <div className="w-full">
                 <h5 className="font-semibold">Last Updated</h5>
                 <time
                   className="text-muted-foreground text-sm"
