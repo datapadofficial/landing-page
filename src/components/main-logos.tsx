@@ -23,7 +23,7 @@ const MainLogos = ({
 
         <div className="flex w-full flex-col items-center gap-6">
           {/* Top row - 4 logos */}
-          <div className="grid grid-cols-2 items-center justify-items-center gap-3 max-md:w-full sm:grid-cols-4 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-3 max-md:w-full sm:grid-cols-4 lg:gap-6">
             {topRowCompanies.map((company, index) => (
               <a
                 href={company.href}
@@ -31,7 +31,7 @@ const MainLogos = ({
                 key={index}
                 className="group"
               >
-                <div className="flex h-20 w-40 items-center justify-center rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 sm:w-48 lg:h-28 lg:w-56">
+                <div className="flex h-20 w-full items-center justify-center rounded-lg border border-border bg-card transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 lg:h-28 lg:w-56">
                   <Image
                     src={company.logo}
                     alt={`${company.name} logo`}
@@ -45,7 +45,7 @@ const MainLogos = ({
           </div>
 
           {/* Bottom row - 5 logos */}
-          <div className="grid grid-cols-2 items-center justify-items-center gap-3 max-md:w-full sm:grid-cols-5 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-3 max-md:w-full sm:grid-cols-5 lg:gap-6">
             {bottomRowCompanies.map((company, index) => (
               <a
                 href={company.href}
@@ -53,7 +53,7 @@ const MainLogos = ({
                 key={index}
                 className="group"
               >
-                <div className="flex h-20 w-40 items-center justify-center rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 sm:w-48 lg:h-28 lg:w-56">
+                <div className="flex h-20 w-full items-center justify-center rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg group-hover:scale-105 sm:h-24 lg:h-28 lg:w-56">
                   <Image
                     src={company.logo}
                     alt={`${company.name} logo`}
