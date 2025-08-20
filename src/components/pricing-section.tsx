@@ -217,7 +217,7 @@ const PricingSection = ({
               <PlanCard
                 key={index}
                 plan={plan}
-                monthly={checked}
+                monthly={!checked}
                 className={
                   index === PLANS.length - 1 ? "lg:col-span-6" : "lg:col-span-2"
                 }
