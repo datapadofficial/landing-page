@@ -15,7 +15,7 @@ import { Integration } from "@/types/integration";
 
 const IntegrationsSubmenu = () => {
   // Get featured integrations for the navigation menu
-  const allIntegrations = getAllIntegrations();
+  const allIntegrations = getAllIntegrations(9);
 
   // Define which integrations to show in the navigation (most popular/important ones)
   const featuredIntegrationIds = [

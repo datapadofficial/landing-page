@@ -77,7 +77,7 @@ export const teams: Team[] = [
           "Territory management and commission calculations happen in spreadsheets. Errors are common and disputes waste everyone's time.",
       },
     ],
-    priority: 2,
+    priority: 5,
   },
   {
     slug: "retail-ecommerce",
@@ -111,7 +111,7 @@ export const teams: Team[] = [
           "Customer behavior insights are buried in complex analytics tools. Can't understand why visitors leave without buying.",
       },
     ],
-    priority: 3,
+    priority: 6,
   },
   {
     slug: "content-seo",
@@ -144,7 +144,7 @@ export const teams: Team[] = [
           "Content efforts can't be connected to actual business outcomes. Hard to prove content ROI or justify content marketing budgets.",
       },
     ],
-    priority: 4,
+    priority: 2,
   },
   {
     slug: "social-media",
@@ -183,7 +183,7 @@ export const teams: Team[] = [
           "Influencer campaigns cost thousands but ROI is impossible to calculate. Can't track which partnerships actually drive sales or brand awareness.",
       },
     ],
-    priority: 5,
+    priority: 7,
   },
   {
     slug: "product-management",
@@ -217,7 +217,7 @@ export const teams: Team[] = [
           "Customer feedback is scattered across support tickets, app store reviews, and user interviews. Can't connect feedback to actual product usage patterns.",
       },
     ],
-    priority: 6,
+    priority: 8,
   },
   {
     slug: "finance",
@@ -255,7 +255,7 @@ export const teams: Team[] = [
           "Department spending insights arrive after budgets are already blown. Can't track ROI by department or optimize resource allocation.",
       },
     ],
-    priority: 7,
+    priority: 9,
   },
   {
     slug: "agency",
@@ -294,7 +294,7 @@ export const teams: Team[] = [
           "Don't know which clients are actually profitable. Time tracking and cost allocation are manual, making pricing and resource decisions difficult.",
       },
     ],
-    priority: 8,
+    priority: 3,
   },
   {
     slug: "growth",
@@ -327,7 +327,7 @@ export const teams: Team[] = [
           "Growth experiments lack proper measurement and statistical significance. Can't tell if improvements are real or just random variance.",
       },
     ],
-    priority: 9,
+    priority: 10,
   },
   {
     slug: "supply-chain",
@@ -365,7 +365,7 @@ export const teams: Team[] = [
           "Cost optimization opportunities are buried in spreadsheets. Can't identify which suppliers, routes, or logistics changes would save the most money.",
       },
     ],
-    priority: 10,
+    priority: 11,
   },
   {
     slug: "crm",
@@ -399,6 +399,6 @@ export const teams: Team[] = [
           "Customer lifetime value calculations are updated quarterly at best. Can't make real-time decisions about customer investment and resource allocation.",
       },
     ],
-    priority: 11,
+    priority: 4,
   },
 ];

@@ -15,7 +15,7 @@ interface TeamsSubmenuProps {
 
 const TeamsSubmenu = ({}: TeamsSubmenuProps) => {
   // Get the top 6 teams by priority for the submenu
-  const featuredTeams = getTeamsByPriority(6);
+  const featuredTeams = getTeamsByPriority(9);
 
   return (
     <NavigationMenuItem>

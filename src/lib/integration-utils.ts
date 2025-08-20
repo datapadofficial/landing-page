@@ -6,7 +6,10 @@ export function getIntegrationById(id: string): Integration | undefined {
   return integrations.find((integration) => integration.id === id);
 }
 
-export function getAllIntegrations(): Integration[] {
+export function getAllIntegrations(numberToShow?: number): Integration[] {
+  if (numberToShow) {
+    return integrations.slice(0, numberToShow);
+  }
   return integrations;
 }
 
