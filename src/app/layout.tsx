@@ -124,7 +124,7 @@ export default function RootLayout({
         >
           <StructuredData />
           <AttributionTracker />
-          <AttributionDebug />
+          {/* <AttributionDebug /> */}
           <div className="flex flex-col min-h-screen">
             <MainNavigation />
             <main className="flex-1 flex flex-col items-center mx-auto w-full min-h-0">

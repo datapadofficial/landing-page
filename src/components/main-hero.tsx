@@ -34,7 +34,7 @@ const MainHero = ({
   },
 }: MainHeroProps) => {
   return (
-    <section className="pt-16 sm:pt-24">
+    <section className="pt-8 sm:pt-24">
       <div className="container relative mx-auto px-4 text-center flex w-full flex-col items-center justify-center overflow-hidden pb-8 sm:pb-4">
         <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
         <Boxes className="scale-150" />
@@ -67,22 +67,15 @@ const MainHero = ({
               />{" "}
             </div>
           </h1>
-          <p className="text-muted-foreground text-balance text-base sm:text-lg lg:text-xl px-4 sm:px-0">
-            {description}
-          </p>
+          <p className="text-muted-foreground px-4 sm:px-0">{description}</p>
         </div>
-        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
-          <Button asChild size="lg" className="w-full sm:w-auto">
+        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-auto">
+          <Button asChild size="lg" className="w-full">
             <AttributionLink href={button.url} buttonLocation="hero-primary">
               {button.text}
             </AttributionLink>
           </Button>
-          <Button
-            asChild
-            variant="secondary"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
+          <Button asChild variant="secondary" size="lg" className="w-full">
             <AttributionLink href={button.url} buttonLocation="hero-demo">
               Book a Demo
             </AttributionLink>
