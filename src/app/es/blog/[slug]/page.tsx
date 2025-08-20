@@ -7,6 +7,13 @@ import {
 import { BlogPostContent } from "@/app/blog/[slug]/blog-post-content";
 import { MDXContent } from "@/app/blog/[slug]/mdx-content";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import { BlogPost } from "@/types/blog-post";
+
+// Type for Spanish blog posts with additional fields
+type SpanishBlogPost = BlogPost & {
+  originalEnglishSlug?: string;
+  language?: string;
+};
 
 interface SpanishBlogPostPageProps {
   params: Promise<{
@@ -18,7 +25,7 @@ export async function generateMetadata({
   params,
 }: SpanishBlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getSpanishPostBySlug(slug);
+  const post = (await getSpanishPostBySlug(slug)) as SpanishBlogPost | null;
 
   if (!post) {
     return {
@@ -55,8 +62,7 @@ export async function generateMetadata({
     keywords: keywords.join(", "),
     creator: "Datapad",
     publisher: "Datapad",
-    robots: "index, follow",
-    googlebot:
+    robots:
       "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
     category: "Tecnología",
 
@@ -114,8 +120,8 @@ export async function generateMetadata({
       canonical: postUrl,
       languages: {
         "es-ES": postUrl,
-        "en-US": (post as any).originalEnglishSlug
-          ? `${siteUrl}/blog/${(post as any).originalEnglishSlug}`
+        "en-US": post.originalEnglishSlug
+          ? `${siteUrl}/blog/${post.originalEnglishSlug}`
           : postUrl,
       },
     },
@@ -134,7 +140,7 @@ export default async function SpanishBlogPostPage({
   params,
 }: SpanishBlogPostPageProps) {
   const { slug } = await params;
-  const post = await getSpanishPostBySlug(slug);
+  const post = (await getSpanishPostBySlug(slug)) as SpanishBlogPost | null;
 
   if (!post) {
     notFound();
