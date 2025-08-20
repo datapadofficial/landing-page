@@ -30,6 +30,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
+import { AttributionLink } from "@/components/attribution-link";
 
 const MainNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -121,10 +122,20 @@ const MainNavigation = () => {
               <AnimatedThemeToggler className="h-8 w-8" />
             </Button>
             <Button asChild variant="secondary" size="sm">
-              <Link href="https://app.datapad.io">Sign In</Link>
+              <AttributionLink
+                href="https://app.datapad.io"
+                buttonLocation="header-signin"
+              >
+                Sign In
+              </AttributionLink>
             </Button>
             <Button asChild size="sm">
-              <Link href="https://app.datapad.io">Sign up</Link>
+              <AttributionLink
+                href="https://app.datapad.io"
+                buttonLocation="header-signup"
+              >
+                Sign up
+              </AttributionLink>
             </Button>
           </div>
         </nav>
@@ -229,10 +240,20 @@ const MainNavigation = () => {
 
                     <div className="flex flex-col gap-3">
                       <Button asChild variant="outline">
-                        <Link href="https://app.datapad.io">Sign In</Link>
+                        <AttributionLink
+                          href="https://app.datapad.io"
+                          buttonLocation="mobile-signin"
+                        >
+                          Sign In
+                        </AttributionLink>
                       </Button>
                       <Button asChild>
-                        <Link href="https://app.datapad.io">Sign up</Link>
+                        <AttributionLink
+                          href="https://app.datapad.io"
+                          buttonLocation="mobile-signup"
+                        >
+                          Sign up
+                        </AttributionLink>
                       </Button>
                     </div>
                   </div>

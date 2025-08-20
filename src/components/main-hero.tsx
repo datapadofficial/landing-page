@@ -7,6 +7,7 @@ import { AnnouncementBadge } from "@/components/ui/announcement-badge";
 
 import { AnimatedTicker } from "@/components/ui/animated-ticker";
 import { cn } from "@/lib/utils";
+import { AttributionLink } from "@/components/attribution-link";
 
 interface MainHeroProps {
   heading?: string;
@@ -72,7 +73,9 @@ const MainHero = ({
         </div>
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <a href={button.url}>{button.text}</a>
+            <AttributionLink href={button.url} buttonLocation="hero-primary">
+              {button.text}
+            </AttributionLink>
           </Button>
           <Button
             asChild
@@ -80,7 +83,9 @@ const MainHero = ({
             size="lg"
             className="w-full sm:w-auto"
           >
-            <a href={button.url}>Book a Demo</a>
+            <AttributionLink href={button.url} buttonLocation="hero-demo">
+              Book a Demo
+            </AttributionLink>
           </Button>
         </div>
       </div>
