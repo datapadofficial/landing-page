@@ -227,7 +227,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
           <div
             key={index}
             className={cn(
-              "border border-gray-200 dark:border-gray-700 rounded-xl p-2 shadow-sm transition-all duration-700 ease-out",
+              "border border-input bg-white dark:bg-dark-900 rounded-xl p-2 shadow-sm transition-all duration-700 ease-out",
               (animationStep >= 1 && isRunning) || isFullyVisible
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95"
@@ -262,7 +262,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
         )}
       >
         {/* Daily Click Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 shadow-sm flex flex-col">
+        <div className="border border-input bg-white dark:bg-dark-900 rounded-xl p-3 shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Click Performance
           </div>
@@ -300,7 +300,7 @@ export function DashboardMock({ className }: DashboardMockProps) {
         </div>
 
         {/* Daily Impression Performance Chart */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 shadow-sm flex flex-col">
+        <div className="border border-input bg-white dark:bg-dark-900 rounded-xl p-3 shadow-sm flex flex-col">
           <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
             Daily Impression Performance
           </div>

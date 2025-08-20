@@ -27,14 +27,14 @@ const BarChart = ({
   return (
     <div className="group relative h-full w-full">
       {/* Static container */}
-      <div className="relative h-full w-full overflow-hidden rounded-xl border-2 border-border/20 bg-white-5 shadow">
+      <div className="relative h-full w-full overflow-hidden rounded-lg border border-input shadow bg-white dark:bg-white-5">
         {/* Animated colored bar - entire thing animates up */}
         <motion.div
           initial={{ height: 0 }}
           animate={{ height: `${value}%` }}
           transition={{ duration: 1.2, type: "spring", damping: 25, delay }}
           className={cn(
-            "absolute bottom-0 w-full rounded-lg border-2 shadow",
+            "absolute bottom-0 w-full rounded-lg shadow",
             borderColor,
             fillColor
           )}

@@ -175,11 +175,11 @@ export function PipelineMock({
             {/* Step Card */}
             <div
               className={cn(
-                "flex flex-col cursor-pointer shadow-sm border rounded-xl group w-full transition-all duration-300 relative",
+                "flex flex-col cursor-pointer shadow-sm border rounded-xl group w-full transition-all duration-300 relative bg-white dark:bg-dark-900",
                 index <= currentStep && isRunning
                   ? "border-primary/50 shadow-md shadow-primary/10"
-                  : "border-gray-200 dark:border-gray-700",
-                "hover:border-gray-300 dark:hover:border-gray-600"
+                  : "border-input",
+                "hover:border-input dark:hover:border-input"
               )}
             >
               {/* Header */}

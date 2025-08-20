@@ -159,7 +159,7 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
           )}
         >
           <div className="w-full max-w-md mx-4">
-            <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 shadow-sm">
+            <div className="border border-input bg-white dark:bg-dark-900 rounded-lg p-3 shadow-sm">
               <div className="flex items-center gap-2">
                 <Search
                   size={14}
@@ -190,14 +190,14 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
         <div className="flex-1 space-y-3 mb-4">
           {/* User Message */}
           <div className="flex justify-end">
-            <div className="max-w-[80%] bg-primary text-primary-foreground rounded-2xl px-3 py-2 shadow-sm">
+            <div className="max-w-[80%] bg-primary text-primary-foreground rounded-2xl px-3 py-2 shadow-md">
               <div className="text-xs leading-relaxed">{userQuestion}</div>
             </div>
           </div>
 
           {/* AI Agent Initial Response */}
           <div className="flex justify-start">
-            <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
+            <div className="max-w-[85%] border border-input bg-white dark:bg-dark-900 rounded-2xl px-3 py-2 shadow-sm">
               <div className="text-xs text-gray-700 dark:text-gray-300 mb-2">
                 Let me analyze your marketing data to find the best performing
                 channels...
@@ -236,7 +236,7 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
           {showResults &&
             displayedMessages.map((message, index) => (
               <div key={index} className="flex justify-start">
-                <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
+                <div className="max-w-[85%] border border-input bg-white dark:bg-dark-900 rounded-2xl px-3 py-2 shadow-sm">
                   <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
                     {message}
                   </div>
@@ -247,7 +247,7 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
           {/* Currently Typing Message */}
           {showResults && typingText && (
             <div className="flex justify-start">
-              <div className="max-w-[85%] border border-gray-200 dark:border-gray-700 rounded-2xl px-3 py-2 shadow-sm">
+              <div className="max-w-[85%] border border-input bg-white dark:bg-dark-900 rounded-2xl px-3 py-2 shadow-sm">
                 <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
                   {typingText}
                   <span className="animate-pulse text-primary">|</span>
