@@ -69,13 +69,18 @@ const MainHero = ({
           </h1>
           <p className="text-muted-foreground px-4 sm:px-0">{description}</p>
         </div>
-        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-auto">
-          <Button asChild size="lg" className="w-full">
+        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
+          <Button asChild size="lg" className="w-full sm:w-fit">
             <AttributionLink href={button.url} buttonLocation="hero-primary">
               {button.text}
             </AttributionLink>
           </Button>
-          <Button asChild variant="secondary" size="lg" className="w-full">
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="w-full sm:w-fit"
+          >
             <AttributionLink href={button.url} buttonLocation="hero-demo">
               Book a Demo
             </AttributionLink>
