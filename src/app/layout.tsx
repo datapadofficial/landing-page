@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/data/structured-data";
 import { MainNavigation } from "@/components/main-navigation";
 import { Footer } from "@/components/footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -128,6 +129,10 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        {process.env.NEXT_PUBLIC_GTM_ID &&
+          process.env.NODE_ENV === "production" && (
+            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+          )}
       </body>
     </html>
   );
