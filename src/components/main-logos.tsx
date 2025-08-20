@@ -17,7 +17,7 @@ const MainLogos = ({
   ),
 }: MainLogosProps) => {
   return (
-    <section className="py-32">
+    <section className="py-8 sm:py-32">
       <div className="container flex flex-col gap-10">
         {title}
 

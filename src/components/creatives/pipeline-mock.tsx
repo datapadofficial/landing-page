@@ -195,7 +195,7 @@ export function PipelineMock({
                     "bg-primary/5 dark:bg-primary/10"
                 )}
               >
-                <div className="flex gap-2 items-center min-w-0">
+                <div className="flex gap-2 items-center">
                   {/* Icon */}
                   {step.iconType === "image" ? (
                     <div
@@ -217,16 +217,16 @@ export function PipelineMock({
                       <step.icon size={14} className="text-primary" />
                     )
                   )}
-                  <span
+                  <div
                     className={cn(
-                      "font-medium text-sm text-gray-600 dark:text-gray-400 truncate",
+                      "font-medium text-sm text-gray-600 dark:text-gray-400 max-w-full w-full line-clamp-1",
                       index <= currentStep &&
                         isRunning &&
                         "text-gray-900 dark:text-white"
                     )}
                   >
                     {step.name}
-                  </span>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">

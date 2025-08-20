@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const DatapadCasestudies = () => {
   return (
-    <section className="py-32">
+    <section className="py-8 sm:py-32 px-4 sm:px-0">
       <div className="container">
         <div className="flex flex-col gap-6 text-center">
           <p className="font-medium">500+ Teams Already Scaling</p>
@@ -17,7 +17,7 @@ const DatapadCasestudies = () => {
         </div>
         <div className="mt-20">
           <div className="grid gap-16 lg:grid-cols-3 xl:gap-24">
-            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24">
+            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24 items-center sm:items-start">
               <Image
                 src="/images/testimonial/testimonial-4.jpg"
                 alt="VP of Growth"
@@ -65,9 +65,9 @@ const DatapadCasestudies = () => {
               </div>
             </div>
           </div>
-          <Separator className="my-20" />
+          <Separator className="my-8 sm:my-20" />
           <div className="grid gap-16 lg:grid-cols-3 xl:gap-24">
-            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24">
+            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24 items-center sm:items-start">
               <Image
                 src="/images/testimonial/testimonial-3.jpg"
                 alt="Data Team Lead"
@@ -119,9 +119,9 @@ const DatapadCasestudies = () => {
               </div>
             </div>
           </div>
-          <Separator className="my-20" />
+          <Separator className="my-8 sm:my-20" />
           <div className="grid gap-16 lg:grid-cols-3 xl:gap-24">
-            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24">
+            <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24 items-center sm:items-start">
               <Image
                 src="/images/testimonial/testimonial-1.jpg"
                 alt="Marketing Director"

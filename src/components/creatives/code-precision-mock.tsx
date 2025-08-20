@@ -35,10 +35,6 @@ ORDER BY total_cost DESC;`,
 import pandas as pd
 import numpy as np
 
-# Load and analyze keyword performance
-df = query_results.copy()
-df['cost_per_conversion'] = df['total_cost'] / df['total_conversions']
-
 # Find high-waste keywords (high cost, low CVR)
 waste_keywords = df[
     (df['total_cost'] > 500) & 
@@ -61,11 +57,6 @@ TOP WASTE KEYWORDS:
 WINNERS TO SCALE:
 ✅ "data analytics platform" - $2.14 CPC, 4.2% CVR
 ✅ "business intelligence tool" - $2.69 CPC, 3.8% CVR
-
-COPY-PASTE READY ACTIONS:
-📋 Negative Keywords: marketing agency, consultants, cheap
-📋 Bid Increases: +35% on "data analytics platform"
-📋 New Ad Copy: "Turn Data Into Revenue - Get Insights That Drive Growth"
 
 PROJECTED IMPACT:
 💰 Monthly Savings: $3,247
@@ -151,7 +142,7 @@ PROJECTED IMPACT:
 
       {/* Main Terminal */}
       <div className="flex-1">
-        <Terminal className="w-full h-full max-h-none max-w-none bg-gray-900 dark:bg-black border-gray-700 [&_code]:text-[10px] [&_code]:leading-tight">
+        <Terminal className="w-full h-full max-h-none max-w-full bg-gray-900 dark:bg-black border-gray-700 [&_code]:text-[10px] [&_code]:leading-tight [&_code]:break-all [&_pre]:overflow-hidden [&_pre]:text-wrap">
           {isRunning && (
             <div className="text-chart-green font-mono !text-xs">
               {codeBlocks[currentCodeBlock]?.code

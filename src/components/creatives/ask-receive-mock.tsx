@@ -146,7 +146,7 @@ export function AskReceiveMock({ className }: AskReceiveMockProps) {
   return (
     <div
       className={cn(
-        "w-full h-full p-2 flex flex-col relative overflow-hidden",
+        "w-full h-full p-2 flex flex-col relative overflow-hidden min-h-[200px]",
         className
       )}
     >

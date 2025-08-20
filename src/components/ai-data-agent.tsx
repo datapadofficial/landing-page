@@ -58,7 +58,7 @@ const AIDataAgentSection = ({
   },
 }: AIDataAgentSectionProps) => {
   return (
-    <section className="py-32 max-w-7xl mx-auto">
+    <section className="py-8 sm:py-32 max-w-7xl mx-auto px-4 sm:px-0">
       <div className="container">
         <div className="mb-24 flex flex-col items-center gap-6">
           <h2 className="text-center max-w-4xl">{heading}</h2>
@@ -66,30 +66,30 @@ const AIDataAgentSection = ({
             {description}
           </p>
         </div>
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center px-4 sm:px-0">
           <div className="border bg-black-3 dark:bg-white-3 rounded-2xl relative flex w-full flex-col md:w-1/2 lg:w-full ">
             <div className="relative flex flex-col lg:flex-row">
               <Link
                 href="/features/ai-data-agent"
-                className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-3/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+                className="border-muted2 flex flex-col justify-between border-b border-solid p-4 sm:p-10 lg:w-3/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
               >
-                <h4 className="group-hover:text-foreground/90 transition-colors">
+                <h4 className="group-hover:text-foreground/90 mb-4 transition-colors">
                   {feature1.title}
                 </h4>
                 <p className="text-muted-foreground">{feature1.description}</p>
-                <div className="mt-8 aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
+                <div className="mt-4 sm:mt-8 lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <AskReceiveMock className="w-full h-full" />
                 </div>
               </Link>
               <Link
                 href="/features/integrations"
-                className="flex flex-col justify-between p-10 lg:w-2/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+                className="flex flex-col justify-between p-4 sm:p-10 lg:w-2/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
               >
-                <h4 className="group-hover:text-foreground/90 transition-colors">
+                <h4 className="group-hover:text-foreground/90 mb-4 transition-colors">
                   {feature2.title}
                 </h4>
                 <p className="text-muted-foreground">{feature2.description}</p>
-                <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
+                <div className="mt-8  relative overflow-hidden rounded-lg">
                   <PipelineMock className="w-full h-full" />
                 </div>
               </Link>
@@ -97,25 +97,25 @@ const AIDataAgentSection = ({
             <div className="border-muted2 relative flex flex-col border-t border-solid lg:flex-row">
               <Link
                 href="/features/text-to-sql-python"
-                className="border-muted2 flex flex-col justify-between border-b border-solid p-10 lg:w-2/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+                className="border-muted2 flex flex-col justify-between border-b border-solid p-4 sm:p-10 lg:w-2/5 lg:border-r lg:border-b-0 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
               >
-                <h4 className="group-hover:text-foreground/90 transition-colors">
+                <h4 className="group-hover:text-foreground/90 mb-4 transition-colors">
                   {feature3.title}
                 </h4>
                 <p className="text-muted-foreground">{feature3.description}</p>
-                <div className="mt-8 aspect-[1.45] relative overflow-hidden rounded-lg">
+                <div className="mt-8 relative overflow-hidden rounded-lg">
                   <CodePrecisionMock className="w-full h-full" />
                 </div>
               </Link>
               <Link
                 href="/features/dashboards"
-                className="flex flex-col justify-between p-10 lg:w-3/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
+                className="flex flex-col justify-between p-4 sm:p-10 lg:w-3/5 hover:bg-black-5/50 dark:hover:bg-white-5/50 transition-colors duration-300 group"
               >
-                <h4 className="group-hover:text-foreground/90 transition-colors">
+                <h4 className="group-hover:text-foreground/90 mb-4 transition-colors">
                   {feature4.title}
                 </h4>
                 <p className="text-muted-foreground">{feature4.description}</p>
-                <div className="aspect-[1.5] lg:aspect-[2.4] relative overflow-hidden rounded-lg">
+                <div className=" lg:aspect-[2.4] relative overflow-hidden rounded-lg">
                   <DashboardMock className="w-full h-full" />
                 </div>
               </Link>

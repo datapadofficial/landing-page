@@ -56,7 +56,7 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
           </p>
         </div>
 
-        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
+        <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
           <Button asChild size="lg" className="w-full sm:w-auto">
             <a href={feature.ctaUrl}>{feature.ctaText}</a>
           </Button>

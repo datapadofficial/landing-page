@@ -21,7 +21,7 @@ const HowItWorksSection = ({
   steps: HowItWorksStep[];
 }) => {
   return (
-    <section className="py-32">
+    <section className="py-8 sm:py-32 px-4">
       <div className="container">
         <div className="mx-auto flex max-w-3xl flex-col justify-center gap-7 md:text-center">
           {title}
@@ -70,14 +70,14 @@ const HowItWorksSection = ({
 
                     {!isLast && (
                       <span
-                        className={`h-20 w-[3px] shrink-0 ${
+                        className={`h-10 sm:h-20 w-[3px] shrink-0 ${
                           isFirst
                             ? "bg-linear-to-b from-transparent to-primary"
                             : "bg-primary"
                         } opacity-70`}
                       />
                     )}
-                    {isLast && <span className="h-20 shrink-0"></span>}
+                    {isLast && <span className="h-10 sm:h-20 shrink-0"></span>}
                   </div>
                   <div className="flex flex-col justify-center gap-5 px-0 min-[960px]:gap-6 min-[960px]:px-4 min-[960px]:py-4">
                     <h3 className="text-xl min-[960px]:text-2xl">
@@ -92,13 +92,14 @@ const HowItWorksSection = ({
                   <Image
                     src={step.image}
                     alt={step.title}
-                    className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto"
+                    className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto hidden sm:block"
                   />
                 ) : step.icon ? (
                   <div
                     className={cn(
                       "z-10 flex aspect-video w-full items-center justify-center rounded-xl border border-input bg-muted/10 min-[960px]:max-h-56 min-[960px]:w-auto min-[960px]:min-w-72",
-                      `bg-black-5 dark:bg-white-5`
+                      `bg-black-5 dark:bg-white-5`,
+                      `hidden sm:flex`
                     )}
                   >
                     <DynamicIcon
@@ -111,7 +112,7 @@ const HowItWorksSection = ({
                   <Image
                     src={`https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-${stepNumber}.svg`}
                     alt={step.title}
-                    className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto"
+                    className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto hidden sm:block"
                   />
                 )}
               </div>

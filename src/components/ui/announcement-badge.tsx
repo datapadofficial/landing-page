@@ -35,7 +35,7 @@ function AnnouncementBadge({
 
       {/* Main Content */}
       <div className="opacity-100">
-        <p className="font-inter text-sm font-medium tracking-[-0.1px] leading-[1.4em] text-left text-chart-purple">
+        <p className="font-inter text-xs sm:text-sm font-medium tracking-[-0.1px] leading-[1.4em] text-left text-chart-purple">
           {typeof children === "string"
             ? children.split(" ").map((word, index) => (
                 <span

@@ -15,7 +15,7 @@ const MainCTA = () => {
   }, []);
 
   return (
-    <section className="py-32 container overflow-hidden w-full bg-black-3 ">
+    <section className="py-8 sm:py-32 container overflow-hidden w-full bg-black-3 ">
       <div className="relative mx-auto flex max-w-7xl w-full flex-col justify-between gap-6 overflow-hidden rounded-xl border md:flex-row bg-black-3 dark:bg-white-3 xl:min-h-[400px]">
         <div className="max-w-xl self-center p-6 md:p-12">
           <h2 className="text-3xl font-semibold md:text-4xl">

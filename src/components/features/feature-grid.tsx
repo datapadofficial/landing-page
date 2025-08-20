@@ -33,7 +33,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const FeatureGrid = () => {
   return (
-    <section className="container py-16 sm:py-24 lg:py-32">
+    <section className="container py-8 sm:py-32 px-4 sm:px-0">
       <div className="border bg-black-3 dark:bg-white-3 m-auto rounded-2xl sm:rounded-3xl px-4 sm:px-8 pb-8 pt-12 text-center md:px-16 md:pb-16 md:pt-24">
         <h2 className="mx-auto mb-4 max-w-96 text-2xl sm:text-3xl font-normal md:max-w-4xl md:text-4xl lg:text-5xl">
           <span>Your Entire Data Team.</span>
@@ -44,7 +44,7 @@ const FeatureGrid = () => {
           From AI conversations to automated reports, voice interactions to
           Slack integration. One platform that replaces your entire data stack.
         </p>
-        <div className="mt-12 sm:mt-16 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 sm:mt-16 grid w-full grid-cols-3 sm:grid-cols-3 lg:grid-cols-6">
           {features
             .sort((a, b) => a.priority - b.priority)
             .map((feature) => {

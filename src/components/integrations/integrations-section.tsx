@@ -9,9 +9,9 @@ import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo
 
 const IntegrationsSection = () => {
   return (
-    <section className="py-32 w-full flex items-center justify-center max-w-6xl mx-auto">
+    <section className="hidden sm:flex py-8 sm:py-32 w-full items-center justify-center max-w-6xl mx-auto">
       <div className="container">
-        <h1 className="mx-auto -mb-12 max-w-3xl text-center text-4xl font-medium tracking-tighter md:text-6xl lg:mb-5 lg:text-7xl">
+        <h1 className="mx-auto sm:-mb-12 max-w-3xl text-center text-4xl font-medium tracking-tighter md:text-6xl lg:mb-5 lg:text-7xl">
           Connect Everything
         </h1>
         <p className="text-muted-foreground mx-auto mb-4 max-w-2xl text-center md:text-xl">
