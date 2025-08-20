@@ -16,22 +16,7 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
-
 const WorkflowsSubmenu = () => {
-  // Get real workflows by team
-  const marketingWorkflows = getWorkflowsByTeam("marketing").slice(0, 3);
-  const salesWorkflows = getWorkflowsByTeam("sales").slice(0, 3);
-  const ecommerceWorkflows = getWorkflowsByTeam("retail-ecommerce").slice(0, 3);
-  const seoWorkflows = getWorkflowsByTeam("content-seo").slice(0, 3);
-  const agencyWorkflows = getWorkflowsByTeam("agency").slice(0, 3);
-  const financeWorkflows = getWorkflowsByTeam("finance").slice(0, 3);
-  const socialMediaWorkflows = getWorkflowsByTeam("social-media").slice(0, 3);
-  const productWorkflows = getWorkflowsByTeam("product-management").slice(0, 3);
-  const growthWorkflows = getWorkflowsByTeam("growth").slice(0, 3);
-  const supplyChainWorkflows = getWorkflowsByTeam("supply-chain").slice(0, 3);
-  const crmWorkflows = getWorkflowsByTeam("crm").slice(0, 3);
-
   const categories = [
     {
       title: "Marketing",
@@ -39,12 +24,7 @@ const WorkflowsSubmenu = () => {
       icon: <TrendingUp className="size-5 shrink-0" />,
       url: "/teams/marketing",
       color: "chart-blue",
-      workflows: marketingWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Sales",
@@ -52,12 +32,7 @@ const WorkflowsSubmenu = () => {
       icon: <DollarSign className="size-5 shrink-0" />,
       url: "/teams/sales",
       color: "chart-green",
-      workflows: salesWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "E-commerce",
@@ -65,12 +40,7 @@ const WorkflowsSubmenu = () => {
       icon: <ShoppingCart className="size-5 shrink-0" />,
       url: "/teams/retail-ecommerce",
       color: "chart-orange",
-      workflows: ecommerceWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Content & SEO",
@@ -78,12 +48,7 @@ const WorkflowsSubmenu = () => {
       icon: <Search className="size-5 shrink-0" />,
       url: "/teams/content-seo",
       color: "chart-purple",
-      workflows: seoWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Agency",
@@ -91,12 +56,7 @@ const WorkflowsSubmenu = () => {
       icon: <Users className="size-5 shrink-0" />,
       url: "/teams/agency",
       color: "chart-red",
-      workflows: agencyWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Finance",
@@ -104,12 +64,7 @@ const WorkflowsSubmenu = () => {
       icon: <Calculator className="size-5 shrink-0" />,
       url: "/teams/finance",
       color: "chart-yellow",
-      workflows: financeWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Social Media",
@@ -117,12 +72,7 @@ const WorkflowsSubmenu = () => {
       icon: <Users className="size-5 shrink-0" />,
       url: "/teams/social-media",
       color: "chart-orange",
-      workflows: socialMediaWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Product Management",
@@ -130,12 +80,7 @@ const WorkflowsSubmenu = () => {
       icon: <Package className="size-5 shrink-0" />,
       url: "/teams/product-management",
       color: "chart-yellow",
-      workflows: productWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Growth",
@@ -143,12 +88,7 @@ const WorkflowsSubmenu = () => {
       icon: <TrendingUp className="size-5 shrink-0" />,
       url: "/teams/growth",
       color: "chart-purple",
-      workflows: growthWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "Supply Chain",
@@ -156,12 +96,7 @@ const WorkflowsSubmenu = () => {
       icon: <Truck className="size-5 shrink-0" />,
       url: "/teams/supply-chain",
       color: "chart-orange",
-      workflows: supplyChainWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
     {
       title: "CRM",
@@ -169,12 +104,7 @@ const WorkflowsSubmenu = () => {
       icon: <Users className="size-5 shrink-0" />,
       url: "/teams/crm",
       color: "chart-blue",
-      workflows: crmWorkflows.map((w) => ({
-        title: w.title,
-        url: `/workflows/${w.slug}`,
-        difficulty: w.difficulty,
-        estimatedTime: w.estimatedTime,
-      })),
+      workflows: [],
     },
   ];
 

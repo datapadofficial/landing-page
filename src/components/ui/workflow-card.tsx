@@ -99,8 +99,12 @@ export function WorkflowCard({
             })()}
           </div>
           <Button asChild variant="ghost" size="sm">
-            <Link href={`/workflows/${workflow.slug}`}>
-              View <ArrowRight className="ml-1 h-3 w-3" />
+            <Link
+              href="https://app.datapad.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try Now <ArrowRight className="ml-1 h-3 w-3" />
             </Link>
           </Button>
         </div>
