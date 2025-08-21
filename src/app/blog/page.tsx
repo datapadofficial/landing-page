@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/blog-utils";
 import { BlogPageLayout } from "@/components/blog/blog-page-layout";
 
 export const metadata = {
-  title: "Blog - Datapad | AI-Powered Data Analytics Insights",
+  title: "Data to Decisions - Datapad | AI-Powered Data Analytics Blog",
   description:
     "Stay updated with the latest insights on AI-powered data analytics, business intelligence, KPIs, and autonomous data analysis. Expert tips and trends from Datapad.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata = {
     canonical: "https://datapad.io/blogs",
   },
   openGraph: {
-    title: "Blog - Datapad | AI-Powered Data Analytics Insights",
+    title: "Data to Decisions - Datapad | AI-Powered Data Analytics Blog",
     description:
       "Stay updated with the latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
     url: "https://datapad.io/blogs",
@@ -38,7 +38,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog - Datapad | AI-Powered Data Analytics Insights",
+    title: "Data to Decisions - Datapad | AI-Powered Data Analytics Blog",
     description:
       "Stay updated with the latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
     images: ["https://datapad.io/images/datapad-og-default.png"],
@@ -85,7 +85,7 @@ export default async function BlogsPage() {
   };
 
   const translations = {
-    headerTitle: "Insights and Trends Blog",
+    headerTitle: "Data to Decisions",
     headerDescription:
       "Stay updated with the latest insights on AI-powered data analytics, business intelligence, and autonomous data analysis.",
     popularPosts: "Popular Posts",

@@ -53,13 +53,14 @@ const MainHero = ({
               <div>Stop Guessing. Start Winning.</div>
               <AnimatedTicker
                 texts={[
+                  "Reports That Drive Decisions",
+                  "Data Insights That Justify",
                   "Ad Strategies That Convert",
                   "SEO Content That Ranks",
                   "Email Campaigns That Sell",
                   "Social Posts That Engage",
-                  "Reports That Drive Decisions",
                   "Landing Pages That Close",
-                  "Product Descriptions That Move",
+                  "Dashboards That Optimize",
                   "Sales Pitches That Win",
                 ]}
                 interval={3000}
@@ -103,9 +104,9 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(30).fill(1); // Reduced from 150 to 30
   const cols = new Array(20).fill(1); // Reduced from 100 to 20
   const colors = [
+    "var(--chart-purple)",
     "var(--chart-red)",
     "var(--chart-green)",
-    "var(--chart-purple)",
     "var(--chart-yellow)",
     "var(--chart-orange)",
     "var(--chart-blue)",

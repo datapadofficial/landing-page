@@ -3,6 +3,7 @@ import { getAllWorkflows } from "@/lib/workflow-template-helpers";
 import { getAllTeams } from "@/lib/team-utils";
 import { Button } from "@/components/ui/button";
 import { WorkflowsFilter } from "@/components/ui/workflows-filter";
+import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 
 export const metadata: Metadata = {
   title: "AI Workflows - Ready-to-Deploy Business Solutions | Datapad",
@@ -25,19 +26,19 @@ export default async function WorkflowsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-16 sm:pt-24 pb-16">
+      <section className="py-8 sm:pt-32">
         <div className="container">
-          <div className="mx-auto text-center flex flex-col items-center gap-8 max-w-7xl">
-            <h1 className="mb-6">
+          <div className="mx-auto text-center flex flex-col items-center gap-8 sm:gap-12 max-w-5xl">
+            <h1 className="">
               An AI Workflow for <br /> Every Situation
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foregroundmax-w-2xl mx-auto">
               Get actionable deliverables from your data. While other tools show
               charts, Datapad creates campaigns, strategies, and content ready
               to deploy. Copy-paste ready. Implementation ready. Results ready.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
                 <a href="https://app.datapad.io">
                   Create Your First Deliverable
@@ -76,6 +77,10 @@ export default async function WorkflowsPage() {
           </div>
         </div>
       </section>
+
+      {/* Video Preview */}
+      <AppVideoPreview videoUrl="/videos/workflows.mp4" />
+
       {/* All Workflows */}
       <section
         className="py-16 w-full flex items-center flex-col max-w-5xl"

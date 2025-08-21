@@ -114,6 +114,7 @@ export const features: Feature[] = [
       "Bridge the gap between business questions and technical implementation. Our AI seamlessly converts your natural language questions into optimized SQL queries and Python code, giving you the power of both database expertise and statistical programming without the learning curve.",
     icon: "code-2",
     color: "chart-purple",
+    videoUrl: "/videos/features/text-to-sql-python.mp4",
     benefits: [
       "Natural language to code conversion",
       "Optimized SQL query generation",
@@ -132,8 +133,6 @@ export const features: Feature[] = [
     ctaUrl: "https://app.datapad.io",
     category: "core",
     priority: 3,
-    videoUrl:
-      "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4",
     steps: [
       {
         title: "Ask Your Question",

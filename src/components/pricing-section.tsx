@@ -113,7 +113,7 @@ const PLANS: PricingPlan[] = [
     ],
     cta: {
       text: "Contact Sales",
-      href: "#",
+      href: "mailto:hello@datapad.io",
     },
   },
 ];
@@ -132,7 +132,7 @@ const PricingSection = ({
         <div className="flex flex-col items-center justify-center gap-4 sm:gap-9.5">
           <div className="flex flex-col items-center gap-6 text-center mx-auto">
             <h1 className="mb-4 sm:mb-8">
-              Stop paying for insights you can't use
+              Turn Data Into Revenue. <br /> Instantly.
             </h1>
             <p className="text-base sm:text-xl text-muted-foreground mb-4 sm:mb-8 max-w-2xl mx-auto">
               While other tools show you what happened, Datapad creates what
