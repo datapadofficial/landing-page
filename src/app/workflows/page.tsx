@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getAllWorkflows } from "@/lib/workflow-template-helpers";
 import { getAllTeams } from "@/lib/team-utils";
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import { WorkflowsFilter } from "@/components/ui/workflows-filter";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 
@@ -40,9 +41,9 @@ export default async function WorkflowsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">
+                <AttributionLink buttonLocation="workflows-hero-primary">
                   Create Your First Deliverable
-                </a>
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#browse">Browse All Workflows</a>
@@ -117,12 +118,14 @@ export default async function WorkflowsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">
+                <AttributionLink buttonLocation="workflows-cta-primary">
                   Create Your First Deliverable
-                </a>
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="https://app.datapad.io">Book a Demo</a>
+                <AttributionLink buttonLocation="workflows-cta-demo">
+                  Book a Demo
+                </AttributionLink>
               </Button>
             </div>
           </div>

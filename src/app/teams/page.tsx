@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import Link from "next/link";
+import { AttributionLink } from "@/components/attribution-link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -70,7 +71,9 @@ export default async function TeamsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">Get Started Free</a>
+                <AttributionLink buttonLocation="teams-page-hero-primary">
+                  Get Started Free
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#teams">Explore Teams</a>
@@ -356,10 +359,14 @@ export default async function TeamsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">Start Free Trial</a>
+                <AttributionLink buttonLocation="teams-page-cta-primary">
+                  Start Free Trial
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="https://app.datapad.io">Book a Demo</a>
+                <AttributionLink buttonLocation="teams-page-cta-demo">
+                  Book a Demo
+                </AttributionLink>
               </Button>
             </div>
           </div>

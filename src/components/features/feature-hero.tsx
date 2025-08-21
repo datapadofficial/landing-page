@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { AttributionLink } from "@/components/attribution-link";
 import { Feature } from "@/types/feature";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import { cn } from "@/lib/utils";
@@ -58,7 +59,12 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
 
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <a href={feature.ctaUrl}>{feature.ctaText}</a>
+            <AttributionLink
+              buttonLocation="feature-hero-primary"
+              searchParams={{ feature: feature.slug }}
+            >
+              {feature.ctaText}
+            </AttributionLink>
           </Button>
           <Button
             asChild
@@ -66,7 +72,12 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
             size="lg"
             className="w-full sm:w-auto"
           >
-            <a href="https://app.datapad.io">Book a Demo</a>
+            <AttributionLink
+              buttonLocation="feature-hero-demo"
+              searchParams={{ feature: feature.slug }}
+            >
+              Book a Demo
+            </AttributionLink>
           </Button>
         </div>
       </div>

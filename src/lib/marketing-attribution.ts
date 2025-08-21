@@ -40,6 +40,9 @@ export interface AttributionData {
 
   // Page specific
   pageTitle: string;
+
+  // Current page where action was taken (e.g., where signup link was clicked)
+  currentPage?: string;
 }
 
 /**
@@ -258,14 +261,17 @@ export function getStoredAttributionData(): AttributionData | null {
  * Builds signup URL with all attribution and tracking parameters
  */
 export function buildSignupUrl(
-  baseUrl: string = "https://app.datapad.io",
-  attributionData?: AttributionData
+  baseUrl: string = process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io",
+  attributionData?: AttributionData,
+  currentPage?: string
 ): string {
   const data = attributionData || getStoredAttributionData();
 
   if (!data) return baseUrl;
 
   const url = new URL(baseUrl);
+  const clickPage =
+    currentPage || (typeof window !== "undefined" ? window.location.href : "");
 
   // Add core attribution parameters
   url.searchParams.set("landing_page", encodeURIComponent(data.landingPage));
@@ -274,6 +280,11 @@ export function buildSignupUrl(
   url.searchParams.set("session_id", data.sessionId);
   url.searchParams.set("first_visit", data.isFirstVisit.toString());
   url.searchParams.set("first_touch", data.isFirstTouch.toString());
+
+  // Add current page where the link was clicked
+  if (clickPage) {
+    url.searchParams.set("current_page", encodeURIComponent(clickPage));
+  }
 
   // Add ALL query parameters (UTM, gclid, fbclid, any tracking params)
   Object.entries(data.queryParams).forEach(([key, value]) => {
@@ -286,17 +297,29 @@ export function buildSignupUrl(
 /**
  * Tracks signup click event with comprehensive attribution data
  */
-export function trackSignupClick(buttonLocation: string): void {
+export function trackSignupClick(
+  buttonLocation: string,
+  currentPage?: string
+): void {
   if (typeof window === "undefined") return;
 
   const attributionData = getStoredAttributionData();
+  const clickPage = currentPage || window.location.href;
+
+  // Create updated attribution data with current page
+  const clickAttributionData = attributionData
+    ? {
+        ...attributionData,
+        currentPage: clickPage,
+      }
+    : null;
 
   // Push to GTM data layer
   if (window.dataLayer) {
     window.dataLayer.push({
       event: "signup_click",
       button_location: buttonLocation,
-      attribution_data: attributionData,
+      attribution_data: clickAttributionData,
       landing_page: attributionData?.landingPage,
       referrer: attributionData?.referrer,
       referrer_domain: attributionData?.referrerDomain,
@@ -304,6 +327,7 @@ export function trackSignupClick(buttonLocation: string): void {
       session_id: attributionData?.sessionId,
       is_first_visit: attributionData?.isFirstVisit,
       is_first_touch: attributionData?.isFirstTouch,
+      current_page: clickPage,
     });
   }
 }

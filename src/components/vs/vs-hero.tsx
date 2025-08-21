@@ -1,10 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import Image from "next/image";
 import { AnimatedLogo } from "../navigation/aimated-logo/animated-logo";
 
 interface VsHeroProps {
   competitorName: string;
+  competitorSlug: string;
   competitorLogo?: string;
   subtitle?: string;
   ctaText?: string;
@@ -14,6 +16,7 @@ interface VsHeroProps {
 
 const VsHero = ({
   competitorName,
+  competitorSlug,
   competitorLogo,
   subtitle = "No more wasting time on analyzing Excels, CSVs. Get instant answers anywhere, anytime.",
   ctaText = "Try 100% Free",
@@ -66,9 +69,21 @@ const VsHero = ({
 
               {/* CTA Button */}
               <div className="flex gap-4">
-                <Button size="lg">{ctaText}</Button>
-                <Button variant="outline" size="lg">
-                  {secondaryCtaText}
+                <Button asChild size="lg">
+                  <AttributionLink
+                    buttonLocation="vs-hero-primary"
+                    searchParams={{ competitor: competitorSlug }}
+                  >
+                    {ctaText}
+                  </AttributionLink>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <AttributionLink
+                    buttonLocation="vs-hero-demo"
+                    searchParams={{ competitor: competitorSlug }}
+                  >
+                    {secondaryCtaText}
+                  </AttributionLink>
                 </Button>
               </div>
             </div>

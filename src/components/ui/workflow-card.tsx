@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AttributionLink } from "@/components/attribution-link";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -99,13 +100,9 @@ export function WorkflowCard({
             })()}
           </div>
           <Button asChild variant="ghost" size="sm">
-            <Link
-              href="https://app.datapad.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <AttributionLink buttonLocation="workflow-card-try-now">
               Try Now <ArrowRight className="ml-1 h-3 w-3" />
-            </Link>
+            </AttributionLink>
           </Button>
         </div>
       </CardContent>

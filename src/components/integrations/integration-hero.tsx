@@ -1,6 +1,7 @@
 import { Integration } from "@/types/integration";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import { BarChart3 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,17 +44,28 @@ export function IntegrationHero({ integration }: IntegrationHeroProps) {
 
         {/* CTA Buttons */}
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
-          <Link href="https://app.datapad.io" className="w-full">
-            <Button size="lg" className="w-full sm:w-auto">
+          <Button asChild size="lg" className="w-full sm:w-auto">
+            <AttributionLink
+              buttonLocation="integration-hero-primary"
+              searchParams={{ integration: integration.id }}
+            >
               Connect {integration.name}
-            </Button>
-          </Link>
+            </AttributionLink>
+          </Button>
 
-          <Link href="https://app.datapad.io" className="w-full">
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="w-full sm:w-auto"
+          >
+            <AttributionLink
+              buttonLocation="integration-hero-demo"
+              searchParams={{ integration: integration.id }}
+            >
               {integration.secondaryCta ?? "Book a 15m Demo"}
-            </Button>
-          </Link>
+            </AttributionLink>
+          </Button>
         </div>
       </div>
     </section>

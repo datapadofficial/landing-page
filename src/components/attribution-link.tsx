@@ -9,6 +9,7 @@ interface AttributionLinkProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  searchParams?: Record<string, string>;
 }
 
 /**
@@ -16,27 +17,42 @@ interface AttributionLinkProps {
  * marketing attribution data to signup URLs
  */
 export function AttributionLink({
-  href = "https://app.datapad.io",
+  href = process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io",
   buttonLocation,
   children,
   className,
   onClick,
+  searchParams,
   ...props
 }: AttributionLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Track the signup click
-    trackSignupClick(buttonLocation);
+    // Get current page URL
+    const currentPage =
+      typeof window !== "undefined" ? window.location.href : "";
+
+    // Track the signup click with current page information
+    trackSignupClick(buttonLocation, currentPage);
 
     // Call custom onClick if provided
     if (onClick) {
       onClick();
     }
 
-    // Build attribution URL and navigate
-    const attributionUrl = buildSignupUrl(href);
+    // Build attribution URL and navigate with current page information
+    const attributionUrl = buildSignupUrl(href, undefined, currentPage);
 
-    // Update href to include attribution data
-    e.currentTarget.href = attributionUrl;
+    // Add additional search parameters if provided
+    let finalUrl = attributionUrl;
+    if (searchParams && Object.keys(searchParams).length > 0) {
+      const url = new URL(attributionUrl);
+      Object.entries(searchParams).forEach(([key, value]) => {
+        url.searchParams.set(key, value);
+      });
+      finalUrl = url.toString();
+    }
+
+    // Update href to include attribution data and additional search params
+    e.currentTarget.href = finalUrl;
   };
 
   return (

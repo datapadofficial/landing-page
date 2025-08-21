@@ -4,6 +4,7 @@ import { ArrowLeftRight } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import { Integration } from "@/types/integration";
 
 interface Props {
@@ -45,7 +46,12 @@ const IntegrationConnection = ({ integration }: Props) => {
 
           <div className="flex w-full items-center justify-center gap-2 pb-2">
             <Button type="button" size="lg" asChild>
-              <a href="https://app.datapad.io">Connect Free in 2 Minutes</a>
+              <AttributionLink
+                buttonLocation="integration-connection-primary"
+                searchParams={{ integration: integration.id }}
+              >
+                Connect Free in 2 Minutes
+              </AttributionLink>
             </Button>
           </div>
         </div>

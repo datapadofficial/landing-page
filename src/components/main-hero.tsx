@@ -30,7 +30,7 @@ const MainHero = ({
   description = "While others guess, you'll know. Connect your data sources, let our AI analyze your business patterns, then generate winning strategies with 1-click. Join 500+ teams getting 5x better ROI than generic AI tools.",
   button = {
     text: "Get Started",
-    url: "https://app.datapad.io",
+    url: process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io",
   },
 }: MainHeroProps) => {
   return (
@@ -71,7 +71,7 @@ const MainHero = ({
           <p className="text-muted-foreground px-4 sm:px-0">{description}</p>
         </div>
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
-          <Button asChild size="lg" className="w-full sm:w-fit min-w-46">
+          <Button asChild size="lg" className="w-full sm:w-fit min-w-42">
             <AttributionLink href={button.url} buttonLocation="hero-primary">
               {button.text}
             </AttributionLink>
@@ -80,7 +80,7 @@ const MainHero = ({
             asChild
             variant="secondary"
             size="lg"
-            className="w-full sm:w-fit min-w-46"
+            className="w-full sm:w-fit min-w-42"
           >
             <AttributionLink href={button.url} buttonLocation="hero-demo">
               Book a Demo

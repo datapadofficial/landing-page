@@ -25,6 +25,7 @@ import {
 import { ArrowRight, Search, Filter, ExternalLink, Zap } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { AttributionLink } from "@/components/attribution-link";
 
 export const metadata: Metadata = {
   title: "Data Integrations - Connect 50+ Tools & Platforms | Datapad",
@@ -91,7 +92,9 @@ export default async function IntegrationsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">Connect Your Data</a>
+                <AttributionLink buttonLocation="integrations-page-hero-primary">
+                  Connect Your Data
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#integrations">Browse Integrations</a>
@@ -414,12 +417,14 @@ export default async function IntegrationsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="https://app.datapad.io">
+                <AttributionLink buttonLocation="integrations-page-cta-primary">
                   Connect Your First Integration
-                </a>
+                </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="https://app.datapad.io">Book a Demo</a>
+                <AttributionLink buttonLocation="integrations-page-cta-demo">
+                  Book a Demo
+                </AttributionLink>
               </Button>
             </div>
           </div>

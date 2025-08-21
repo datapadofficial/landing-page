@@ -122,18 +122,12 @@ const MainNavigation = () => {
               <AnimatedThemeToggler className="h-8 w-8" />
             </Button>
             <Button asChild variant="secondary" size="sm">
-              <AttributionLink
-                href="https://app.datapad.io"
-                buttonLocation="header-signin"
-              >
+              <AttributionLink buttonLocation="header-signin">
                 Sign In
               </AttributionLink>
             </Button>
             <Button asChild size="sm">
-              <AttributionLink
-                href="https://app.datapad.io"
-                buttonLocation="header-signup"
-              >
+              <AttributionLink buttonLocation="header-signup">
                 Sign up
               </AttributionLink>
             </Button>
@@ -240,18 +234,12 @@ const MainNavigation = () => {
 
                     <div className="flex flex-col gap-3">
                       <Button asChild variant="outline">
-                        <AttributionLink
-                          href="https://app.datapad.io"
-                          buttonLocation="mobile-signin"
-                        >
+                        <AttributionLink buttonLocation="mobile-signin">
                           Sign In
                         </AttributionLink>
                       </Button>
                       <Button asChild>
-                        <AttributionLink
-                          href="https://app.datapad.io"
-                          buttonLocation="mobile-signup"
-                        >
+                        <AttributionLink buttonLocation="mobile-signup">
                           Sign up
                         </AttributionLink>
                       </Button>

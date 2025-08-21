@@ -2,6 +2,7 @@
 
 import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import { PieChart } from "lucide-react";
 
 interface TeamHeroProps {
@@ -32,7 +33,12 @@ export function TeamHero({ team, customContent }: TeamHeroProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button asChild size="lg">
-              <a href="https://app.datapad.io">Get Started Free</a>
+              <AttributionLink
+                buttonLocation="team-hero-primary"
+                searchParams={{ team: team.slug }}
+              >
+                Get Started Free
+              </AttributionLink>
             </Button>
             <Button asChild variant="outline" size="lg">
               <a href="#workflows">View Workflows</a>

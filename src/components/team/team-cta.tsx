@@ -2,6 +2,7 @@
 
 import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 
 interface TeamCTAProps {
   team: Team;
@@ -26,10 +27,20 @@ export function TeamCTA({ team, customContent }: TeamCTAProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <a href="https://app.datapad.io">Start Free Trial</a>
+              <AttributionLink
+                buttonLocation="team-cta-primary"
+                searchParams={{ team: team.slug }}
+              >
+                Start Free Trial
+              </AttributionLink>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="https://app.datapad.io">Book a Demo</a>
+              <AttributionLink
+                buttonLocation="team-cta-demo"
+                searchParams={{ team: team.slug }}
+              >
+                Book a Demo
+              </AttributionLink>
             </Button>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
+import { AttributionLink } from "@/components/attribution-link";
 
 export default function FeaturesPage() {
   const coreFeatures = getFeaturesByCategory("core");
@@ -39,7 +40,9 @@ export default function FeaturesPage() {
 
           <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
             <Button asChild size="lg" className="w-full sm:w-auto">
-              <a href="https://app.datapad.io">Start Free Trial</a>
+              <AttributionLink buttonLocation="features-page-hero-primary">
+                Start Free Trial
+              </AttributionLink>
             </Button>
             <Button
               asChild
@@ -47,7 +50,9 @@ export default function FeaturesPage() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              <a href="https://app.datapad.io">Book a Demo</a>
+              <AttributionLink buttonLocation="features-page-hero-demo">
+                Book a Demo
+              </AttributionLink>
             </Button>
           </div>
         </div>
@@ -243,10 +248,14 @@ export default function FeaturesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                 <Button asChild size="lg">
-                  <a href="https://app.datapad.io">Start Free Trial</a>
+                  <AttributionLink buttonLocation="features-page-cta-primary">
+                    Start Free Trial
+                  </AttributionLink>
                 </Button>
                 <Button asChild variant="secondary" size="lg">
-                  <a href="https://app.datapad.io">Book a Demo</a>
+                  <AttributionLink buttonLocation="features-page-cta-demo">
+                    Book a Demo
+                  </AttributionLink>
                 </Button>
               </div>
             </div>

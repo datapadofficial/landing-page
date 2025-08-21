@@ -4,6 +4,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { AttributionLink } from "@/components/attribution-link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -27,10 +28,16 @@ const MainCTA = () => {
             in seconds, not weeks.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button>Start Free Trial</Button>
-            <Button variant="outline">
-              Book a Demo
-              <Play className="ml-2" />
+            <Button asChild>
+              <AttributionLink buttonLocation="main-cta-primary">
+                Start Free Trial
+              </AttributionLink>
+            </Button>
+            <Button asChild variant="outline">
+              <AttributionLink buttonLocation="main-cta-demo">
+                Book a Demo
+                <Play className="ml-2" />
+              </AttributionLink>
             </Button>
           </div>
         </div>

@@ -97,6 +97,7 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
       {/* Hero Section */}
       <VsHero
         competitorName={competitor.name}
+        competitorSlug={competitor.id}
         competitorLogo={competitor.logo}
         subtitle={competitor.subtitle}
         ctaText={competitor.ctaText}
