@@ -108,6 +108,16 @@ const MainNavigation = () => {
                     Blog
                   </NavigationMenuLink>
                 </NavigationMenuItem>
+
+                {/* Security */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/security"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Security
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -229,6 +239,11 @@ const MainNavigation = () => {
                       {/* Blog */}
                       <Link href="/blog" className="text-md font-semibold">
                         Blog
+                      </Link>
+
+                      {/* Security */}
+                      <Link href="/security" className="text-md font-semibold">
+                        Security
                       </Link>
                     </Accordion>
 
