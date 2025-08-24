@@ -4,11 +4,10 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/data/structured-data";
-import { MainNavigation } from "@/components/main-navigation";
-import { Footer } from "@/components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { AttributionTracker } from "@/components/attribution-tracker";
 import { AttributionDebug } from "@/components/attribution-debug";
+import { ConditionalLayout } from "@/components/conditional-layout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -125,13 +124,7 @@ export default function RootLayout({
           <StructuredData />
           <AttributionTracker />
           <AttributionDebug />
-          <div className="flex flex-col min-h-screen">
-            <MainNavigation />
-            <main className="flex-1 flex flex-col items-center mx-auto w-full min-h-0">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <ConditionalLayout>{children}</ConditionalLayout>
         </ThemeProvider>
         {process.env.NEXT_PUBLIC_GTM_ID &&
           process.env.NODE_ENV === "production" && (
