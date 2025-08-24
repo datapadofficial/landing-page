@@ -21,6 +21,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     code: ({ children, ...props }) => <code {...props}>{children}</code>,
     pre: ({ children, ...props }) => <pre {...props}>{children}</pre>,
+    div: ({ children, ...props }) => <div {...props}>{children}</div>,
+    svg: ({ children, ...props }) => <svg {...props}>{children}</svg>,
+    path: ({ ...props }) => <path {...props} />,
 
     // Helper components for special bullet types
     FeatureItem: ({ children }) => <li data-type="feature">{children}</li>,
