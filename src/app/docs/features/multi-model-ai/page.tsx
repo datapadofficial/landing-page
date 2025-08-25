@@ -1,370 +1,512 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
   Brain, 
-  ArrowRight, 
-  CheckCircle,
+  CheckCircle, 
   Zap,
   Target,
-  BarChart3,
-  Users,
-  Shield,
+  Settings,
+  TrendingUp,
   Cpu,
-  Lightbulb
+  Layers,
+  Shuffle,
+  MessageSquare,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
-  title: "Multi-Model AI - Advanced Intelligence",
-  description: "Leverage multiple AI models working together for enhanced data analysis, deeper insights, and more accurate predictions.",
+export const metadata: Metadata = {
+  title: "Multi-Model AI - Best AI for Every Task",
+  description: "Leverage Claude, ChatGPT, and other AI models for optimal results. Choose the right AI model for each specific data analysis task.",
 };
 
-export default function MultiModelAIFeaturePage() {
+const features = [
+  {
+    icon: Brain,
+    title: "Multiple AI Models",
+    description: "Access Claude, ChatGPT, Gemini, and other leading AI models from a single interface for different analysis needs."
+  },
+  {
+    icon: Target,
+    title: "Task-Optimized Selection",
+    description: "Datapad automatically chooses the best AI model for each specific task to ensure optimal accuracy and performance."
+  },
+  {
+    icon: Zap,
+    title: "Seamless Switching",
+    description: "Switch between AI models mid-conversation or compare results from multiple models side-by-side."
+  }
+];
+
+const aiModels = [
+  {
+    name: "Claude (Anthropic)",
+    specialty: "Complex reasoning and analysis",
+    icon: Brain,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    strengths: [
+      "Advanced statistical analysis",
+      "Complex data interpretation",
+      "Detailed explanations",
+      "Mathematical computations"
+    ],
+    bestFor: ["Financial analysis", "Research insights", "Complex queries", "Data science tasks"]
+  },
+  {
+    name: "ChatGPT (OpenAI)",
+    specialty: "Creative content and strategy",
+    icon: MessageSquare,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    strengths: [
+      "Content generation",
+      "Marketing strategies",
+      "Creative problem solving",
+      "Business recommendations"
+    ],
+    bestFor: ["Marketing content", "Strategic planning", "Creative campaigns", "Business insights"]
+  },
+  {
+    name: "Gemini (Google)",
+    specialty: "Multi-modal analysis",
+    icon: Layers,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    strengths: [
+      "Visual data analysis",
+      "Pattern recognition",
+      "Multi-format processing",
+      "Technical documentation"
+    ],
+    bestFor: ["Image analysis", "Pattern detection", "Technical queries", "Multi-format data"]
+  }
+];
+
+const useCases = [
+  "Use Claude for complex statistical analysis and financial modeling",
+  "Switch to ChatGPT for creative marketing campaign generation",
+  "Leverage Gemini for analyzing charts and visual data patterns",
+  "Compare model outputs for critical business decisions",
+  "Use specialized models for domain-specific analysis",
+  "Automatically route tasks to the most suitable AI model"
+];
+
+const modelSelection = [
+  {
+    category: "Data Analysis Tasks",
+    description: "Statistical analysis and data interpretation",
+    tasks: [
+      { task: "Statistical modeling", model: "Claude", reason: "Advanced mathematical reasoning" },
+      { task: "Trend analysis", model: "Auto-select", reason: "Best model chosen automatically" },
+      { task: "Correlation analysis", model: "Claude", reason: "Complex relationship understanding" },
+      { task: "Anomaly detection", model: "Gemini", reason: "Pattern recognition expertise" }
+    ]
+  },
+  {
+    category: "Content Generation",
+    description: "Marketing and business content creation",
+    tasks: [
+      { task: "Marketing copy", model: "ChatGPT", reason: "Creative writing capabilities" },
+      { task: "Executive summaries", model: "Claude", reason: "Analytical summarization" },
+      { task: "Social media content", model: "ChatGPT", reason: "Engaging content creation" },
+      { task: "Technical documentation", model: "Gemini", reason: "Technical accuracy" }
+    ]
+  }
+];
+
+export default function MultiModelAIPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center">
+            <Brain className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Multi-Model AI</h1>
+            <p className="text-xl text-muted-foreground">
+              Leverage the best AI models for optimal results in every task
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Brain className="h-3 w-3" />
+            Multiple Models
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Target className="h-3 w-3" />
+            Task-Optimized
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Zap className="h-3 w-3" />
+            Auto-Selection
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Multi-Model AI</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Harness the power of multiple AI models working in concert to deliver superior insights, 
-          enhanced accuracy, and specialized analysis capabilities tailored to your specific data and business needs.
-        </p>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Ensemble AI Intelligence</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Brain className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Specialized Models</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Different AI models optimized for specific tasks like forecasting, classification, and anomaly detection.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Target className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Enhanced Accuracy</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Consensus-based results from multiple models provide higher confidence and better accuracy.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Cpu className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Adaptive Learning</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              AI models learn from each other and adapt to your specific data patterns and business context.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Model Types */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">AI Model Portfolio</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Analytical Models</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Large Language Models (LLMs) for natural language understanding
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Time series forecasting models for trend prediction
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Classification models for pattern recognition
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Anomaly detection models for outlier identification
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Clustering models for segmentation analysis
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Specialized Models</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Financial modeling for revenue and cost analysis
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Marketing attribution models for campaign analysis
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Customer lifetime value prediction models
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Churn prediction and retention models
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Supply chain optimization models
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* How It Works */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">How Multi-Model AI Works</h2>
-        <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Intelligent Model Selection</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium mx-auto mb-3">
-                  1
-                </div>
-                <h4 className="font-medium mb-2">Query Analysis</h4>
-                <p className="text-sm text-muted-foreground">
-                  AI analyzes your question to determine the most suitable models for the task.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium mx-auto mb-3">
-                  2
-                </div>
-                <h4 className="font-medium mb-2">Model Ensemble</h4>
-                <p className="text-sm text-muted-foreground">
-                  Multiple specialized models work together to analyze different aspects of your data.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium mx-auto mb-3">
-                  3
-                </div>
-                <h4 className="font-medium mb-2">Consensus Results</h4>
-                <p className="text-sm text-muted-foreground">
-                  Results are combined using advanced ensemble techniques for optimal accuracy.
-                </p>
-              </div>
+        <p className="text-muted-foreground">
+          Access the best AI models for every data analysis and business task.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">1</span>
             </div>
+            <h3 className="font-semibold">Ask Your Question</h3>
+            <p className="text-sm text-muted-foreground">
+              Submit your data analysis question or business task
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">2</span>
+            </div>
+            <h3 className="font-semibold">AI Model Selection</h3>
+            <p className="text-sm text-muted-foreground">
+              System automatically chooses the best AI model for your task
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">3</span>
+            </div>
+            <h3 className="font-semibold">Optimized Analysis</h3>
+            <p className="text-sm text-muted-foreground">
+              Get results tailored to each model's specific strengths
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">4</span>
+            </div>
+            <h3 className="font-semibold">Compare & Switch</h3>
+            <p className="text-sm text-muted-foreground">
+              Compare outputs or manually switch models as needed
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
+      <Separator />
+
+      {/* AI Models */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Available AI Models</h2>
+        <p className="text-muted-foreground">
+          Each AI model has unique strengths optimized for different types of tasks:
+        </p>
+        
+        <div className="space-y-6">
+          {aiModels.map((model, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 ${model.bgColor} rounded-lg flex items-center justify-center`}>
+                    <model.icon className={`h-6 w-6 ${model.color}`} />
+                </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-xl">{model.name}</CardTitle>
+                    <CardDescription className="text-base">{model.specialty}</CardDescription>
+              </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium mb-3">Core Strengths</h4>
+                    <ul className="space-y-2">
+                      {model.strengths.map((strength, strengthIndex) => (
+                        <li key={strengthIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span>{strength}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-3">Best For</h4>
+                    <ul className="space-y-2">
+                      {model.bestFor.map((use, useIndex) => (
+                        <li key={useIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                          <span>{use}</span>
+                        </li>
+                      ))}
+                    </ul>
+              </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Use Cases */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Multi-Model AI Applications</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-            <div className="flex items-center gap-2 mb-2">
-              <BarChart3 className="h-4 w-4 text-blue-500" />
-              <h4 className="font-medium text-blue-700 dark:text-blue-300">Advanced Forecasting</h4>
-            </div>
-            <p className="text-sm text-blue-600 dark:text-blue-400">
-              Combine time series, regression, and neural network models for superior prediction accuracy.
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Multi-Model Use Cases</h2>
+        <p className="text-muted-foreground">
+          Here are examples of how different AI models excel at different tasks:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {useCases.map((useCase, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
+          </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    {useCase}
             </p>
           </div>
-          <div className="p-4 rounded-lg border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-green-500" />
-              <h4 className="font-medium text-green-700 dark:text-green-300">Customer Segmentation</h4>
+              </CardContent>
+            </Card>
+          ))}
             </div>
-            <p className="text-sm text-green-600 dark:text-green-400">
-              Use clustering, classification, and behavioral models to create comprehensive customer profiles.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
-            <div className="flex items-center gap-2 mb-2">
-              <Shield className="h-4 w-4 text-purple-500" />
-              <h4 className="font-medium text-purple-700 dark:text-purple-300">Fraud Detection</h4>
-            </div>
-            <p className="text-sm text-purple-600 dark:text-purple-400">
-              Combine anomaly detection, pattern recognition, and rule-based models for comprehensive fraud prevention.
-            </p>
-          </div>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">🤖 Multi-Model Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Let auto-selection choose the best model for most tasks</li>
+            <li>• Manually switch models to compare different approaches</li>
+            <li>• Use model-specific strengths for specialized analysis</li>
+            <li>• Combine insights from multiple models for critical decisions</li>
+          </ul>
         </div>
-      </section>
+      </div>
 
-      {/* Advanced Capabilities */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Advanced AI Capabilities</h2>
+      <Separator />
+
+      {/* Model Selection Examples */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Smart Model Selection</h2>
+        <p className="text-muted-foreground">
+          Examples of how Datapad automatically selects the best AI model for different tasks.
+        </p>
+        
         <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Example Multi-Model Queries</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Predict next quarter's sales with confidence intervals"</div>
-                <div className="text-xs text-muted-foreground">Combines multiple forecasting models for robust predictions with uncertainty quantification</div>
+          {modelSelection.map((category, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg">{category.category}</CardTitle>
+                <CardDescription>{category.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {category.tasks.map((task, taskIndex) => (
+                    <div key={taskIndex} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                      <div className="flex-1">
+                        <h5 className="font-medium text-sm">{task.task}</h5>
+                        <p className="text-xs text-muted-foreground">{task.reason}</p>
+                      </div>
+                      <Badge variant="outline" className="ml-4">
+                        {task.model}
+                      </Badge>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      <Separator />
+
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-yellow-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Cpu className="h-5 w-5" />
+              Intelligent Model Routing
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad's multi-model system analyzes each query to determine the optimal AI model based on task type, complexity, 
+              and desired output format. The system continuously learns from results to improve model selection over time.
+            </p>
+          </CardContent>
+        </Card>
               </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Identify customers at risk of churning and recommend retention strategies"</div>
-                <div className="text-xs text-muted-foreground">Uses ensemble of churn models plus recommendation systems</div>
+
+      <Separator />
+
+      {/* Advanced Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Multi-Model Features</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Shuffle className="h-5 w-5 text-blue-500" />
+                Model Comparison
+              </CardTitle>
+              <CardDescription>
+                Compare outputs from multiple AI models side-by-side
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Side-by-side analysis</div>
+                <div className="text-xs text-muted-foreground">• Confidence scoring</div>
+                <div className="text-xs text-muted-foreground">• Best answer selection</div>
               </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Detect anomalies in financial transactions and classify risk levels"</div>
-                <div className="text-xs text-muted-foreground">Combines anomaly detection with risk classification models</div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Settings className="h-5 w-5 text-green-500" />
+                Custom Preferences
+              </CardTitle>
+              <CardDescription>
+                Set model preferences for different types of analysis
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Task-specific defaults</div>
+                <div className="text-xs text-muted-foreground">• Performance preferences</div>
+                <div className="text-xs text-muted-foreground">• Custom routing rules</div>
               </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Optimize marketing budget allocation across channels"</div>
-                <div className="text-xs text-muted-foreground">Uses attribution, optimization, and forecasting models together</div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <TrendingUp className="h-5 w-5 text-purple-500" />
+                Performance Analytics
+              </CardTitle>
+              <CardDescription>
+                Track which models perform best for your specific use cases
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Model performance tracking</div>
+                <div className="text-xs text-muted-foreground">• Usage analytics</div>
+                <div className="text-xs text-muted-foreground">• Optimization recommendations</div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+          </div>
+
+      <Separator />
+
+      {/* Best Practices */}
+          <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Multi-Model Best Practices</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Maximizing Multi-Model Benefits
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium mb-2">Trust the auto-selection</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  The system chooses models based on proven performance for each task type
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Let the system auto-select models for optimal results</p>
+            </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Compare for critical decisions</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Use multiple models to validate important business decisions
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Compare model outputs for high-stakes analysis</p>
+            </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Leverage model strengths</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Manually select specific models when you need their unique capabilities
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Use Claude for complex analysis, ChatGPT for creative content</p>
+                </div>
               </div>
             </div>
-          </div>
+          </CardContent>
+        </Card>
         </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Why Multi-Model AI Matters</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-800">
-            <h4 className="font-medium mb-3 text-green-700 dark:text-green-300">Enhanced Accuracy</h4>
-            <ul className="text-sm text-green-600 dark:text-green-400 space-y-2">
-              <li>• Consensus from multiple models reduces errors</li>
-              <li>• Specialized models excel in their domains</li>
-              <li>• Cross-validation improves reliability</li>
-              <li>• Uncertainty quantification for confidence levels</li>
-              <li>• Robust performance across different scenarios</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
-            <h4 className="font-medium mb-3 text-blue-700 dark:text-blue-300">Business Value</h4>
-            <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-2">
-              <li>• More accurate business forecasts</li>
-              <li>• Better risk assessment and management</li>
-              <li>• Improved customer targeting and segmentation</li>
-              <li>• Enhanced operational efficiency</li>
-              <li>• Data-driven strategic decision making</li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
       {/* Getting Started */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Getting Started with Multi-Model AI</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                1
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Connect Your Data</h4>
-                <p className="text-sm text-muted-foreground">
-                  Ensure your data sources are connected for comprehensive analysis.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                2
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Ask Complex Questions</h4>
-                <p className="text-sm text-muted-foreground">
-                  Multi-model AI automatically activates for complex analytical queries.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                3
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Review Ensemble Results</h4>
-                <p className="text-sm text-muted-foreground">
-                  Get detailed explanations of how different models contributed to the final result.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-              <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Automatic Activation</h4>
-              <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-1">
-                <li>• Complex forecasting queries</li>
-                <li>• Multi-dimensional analysis requests</li>
-                <li>• Risk assessment questions</li>
-                <li>• Customer behavior predictions</li>
-              </ul>
-            </div>
-            <div className="p-4 rounded-lg border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
-              <h4 className="font-medium mb-2 text-green-700 dark:text-green-300">Model Transparency</h4>
-              <ul className="text-sm text-green-600 dark:text-green-400 space-y-1">
-                <li>• See which models were used</li>
-                <li>• Understand model confidence levels</li>
-                <li>• Review ensemble methodology</li>
-                <li>• Access detailed explanations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Next Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Next Steps</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Link href="/docs/features/ai-chat" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Brain className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Try Advanced Queries</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Ask complex analytical questions to experience multi-model AI
-            </p>
+      <Card className="bg-gradient-to-r from-primary/5 to-yellow-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to leverage multiple AI models?</CardTitle>
+          <CardDescription>
+            Experience the power of choosing the right AI model for every data analysis task.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/chat">
+                Try Multi-Model AI
           </Link>
-          <Link href="/docs/integrations" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Zap className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Connect Data Sources</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              More data sources enable more sophisticated multi-model analysis
-            </p>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
           </Link>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/data-blending">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Data Blending
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/features/ai-chat">
+                AI Chat Features
         </Link>
-        <Link href="/docs/guides/effective-queries">
-          <Button className="gap-2">
-            Effective Queries Guide
-            <ArrowRight className="h-4 w-4" />
           </Button>
-        </Link>
       </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

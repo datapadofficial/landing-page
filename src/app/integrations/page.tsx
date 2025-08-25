@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import {
   getAllIntegrations,
-  getIntegrationsByCategory,
 } from "@/lib/integration-utils";
 import { getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
@@ -22,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight, Search, Filter, ExternalLink, Zap } from "lucide-react";
+import { ArrowRight, Search, Filter, Zap, Globe } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { AttributionLink } from "@/components/attribution-link";
@@ -326,7 +325,7 @@ export default async function IntegrationsPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <ExternalLink className="h-3 w-3" />
+                              <Globe className="h-3 w-3" />
                             </a>
                           </Button>
                         )}

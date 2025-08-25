@@ -26,7 +26,6 @@ interface BlogPageLayoutProps {
 
 export function BlogPageLayout({
   posts,
-  siteUrl,
   basePath,
   translations,
 }: BlogPageLayoutProps) {

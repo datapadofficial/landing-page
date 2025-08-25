@@ -1,16 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  BarChart3, 
-  MessageSquare, 
-  Database, 
   Share2,
   ArrowRight,
-  Play,
   CheckCircle,
   Settings,
   Eye,
-  Download
 } from "lucide-react";
 import Link from "next/link";
 

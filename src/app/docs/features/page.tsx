@@ -311,35 +311,6 @@ export default function FeaturesPage() {
           </Card>
         </div>
       </div>
-
-      {/* Getting Started */}
-      <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
-        <CardHeader>
-          <CardTitle>Ready to explore these features?</CardTitle>
-          <CardDescription>
-            Start with the quickstart guide or jump into specific features that interest you most.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild>
-              <Link href="/docs/get-started/quickstart">
-                Start with Quickstart
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/docs/features/ai-chat">
-                Try AI Chat
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/docs/integrations">
-                Connect Your Data
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

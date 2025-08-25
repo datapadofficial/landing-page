@@ -36,7 +36,7 @@ const TestimonialWall = ({
   testimonials,
   showButton = false,
   buttonText = "Get started for free",
-  buttonHref,
+
   className = "",
 }: TestimonialWallProps) => {
   // Split testimonials into two arrays for dual scrolling
@@ -48,7 +48,9 @@ const TestimonialWall = ({
   const [isMounted, setIsMounted] = useState(false);
 
   // Auto-scroll plugins - initialize only once
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const plugin1 = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const plugin2 = useRef<any>(null);
 
   useEffect(() => {

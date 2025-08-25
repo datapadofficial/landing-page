@@ -1,24 +1,18 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
+  TrendingUp,
   Target,
   DollarSign
 } from "lucide-react";
@@ -60,16 +54,6 @@ const exampleQueries = [
   "Which custom audiences perform best?",
 ];
 
-const availableMetrics = [
-  { name: "Reach", description: "Number of unique people who saw your ads" },
-  { name: "Impressions", description: "Total number of times your ads were shown" },
-  { name: "CTR", description: "Click-through rate" },
-  { name: "CPC", description: "Cost per click" },
-  { name: "ROAS", description: "Return on ad spend" },
-  { name: "Conversions", description: "Goal completions and conversions" },
-  { name: "Frequency", description: "Average number of times each person saw your ad" },
-  { name: "Video Views", description: "Video ad view metrics" },
-];
 
 
 

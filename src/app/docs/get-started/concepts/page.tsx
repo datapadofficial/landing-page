@@ -6,10 +6,8 @@ import {
   MessageSquare, 
   BarChart3, 
   Workflow, 
-  Share2,
   ArrowRight,
   Zap,
-  Globe,
   Shield
 } from "lucide-react";
 import Link from "next/link";

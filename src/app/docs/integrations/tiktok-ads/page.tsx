@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -7,21 +7,19 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   BarChart3, 
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  
+  
   Shield, 
   Clock,
   Users,
-  MousePointer,
+  
   TrendingUp,
-  Globe,
+  
   AlertCircle,
-  PlayCircle,
+  
   Copy,
-  Eye,
   Target,
   Play,
-  Heart
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -61,16 +59,7 @@ const exampleQueries = [
   "Which creative types generate the most app installs?",
 ];
 
-const availableMetrics = [
-  { name: "Video Views", description: "Total number of video views" },
-  { name: "Impressions", description: "Number of times your ads were shown" },
-  { name: "CTR", description: "Click-through rate" },
-  { name: "CPM", description: "Cost per thousand impressions" },
-  { name: "Completion Rate", description: "Video view completion percentage" },
-  { name: "Engagement", description: "Likes, shares, comments" },
-  { name: "Conversions", description: "App installs, purchases, leads" },
-  { name: "ROAS", description: "Return on ad spend" },
-];
+
 
   return (
     <div className="flex flex-col gap-8">

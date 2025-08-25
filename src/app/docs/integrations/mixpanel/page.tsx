@@ -1,27 +1,21 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  
+  
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
-  Activity,
-  Zap
+  Activity
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -61,16 +55,6 @@ const exampleQueries = [
   "Which user segments have the highest lifetime value?",
 ];
 
-const availableMetrics = [
-  { name: "Events", description: "Custom events tracked in your product" },
-  { name: "User Properties", description: "User profile attributes and characteristics" },
-  { name: "Funnels", description: "Multi-step conversion analysis" },
-  { name: "Retention", description: "User retention cohort analysis" },
-  { name: "Revenue", description: "Revenue tracking and analysis" },
-  { name: "Segmentation", description: "User segment performance metrics" },
-  { name: "A/B Tests", description: "Experiment results and performance" },
-  { name: "Engagement", description: "User engagement and activity metrics" },
-];
 
   return (
     <div className="flex flex-col gap-8">

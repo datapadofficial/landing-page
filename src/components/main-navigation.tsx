@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ProductSubmenu } from "@/components/navigation/product-submenu";
-import { WorkflowsSubmenu } from "@/components/navigation/workflows-submenu";
+
 import { IntegrationsSubmenu } from "@/components/navigation/integrations-submenu";
 import { TeamsSubmenu } from "@/components/navigation/teams-submenu";
 

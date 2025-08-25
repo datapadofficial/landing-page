@@ -1,28 +1,20 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
   Briefcase,
   MessageSquare,
-  Share2
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -62,16 +54,6 @@ const exampleQueries = [
   "Which days of the week get the best engagement?",
 ];
 
-const availableMetrics = [
-  { name: "Post Impressions", description: "Number of times your posts were viewed" },
-  { name: "Engagement Rate", description: "Likes, comments, and shares as percentage of reach" },
-  { name: "Follower Growth", description: "New followers and follower demographics" },
-  { name: "Click-through Rate", description: "Clicks on your content links" },
-  { name: "Share Rate", description: "How often your content gets shared" },
-  { name: "Comment Engagement", description: "Comment quality and response rates" },
-  { name: "Content Performance", description: "Performance by content type and format" },
-  { name: "Network Analytics", description: "Insights about your professional network" },
-];
 
   return (
     <div className="flex flex-col gap-8">

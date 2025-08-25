@@ -6,13 +6,8 @@ import { Input } from "@/components/ui/input";
 import { 
   Database, 
   BarChart3, 
-  CreditCard, 
-  Users, 
   Building, 
   TrendingUp, 
-  Search,
-  Mail,
-  Facebook,
   Search as SearchIcon,
   ArrowRight,
   Star,

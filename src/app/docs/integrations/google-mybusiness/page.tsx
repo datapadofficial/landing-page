@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -7,18 +7,13 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   MapPin, 
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  
+  
   Shield, 
   Clock,
-  Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
+  Globe,
   Star,
   Phone,
   BarChart3,

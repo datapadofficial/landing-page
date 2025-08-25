@@ -9,7 +9,6 @@ import {
   Users,
   Clock,
   Palette,
-  Filter,
   TrendingUp,
   Lightbulb,
   Target,

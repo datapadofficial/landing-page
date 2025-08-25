@@ -1,28 +1,19 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
   ThumbsUp,
-  MessageSquare,
-  Share2,
   Video
 } from "lucide-react";
 import Link from "next/link";
@@ -63,16 +54,6 @@ const exampleQueries = [
   "Which content gets the most shares and comments?",
 ];
 
-const availableMetrics = [
-  { name: "Page Likes", description: "Total page likes and new likes over time" },
-  { name: "Post Reach", description: "Number of unique people who saw your posts" },
-  { name: "Engagement Rate", description: "Likes, comments, shares, and clicks as percentage of reach" },
-  { name: "Video Views", description: "Video play counts and view duration" },
-  { name: "Page Views", description: "How many people viewed your page" },
-  { name: "Fan Demographics", description: "Age, gender, and location of your page followers" },
-  { name: "Content Performance", description: "Performance by post type and content format" },
-  { name: "Optimal Timing", description: "Best times to post based on audience activity" },
-];
 
   return (
     <div className="flex flex-col gap-8">

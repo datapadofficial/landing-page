@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -7,18 +6,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   BarChart3, 
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
   DollarSign,
   CreditCard
@@ -59,17 +51,6 @@ const exampleQueries = [
   "What's my average transaction value by customer segment?",
   "Which countries have the highest payment failure rates?",
   "How do refund rates compare across different products?",
-];
-
-const availableMetrics = [
-  { name: "Payments", description: "Successful payments, amounts, and trends" },
-  { name: "Refunds", description: "Refund amounts, rates, and reasons" },
-  { name: "Disputes", description: "Chargebacks and dispute tracking" },
-  { name: "Subscriptions", description: "Recurring revenue and subscription metrics" },
-  { name: "Customers", description: "Customer payment behavior and segmentation" },
-  { name: "Payment Methods", description: "Performance by payment method type" },
-  { name: "Failure Analysis", description: "Payment failures and decline reasons" },
-  { name: "Geography", description: "Payment performance by country and region" },
 ];
 
   return (

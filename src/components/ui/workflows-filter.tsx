@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { workflows } from "@/data/workflow-templates/workflow-templates";
+
 import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
 import { WorkflowCard } from "@/components/ui/workflow-card";

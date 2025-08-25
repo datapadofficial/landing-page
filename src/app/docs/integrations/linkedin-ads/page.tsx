@@ -1,26 +1,18 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
-  DollarSign,
   Briefcase
 } from "lucide-react";
 import Link from "next/link";
@@ -61,16 +53,6 @@ const exampleQueries = [
   "Which seniority levels engage most with our content?",
 ];
 
-const availableMetrics = [
-  { name: "Impressions", description: "Number of times your ads were shown" },
-  { name: "Clicks", description: "Total clicks on your ads" },
-  { name: "CTR", description: "Click-through rate" },
-  { name: "CPC", description: "Cost per click" },
-  { name: "Lead Forms", description: "LinkedIn lead generation form submissions" },
-  { name: "Conversions", description: "Website conversions and goals" },
-  { name: "Company Size", description: "Performance by company size targeting" },
-  { name: "Job Function", description: "Performance by job function targeting" },
-];
 
   return (
     <div className="flex flex-col gap-8">

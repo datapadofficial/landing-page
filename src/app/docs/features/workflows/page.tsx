@@ -1,476 +1,536 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
-  Workflow, 
-  ArrowRight, 
-  Clock,
+  Workflow,  
   Zap,
-  Mail,
   Bell,
-  BarChart3,
-  Database,
-  Users,
-  CheckCircle,
-  AlertTriangle,
+  BarChart3,  
   TrendingUp,
-  Calendar,
-  Filter,
-  RefreshCw
+  Calendar,  
+  Target,
+  Copy,
+  Info,
+  Users
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
-  title: "Automated Workflows",
-  description: "Set up intelligent automation workflows that monitor your data, detect changes, and take actions automatically. Never miss important business insights again.",
+export const metadata: Metadata = {
+  title: "AI Workflows - 50+ Ready-to-Use Templates",
+  description: "50+ ready-to-use AI workflows that create actionable deliverables from your data. Get copy-paste ready campaigns and data-driven strategies.",
 };
 
-export default function WorkflowsFeaturePage() {
+const features = [
+  {
+    icon: Copy,
+    title: "Copy-Paste Ready Campaigns",
+    description: "Get implementation-ready marketing campaigns, SEO strategies, and optimization plans generated from your actual data."
+  },
+  {
+    icon: Target,
+    title: "Data-Driven Strategies",
+    description: "AI analyzes your performance data to create personalized strategies and actionable recommendations."
+  },
+  {
+    icon: Zap,
+    title: "Automated Monitoring",
+    description: "Set up intelligent workflows that continuously monitor your data and alert you to important changes."
+  }
+];
+
+const workflowExamples = [
+  "Generate SEO-optimized blog post based on my website data",
+  "Create Facebook Ads optimization to-do list from campaign performance",
+  "Build weekly executive summary combining all data sources",
+  "Generate customer LTV analysis and retention strategies",
+  "Create anomaly detection alerts for key business metrics",
+  "Build automated competitor analysis reports"
+];
+
+const workflowCategories = [
+  {
+    title: "Marketing Automation",
+    description: "Campaign optimization and content generation",
+    icon: TrendingUp,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    workflows: [
+      "SEO-optimized content generation from website analytics",
+      "Ad campaign optimization recommendations",
+      "Social media strategy based on engagement data",
+      "Email marketing personalization workflows"
+    ]
+  },
+  {
+    title: "Business Intelligence",
+    description: "Automated reporting and analysis",
+    icon: BarChart3,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    workflows: [
+      "Weekly executive dashboards with insights",
+      "Customer behavior analysis reports",
+      "Revenue attribution and forecasting",
+      "Operational efficiency monitoring"
+    ]
+  },
+  {
+    title: "Monitoring & Alerts",
+    description: "Real-time data monitoring and notifications",
+    icon: Bell,
+    color: "text-orange-500",
+    bgColor: "bg-orange-100 dark:bg-orange-900/20",
+    workflows: [
+      "Anomaly detection for key metrics",
+      "Performance threshold alerts",
+      "Competitive monitoring updates",
+      "Customer health score notifications"
+    ]
+  },
+  {
+    title: "Strategy & Planning",
+    description: "Data-driven strategic recommendations",
+    icon: Target,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    workflows: [
+      "Market opportunity analysis",
+      "Customer segmentation strategies",
+      "Product roadmap prioritization",
+      "Budget allocation optimization"
+    ]
+  }
+];
+
+const deliverables = [
+  {
+    title: "SEO Content Strategy",
+    description: "Data-driven blog posts and content plans ready to publish",
+    example: "Based on your Google Analytics and Search Console data, generate SEO-optimized articles targeting your highest-opportunity keywords"
+  },
+  {
+    title: "Ad Optimization Plans",
+    description: "Specific action items to improve campaign performance",
+    example: "Analyze Facebook Ads performance and create a prioritized to-do list with budget reallocation recommendations"
+  },
+  {
+    title: "Executive Reports",
+    description: "Professional summaries combining all your data sources",
+    example: "Weekly executive dashboard showing KPIs, trends, and strategic recommendations from all connected platforms"
+  },
+  {
+    title: "Customer Analysis",
+    description: "LTV calculations and retention strategies",
+    example: "Customer lifetime value analysis with specific retention tactics based on behavioral data"
+  }
+];
+
+export default function WorkflowsPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Core Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center">
+            <Workflow className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">AI Workflows</h1>
+            <p className="text-xl text-muted-foreground">
+              50+ ready-to-use workflows that create actionable deliverables from your data
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Copy className="h-3 w-3" />
+            Implementation Ready
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Zap className="h-3 w-3" />
+            Automated
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Target className="h-3 w-3" />
+            Data-Driven
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Automated Workflows</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Create intelligent automation workflows that continuously monitor your data, 
-          detect important changes, and notify your team automatically. Stay ahead of trends and issues.
-        </p>
       </div>
 
-      {/* Benefits */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Why Automated Workflows?</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Clock className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Always Monitoring</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              24/7 automated monitoring of your key metrics and business indicators.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Zap className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Instant Alerts</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Get notified immediately when important changes or anomalies are detected.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Team Coordination</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Automatically share insights and reports with the right team members.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Workflow Types */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Types of Workflows</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          
-          {/* Monitoring Workflows */}
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <AlertTriangle className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Monitoring & Alerts</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Watch key metrics and get alerted when thresholds are exceeded or patterns change.
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Revenue drops or spikes
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Traffic anomalies
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Conversion rate changes
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Inventory levels
-              </li>
-            </ul>
-          </div>
-
-          {/* Reporting Workflows */}
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <BarChart3 className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Scheduled Reporting</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Automatically generate and distribute reports to stakeholders on a schedule.
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Daily/weekly/monthly reports
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Executive dashboards
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Performance summaries
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                KPI tracking
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* How It Works */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">How Workflows Work</h2>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">How AI Workflows Work</h2>
+        <p className="text-muted-foreground">
+          Transform your data into actionable business deliverables in three simple steps.
+        </p>
         
-        {/* Step 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">1</div>
-            <h3 className="text-lg font-medium">Define Your Trigger</h3>
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+                1
           </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">
-              Set up what should trigger your workflow:
-            </p>
-            <div className="grid md:grid-cols-3 gap-3 text-sm">
-              <div className="p-3 rounded border bg-background">
-                <div className="flex items-center gap-2 mb-1">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <strong>Schedule-based</strong>
+              <h3 className="text-xl font-semibold">Choose Workflow</h3>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Daily at 9 AM, weekly on Monday, monthly reports
+            <Card>
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground mb-3">
+                  Select from 50+ pre-built workflows or create custom ones:
                 </p>
+                <div className="p-3 bg-muted/50 rounded-lg">
+                  <p className="text-sm font-medium">"Generate SEO content strategy from website analytics"</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+                2
               </div>
-              <div className="p-3 rounded border bg-background">
-                <div className="flex items-center gap-2 mb-1">
-                  <TrendingUp className="h-4 w-4 text-primary" />
-                  <strong>Threshold-based</strong>
+              <h3 className="text-xl font-semibold">AI Analyzes Data</h3>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  When revenue drops 20%, conversion rate changes
+            <Card>
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground mb-3">
+                  AI processes your data and generates insights:
                 </p>
-              </div>
-              <div className="p-3 rounded border bg-background">
-                <div className="flex items-center gap-2 mb-1">
-                  <Database className="h-4 w-4 text-primary" />
-                  <strong>Data-based</strong>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  When new data arrives, specific conditions met
-                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Analyzes performance metrics</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Identifies optimization opportunities</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Creates actionable recommendations</span>
               </div>
             </div>
-          </div>
+              </CardContent>
+            </Card>
         </div>
 
-        {/* Step 2 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">2</div>
-            <h3 className="text-lg font-medium">Configure Actions</h3>
-          </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">
-              Choose what should happen when the trigger activates:
-            </p>
-            <div className="grid md:grid-cols-4 gap-3 text-sm">
-              <div className="p-3 rounded border bg-background text-center">
-                <Mail className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Send Email</p>
-                <p className="text-xs text-muted-foreground">Reports, alerts</p>
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+                3
               </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Bell className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Push Notification</p>
-                <p className="text-xs text-muted-foreground">Instant alerts</p>
+              <h3 className="text-xl font-semibold">Get Deliverables</h3>
+            </div>
+            <Card>
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground mb-3">
+                  Receive implementation-ready outputs:
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>Copy-paste ready content</span>
               </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <BarChart3 className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Generate Report</p>
-                <p className="text-xs text-muted-foreground">Dashboards, summaries</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>Actionable to-do lists</span>
               </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Workflow className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Trigger Workflow</p>
-                <p className="text-xs text-muted-foreground">Chain actions</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>Strategic recommendations</span>
               </div>
             </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
+      </div>
 
-        {/* Step 3 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">3</div>
-            <h3 className="text-lg font-medium">Monitor & Optimize</h3>
+      <Separator />
+
+      {/* Example Workflows */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Workflow Requests</h2>
+        <p className="text-muted-foreground">
+          Here are some example workflows you can run with your connected data:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {workflowExamples.map((workflow, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
           </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">
-              Track workflow performance and make improvements:
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• View execution history and success rates</li>
-              <li>• Adjust triggers based on results</li>
-              <li>• Fine-tune alert thresholds</li>
-              <li>• Monitor delivery and engagement metrics</li>
-            </ul>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{workflow}"
+                  </p>
           </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
-
-      {/* Popular Workflow Examples */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Popular Workflow Examples</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Daily Sales Report</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Send yesterday's sales summary to the leadership team every morning.
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> Daily at 8:00 AM</div>
-              <div><strong>Action:</strong> Email report with revenue, orders, top products</div>
-              <div><strong>Recipients:</strong> Sales team, executives</div>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">🎯 Workflow Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about the deliverable you want (blog post, to-do list, strategy)</li>
+            <li>• Mention your data sources if you want to focus on specific platforms</li>
+            <li>• Specify the target audience or use case for better results</li>
+            <li>• Set up recurring workflows for ongoing monitoring and optimization</li>
+          </ul>
             </div>
           </div>
 
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Conversion Rate Alert</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Get notified when website conversion rate drops below 2%.
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> Conversion rate &lt; 2%</div>
-              <div><strong>Action:</strong> Instant Slack notification</div>
-              <div><strong>Recipients:</strong> Marketing team</div>
+      <Separator />
+
+      {/* Workflow Categories */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Workflow Categories</h2>
+        <p className="text-muted-foreground">
+          Explore workflows organized by business function and use case.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {workflowCategories.map((category) => (
+            <Card key={category.title} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 ${category.bgColor} rounded-lg flex items-center justify-center`}>
+                    <category.icon className={`h-5 w-5 ${category.color}`} />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">{category.title}</CardTitle>
+                    <CardDescription className="text-sm">{category.description}</CardDescription>
+            </div>
+          </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {category.workflows.map((workflow, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                      <span>{workflow}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
             </div>
           </div>
 
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Weekly Performance Summary</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Comprehensive weekly business review sent every Monday.
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> Monday at 9:00 AM</div>
-              <div><strong>Action:</strong> Generate dashboard PDF</div>
-              <div><strong>Recipients:</strong> All stakeholders</div>
+      <Separator />
+
+      {/* Deliverable Examples */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">What You Get: Real Deliverables</h2>
+        <p className="text-muted-foreground">
+          Unlike generic AI tools that give advice, Datapad creates actual implementation-ready deliverables.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {deliverables.map((deliverable) => (
+            <Card key={deliverable.title} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg">{deliverable.title}</CardTitle>
+                <CardDescription>{deliverable.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="p-3 bg-muted/50 rounded-lg">
+                  <p className="text-sm font-medium text-muted-foreground italic">
+                    "{deliverable.example}"
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
             </div>
           </div>
 
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Inventory Low Stock Alert</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Alert when product inventory falls below reorder points.
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> Stock level &lt; threshold</div>
-              <div><strong>Action:</strong> Email + push notification</div>
-              <div><strong>Recipients:</strong> Operations team</div>
-            </div>
-          </div>
+      <Separator />
 
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Customer Churn Risk</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Identify customers at risk of churning based on usage patterns.
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-purple-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Workflow className="h-5 w-5" />
+              AI Workflow Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad's workflow engine combines your real data with industry best practices and AI intelligence to generate actionable deliverables. 
+              Each workflow is designed by experts and continuously improved based on results.
             </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> ML model prediction</div>
-              <div><strong>Action:</strong> Add to CRM task list</div>
-              <div><strong>Recipients:</strong> Customer success team</div>
+          </CardContent>
+        </Card>
             </div>
-          </div>
 
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Campaign Performance Digest</h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              Daily summary of advertising campaign performance across all channels.
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div><strong>Trigger:</strong> Daily at 10:00 AM</div>
-              <div><strong>Action:</strong> Multi-channel report</div>
-              <div><strong>Recipients:</strong> Marketing managers</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Separator />
 
       {/* Advanced Features */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Advanced Workflow Features</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Calendar className="h-5 w-5 text-blue-500" />
+                Scheduled Workflows
+              </CardTitle>
+              <CardDescription>
+                Run workflows automatically on daily, weekly, or monthly schedules
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <Link href="https://app.datapad.io/workflows">
+                  Set Up Automation
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Bell className="h-5 w-5 text-orange-500" />
+                Smart Alerts
+              </CardTitle>
+              <CardDescription>
+                Get notified when important changes are detected in your data
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <Link href="https://app.datapad.io/alerts">
+                  Configure Alerts
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Users className="h-5 w-5 text-green-500" />
+                Team Collaboration
+              </CardTitle>
+              <CardDescription>
+                Share workflow results and collaborate on implementation
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <Link href="/docs/guides/team-collaboration">
+                  Team Features
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+            </div>
+          </div>
+
+      <Separator />
+
+      {/* Best Practices */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Workflow Best Practices</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Maximizing Workflow Value
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
           <div className="space-y-4">
-            <h3 className="text-lg font-medium">Smart Conditions</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li className="flex items-start gap-2">
-                  <Filter className="h-4 w-4 mt-0.5 text-primary" />
                   <div>
-                    <strong>Multi-condition logic:</strong> Combine multiple triggers with AND/OR logic
+                <h4 className="font-medium mb-2">Start with high-impact workflows</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Begin with workflows that directly impact your key business metrics
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Focus on workflows that generate revenue, reduce costs, or improve efficiency</p>
                   </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <TrendingUp className="h-4 w-4 mt-0.5 text-primary" />
+                  </div>
+              
+              <Separator />
+              
                   <div>
-                    <strong>Trend analysis:</strong> Detect patterns and rate of change
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Calendar className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Time-based conditions:</strong> Business hours, weekends, holidays
-                  </div>
-                </li>
-              </ul>
+                <h4 className="font-medium mb-2">Connect comprehensive data sources</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  More data sources lead to better insights and recommendations
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Connect marketing, sales, analytics, and operational data for complete insights</p>
             </div>
           </div>
+              
+              <Separator />
 
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Intelligent Actions</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li className="flex items-start gap-2">
-                  <RefreshCw className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Adaptive frequency:</strong> Adjust alert frequency based on urgency
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Users className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Smart routing:</strong> Send alerts to the right people based on context
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <BarChart3 className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Dynamic content:</strong> Personalize messages based on recipient role
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Setup Process */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Setting Up Your First Workflow</h2>
-        <div className="p-6 rounded-lg border bg-muted/20">
-          <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-medium mb-3">Quick Setup Steps</h4>
-              <ol className="text-sm text-muted-foreground space-y-2">
-                <li>1. Go to Workflows in your Datapad workspace</li>
-                <li>2. Click "Create New Workflow"</li>
-                <li>3. Choose a template or start from scratch</li>
-                <li>4. Configure trigger conditions</li>
-                <li>5. Set up actions and recipients</li>
-                <li>6. Test and activate</li>
-              </ol>
-            </div>
-            <div>
-              <h4 className="font-medium mb-3">Best Practices</h4>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• Start with simple workflows and add complexity</li>
-                <li>• Test with a small group before full rollout</li>
-                <li>• Set appropriate alert thresholds to avoid noise</li>
-                <li>• Document workflow purposes for team clarity</li>
-                <li>• Review and optimize regularly based on feedback</li>
-              </ul>
-            </div>
+                <h4 className="font-medium mb-2">Set up recurring workflows</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Automate regular analysis and monitoring for ongoing optimization
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Schedule weekly reports, monthly strategy reviews, and daily monitoring alerts</p>
           </div>
         </div>
-      </section>
-
-      {/* Integration & Delivery */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Delivery Options</h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Mail className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Email</h4>
             </div>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Rich HTML reports</li>
-              <li>• PDF attachments</li>
-              <li>• Custom templates</li>
-              <li>• Multiple recipients</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Bell className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Push Notifications</h4>
-            </div>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Instant mobile alerts</li>
-              <li>• Browser notifications</li>
-              <li>• Priority levels</li>
-              <li>• Do not disturb settings</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Team Integrations</h4>
-            </div>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Slack channels</li>
-              <li>• Microsoft Teams</li>
-              <li>• Discord servers</li>
-              <li>• Custom webhooks</li>
-            </ul>
-          </div>
+          </CardContent>
+        </Card>
         </div>
-      </section>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/text-to-sql-python">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Text-to-SQL & Python
+      {/* Getting Started */}
+      <Card className="bg-gradient-to-r from-primary/5 to-purple-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to automate your data analysis?</CardTitle>
+          <CardDescription>
+            Connect your data sources and choose from 50+ ready-to-use workflows.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/workflows">
+                Browse Workflows
+              </Link>
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
         </Link>
-        <Link href="/docs/features">
-          <Button className="gap-2">
-            All Features
-            <ArrowRight className="h-4 w-4" />
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/integrations">
+                Connect Data Sources
         </Link>
+            </Button>
       </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

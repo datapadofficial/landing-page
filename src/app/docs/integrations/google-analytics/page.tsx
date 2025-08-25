@@ -1,24 +1,18 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
+  Globe,
   Target
 } from "lucide-react";
 import Link from "next/link";
@@ -59,16 +53,6 @@ const exampleQueries = [
   "Which countries drive the most revenue?",
 ];
 
-const availableMetrics = [
-  { name: "Sessions", description: "Number of visits to your website" },
-  { name: "Page Views", description: "Total number of pages viewed" },
-  { name: "Users", description: "Unique visitors to your site" },
-  { name: "Bounce Rate", description: "Percentage of single-page sessions" },
-  { name: "Conversion Rate", description: "Goal completion rate" },
-  { name: "Revenue", description: "E-commerce revenue tracking" },
-  { name: "Traffic Sources", description: "Where your visitors come from" },
-  { name: "Demographics", description: "Age, gender, and location data" },
-];
 
   return (
     <div className="flex flex-col gap-8">

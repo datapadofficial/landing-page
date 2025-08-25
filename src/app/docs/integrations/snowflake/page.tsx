@@ -6,19 +6,14 @@ import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   Database, 
-  CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  CheckCircle,
   Shield, 
   Clock,
   Code,
   Lock,
-  Server,
   AlertCircle,
-  PlayCircle,
   Copy,
   Key,
-  Globe,
   Info,
   Cloud
 } from "lucide-react";

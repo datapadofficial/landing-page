@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  
+  
   Shield, 
   Clock,
-  Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
-  Target,
   Database,
   Brain,
   Share2
@@ -62,16 +55,6 @@ const exampleQueries = [
   "Create a unified view combining Metabase with other data sources?",
 ];
 
-const availableMetrics = [
-  { name: "Dashboard Data", description: "Data from your existing Metabase dashboards" },
-  { name: "Questions Results", description: "Results from saved Metabase questions/queries" },
-  { name: "Database Tables", description: "Direct access to connected database tables" },
-  { name: "Collections", description: "Organized groups of related dashboards and questions" },
-  { name: "Models", description: "Curated datasets and business logic from Metabase" },
-  { name: "Metrics", description: "Pre-defined business metrics and KPIs" },
-  { name: "User Activity", description: "Usage patterns and user interaction data" },
-  { name: "Performance Data", description: "Query performance and optimization insights" },
-];
 
   return (
     <div className="flex flex-col gap-8">

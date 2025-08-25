@@ -10,17 +10,16 @@ import {
   Shield, 
   Lock, 
   Key, 
-  Database, 
-  Eye, 
+  Database,  
   UserCheck,
   Clock,
-  Globe,
   AlertTriangle,
   ChevronRight,
   EarthLock,
   Star
 } from "lucide-react";
 import { AttributionLink } from "@/components/attribution-link";
+import Image from "next/image";
 import { TestimonialWall, type Testimonial } from "@/components/ui/testimonial-wall";
 
 const securityTestimonials: Testimonial[] = [
@@ -257,9 +256,11 @@ export function SecurityPageContent() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="relative w-64 h-64 flex items-center justify-center mx-auto mb-4">
-                <img 
+                <Image 
                   src="/images/security/tx_ramp.png" 
                   alt="TX-RAMP Certification" 
+                  width={256}
+                  height={256}
                   className="w-64 h-64 object-contain"
                 />
               </div>
@@ -272,9 +273,11 @@ export function SecurityPageContent() {
             </div>
             <div className="text-center">
               <div className="relative w-64 h-64 flex items-center justify-center mx-auto mb-4">
-                <img 
+                <Image 
                   src="/images/security/soc.png" 
                   alt="SOC 2 Type 2 Certification" 
+                  width={192}
+                  height={192}
                   className="w-48 h-48 object-contain"
                 />
               </div>
@@ -287,9 +290,11 @@ export function SecurityPageContent() {
             </div>
             <div className="text-center">
               <div className="relative w-64 h-64 flex items-center justify-center mx-auto mb-4">
-                <img 
+                <Image 
                   src="/images/security/gdpr.png" 
                   alt="GDPR Compliance" 
+                  width={160}
+                  height={160}
                   className="w-40 h-40 object-contain"
                 />
               </div>

@@ -1,11 +1,7 @@
 import { Integration } from "@/types/integration";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AttributionLink } from "@/components/attribution-link";
-import { BarChart3 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 interface IntegrationHeroProps {
   integration: Integration;

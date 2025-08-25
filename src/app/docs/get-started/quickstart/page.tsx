@@ -4,13 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { 
-  PlayCircle, 
   Database, 
   MessageSquare, 
   BarChart3, 
   CheckCircle,
   ArrowRight,
-  ExternalLink,
   Zap,
   Clock,
   Target
@@ -18,6 +16,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { AttributionLink } from "@/components/attribution-link";
+import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 
 export const metadata: Metadata = {
   title: "Quickstart Guide",
@@ -200,6 +199,12 @@ export default function QuickstartPage() {
           </CardContent>
         </Card>
 
+        <AppVideoPreview
+          videoUrl="/videos/features/docs-first-chat.mp4"
+          title="Your First Chat with Datapad AI"
+          poster="/images/hero-1.png"
+        />
+
         <div className="bg-muted/50 p-4 rounded-lg">
           <h4 className="font-medium mb-2">📝 Writing Good Questions</h4>
           <p className="text-sm text-muted-foreground mb-2">
@@ -224,6 +229,12 @@ export default function QuickstartPage() {
           <h2 className="text-2xl font-semibold">Generate Your First Dashboard</h2>
         </div>
         
+        <AppVideoPreview
+          videoUrl="/videos/features/docs-quickstart.mp4"
+          title="Quickstart: Creating Your First Dashboard"
+          poster="/images/hero-2.png"
+        />
+
         <p className="text-muted-foreground">
           After getting insights from your questions, you can ask Datapad to create a dashboard 
           that automatically includes the most relevant metrics for your business.

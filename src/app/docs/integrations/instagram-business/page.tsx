@@ -1,29 +1,20 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
   Target,
   Camera,
-  Heart,
-  MessageCircle,
-  Share2
+  TrendingUp
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -63,16 +54,6 @@ const exampleQueries = [
   "What time should I post for maximum engagement?",
 ];
 
-const availableMetrics = [
-  { name: "Post Reach", description: "Number of unique accounts that saw your posts" },
-  { name: "Impressions", description: "Total number of times your content was viewed" },
-  { name: "Engagement Rate", description: "Likes, comments, saves, and shares as percentage of reach" },
-  { name: "Story Metrics", description: "Story views, exits, replies, and completion rates" },
-  { name: "Follower Growth", description: "New followers and unfollowers over time" },
-  { name: "Hashtag Performance", description: "Reach and engagement by hashtag usage" },
-  { name: "Content Types", description: "Performance comparison of photos, videos, reels, and carousels" },
-  { name: "Audience Insights", description: "Demographics, location, and activity patterns" },
-];
 
   return (
     <div className="flex flex-col gap-8">

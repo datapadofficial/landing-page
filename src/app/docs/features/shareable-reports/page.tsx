@@ -1,353 +1,488 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
   Share2, 
-  ArrowRight, 
-  CheckCircle,
+  CheckCircle, 
   Users,
-  Mail,
   Download,
-  Shield,
   Calendar,
+  Lock,
   Eye,
-  Link as LinkIcon
+  FileText,
+  Globe,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
-  title: "Shareable Reports - Collaborate with Data",
-  description: "Create, customize, and share professional reports with your team and stakeholders using Datapad's advanced sharing features.",
+export const metadata: Metadata = {
+  title: "Shareable Reports & Dashboards",
+  description: "Generate and share professional reports and dashboards with stakeholders instantly. Control access and automate distribution.",
 };
 
-export default function ShareableReportsFeaturePage() {
+const features = [
+  {
+    icon: Share2,
+    title: "Instant Sharing",
+    description: "Share reports and dashboards with team members, clients, or stakeholders with a single click."
+  },
+  {
+    icon: Lock,
+    title: "Access Control",
+    description: "Set permissions, password protection, and expiration dates to control who can view your data."
+  },
+  {
+    icon: Calendar,
+    title: "Automated Distribution",
+    description: "Schedule reports to be automatically generated and sent on daily, weekly, or monthly intervals."
+  }
+];
+
+const sharingMethods = [
+  "Generate secure shareable links with optional passwords",
+  "Export as PDF reports with professional formatting",
+  "Email reports directly to stakeholders with custom messages",
+  "Embed dashboards in websites or internal portals",
+  "Schedule automated report delivery on custom intervals",
+  "Create presentation-ready formats for meetings"
+];
+
+const reportTypes = [
+  {
+    title: "Executive Summaries",
+    description: "High-level KPI reports for leadership and stakeholders",
+    icon: Users,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    features: [
+      "Key metrics and trends overview",
+      "Performance against goals",
+      "Strategic recommendations",
+      "Visual executive dashboards"
+    ]
+  },
+  {
+    title: "Operational Reports",
+    description: "Detailed analytics for day-to-day business operations",
+    icon: FileText,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    features: [
+      "Detailed performance metrics",
+      "Operational efficiency tracking",
+      "Process optimization insights",
+      "Team performance analysis"
+    ]
+  },
+  {
+    title: "Client Reports",
+    description: "Professional reports for external stakeholders",
+    icon: Globe,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    features: [
+      "White-labeled branding",
+      "Client-specific insights",
+      "Campaign performance data",
+      "ROI and value demonstration"
+    ]
+  }
+];
+
+const accessLevels = [
+  {
+    level: "Public Access",
+    description: "Anyone with the link can view",
+    icon: Globe,
+    settings: ["No password required", "View-only access", "Optional expiration date"]
+  },
+  {
+    level: "Password Protected",
+    description: "Requires password to access",
+    icon: Lock,
+    settings: ["Custom password", "View or comment permissions", "Access logging"]
+  },
+  {
+    level: "Team Members Only",
+    description: "Restricted to organization members",
+    icon: Users,
+    settings: ["Organization authentication", "Role-based permissions", "Full collaboration"]
+  }
+];
+
+export default function ShareableReportsPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+            <Share2 className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Shareable Reports</h1>
+            <p className="text-xl text-muted-foreground">
+              Generate and share professional reports with stakeholders instantly
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Share2 className="h-3 w-3" />
+            Instant Sharing
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Lock className="h-3 w-3" />
+            Access Control
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Calendar className="h-3 w-3" />
+            Automated
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Shareable Reports</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Create professional, interactive reports and share them securely with your team, clients, 
-          and stakeholders. Control access, track engagement, and keep everyone aligned with data-driven insights.
-        </p>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Professional Report Sharing</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Share2 className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Flexible Sharing Options</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Share via email, direct links, or embed reports in presentations and documents.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Shield className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Access Control</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Control who can view, comment, or edit reports with granular permission settings.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Calendar className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Automated Distribution</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Schedule automatic report delivery to stakeholders on daily, weekly, or monthly basis.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
-      {/* Sharing Features */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Sharing & Collaboration Features</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Sharing Methods</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Public and private link sharing
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Email distribution with attachments
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Embedded iframes for websites
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  PDF and PowerPoint exports
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Slack and Teams integration
-                </li>
-              </ul>
+      {/* How It Works */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">How Report Sharing Works</h2>
+        <p className="text-muted-foreground">
+          Create, customize, and share professional reports in four simple steps.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">1</span>
             </div>
+            <h3 className="font-semibold">Create Report</h3>
+            <p className="text-sm text-muted-foreground">
+              Generate dashboards or specific reports from your data analysis
+            </p>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Access & Security</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Password protection
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Expiration date controls
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Domain restrictions
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  View-only and edit permissions
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Download restrictions
-                </li>
-              </ul>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">2</span>
             </div>
+            <h3 className="font-semibold">Customize Format</h3>
+            <p className="text-sm text-muted-foreground">
+              Choose layout, branding, and include custom messaging
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">3</span>
+            </div>
+            <h3 className="font-semibold">Set Permissions</h3>
+            <p className="text-sm text-muted-foreground">
+              Configure access levels, passwords, and expiration dates
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">4</span>
+            </div>
+            <h3 className="font-semibold">Share & Track</h3>
+            <p className="text-sm text-muted-foreground">
+              Distribute via link, email, or schedule automatic delivery
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
+      <Separator />
+
+      {/* Sharing Methods */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Sharing Options</h2>
+        <p className="text-muted-foreground">
+          Multiple ways to share your reports and dashboards with different audiences:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {sharingMethods.map((method, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    {method}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">📊 Report Sharing Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Add context and commentary to help stakeholders understand insights</li>
+            <li>• Use appropriate access controls for sensitive business data</li>
+            <li>• Set up automated reports for regular stakeholder updates</li>
+            <li>• Include actionable recommendations in executive summaries</li>
+          </ul>
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Report Types */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Report Types & Formats</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-            <div className="flex items-center gap-2 mb-2">
-              <Eye className="h-4 w-4 text-blue-500" />
-              <h4 className="font-medium text-blue-700 dark:text-blue-300">Interactive Dashboards</h4>
-            </div>
-            <p className="text-sm text-blue-600 dark:text-blue-400">
-              Live, interactive reports with real-time data updates and filtering capabilities.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
-            <div className="flex items-center gap-2 mb-2">
-              <Download className="h-4 w-4 text-green-500" />
-              <h4 className="font-medium text-green-700 dark:text-green-300">Static Reports</h4>
-            </div>
-            <p className="text-sm text-green-600 dark:text-green-400">
-              Fixed-point-in-time reports as PDF, PowerPoint, or image formats for presentations.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
-            <div className="flex items-center gap-2 mb-2">
-              <Calendar className="h-4 w-4 text-purple-500" />
-              <h4 className="font-medium text-purple-700 dark:text-purple-300">Scheduled Reports</h4>
-            </div>
-            <p className="text-sm text-purple-600 dark:text-purple-400">
-              Automated reports delivered on schedule with the latest data snapshots.
-            </p>
-          </div>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Types of Shareable Reports</h2>
+        <p className="text-muted-foreground">
+          Create different report formats tailored to your audience and use case.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {reportTypes.map((type) => (
+            <Card key={type.title} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 ${type.bgColor} rounded-lg flex items-center justify-center`}>
+                    <type.icon className={`h-5 w-5 ${type.color}`} />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">{type.title}</CardTitle>
+                    <CardDescription className="text-sm">{type.description}</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {type.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Use Cases */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Perfect For</h2>
-        <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Executive Reporting</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Board Presentations</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Monthly/quarterly business reviews</li>
-                  <li>• KPI performance summaries</li>
-                  <li>• Strategic decision support</li>
-                  <li>• Investor relations materials</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Executive Dashboards</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Real-time business metrics</li>
-                  <li>• Goal tracking and progress</li>
-                  <li>• Department performance</li>
-                  <li>• Competitive analysis</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      <Separator />
 
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Client & Stakeholder Communication</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Client Reports</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Campaign performance updates</li>
-                  <li>• ROI and conversion metrics</li>
-                  <li>• Custom branded reports</li>
-                  <li>• Monthly service summaries</li>
+      {/* Access Control */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Access Control & Security</h2>
+        <p className="text-muted-foreground">
+          Protect your data with granular access controls and security settings.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {accessLevels.map((access) => (
+            <Card key={access.level} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <access.icon className="h-5 w-5 text-primary" />
+                  {access.level}
+                </CardTitle>
+                <CardDescription>{access.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {access.settings.map((setting, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>{setting}</span>
+                    </li>
+                  ))}
                 </ul>
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Partner Sharing</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Vendor performance metrics</li>
-                  <li>• Collaboration insights</li>
-                  <li>• Joint business reviews</li>
-                  <li>• Supply chain analytics</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
+
+      <Separator />
+
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-cyan-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Share2 className="h-5 w-5" />
+              Professional Report Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad automatically formats your data insights into professional reports with consistent branding, clear visualizations, and contextual explanations. 
+              Reports are optimized for different devices and can be customized to match your organization's style.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Separator />
+
+      {/* Advanced Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Sharing Features</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Calendar className="h-5 w-5 text-blue-500" />
+                Automated Scheduling
+              </CardTitle>
+              <CardDescription>
+                Set up recurring reports sent automatically to stakeholders
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Daily, weekly, monthly schedules</div>
+                <div className="text-xs text-muted-foreground">• Custom time zones</div>
+                <div className="text-xs text-muted-foreground">• Holiday skip options</div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Eye className="h-5 w-5 text-green-500" />
+                View Analytics
+              </CardTitle>
+              <CardDescription>
+                Track who has viewed your reports and when
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• View counts and timestamps</div>
+                <div className="text-xs text-muted-foreground">• User engagement metrics</div>
+                <div className="text-xs text-muted-foreground">• Access logs and history</div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Download className="h-5 w-5 text-purple-500" />
+                Export Options
+              </CardTitle>
+              <CardDescription>
+                Multiple export formats for different use cases
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• PDF reports</div>
+                <div className="text-xs text-muted-foreground">• PowerPoint presentations</div>
+                <div className="text-xs text-muted-foreground">• CSV data exports</div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Best Practices */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Sharing Best Practices</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-800">
-            <h4 className="font-medium mb-3 text-green-700 dark:text-green-300">Security Guidelines</h4>
-            <ul className="text-sm text-green-600 dark:text-green-400 space-y-2">
-              <li>• Use password protection for sensitive data</li>
-              <li>• Set appropriate expiration dates</li>
-              <li>• Regularly review access permissions</li>
-              <li>• Restrict downloads when necessary</li>
-              <li>• Monitor report engagement metrics</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
-            <h4 className="font-medium mb-3 text-blue-700 dark:text-blue-300">Design Tips</h4>
-            <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-2">
-              <li>• Include context and explanations</li>
-              <li>• Use consistent branding</li>
-              <li>• Optimize for mobile viewing</li>
-              <li>• Add interactive filters for exploration</li>
-              <li>• Provide data source information</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Setup Guide */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Creating Your First Shareable Report</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                1
-              </div>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Report Sharing Best Practices</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Creating Effective Shared Reports
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
               <div>
-                <h4 className="font-medium mb-2">Create Your Report</h4>
-                <p className="text-sm text-muted-foreground">
-                  Build your dashboard or analysis using Datapad's reporting tools.
+                <h4 className="font-medium mb-2">Know your audience</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Tailor content and detail level to your stakeholders' needs and expertise
                 </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Executive summaries for leadership, detailed analytics for operations teams</p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                2
-              </div>
+              
+              <Separator />
+              
               <div>
-                <h4 className="font-medium mb-2">Configure Sharing Settings</h4>
-                <p className="text-sm text-muted-foreground">
-                  Set permissions, access controls, and sharing preferences.
+                <h4 className="font-medium mb-2">Include context and insights</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Don't just show data - explain what it means and what actions to take
                 </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Add commentary, recommendations, and next steps to your reports</p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                3
-              </div>
+              
+              <Separator />
+              
               <div>
-                <h4 className="font-medium mb-2">Share with Stakeholders</h4>
-                <p className="text-sm text-muted-foreground">
-                  Distribute via your preferred method and track engagement.
+                <h4 className="font-medium mb-2">Set appropriate security</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Use access controls that match the sensitivity of your data
                 </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Password protect sensitive reports, set expiration dates for temporary access</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="space-y-4">
-            <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-              <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Sharing Options</h4>
-              <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-1">
-                <li>• Public links (anyone with link)</li>
-                <li>• Private links (specific recipients)</li>
-                <li>• Email delivery with attachments</li>
-                <li>• Embedded widgets for websites</li>
-              </ul>
-            </div>
-            <div className="p-4 rounded-lg border bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-              <h4 className="font-medium mb-2 text-amber-700 dark:text-amber-300">Pro Tips</h4>
-              <ul className="text-sm text-amber-600 dark:text-amber-400 space-y-1">
-                <li>• Test reports before sharing</li>
-                <li>• Include contact information</li>
-                <li>• Set up automated schedules</li>
-                <li>• Track view analytics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Next Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Next Steps</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Link href="/docs/features/dashboards" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Eye className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Create Dashboards</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Build interactive dashboards to share with your team
-            </p>
-          </Link>
-          <Link href="/docs/guides/team-collaboration" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Team Collaboration</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Learn about team permissions and collaboration features
-            </p>
-          </Link>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/voice-mode">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Voice Mode
-          </Button>
-        </Link>
-        <Link href="/docs/features/data-blending">
-          <Button className="gap-2">
-            Data Blending
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
+          </CardContent>
+        </Card>
       </div>
+
+      {/* Getting Started */}
+      <Card className="bg-gradient-to-r from-primary/5 to-cyan-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to share your data insights?</CardTitle>
+          <CardDescription>
+            Create professional reports and share them securely with your team and stakeholders.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/reports">
+                Create Report
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/guides/team-collaboration">
+                Team Collaboration
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

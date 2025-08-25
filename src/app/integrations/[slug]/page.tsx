@@ -82,10 +82,15 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const integrations = getAllIntegrations();
-  return integrations.map((integration) => ({
-    slug: integration.id,
-  }));
+  try {
+    const integrations = getAllIntegrations();
+    return integrations.map((integration) => ({
+      slug: integration.id,
+    }));
+  } catch (error) {
+    console.error('Error in generateStaticParams:', error);
+    return [];
+  }
 }
 
 export default async function IntegrationPage({

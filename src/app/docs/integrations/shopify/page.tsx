@@ -1,28 +1,19 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
   Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
-  Target,
   DollarSign,
   ShoppingBag,
-  Package
+  
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -62,16 +53,6 @@ const exampleQueries = [
   "How do mobile vs desktop sales compare?",
 ];
 
-const availableMetrics = [
-  { name: "Orders", description: "Order volume, value, and status tracking" },
-  { name: "Revenue", description: "Total sales, revenue trends, and growth metrics" },
-  { name: "Products", description: "Product performance, inventory, and pricing data" },
-  { name: "Customers", description: "Customer data, segmentation, and behavior" },
-  { name: "Conversion Rate", description: "E-commerce conversion and funnel metrics" },
-  { name: "Cart Analysis", description: "Shopping cart and abandonment data" },
-  { name: "Inventory", description: "Stock levels, turnover, and availability" },
-  { name: "Geography", description: "Sales performance by location and region" },
-];
 
   return (
     <div className="flex flex-col gap-8">

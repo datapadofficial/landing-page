@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Users, 
+import {  
   ArrowRight, 
   Share2,
   Crown,

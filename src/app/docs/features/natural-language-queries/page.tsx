@@ -1,402 +1,531 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
   MessageSquare, 
-  ArrowRight, 
-  Brain,
   Zap,
-  Database,
+  Brain,  
   BarChart3,
-  Code,
-  Target,
-  CheckCircle,
-  Lightbulb,
+  TrendingUp,
   Search,
-  TrendingUp
+  Code,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
-  title: "Natural Language Queries",
-  description: "Ask questions about your data in plain English. No SQL knowledge required - just describe what you want to know and get instant insights.",
+export const metadata: Metadata = {
+  title: "Natural Language Queries - Ask Questions in Plain English",
+  description: "Query your data using natural language instead of SQL. Ask business questions and get instant answers with charts and insights.",
 };
+
+const features = [
+  {
+    icon: MessageSquare,
+    title: "Plain English Queries",
+    description: "Ask questions about your data using everyday business language - no technical syntax or SQL knowledge required."
+  },
+  {
+    icon: Brain,
+    title: "Context Understanding",
+    description: "AI understands business context, relationships, and intent to provide accurate and relevant results."
+  },
+  {
+    icon: BarChart3,
+    title: "Instant Visualizations",
+    description: "Get charts, tables, and insights automatically generated based on your questions and data patterns."
+  }
+];
+
+const queryExamples = [
+  {
+    category: "Business Performance",
+    queries: [
+      "What was our revenue last month compared to the same month last year?",
+      "Show me the top 10 customers by total purchase value",
+      "Which products have the highest profit margins?",
+      "How is our customer acquisition cost trending over time?"
+    ]
+  },
+  {
+    category: "Marketing Analytics",
+    queries: [
+      "What's the conversion rate for each traffic source this quarter?",
+      "Compare the performance of Facebook ads vs Google ads",
+      "Which marketing campaigns generated the most leads?",
+      "Show me the customer journey from first touch to purchase"
+    ]
+  },
+  {
+    category: "Operational Insights",
+    queries: [
+      "What's causing the spike in customer support tickets?",
+      "Which team members are performing above average?",
+      "How does seasonality affect our sales patterns?",
+      "What's the correlation between price and customer satisfaction?"
+    ]
+  }
+];
+
+const queryTypes = [
+  {
+    type: "Descriptive Queries",
+    description: "Understand what happened in your data",
+    icon: BarChart3,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    examples: [
+      "What's our total revenue this quarter?",
+      "How many new customers did we acquire last month?",
+      "Show me our top selling products"
+    ]
+  },
+  {
+    type: "Comparative Queries",
+    description: "Compare different segments, periods, or categories",
+    icon: TrendingUp,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    examples: [
+      "How does this month compare to last month?",
+      "Compare conversion rates by traffic source",
+      "Show desktop vs mobile performance"
+    ]
+  },
+  {
+    type: "Analytical Queries",
+    description: "Discover patterns, trends, and correlations",
+    icon: Brain,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    examples: [
+      "What factors correlate with customer churn?",
+      "Show me the trend in customer satisfaction",
+      "Identify anomalies in our sales data"
+    ]
+  },
+  {
+    type: "Predictive Queries",
+    description: "Forecast future trends and outcomes",
+    icon: TrendingUp,
+    color: "text-orange-500",
+    bgColor: "bg-orange-100 dark:bg-orange-900/20",
+    examples: [
+      "Forecast next quarter's revenue based on current trends",
+      "What's the predicted lifetime value of new customers?",
+      "When will we likely reach our sales target?"
+    ]
+  }
+];
+
+const languageFeatures = [
+  {
+    feature: "Business Terminology",
+    description: "Uses industry-specific terms and business metrics",
+    examples: [
+      "LTV (Lifetime Value)",
+      "CAC (Customer Acquisition Cost)", 
+      "ROAS (Return on Ad Spend)",
+      "Churn rate and retention"
+    ]
+  },
+  {
+    feature: "Time Intelligence",
+    description: "Understands dates, periods, and time comparisons",
+    examples: [
+      "Last month vs this month",
+      "Year-over-year growth",
+      "Quarter-to-date performance",
+      "Seasonal patterns"
+    ]
+  },
+  {
+    feature: "Contextual Relationships",
+    description: "Understands data relationships and dependencies",
+    examples: [
+      "Customer lifetime journey",
+      "Attribution and conversion paths",
+      "Product category hierarchies",
+      "Geographic segments"
+    ]
+  }
+];
 
 export default function NaturalLanguageQueriesPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Core Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <MessageSquare className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Natural Language Queries</h1>
+            <p className="text-xl text-muted-foreground">
+              Ask questions in plain English and get instant data insights
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <MessageSquare className="h-3 w-3" />
+            Plain English
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Brain className="h-3 w-3" />
+            Context Aware
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Zap className="h-3 w-3" />
+            Instant Results
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Natural Language Queries</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Ask complex questions about your data using everyday language. 
-          No need to learn SQL, Python, or complex query languages - just describe what you want to know.
-        </p>
       </div>
 
-      {/* Benefits */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Why Natural Language?</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Zap className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Instant Results</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Get answers in seconds instead of waiting hours for technical teams to write queries.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Brain className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">No Technical Skills</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Anyone can ask questions - no SQL, Python, or database knowledge required.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Target className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Business Context</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              AI understands business terminology and context, not just technical database structures.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* How It Works */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">How It Works</h2>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">How Natural Language Queries Work</h2>
+        <p className="text-muted-foreground">
+          Transform business questions into data insights without learning SQL or technical syntax.
+        </p>
         
-        {/* Step 1 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">1</div>
-            <h3 className="text-lg font-medium">Ask Your Question</h3>
-          </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">
-              Type or speak your question in natural language, just as you would ask a colleague:
-            </p>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <div className="flex items-center gap-2 mb-2">
-                <MessageSquare className="h-4 w-4 text-primary" />
-                <h4 className="font-medium text-sm">Example Questions</h4>
-              </div>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• "What was our revenue last month?"</li>
-                <li>• "Show me the top 10 customers by lifetime value"</li>
-                <li>• "Which marketing campaigns had the best ROI?"</li>
-                <li>• "How many new users signed up this week vs last week?"</li>
-              </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">1</span>
             </div>
+            <h3 className="font-semibold">Ask Your Question</h3>
+            <p className="text-sm text-muted-foreground">
+              Type your business question using natural, everyday language
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">2</span>
+            </div>
+            <h3 className="font-semibold">AI Interprets Intent</h3>
+            <p className="text-sm text-muted-foreground">
+              Advanced AI understands context, relationships, and business logic
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">3</span>
+            </div>
+            <h3 className="font-semibold">Generates Analysis</h3>
+            <p className="text-sm text-muted-foreground">
+              Automatically creates queries and analyzes your data
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">4</span>
+          </div>
+            <h3 className="font-semibold">Delivers Insights</h3>
+            <p className="text-sm text-muted-foreground">
+              Returns answers with charts, explanations, and recommendations
+            </p>
           </div>
         </div>
+          </div>
 
-        {/* Step 2 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">2</div>
-            <h3 className="text-lg font-medium">AI Understanding</h3>
-          </div>
-          <div className="ml-10 space-y-3">
+      <Separator />
+
+      {/* Query Examples */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Natural Language Queries</h2>
             <p className="text-muted-foreground">
-              The AI analyzes your question and maps it to your data:
-            </p>
-            <div className="grid md:grid-cols-4 gap-3 text-sm">
-              <div className="p-3 rounded border bg-background text-center">
-                <Brain className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Intent Recognition</p>
-                <p className="text-xs text-muted-foreground">Understands what you're asking</p>
+          See how business questions translate into powerful data insights:
+        </p>
+        
+        <div className="space-y-6">
+          {queryExamples.map((category, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg">{category.category}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {category.queries.map((query, queryIndex) => (
+                    <div key={queryIndex} className="p-3 bg-muted/50 rounded-lg">
+                      <p className="text-sm font-medium">"{query}"</p>
               </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Database className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Data Mapping</p>
-                <p className="text-xs text-muted-foreground">Finds relevant tables & fields</p>
+                  ))}
               </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Code className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Query Generation</p>
-                <p className="text-xs text-muted-foreground">Creates optimized SQL/code</p>
-              </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <BarChart3 className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Visualization</p>
-                <p className="text-xs text-muted-foreground">Presents results clearly</p>
-              </div>
-            </div>
-          </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        {/* Step 3 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">3</div>
-            <h3 className="text-lg font-medium">Get Insights</h3>
-          </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">
-              Receive comprehensive answers with data, visualizations, and insights:
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Accurate numerical results</li>
-              <li>• Relevant charts and graphs</li>
-              <li>• Context and explanations</li>
-              <li>• Follow-up question suggestions</li>
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Use business terms and metrics your team understands</li>
+            <li>• Be specific about time periods and comparisons</li>
+            <li>• Ask follow-up questions to drill deeper into insights</li>
+            <li>• Don't worry about perfect grammar - AI understands intent</li>
             </ul>
           </div>
         </div>
-      </section>
+
+      <Separator />
 
       {/* Query Types */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Types of Questions You Can Ask</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          
-          {/* Metrics & KPIs */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
-              Metrics & KPIs
-            </h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• "What's our monthly recurring revenue?"</li>
-                <li>• "Show me customer acquisition cost by channel"</li>
-                <li>• "What's the average order value this quarter?"</li>
-                <li>• "How has our conversion rate changed over time?"</li>
-                <li>• "What's our customer lifetime value?"</li>
-              </ul>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Types of Natural Language Queries</h2>
+        <p className="text-muted-foreground">
+          From basic questions to complex analysis, natural language queries handle every level of data investigation.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {queryTypes.map((type) => (
+            <Card key={type.type} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 ${type.bgColor} rounded-lg flex items-center justify-center`}>
+                    <type.icon className={`h-5 w-5 ${type.color}`} />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">{type.type}</CardTitle>
+                    <CardDescription className="text-sm">{type.description}</CardDescription>
+            </div>
+          </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  {type.examples.map((example, index) => (
+                    <div key={index} className="p-2 bg-muted/30 rounded text-sm">
+                      "{example}"
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
             </div>
           </div>
 
-          {/* Comparisons */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium flex items-center gap-2">
-              <BarChart3 className="h-5 w-5 text-primary" />
-              Comparisons
-            </h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• "Compare this month's sales to last month"</li>
-                <li>• "Which product category performs best?"</li>
-                <li>• "Show me year-over-year growth by region"</li>
-                <li>• "Compare marketing channel effectiveness"</li>
-                <li>• "Which sales rep has the highest close rate?"</li>
-              </ul>
+      <Separator />
+
+      {/* Language Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Language Understanding</h2>
+        <p className="text-muted-foreground">
+          Sophisticated AI capabilities that make natural language queries powerful and accurate.
+        </p>
+        
+        <div className="space-y-6">
+          {languageFeatures.map((feature, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg">{feature.feature}</CardTitle>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {feature.examples.map((example, exampleIndex) => (
+                    <div key={exampleIndex} className="p-3 bg-muted/30 rounded-lg text-center">
+                      <span className="text-sm font-medium">{example}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
             </div>
           </div>
 
-          {/* Trends & Patterns */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium flex items-center gap-2">
-              <Search className="h-5 w-5 text-primary" />
-              Trends & Patterns
-            </h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• "Show me user growth over the last 6 months"</li>
-                <li>• "What's our peak traffic day and time?"</li>
-                <li>• "How does seasonality affect our sales?"</li>
-                <li>• "What's the trend in customer support tickets?"</li>
-                <li>• "Show me churn rate patterns by cohort"</li>
-              </ul>
-            </div>
-          </div>
+      <Separator />
 
-          {/* Segmentation */}
+      {/* Behind the Scenes */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium flex items-center gap-2">
-              <Target className="h-5 w-5 text-primary" />
-              Segmentation
-            </h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• "Break down revenue by customer segment"</li>
-                <li>• "Show me user behavior by age group"</li>
-                <li>• "Which geographic regions are most profitable?"</li>
-                <li>• "Analyze performance by device type"</li>
-                <li>• "Group customers by purchase frequency"</li>
-              </ul>
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-indigo-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Brain className="h-5 w-5" />
+              Natural Language Processing Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad's NLP engine combines deep learning models with business context understanding to translate natural language 
+              into precise data queries. The system learns from your data schema and business terminology to provide increasingly accurate results.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Separator />
+
+      {/* Advanced Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Query Features</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Search className="h-5 w-5 text-blue-500" />
+                Smart Suggestions
+              </CardTitle>
+              <CardDescription>
+                Get query suggestions based on your data and previous questions
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Context-aware suggestions</div>
+                <div className="text-xs text-muted-foreground">• Popular query templates</div>
+                <div className="text-xs text-muted-foreground">• Auto-complete assistance</div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Code className="h-5 w-5 text-green-500" />
+                Query Translation
+              </CardTitle>
+              <CardDescription>
+                See the SQL queries generated from your natural language
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Generated SQL visibility</div>
+                <div className="text-xs text-muted-foreground">• Query optimization tips</div>
+                <div className="text-xs text-muted-foreground">• Learning opportunity</div>
             </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <MessageSquare className="h-5 w-5 text-purple-500" />
+                Conversational Flow
+              </CardTitle>
+              <CardDescription>
+                Ask follow-up questions and refine your analysis naturally
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Context retention</div>
+                <div className="text-xs text-muted-foreground">• Follow-up questions</div>
+                <div className="text-xs text-muted-foreground">• Drill-down analysis</div>
           </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
 
-      {/* Advanced Capabilities */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Advanced AI Capabilities</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Context Understanding</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 mt-0.5 text-green-500" />
-                  <div>
-                    <strong>Business Terminology:</strong> Understands industry-specific terms and metrics
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 mt-0.5 text-green-500" />
-                  <div>
-                    <strong>Time Context:</strong> Interprets "last month," "this quarter," "year-to-date" correctly
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 mt-0.5 text-green-500" />
-                  <div>
-                    <strong>Implicit Filters:</strong> Applies logical filters based on context
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Follow-up Conversations</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li className="flex items-start gap-2">
-                  <Lightbulb className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Suggested Questions:</strong> AI recommends relevant follow-up queries
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Lightbulb className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Conversational Flow:</strong> Maintains context across multiple questions
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Lightbulb className="h-4 w-4 mt-0.5 text-primary" />
-                  <div>
-                    <strong>Drill-down Analysis:</strong> Easily explore deeper into interesting findings
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Query Examples by Industry */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Industry-Specific Examples</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">E-commerce</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "Show me cart abandonment rate by traffic source"</li>
-              <li>• "Which products have the highest return rate?"</li>
-              <li>• "What's our average shipping time by region?"</li>
-              <li>• "How does discount percentage affect conversion?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">SaaS</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "What's our monthly churn rate by plan type?"</li>
-              <li>• "Show me feature adoption over time"</li>
-              <li>• "Which onboarding steps have the highest drop-off?"</li>
-              <li>• "Compare trial-to-paid conversion by source"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Marketing Agency</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "Which clients have the best campaign ROI?"</li>
-              <li>• "Show me team utilization by project type"</li>
-              <li>• "What's our average project profitability?"</li>
-              <li>• "Compare performance across advertising platforms"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Finance</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "Show me cash flow by month for the last year"</li>
-              <li>• "What's our accounts receivable aging?"</li>
-              <li>• "Compare budget vs actual by department"</li>
-              <li>• "Which expense categories are growing fastest?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Healthcare</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "Show me patient satisfaction scores by provider"</li>
-              <li>• "What's our average appointment wait time?"</li>
-              <li>• "Compare treatment outcomes by location"</li>
-              <li>• "How has readmission rate changed over time?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Manufacturing</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• "Show me production efficiency by line"</li>
-              <li>• "What's our defect rate trend over time?"</li>
-              <li>• "Compare inventory turnover by product"</li>
-              <li>• "Which suppliers have the best delivery times?"</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <Separator />
 
       {/* Best Practices */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Tips for Better Results</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-3">Be Specific</h4>
-            <div className="space-y-2 text-sm">
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-red-600">❌ "Show sales"</div>
-                <div className="text-green-600">✅ "Show monthly sales for Q4 2024"</div>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-red-600">❌ "Customer data"</div>
-                <div className="text-green-600">✅ "Top 20 customers by lifetime value"</div>
-              </div>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Natural Language Query Best Practices</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Writing Effective Queries
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          <div className="space-y-4">
+                  <div>
+                <h4 className="font-medium mb-2">Be specific about what you want</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Show me monthly revenue for the last 6 months"</p>
+                  </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Show me some revenue data"</p>
+                  </div>
             </div>
           </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-3">Use Business Terms</h4>
-            <div className="space-y-2 text-sm">
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-red-600">❌ "SELECT * FROM orders"</div>
-                <div className="text-green-600">✅ "Show me all orders from last week"</div>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-red-600">❌ "JOIN users ON orders.user_id"</div>
-                <div className="text-green-600">✅ "Revenue per customer this month"</div>
-              </div>
-            </div>
+              
+              <Separator />
+              
+                  <div>
+                <h4 className="font-medium mb-2">Include time periods and comparisons</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Compare this quarter's performance to last quarter"</p>
+                  </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "How are we performing?"</p>
           </div>
         </div>
-      </section>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Use business terminology</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "What's our customer acquisition cost from Google Ads?"</p>
+              </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Calculate some metrics from the ads table"</p>
+            </div>
+          </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        </div>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/dashboards">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            AI Dashboards
+      {/* Getting Started */}
+      <Card className="bg-gradient-to-r from-primary/5 to-indigo-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to ask questions in plain English?</CardTitle>
+          <CardDescription>
+            Connect your data sources and start getting insights with natural language queries.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/chat">
+                Try Natural Language Queries
+              </Link>
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
         </Link>
-        <Link href="/docs/features/text-to-sql-python">
-          <Button className="gap-2">
-            Text-to-SQL & Python
-            <ArrowRight className="h-4 w-4" />
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/guides/effective-queries">
+                Query Writing Guide
         </Link>
+            </Button>
       </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

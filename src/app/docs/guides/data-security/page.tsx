@@ -10,7 +10,6 @@ import {
   CheckCircle,
   AlertTriangle,
   Globe,
-  Users,
   FileText,
   Zap
 } from "lucide-react";

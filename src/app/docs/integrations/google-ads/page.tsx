@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  BarChart3, 
+  BarChart3,
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
   Shield, 
   Clock,
-  Users,
-  MousePointer,
-  TrendingUp,
-  Globe,
   AlertCircle,
-  PlayCircle,
   Copy,
-  Eye,
+  TrendingUp,
   Target,
   DollarSign
 } from "lucide-react";
@@ -60,16 +53,6 @@ const exampleQueries = [
   "Which audiences have the lowest CPA?",
 ];
 
-const availableMetrics = [
-  { name: "Impressions", description: "Number of times your ads were shown" },
-  { name: "Clicks", description: "Total clicks on your ads" },
-  { name: "CTR", description: "Click-through rate" },
-  { name: "CPC", description: "Cost per click" },
-  { name: "Conversions", description: "Goal completions and conversions" },
-  { name: "ROAS", description: "Return on ad spend" },
-  { name: "Quality Score", description: "Google's keyword quality rating" },
-  { name: "Impression Share", description: "Percentage of available impressions" },
-];
 
 
 

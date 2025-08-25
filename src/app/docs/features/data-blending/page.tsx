@@ -1,381 +1,520 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
   Layers, 
-  ArrowRight, 
-  CheckCircle,
+  CheckCircle, 
   Database,
-  Zap,
   BarChart3,
-  Brain,
   TrendingUp,
-  Users,
-  Target
+  Shuffle,
+  Link as LinkIcon,
+  Merge,
+  Target,
+  Brain,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
-  title: "Data Blending - Unified Analytics",
-  description: "Combine data from multiple sources seamlessly with Datapad's intelligent data blending and correlation capabilities.",
+export const metadata: Metadata = {
+  title: "Data Blending - Cross-Platform Analysis",
+  description: "Combine data from multiple sources for comprehensive cross-platform analysis. Unify your data silos into actionable insights.",
 };
 
-export default function DataBlendingFeaturePage() {
+const features = [
+  {
+    icon: Merge,
+    title: "Multi-Source Integration",
+    description: "Seamlessly combine data from databases, marketing platforms, sales tools, and social media into unified datasets."
+  },
+  {
+    icon: Brain,
+    title: "Smart Matching",
+    description: "AI automatically identifies common fields and relationships between different data sources for accurate blending."
+  },
+  {
+    icon: TrendingUp,
+    title: "Cross-Platform Insights",
+    description: "Discover insights that only emerge when analyzing multiple data sources together, revealing hidden correlations."
+  }
+];
+
+const blendingExamples = [
+  "Combine Google Ads and Salesforce data to track lead-to-customer journey",
+  "Blend social media engagement with website analytics for complete funnel view",
+  "Merge email marketing data with e-commerce sales for campaign attribution",
+  "Combine customer support tickets with product usage for satisfaction analysis",
+  "Blend financial data with operational metrics for profitability insights",
+  "Merge survey responses with behavioral data for customer sentiment analysis"
+];
+
+const dataSourceTypes = [
+  {
+    category: "Marketing Platforms",
+    description: "Advertising and marketing automation tools",
+    icon: Target,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    sources: [
+      "Google Ads & Analytics",
+      "Facebook & Instagram Ads",
+      "LinkedIn Advertising",
+      "Email marketing platforms",
+      "Marketing automation tools"
+    ]
+  },
+  {
+    category: "Sales & CRM",
+    description: "Customer relationship and sales data",
+    icon: TrendingUp,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    sources: [
+      "Salesforce CRM",
+      "HubSpot",
+      "Pipeline management tools",
+      "Customer success platforms",
+      "Sales analytics tools"
+    ]
+  },
+  {
+    category: "Databases & Analytics",
+    description: "Core business and operational data",
+    icon: Database,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    sources: [
+      "PostgreSQL, MySQL, SQL Server",
+      "Google BigQuery, Snowflake",
+      "Business intelligence tools",
+      "Data warehouses",
+      "Custom databases"
+    ]
+  },
+  {
+    category: "Social & Web",
+    description: "Social media and web analytics data",
+    icon: BarChart3,
+    color: "text-orange-500",
+    bgColor: "bg-orange-100 dark:bg-orange-900/20",
+    sources: [
+      "Social media platforms",
+      "Web analytics tools",
+      "SEO and content platforms",
+      "Customer feedback tools",
+      "Survey platforms"
+    ]
+  }
+];
+
+const blendingProcesses = [
+  {
+    step: "Automatic Field Mapping",
+    description: "AI identifies matching fields across data sources",
+    details: [
+      "Customer ID matching across platforms",
+      "Date/time synchronization",
+      "Common dimension alignment",
+      "Data type harmonization"
+    ]
+  },
+  {
+    step: "Data Normalization",
+    description: "Standardize formats and units for accurate analysis",
+    details: [
+      "Currency and unit conversions",
+      "Date format standardization",
+      "Text field normalization",
+      "Missing data handling"
+    ]
+  },
+  {
+    step: "Relationship Discovery",
+    description: "Find connections and correlations between datasets",
+    details: [
+      "Customer journey mapping",
+      "Attribution modeling",
+      "Cross-platform funnel analysis",
+      "Correlation identification"
+    ]
+  }
+];
+
+export default function DataBlendingPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+            <Layers className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Data Blending</h1>
+            <p className="text-xl text-muted-foreground">
+              Combine data from multiple sources for comprehensive analysis
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Merge className="h-3 w-3" />
+            Multi-Source
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Brain className="h-3 w-3" />
+            Smart Matching
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <TrendingUp className="h-3 w-3" />
+            Cross-Platform
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Data Blending</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Seamlessly combine data from multiple sources to create unified insights. 
-          Break down data silos and discover cross-platform patterns with AI-powered data correlation and analysis.
-        </p>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Intelligent Data Unification</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Layers className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Multi-Source Integration</h4>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
+
+      {/* How It Works */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">How Data Blending Works</h2>
+        <p className="text-muted-foreground">
+          Automatically combine and analyze data from multiple sources in four intelligent steps.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">1</span>
             </div>
+            <h3 className="font-semibold">Connect Sources</h3>
             <p className="text-sm text-muted-foreground">
-              Combine data from databases, APIs, files, and cloud services in a single analysis.
+              Link your marketing, sales, analytics, and database platforms
             </p>
           </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Brain className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Intelligent Matching</h4>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">2</span>
             </div>
+            <h3 className="font-semibold">Smart Matching</h3>
             <p className="text-sm text-muted-foreground">
-              AI automatically identifies relationships and common fields across different data sources.
+              AI identifies common fields and relationships between datasets
             </p>
           </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Real-Time Correlation</h4>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">3</span>
             </div>
+            <h3 className="font-semibold">Data Unification</h3>
             <p className="text-sm text-muted-foreground">
-              Discover hidden patterns and correlations between data from different platforms.
+              Normalize and blend data into a unified, queryable dataset
+            </p>
+          </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">4</span>
+            </div>
+            <h3 className="font-semibold">Cross-Platform Analysis</h3>
+            <p className="text-sm text-muted-foreground">
+              Ask questions and get insights across all your connected data
             </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Core Capabilities */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Data Blending Capabilities</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Smart Data Joining</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Automatic field mapping and schema alignment
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Fuzzy matching for similar field names
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Intelligent join type recommendations
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Data type conversion and standardization
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Conflict resolution for duplicate data
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Advanced Analysis</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Cross-platform trend analysis
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Statistical correlation discovery
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Anomaly detection across sources
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Unified reporting and visualization
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Predictive modeling with combined data
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Separator />
 
-      {/* Use Cases */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Common Data Blending Scenarios</h2>
+      {/* Blending Examples */}
         <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Marketing Attribution</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Data Sources</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Google Ads campaign data</li>
-                  <li>• Facebook Ads performance metrics</li>
-                  <li>• Google Analytics website traffic</li>
-                  <li>• CRM sales conversion data</li>
-                  <li>• Email marketing engagement</li>
-                </ul>
+        <h2 className="text-2xl font-semibold">Data Blending Examples</h2>
+        <p className="text-muted-foreground">
+          See how combining multiple data sources reveals insights impossible to find in silos:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {blendingExamples.map((example, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
               </div>
-              <div>
-                <h4 className="font-medium mb-2">Blended Insights</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Multi-touch attribution modeling</li>
-                  <li>• Cross-channel ROI analysis</li>
-                  <li>• Customer journey mapping</li>
-                  <li>• Budget optimization recommendations</li>
-                  <li>• Campaign performance correlation</li>
-                </ul>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    {example}
+                  </p>
               </div>
-            </div>
+              </CardContent>
+            </Card>
+          ))}
           </div>
 
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">E-commerce Intelligence</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Data Sources</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Shopify sales and inventory data</li>
-                  <li>• Stripe payment transactions</li>
-                  <li>• Customer support tickets</li>
-                  <li>• Social media engagement</li>
-                  <li>• Email marketing campaigns</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Blended Insights</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Customer lifetime value analysis</li>
-                  <li>• Product performance correlation</li>
-                  <li>• Support impact on retention</li>
-                  <li>• Marketing influence on sales</li>
-                  <li>• Inventory optimization insights</li>
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">🔗 Data Blending Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Connect complementary data sources that share common identifiers</li>
+            <li>• Ensure consistent date ranges across all data sources for accurate analysis</li>
+            <li>• Start with simple blends before moving to complex multi-source analysis</li>
+            <li>• Use blended data to create comprehensive customer journey maps</li>
                 </ul>
               </div>
             </div>
-          </div>
 
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">SaaS Product Analytics</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Data Sources</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Mixpanel user behavior events</li>
-                  <li>• Database user and subscription data</li>
-                  <li>• Customer support interactions</li>
-                  <li>• Feature usage analytics</li>
-                  <li>• Billing and payment information</li>
-                </ul>
+      <Separator />
+
+      {/* Data Source Types */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Supported Data Sources</h2>
+        <p className="text-muted-foreground">
+          Blend data from across your entire technology stack for complete business insights.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {dataSourceTypes.map((type) => (
+            <Card key={type.category} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 ${type.bgColor} rounded-lg flex items-center justify-center`}>
+                    <type.icon className={`h-5 w-5 ${type.color}`} />
               </div>
               <div>
-                <h4 className="font-medium mb-2">Blended Insights</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Feature adoption vs. retention correlation</li>
-                  <li>• Support ticket impact on churn</li>
-                  <li>• Usage patterns by subscription tier</li>
-                  <li>• Onboarding effectiveness analysis</li>
-                  <li>• Revenue impact of feature usage</li>
+                    <CardTitle className="text-lg">{type.category}</CardTitle>
+                    <CardDescription className="text-sm">{type.description}</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {type.sources.map((source, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                      <span>{source}</span>
+                    </li>
+                  ))}
                 </ul>
-              </div>
-            </div>
-          </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* AI-Powered Queries */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">AI-Powered Data Blending Queries</h2>
+      <Separator />
+
+      {/* Blending Process */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Intelligent Blending Process</h2>
+        <p className="text-muted-foreground">
+          Advanced AI handles the complexity of combining disparate data sources automatically.
+        </p>
+        
         <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Natural Language Data Blending</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Compare Google Ads spending with actual sales revenue"</div>
-                <div className="text-xs text-muted-foreground">Automatically joins advertising costs with sales data for ROI analysis</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"How does website traffic correlate with social media engagement?"</div>
-                <div className="text-xs text-muted-foreground">Blends Google Analytics and social platform data for correlation analysis</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Which customers have high support tickets but low product usage?"</div>
-                <div className="text-xs text-muted-foreground">Joins customer support data with product analytics for insights</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Create a unified view of customer journey from ads to purchase"</div>
-                <div className="text-xs text-muted-foreground">Blends advertising, analytics, and sales data for complete funnel view</div>
-              </div>
-            </div>
-          </div>
+          {blendingProcesses.map((process, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-3">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+                    {index + 1}
+                  </div>
+                  {process.step}
+                </CardTitle>
+                <CardDescription>{process.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {process.details.map((detail, detailIndex) => (
+                    <div key={detailIndex} className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm text-muted-foreground">{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
+
+      <Separator />
+
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-orange-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Layers className="h-5 w-5" />
+              AI Data Blending Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad's data blending engine uses machine learning to automatically identify relationships between data sources, 
+              handle schema differences, and create unified datasets that preserve data integrity while enabling cross-platform analysis.
+            </p>
+          </CardContent>
+        </Card>
+              </div>
+
+      <Separator />
+
+      {/* Advanced Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Blending Features</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Shuffle className="h-5 w-5 text-blue-500" />
+                Real-time Sync
+              </CardTitle>
+              <CardDescription>
+                Data blends update automatically as source data changes
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Live data synchronization</div>
+                <div className="text-xs text-muted-foreground">• Incremental updates</div>
+                <div className="text-xs text-muted-foreground">• Change notifications</div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <LinkIcon className="h-5 w-5 text-green-500" />
+                Custom Relationships
+              </CardTitle>
+              <CardDescription>
+                Define custom joins and relationships between data sources
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Custom field mapping</div>
+                <div className="text-xs text-muted-foreground">• Complex join conditions</div>
+                <div className="text-xs text-muted-foreground">• Calculated relationships</div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <BarChart3 className="h-5 w-5 text-purple-500" />
+                Attribution Modeling
+              </CardTitle>
+              <CardDescription>
+                Track customer journeys across multiple touchpoints
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground">• Multi-touch attribution</div>
+                <div className="text-xs text-muted-foreground">• Customer journey mapping</div>
+                <div className="text-xs text-muted-foreground">• Conversion path analysis</div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Best Practices */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Data Blending Best Practices</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-800">
-            <h4 className="font-medium mb-3 text-green-700 dark:text-green-300">Data Quality</h4>
-            <ul className="text-sm text-green-600 dark:text-green-400 space-y-2">
-              <li>• Ensure consistent date formats across sources</li>
-              <li>• Standardize customer identifiers</li>
-              <li>• Validate data quality before blending</li>
-              <li>• Handle missing values appropriately</li>
-              <li>• Document data source relationships</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
-            <h4 className="font-medium mb-3 text-blue-700 dark:text-blue-300">Performance Optimization</h4>
-            <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-2">
-              <li>• Use appropriate join types for your analysis</li>
-              <li>• Limit data to relevant time periods</li>
-              <li>• Optimize source queries before blending</li>
-              <li>• Cache frequently used blended datasets</li>
-              <li>• Monitor blend performance and resource usage</li>
-            </ul>
-          </div>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Successful Data Blending
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium mb-2">Start with clear objectives</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Define what insights you want to discover before blending data
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ "Track the complete customer journey from first ad click to purchase and support"</p>
+            </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Ensure data quality</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Clean and consistent data across sources improves blending accuracy
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Standardize customer IDs, date formats, and naming conventions</p>
+            </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Validate blended results</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Cross-check blended data against individual sources for accuracy
+                </p>
+                <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">✓ Compare totals and key metrics before and after blending</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
         </div>
-      </section>
 
       {/* Getting Started */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Getting Started with Data Blending</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                1
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Connect Your Data Sources</h4>
-                <p className="text-sm text-muted-foreground">
-                  Ensure all relevant data sources are connected to Datapad.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                2
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Identify Common Fields</h4>
-                <p className="text-sm text-muted-foreground">
-                  Look for common identifiers like customer IDs, dates, or email addresses.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                3
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Ask Cross-Source Questions</h4>
-                <p className="text-sm text-muted-foreground">
-                  Use natural language to query across multiple data sources simultaneously.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-              <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Quick Start Tips</h4>
-              <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-1">
-                <li>• Start with two related data sources</li>
-                <li>• Use clear, descriptive field names</li>
-                <li>• Verify results with known data points</li>
-                <li>• Save successful blends for reuse</li>
-              </ul>
-            </div>
-            <div className="p-4 rounded-lg border bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-              <h4 className="font-medium mb-2 text-amber-700 dark:text-amber-300">Common Challenges</h4>
-              <ul className="text-sm text-amber-600 dark:text-amber-400 space-y-1">
-                <li>• Mismatched data types or formats</li>
-                <li>• Different granularity levels</li>
-                <li>• Time zone and date inconsistencies</li>
-                <li>• Duplicate or conflicting records</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Next Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Next Steps</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Link href="/docs/features/ai-chat" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Brain className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Try AI Chat</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Start asking cross-source questions with natural language
-            </p>
+      <Card className="bg-gradient-to-r from-primary/5 to-orange-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to blend your data sources?</CardTitle>
+          <CardDescription>
+            Connect multiple platforms and discover insights that emerge from cross-platform analysis.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/blending">
+                Start Data Blending
           </Link>
-          <Link href="/docs/integrations" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <Database className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Connect Data Sources</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Set up multiple integrations to enable data blending
-            </p>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/integrations">
+                Connect Data Sources
           </Link>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/shareable-reports">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Shareable Reports
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
         </Link>
-        <Link href="/docs/features/multi-model-ai">
-          <Button className="gap-2">
-            Multi-Model AI
-            <ArrowRight className="h-4 w-4" />
           </Button>
-        </Link>
       </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

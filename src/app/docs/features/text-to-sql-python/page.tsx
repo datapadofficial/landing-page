@@ -1,478 +1,546 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
-  Code, 
-  ArrowRight, 
+  Code2, 
   Database,
   Brain,
-  Zap,
-  FileCode,
-  BarChart3,
-  Cog,
-  CheckCircle,
-  Terminal,
+  Copy,
+  Eye,
   Play,
-  Copy
+  Download,
+  FileText,
+  Terminal,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Text-to-SQL & Python Code Generation",
-  description: "Convert natural language into executable SQL queries and Python code. No coding experience required - just describe what you want to accomplish.",
+  description: "Convert natural language questions into executable SQL queries and Python code. Learn from generated code and run advanced analytics.",
 };
+
+const features = [
+  {
+    icon: Database,
+    title: "Optimized SQL Generation",
+    description: "Generate efficient SQL queries from natural language questions with proper syntax for any database system."
+  },
+  {
+    icon: Code2,
+    title: "Advanced Python Analytics",
+    description: "Create sophisticated Python scripts for statistical analysis, data visualization, and machine learning tasks."
+  },
+  {
+    icon: Brain,
+    title: "Code Explanation & Learning",
+    description: "Understand how the generated code works with detailed explanations and educational comments."
+  }
+];
+
+const exampleQueries = [
+  "Show me the top 10 customers by revenue this month",
+  "Calculate the correlation between ad spend and conversions",
+  "Create a cohort analysis for user retention",
+  "Generate a forecast for next quarter's sales",
+  "Find anomalies in our daily transaction data",
+  "Build a customer segmentation model using RFM analysis"
+];
+
+const codeExamples = [
+  {
+    type: "SQL Query",
+    question: "What's our monthly revenue growth rate?",
+    code: `SELECT 
+  EXTRACT(YEAR FROM order_date) as year,
+  EXTRACT(MONTH FROM order_date) as month,
+  SUM(total_amount) as monthly_revenue,
+  LAG(SUM(total_amount)) OVER (ORDER BY year, month) as prev_month_revenue,
+  ROUND(
+    (SUM(total_amount) - LAG(SUM(total_amount)) OVER (ORDER BY year, month)) 
+    / LAG(SUM(total_amount)) OVER (ORDER BY year, month) * 100, 2
+  ) as growth_rate_percent
+FROM orders 
+WHERE order_date >= CURRENT_DATE - INTERVAL '12 months'
+GROUP BY year, month
+ORDER BY year, month;`
+  },
+  {
+    type: "Python Analysis",
+    question: "Perform customer segmentation analysis",
+    code: `import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# RFM Analysis for Customer Segmentation
+def calculate_rfm(df):
+    current_date = df['order_date'].max()
+    
+    rfm = df.groupby('customer_id').agg({
+        'order_date': lambda x: (current_date - x.max()).days,  # Recency
+        'order_id': 'count',  # Frequency
+        'total_amount': 'sum'  # Monetary
+    }).rename(columns={
+        'order_date': 'Recency',
+        'order_id': 'Frequency', 
+        'total_amount': 'Monetary'
+    })
+    
+    # Apply K-means clustering
+    kmeans = KMeans(n_clusters=4, random_state=42)
+    rfm['Segment'] = kmeans.fit_predict(rfm[['Recency', 'Frequency', 'Monetary']])
+    
+    return rfm
+
+# Execute analysis
+customer_segments = calculate_rfm(orders_df)
+print(customer_segments.groupby('Segment').mean())`
+  }
+];
+
+const capabilities = [
+  {
+    category: "SQL Generation",
+    description: "Create optimized database queries",
+    icon: Database,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+    features: [
+      "Multi-database compatibility (PostgreSQL, MySQL, SQL Server, etc.)",
+      "Complex joins and subqueries",
+      "Window functions and CTEs",
+      "Performance-optimized queries"
+    ]
+  },
+  {
+    category: "Python Analytics",
+    description: "Advanced data analysis and visualization",
+    icon: Code2,
+    color: "text-green-500",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+    features: [
+      "Statistical analysis with pandas/numpy",
+      "Data visualization with matplotlib/plotly",
+      "Machine learning with scikit-learn",
+      "Time series analysis and forecasting"
+    ]
+  },
+  {
+    category: "Code Learning",
+    description: "Educational features for skill development",
+    icon: Brain,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100 dark:bg-purple-900/20",
+    features: [
+      "Step-by-step code explanations",
+      "Inline comments and documentation",
+      "Best practice recommendations",
+      "Performance optimization tips"
+    ]
+  }
+];
 
 export default function TextToSQLPythonPage() {
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Core Feature
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/features" className="hover:text-foreground">Features</Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center">
+            <Code2 className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Text-to-SQL & Python</h1>
+            <p className="text-xl text-muted-foreground">
+              Convert natural language into executable code and advanced analytics
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Database className="h-3 w-3" />
+            SQL Generation
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Code2 className="h-3 w-3" />
+            Python Analytics
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Brain className="h-3 w-3" />
+            Code Learning
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Text-to-SQL & Python</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Transform natural language into executable SQL queries and Python code. 
-          Get powerful data analysis capabilities without writing a single line of code yourself.
-        </p>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Two Powerful Capabilities</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Database className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Text-to-SQL</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Convert plain English questions into optimized SQL queries that run against your databases.
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Complex multi-table joins
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Advanced aggregations & calculations
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Date/time filtering & grouping
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Window functions & CTEs
-              </li>
-            </ul>
-          </div>
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <FileCode className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Text-to-Python</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Generate Python code for advanced data analysis, machine learning, and custom calculations.
-            </p>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Statistical analysis & modeling
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Data transformations & cleaning
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Custom visualizations
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Machine learning predictions
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* How It Works */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">How Code Generation Works</h2>
+        <p className="text-muted-foreground">
+          Transform your questions into executable code in four simple steps.
+        </p>
         
-        {/* Step 1 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">1</div>
-            <h3 className="text-lg font-medium">Describe Your Analysis</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">1</span>
           </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">
-              Explain what you want to analyze or calculate in natural language:
-            </p>
-            <div className="grid md:grid-cols-2 gap-3">
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-1">SQL Example</h4>
-                <p className="text-xs text-muted-foreground">
-                  "Calculate monthly recurring revenue by customer segment for the last 12 months"
+            <h3 className="font-semibold">Ask Your Question</h3>
+            <p className="text-sm text-muted-foreground">
+              Describe what analysis you want to perform in plain English
                 </p>
               </div>
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-1">Python Example</h4>
-                <p className="text-xs text-muted-foreground">
-                  "Perform customer lifetime value prediction using regression analysis on purchase history"
-                </p>
-              </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">2</span>
             </div>
-          </div>
-        </div>
-
-        {/* Step 2 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">2</div>
-            <h3 className="text-lg font-medium">AI Analyzes & Generates</h3>
-          </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">
-              The AI understands your request and generates optimized code:
+            <h3 className="font-semibold">AI Generates Code</h3>
+            <p className="text-sm text-muted-foreground">
+              Smart AI creates optimized SQL queries or Python scripts
             </p>
-            <div className="grid md:grid-cols-4 gap-3 text-sm">
-              <div className="p-3 rounded border bg-background text-center">
-                <Brain className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Intent Analysis</p>
-                <p className="text-xs text-muted-foreground">Understands the goal</p>
-              </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Database className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Schema Mapping</p>
-                <p className="text-xs text-muted-foreground">Maps to your data</p>
-              </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Code className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Code Generation</p>
-                <p className="text-xs text-muted-foreground">Creates optimized code</p>
-              </div>
-              <div className="p-3 rounded border bg-background text-center">
-                <Play className="h-6 w-6 mx-auto mb-2 text-primary" />
-                <p className="font-medium">Execution</p>
-                <p className="text-xs text-muted-foreground">Runs & shows results</p>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Step 3 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">3</div>
-            <h3 className="text-lg font-medium">Review & Execute</h3>
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">3</span>
           </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">
-              See the generated code, understand what it does, and run it safely:
+            <h3 className="font-semibold">Review & Learn</h3>
+            <p className="text-sm text-muted-foreground">
+              See the generated code with explanations and comments
             </p>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• View the generated SQL or Python code</li>
-              <li>• See explanations of complex logic</li>
-              <li>• Modify or ask for adjustments if needed</li>
-              <li>• Execute with full data validation and safety checks</li>
-            </ul>
+              </div>
+          
+          <div className="text-center space-y-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+              <span className="text-primary font-bold">4</span>
+            </div>
+            <h3 className="font-semibold">Execute & Export</h3>
+            <p className="text-sm text-muted-foreground">
+              Run the code directly or export for use in your environment
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* SQL Capabilities */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">SQL Generation Capabilities</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Data Retrieval</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Complex filtering and WHERE clauses</li>
-                <li>• Multi-table JOINs (INNER, LEFT, RIGHT, FULL)</li>
-                <li>• Subqueries and nested queries</li>
-                <li>• UNION and INTERSECT operations</li>
-                <li>• Date range filtering and time-based queries</li>
-              </ul>
-            </div>
+      <Separator />
+
+      {/* Example Queries */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Code Generation Requests</h2>
+        <p className="text-muted-foreground">
+          Here are some example questions that generate SQL queries and Python code:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {exampleQueries.map((query, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Aggregations & Analytics</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• GROUP BY with HAVING clauses</li>
-                <li>• Window functions (ROW_NUMBER, RANK, LAG/LEAD)</li>
-                <li>• Statistical functions (PERCENTILE, STDDEV)</li>
-                <li>• Running totals and moving averages</li>
-                <li>• Cohort analysis and retention queries</li>
-              </ul>
-            </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
           </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         
-        <div className="p-4 rounded-lg border bg-muted/20">
-          <h4 className="font-medium mb-2">Example SQL Generation</h4>
-          <div className="space-y-3">
-            <div>
-              <p className="text-sm text-muted-foreground mb-2">
-                <strong>Input:</strong> "Show me the top 10 customers by revenue, including their first purchase date and total order count"
-              </p>
-              <div className="bg-background rounded p-3 text-xs font-mono">
-                <pre className="text-muted-foreground">
-{`SELECT 
-    c.customer_id,
-    c.name,
-    SUM(o.total_amount) as total_revenue,
-    MIN(o.order_date) as first_purchase_date,
-    COUNT(o.order_id) as total_orders
-FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id
-GROUP BY c.customer_id, c.name
-ORDER BY total_revenue DESC
-LIMIT 10;`}
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Python Capabilities */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Python Code Generation</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Data Analysis</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Statistical analysis with scipy/numpy</li>
-                <li>• Data cleaning and preprocessing</li>
-                <li>• Time series analysis and forecasting</li>
-                <li>• Correlation and regression analysis</li>
-                <li>• A/B testing and hypothesis testing</li>
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💻 Code Generation Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about the analysis you want to perform</li>
+            <li>• Mention the type of output you prefer (SQL query, Python script, visualization)</li>
+            <li>• Include any specific libraries or methods you want to use</li>
+            <li>• Ask for code explanations to learn while you analyze</li>
               </ul>
             </div>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Machine Learning</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Customer segmentation (clustering)</li>
-                <li>• Predictive modeling (regression, classification)</li>
-                <li>• Anomaly detection algorithms</li>
-                <li>• Recommendation systems</li>
-                <li>• Feature engineering and selection</li>
-              </ul>
+
+      <Separator />
+
+      {/* Code Examples */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Generated Code Examples</h2>
+        <p className="text-muted-foreground">
+          See examples of SQL queries and Python code generated from natural language questions.
+        </p>
+        
+        <div className="space-y-6">
+          {codeExamples.map((example, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      {example.type === 'SQL Query' ? (
+                        <Database className="h-5 w-5 text-blue-500" />
+                      ) : (
+                        <Code2 className="h-5 w-5 text-green-500" />
+                      )}
+                      {example.type}
+                    </CardTitle>
+                    <CardDescription className="mt-1">
+                      Question: "{example.question}"
+                    </CardDescription>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" className="gap-2">
+                      <Copy className="h-3 w-3" />
+                      Copy
+                    </Button>
+                    <Button variant="outline" size="sm" className="gap-2">
+                      <Play className="h-3 w-3" />
+                      Run
+                    </Button>
             </div>
           </div>
+              </CardHeader>
+              <CardContent>
+                <div className="bg-muted p-4 rounded-lg overflow-x-auto">
+                  <pre className="text-sm text-muted-foreground">
+                    <code>{example.code}</code>
+                  </pre>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
+      </div>
 
-        <div className="p-4 rounded-lg border bg-muted/20">
-          <h4 className="font-medium mb-2">Example Python Generation</h4>
-          <div className="space-y-3">
+      <Separator />
+
+      {/* Capabilities */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Code Generation Capabilities</h2>
+        <p className="text-muted-foreground">
+          From simple queries to advanced analytics, here's what our AI can generate for you.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {capabilities.map((capability) => (
+            <Card key={capability.category} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 ${capability.bgColor} rounded-lg flex items-center justify-center`}>
+                    <capability.icon className={`h-5 w-5 ${capability.color}`} />
+                  </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-2">
-                <strong>Input:</strong> "Create a customer segmentation model based on purchase behavior and calculate lifetime value for each segment"
-              </p>
-              <div className="bg-background rounded p-3 text-xs font-mono">
-                <pre className="text-muted-foreground">
-{`import pandas as pd
-import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
+                    <CardTitle className="text-lg">{capability.category}</CardTitle>
+                    <CardDescription className="text-sm">{capability.description}</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  {capability.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
 
-# Load and prepare customer data
-df = load_customer_data()
-features = ['recency', 'frequency', 'monetary_value']
-X = df[features]
+      <Separator />
 
-# Scale features for clustering
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Code2 className="h-5 w-5" />
+              AI Code Generation Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Our AI understands your data schema, query intent, and best practices to generate optimized, executable code. 
+              The system learns from millions of code examples and continuously improves to provide better results.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
 
-# Perform K-means clustering
-kmeans = KMeans(n_clusters=4, random_state=42)
-df['segment'] = kmeans.fit_predict(X_scaled)
+      <Separator />
 
-# Calculate CLV by segment
-clv_by_segment = df.groupby('segment').agg({
-    'monetary_value': 'mean',
-    'frequency': 'mean',
-    'customer_id': 'count'
-}).round(2)
-
-print("Customer Lifetime Value by Segment:")
-print(clv_by_segment)`}
-                </pre>
+      {/* Advanced Features */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Advanced Code Features</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Eye className="h-5 w-5 text-blue-500" />
+                Code Explanation
+              </CardTitle>
+              <CardDescription>
+                Understand every line of generated code with detailed explanations
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <p className="text-sm text-muted-foreground">
+                  "This query uses a window function to calculate the previous month's revenue for comparison..."
+                </p>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Download className="h-5 w-5 text-green-500" />
+                Export Options
+              </CardTitle>
+              <CardDescription>
+                Download code as files or copy to your development environment
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <Button variant="outline" size="sm" className="w-full gap-2">
+                  <FileText className="h-3 w-3" />
+                  Export .sql
+                </Button>
+                <Button variant="outline" size="sm" className="w-full gap-2">
+                  <FileText className="h-3 w-3" />
+                  Export .py
+                </Button>
+            </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Terminal className="h-5 w-5 text-purple-500" />
+                Direct Execution
+              </CardTitle>
+              <CardDescription>
+                Run generated code directly within Datapad environment
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button variant="outline" size="sm" className="w-full gap-2">
+                <Play className="h-3 w-3" />
+                Execute Code
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <Separator />
+
+      {/* Best Practices */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Code Generation Best Practices</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-blue-500" />
+              Getting Better Code Results
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          <div className="space-y-4">
+              <div>
+                <h4 className="font-medium mb-2">Be specific about your analysis goals</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Calculate monthly cohort retention rates for users acquired in the last 6 months"</p>
+            </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Show me user retention"</p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Use Cases */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Common Use Cases</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Business Reporting</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Monthly revenue reports by product line</li>
-              <li>• Customer acquisition cost analysis</li>
-              <li>• Sales team performance metrics</li>
-              <li>• Inventory turnover calculations</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Customer Analytics</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Customer lifetime value modeling</li>
-              <li>• Churn prediction algorithms</li>
-              <li>• RFM analysis and segmentation</li>
-              <li>• Purchase behavior patterns</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Marketing Analysis</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Campaign ROI calculations</li>
-              <li>• Attribution modeling</li>
-              <li>• A/B test statistical analysis</li>
-              <li>• Channel performance optimization</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Financial Analysis</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Cash flow forecasting</li>
-              <li>• Budget vs actual variance analysis</li>
-              <li>• Profitability by business unit</li>
-              <li>• Financial ratio calculations</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Operations</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Supply chain optimization</li>
-              <li>• Quality control statistics</li>
-              <li>• Resource utilization analysis</li>
-              <li>• Performance benchmarking</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Product Analytics</h4>
-            <ul className="text-xs text-muted-foreground space-y-1">
-              <li>• Feature adoption tracking</li>
-              <li>• User engagement scoring</li>
-              <li>• Product usage patterns</li>
-              <li>• Retention cohort analysis</li>
-            </ul>
+              <Separator />
+              
+            <div>
+                <h4 className="font-medium mb-2">Specify the type of code you want</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Generate a Python script using pandas to analyze customer segments"</p>
+              </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Analyze customer data"</p>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Safety & Security */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Safety & Security</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-3">Code Validation</h4>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Syntax validation before execution
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Performance optimization checks
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Resource usage monitoring
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Timeout protection for long queries
-              </li>
-            </ul>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-2">Ask for explanations to learn</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Generate the SQL query and explain how the window functions work"</p>
           </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-3">Data Protection</h4>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Read-only database connections
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Sandboxed Python execution environment
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Data access permission enforcement
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Audit logging of all code execution
-              </li>
-            </ul>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ Just requesting code without explanations</p>
           </div>
         </div>
-      </section>
+          </div>
+        </div>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Getting Started */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Getting Started</h2>
-        <div className="p-6 rounded-lg border bg-muted/20">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-medium mb-3">Tips for Success</h4>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• Be specific about what you want to calculate</li>
-                <li>• Mention relevant time periods and filters</li>
-                <li>• Describe the output format you prefer</li>
-                <li>• Use business terminology rather than technical jargon</li>
-                <li>• Start simple and build complexity gradually</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-3">Example Requests</h4>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• "Calculate customer acquisition cost by marketing channel"</li>
-                <li>• "Create a cohort retention analysis for the last 6 months"</li>
-                <li>• "Build a predictive model for customer churn"</li>
-                <li>• "Analyze sales trends with seasonal adjustments"</li>
-                <li>• "Generate a funnel analysis from website events"</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/features/natural-language-queries">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Natural Language Queries
+      <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
+        <CardHeader>
+          <CardTitle>Ready to generate code from natural language?</CardTitle>
+          <CardDescription>
+            Connect your data sources and start asking questions to generate SQL and Python code.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="https://app.datapad.io/chat">
+                Try Code Generation
+              </Link>
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/get-started/quickstart">
+                Quickstart Guide
         </Link>
-        <Link href="/docs/features/workflows">
-          <Button className="gap-2">
-            Workflows
-            <ArrowRight className="h-4 w-4" />
           </Button>
+            <Button asChild variant="outline">
+              <Link href="/docs/guides/effective-queries">
+                Query Writing Tips
         </Link>
+            </Button>
       </div>
+        </CardContent>
+      </Card>
+      
     </div>
   );
 }

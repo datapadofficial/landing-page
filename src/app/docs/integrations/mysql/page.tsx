@@ -7,18 +7,18 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   Database, 
   CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
+  
+  
   Shield, 
   Clock,
   Code,
   Lock,
-  Server,
+  
   AlertCircle,
-  PlayCircle,
+  
   Copy,
-  Key,
-  Globe,
+  
+  
   Info
 } from "lucide-react";
 import Link from "next/link";

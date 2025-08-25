@@ -3,73 +3,51 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   MessageSquare, 
   Bot, 
-  CheckCircle, 
-  ArrowRight, 
-  ExternalLink, 
-  Lightbulb, 
   Clock,
-  BarChart3,
   Code,
-  Mic,
-  PlayCircle,
-  Copy,
+  Zap,
+  BarChart3,
   TrendingUp,
-  Users,
-  Target,
-  Zap
+  Users,  
+  Lightbulb
 } from "lucide-react";
 import Link from "next/link";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
 export const metadata: Metadata = {
   title: "AI Chat - Natural Language Data Analysis",
-  description: "Learn how to use Datapad's AI chat feature to analyze your data using natural language queries and get instant insights.",
+  description: "Talk to your data like you're talking to a human analyst. Get instant insights with charts and visualizations using natural language queries.",
 };
 
-const chatCapabilities = [
+const features = [
   {
-    title: "Natural Language Understanding",
-    description: "Ask questions in plain English, just like talking to a human analyst",
     icon: MessageSquare,
-    examples: [
-      "Show me last month's revenue",
-      "What's trending up in our metrics?",
-      "Compare this quarter to last quarter"
-    ]
+    title: "Natural Language Understanding",
+    description: "Ask questions in plain English, just like talking to a human analyst. No SQL or technical knowledge required."
   },
   {
-    title: "Intelligent Follow-ups",
-    description: "AI remembers context and can answer follow-up questions naturally",
-    icon: Bot,
-    examples: [
-      "Break that down by channel",
-      "What caused the spike in May?",
-      "Show me the same data for mobile users"
-    ]
-  },
-  {
-    title: "Statistical Analysis",
-    description: "Get sophisticated statistical insights without technical knowledge",
     icon: BarChart3,
-    examples: [
-      "Calculate the correlation between ad spend and revenue",
-      "Show me the trend analysis with confidence intervals",
-      "What's the statistical significance of this change?"
-    ]
+    title: "Instant Visualizations",
+    description: "Get professional charts, tables, and insights automatically generated from your questions in seconds."
   },
   {
-    title: "Code Generation",
-    description: "AI automatically generates SQL and Python code to answer your questions",
-    icon: Code,
-    examples: [
-      "CREATE SELECT statements for complex queries",
-      "Python scripts for advanced calculations",
-      "Data transformation pipelines"
-    ]
+    icon: Bot,
+    title: "Context-Aware Conversations",
+    description: "AI remembers your conversation history and can answer follow-up questions with full context understanding."
   }
+];
+
+const exampleQueries = [
+  "Show me last month's revenue compared to the previous month",
+  "What's the conversion rate by traffic source this quarter?",
+  "Which products have the highest profit margin?",
+  "How is our customer acquisition cost trending?",
+  "Compare mobile vs desktop performance this week",
+  "What caused the spike in sales on March 15th?"
 ];
 
 const queryTypes = [
@@ -81,20 +59,18 @@ const queryTypes = [
     examples: [
       "What's our total revenue this month?",
       "How many new customers did we acquire?",
-      "What are our top performing products?",
       "Show me our key metrics summary"
     ]
   },
   {
     category: "Comparative Analysis", 
-    description: "Compare different time periods, segments, or categories",
+    description: "Compare different time periods or segments",
     color: "text-green-500",
     bgColor: "bg-green-100 dark:bg-green-900/20",
     examples: [
       "How does this month compare to last month?",
       "Compare conversion rates by traffic source",
-      "Show mobile vs desktop performance",
-      "Compare customer segments by value"
+      "Show mobile vs desktop performance"
     ]
   },
   {
@@ -103,10 +79,9 @@ const queryTypes = [
     color: "text-purple-500",
     bgColor: "bg-purple-100 dark:bg-purple-900/20",
     examples: [
-      "Show me the revenue trend for the last 6 months",
+      "Show revenue trend for the last 6 months",
       "Is our customer churn rate improving?",
-      "What's the growth trajectory of our key metrics?",
-      "Identify any seasonal patterns in our data"
+      "Identify seasonal patterns in our data"
     ]
   },
   {
@@ -117,36 +92,8 @@ const queryTypes = [
     examples: [
       "What caused the revenue dip in March?",
       "Why did our conversion rate change?",
-      "Which factors correlate with customer churn?",
-      "What's driving the increase in our metrics?"
+      "Which factors correlate with customer churn?"
     ]
-  }
-];
-
-const bestPractices = [
-  {
-    title: "Be Specific with Time Periods",
-    description: "Include specific dates or time ranges for clearer results",
-    good: "Show me revenue for the last 30 days",
-    bad: "Show me recent revenue"
-  },
-  {
-    title: "Specify the Metrics You Want",
-    description: "Name the exact metrics you're interested in",
-    good: "What's the conversion rate from our Google Ads campaigns?",
-    bad: "How are our ads doing?"
-  },
-  {
-    title: "Ask for Comparisons",
-    description: "Compare different periods, segments, or categories for better insights",
-    good: "Compare mobile vs desktop conversion rates this month",
-    bad: "Show me conversion rates"
-  },
-  {
-    title: "Request Context and Insights",
-    description: "Ask the AI to explain what the data means",
-    good: "Show me revenue trends and explain what's driving the changes",
-    bad: "Show me revenue"
   }
 ];
 
@@ -167,7 +114,7 @@ export default function AIChatPage() {
           <div>
             <h1 className="text-4xl font-bold tracking-tight">AI Chat</h1>
             <p className="text-xl text-muted-foreground">
-              Analyze your data using natural language - just ask questions and get instant insights
+              Talk to your data like you're talking to a human analyst
             </p>
           </div>
         </div>
@@ -187,48 +134,16 @@ export default function AIChatPage() {
         </div>
       </div>
 
-      {/* Quick Start */}
-      <Card className="border-primary/20 bg-primary/5">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <PlayCircle className="h-5 w-5 text-primary" />
-            Quick Start
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex-1">
-              <p className="text-sm text-muted-foreground mb-3">
-                Connect your data source and start asking questions immediately. No SQL knowledge required.
-              </p>
-              <ul className="space-y-1 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Natural language understanding</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Context-aware follow-ups</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Professional visualizations</span>
-                </li>
-              </ul>
-            </div>
-            <Button asChild size="lg" className="gap-2">
-              <Link href="https://app.datapad.io/chat">
-                <ExternalLink className="h-4 w-4" />
-                Try AI Chat
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* How It Works */}
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold">How AI Chat Works</h2>
+        <p className="text-muted-foreground">
+          Experience the power of conversational data analysis in four simple steps.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="text-center space-y-3">
@@ -275,46 +190,44 @@ export default function AIChatPage() {
 
       <Separator />
 
-      {/* Chat Capabilities */}
+      {/* Example Queries */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-semibold">What You Can Do</h2>
+        <h2 className="text-2xl font-semibold">Example Questions</h2>
         <p className="text-muted-foreground">
-          Datapad's AI chat understands natural language and can perform sophisticated data analysis tasks.
+          Here are some example questions you can ask once your data is connected:
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {chatCapabilities.map((capability) => (
-            <Card key={capability.title} className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <capability.icon className="h-5 w-5 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {exampleQueries.map((query, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
                   </div>
-                  {capability.title}
-                </CardTitle>
-                <CardDescription>{capability.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <h4 className="font-medium text-sm">Examples:</h4>
-                  <ul className="space-y-1">
-                    {capability.examples.map((example, index) => (
-                      <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
-                        <span>{example}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about time periods ("last 30 days", "this month vs last month")</li>
+            <li>• Include context about what you want to analyze ("revenue", "conversion rate")</li>
+            <li>• Ask for comparisons to get more insights ("compare X vs Y")</li>
+            <li>• Request explanations ("explain what's driving the changes")</li>
+          </ul>
+        </div>
       </div>
 
       <Separator />
 
-      {/* Query Types */}
+      {/* Types of Questions */}
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Types of Questions You Can Ask</h2>
         <p className="text-muted-foreground">
@@ -336,7 +249,7 @@ export default function AIChatPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {type.examples.map((example, index) => (
                     <div key={index} className="p-3 bg-muted/50 rounded-lg">
                       <p className="text-sm font-medium">"{example}"</p>
@@ -351,48 +264,23 @@ export default function AIChatPage() {
 
       <Separator />
 
-      {/* Best Practices */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-semibold">Best Practices for Effective Queries</h2>
-        <p className="text-muted-foreground">
-          Follow these tips to get the most accurate and useful insights from AI chat.
-        </p>
-        
-        <div className="space-y-4">
-          {bestPractices.map((practice, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <Lightbulb className="h-5 w-5 text-yellow-500" />
-                  {practice.title}
-                </CardTitle>
-                <CardDescription>{practice.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-sm flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      Good Example
-                    </h4>
-                    <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
-                      <p className="text-sm text-green-800 dark:text-green-200">"{practice.good}"</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-sm flex items-center gap-2">
-                      <Target className="h-4 w-4 text-orange-500" />
-                      Could Be Better
-                    </h4>
-                    <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
-                      <p className="text-sm text-orange-800 dark:text-orange-200">"{practice.bad}"</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Code className="h-5 w-5" />
+              AI-Powered Analysis Engine
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad automatically converts your natural language questions into optimized SQL queries and Python code. 
+              You can always view the generated code to learn and verify the results.
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       <Separator />
@@ -402,25 +290,6 @@ export default function AIChatPage() {
         <h2 className="text-2xl font-semibold">Advanced AI Chat Features</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Mic className="h-5 w-5 text-purple-500" />
-                Voice Mode
-              </CardTitle>
-              <CardDescription>
-                Speak your questions and hear responses with voice interaction
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button asChild variant="outline" size="sm" className="w-full">
-                <Link href="/docs/features/voice-mode">
-                  Learn More
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -443,7 +312,26 @@ export default function AIChatPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Users className="h-5 w-5 text-green-500" />
+                <BarChart3 className="h-5 w-5 text-green-500" />
+                Create Dashboards
+              </CardTitle>
+              <CardDescription>
+                Turn your chat insights into permanent dashboards automatically
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <Link href="/docs/features/dashboards">
+                  Learn More
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Users className="h-5 w-5 text-purple-500" />
                 Team Collaboration
               </CardTitle>
               <CardDescription>
@@ -459,6 +347,65 @@ export default function AIChatPage() {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      <Separator />
+
+      {/* Troubleshooting */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Tips for Better Results</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Lightbulb className="h-5 w-5 text-yellow-500" />
+              Best Practices
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium mb-1">Be specific with time periods</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Show me revenue for the last 30 days"</p>
+                  </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Show me recent revenue"</p>
+                  </div>
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-1">Include the metrics you want</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "What's the conversion rate from our Google Ads campaigns?"</p>
+                  </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "How are our ads doing?"</p>
+                  </div>
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h4 className="font-medium mb-1">Ask for comparisons</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200">✓ "Compare mobile vs desktop conversion rates this month"</p>
+                  </div>
+                  <div className="p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                    <p className="text-sm text-orange-800 dark:text-orange-200">✗ "Show me conversion rates"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Getting Started */}
@@ -489,6 +436,7 @@ export default function AIChatPage() {
           </div>
         </CardContent>
       </Card>
+      
     </div>
   );
 }
