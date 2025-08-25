@@ -69,13 +69,26 @@ const navigation: NavItem[] = [
         ],
       },
       {
+        title: "Social",
+        items: [
+          { title: "Google My Business", href: "/docs/integrations/google-mybusiness" },
+          { title: "LinkedIn", href: "/docs/integrations/linkedin-social" },
+          { title: "Instagram Business", href: "/docs/integrations/instagram-business" },
+          { title: "Facebook Page", href: "/docs/integrations/facebook" },
+        ],
+      },
+      {
         title: "Databases",
         items: [
           { title: "PostgreSQL", href: "/docs/integrations/postgresql" },
-          { title: "MongoDB", href: "/docs/integrations/mongodb" },
           { title: "MySQL", href: "/docs/integrations/mysql" },
           { title: "Microsoft SQL Server", href: "/docs/integrations/mssql" },
+          { title: "Oracle Database", href: "/docs/integrations/oracle" },
+          { title: "MariaDB", href: "/docs/integrations/mariadb" },
+          { title: "MongoDB", href: "/docs/integrations/mongodb" },
           { title: "Google BigQuery", href: "/docs/integrations/google-bigquery" },
+          { title: "Snowflake", href: "/docs/integrations/snowflake" },
+          { title: "Amazon Redshift", href: "/docs/integrations/redshift" },
         ],
       },
 

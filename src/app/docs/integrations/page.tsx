@@ -15,7 +15,8 @@ import {
   Facebook,
   Search as SearchIcon,
   ArrowRight,
-  Star
+  Star,
+  Share2
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -36,6 +37,18 @@ const integrationCategories = [
       { name: "Google Search Console", href: "/docs/integrations/google-searchconsole", logo: "/images/integrations/google-searchconsole.png" },
       { name: "Mixpanel", href: "/docs/integrations/mixpanel", logo: "/images/integrations/mixpanel.png" },
       { name: "Metabase", href: "/docs/integrations/metabase", logo: "/images/integrations/metabase.png" },
+    ]
+  },
+  {
+    name: "Social Media",
+    icon: Share2,
+    color: "text-cyan-500",
+    bgColor: "bg-cyan-100 dark:bg-cyan-900/20",
+    integrations: [
+      { name: "Google My Business", href: "/docs/integrations/google-mybusiness", logo: "/images/integrations/google-mybusiness.png" },
+      { name: "LinkedIn", href: "/docs/integrations/linkedin-social", logo: "/images/integrations/linkedin-social.png" },
+      { name: "Instagram Business", href: "/docs/integrations/instagram-business", logo: "/images/integrations/instagram-business.png" },
+      { name: "Facebook Page", href: "/docs/integrations/facebook", logo: "/images/integrations/facebook.png" },
     ]
   },
   {
@@ -137,39 +150,40 @@ export default function IntegrationsPage() {
           <h2 className="text-2xl font-semibold">Popular Integrations</h2>
           <Star className="h-5 w-5 text-yellow-500" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {popularIntegrations.map((integration) => (
-            <Card key={integration.name} className="hover:shadow-md transition-shadow group cursor-pointer">
-              <Link href={integration.href}>
-                <CardHeader className="text-center pb-3">
-                  <div className="mx-auto w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 group-hover:bg-muted/80 transition-colors border shadow-sm overflow-hidden">
+            <Link
+              key={integration.name}
+              href={integration.href}
+              className="group p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-white rounded flex items-center justify-center border shadow-sm overflow-hidden">
                     {integration.icon ? (
                       <Image 
                         src={integration.icon} 
                         alt={`${integration.name} logo`}
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 object-contain"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 object-contain"
                       />
                     ) : (
-                      <div className="w-6 h-6 bg-gradient-to-br from-primary/20 to-primary/40 rounded" />
+                      <div className="w-4 h-4 bg-gradient-to-br from-primary/20 to-primary/40 rounded" />
                     )}
                   </div>
-                  <CardTitle className="text-lg">{integration.name}</CardTitle>
-                  <Badge variant="secondary" className="text-xs">
-                    {integration.category}
-                  </Badge>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm text-muted-foreground text-center mb-3">
-                    {integration.description}
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    Learn More <ArrowRight className="h-3 w-3" />
-                  </Button>
-                </CardContent>
-              </Link>
-            </Card>
+                  <div>
+                    <h3 className="font-medium group-hover:text-primary transition-colors">
+                      {integration.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {integration.description}
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -238,7 +252,7 @@ export default function IntegrationsPage() {
         <CardContent>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="mailto:integrations@datapad.io?subject=Integration Request">
+              <Link href="mailto:hello@datapad.io?subject=Integration Request">
                 Request Integration
               </Link>
             </Button>

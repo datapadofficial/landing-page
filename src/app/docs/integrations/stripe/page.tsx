@@ -1,331 +1,604 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  CreditCard, 
+  BarChart3, 
+  CheckCircle, 
   ArrowRight, 
-  CheckCircle,
-  TrendingUp,
+  ExternalLink, 
+  Shield, 
+  Clock,
   Users,
+  MousePointer,
+  TrendingUp,
+  Globe,
+  AlertCircle,
+  PlayCircle,
+  Copy,
+  Eye,
+  Target,
   DollarSign,
-  BarChart3,
-  Shield
+  CreditCard
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Stripe Integration",
   description: "Connect Stripe to Datapad for comprehensive payment analytics, revenue insights, and customer financial behavior analysis.",
 };
 
 export default function StripeIntegrationPage() {
+  const features = [
+    {
+      icon: DollarSign,
+      title: "Revenue Analytics",
+      description: "Track payments, refunds, chargebacks, and overall revenue performance with detailed financial breakdowns."
+    },
+    {
+      icon: Users,
+      title: "Customer Insights",
+      description: "Analyze customer payment patterns, subscription behavior, and lifetime value metrics for better targeting."
+    },
+    {
+      icon: Shield,
+      title: "Risk Analysis",
+      description: "Monitor fraud patterns, dispute rates, and payment failure analysis for comprehensive risk management."
+    }
+  ];
+
+const exampleQueries = [
+  "What's my total revenue for the last 30 days?",
+  "Which payment methods have the highest success rates?",
+  "Show me subscription churn rates this month",
+  "What's my average transaction value by customer segment?",
+  "Which countries have the highest payment failure rates?",
+  "How do refund rates compare across different products?",
+];
+
+const availableMetrics = [
+  { name: "Payments", description: "Successful payments, amounts, and trends" },
+  { name: "Refunds", description: "Refund amounts, rates, and reasons" },
+  { name: "Disputes", description: "Chargebacks and dispute tracking" },
+  { name: "Subscriptions", description: "Recurring revenue and subscription metrics" },
+  { name: "Customers", description: "Customer payment behavior and segmentation" },
+  { name: "Payment Methods", description: "Performance by payment method type" },
+  { name: "Failure Analysis", description: "Payment failures and decline reasons" },
+  { name: "Geography", description: "Payment performance by country and region" },
+];
+
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            E-commerce Integration
-          </Badge>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/integrations" className="hover:text-foreground">Integrations</Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-            <Image 
-              src="/images/integrations/stripe.png" 
+          <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border shadow-sm">
+            <Image
+              src="/images/integrations/stripe.png"
               alt="Stripe logo"
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
             />
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">Stripe Integration</h1>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Stripe</h1>
+            <p className="text-xl text-muted-foreground">
+              Analyze your payment data and financial performance using natural language
+            </p>
+          </div>
         </div>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Connect your Stripe account to analyze payment data, revenue trends, 
-          and get AI-powered insights for financial performance and customer payment behavior.
-        </p>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <CreditCard className="h-3 w-3" />
+            Payments
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Clock className="h-3 w-3" />
+            2 min setup
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Shield className="h-3 w-3" />
+            API Key
+          </Badge>
+        </div>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">What You'll Get</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Revenue Analytics</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Track payments, refunds, chargebacks, and overall revenue performance with detailed breakdowns.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Customer Insights</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Analyze customer payment patterns, subscription behavior, and lifetime value metrics.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Shield className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Risk Analysis</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Monitor fraud patterns, dispute rates, and payment failure analysis for risk management.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
-      {/* Key Metrics */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Key Metrics Tracked</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Payment Analytics</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Transaction volumes and amounts
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Payment success and failure rates
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Refund and chargeback analysis
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Payment method performance
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Geographic payment distribution
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Business Metrics</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Monthly recurring revenue (MRR)
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Customer lifetime value (CLV)
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Subscription churn rates
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Average transaction values
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  Revenue growth trends
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Insights */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">AI-Powered Stripe Analytics</h2>
-        <div className="space-y-6">
-          <div className="p-6 rounded-lg border bg-muted/20">
-            <h3 className="text-lg font-medium mb-4">Example AI Queries</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Which payment methods have the highest success rates?"</div>
-                <div className="text-xs text-muted-foreground">Analyzes payment method performance and optimization opportunities</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Predict next month's subscription churn based on payment patterns"</div>
-                <div className="text-xs text-muted-foreground">Uses payment behavior to predict customer retention risks</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Analyze the impact of failed payments on revenue"</div>
-                <div className="text-xs text-muted-foreground">Correlates payment failures with revenue loss and recovery</div>
-              </div>
-              <div className="p-4 rounded-lg border bg-background">
-                <div className="text-sm text-muted-foreground mb-2">Ask Datapad:</div>
-                <div className="font-medium mb-2">"Identify high-risk transactions for fraud prevention"</div>
-                <div className="text-xs text-muted-foreground">Pattern analysis for fraud detection and risk scoring</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Perfect For</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-            <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">SaaS Businesses</h4>
-            <p className="text-sm text-blue-600 dark:text-blue-400">
-              Track subscription metrics, MRR, churn, and customer payment lifecycle analysis.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
-            <h4 className="font-medium mb-2 text-green-700 dark:text-green-300">E-commerce Stores</h4>
-            <p className="text-sm text-green-600 dark:text-green-400">
-              Analyze transaction patterns, payment method preferences, and revenue optimization.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
-            <h4 className="font-medium mb-2 text-purple-700 dark:text-purple-300">Financial Services</h4>
-            <p className="text-sm text-purple-600 dark:text-purple-400">
-              Monitor payment flows, fraud patterns, and financial risk management metrics.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Benefits */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Integration Benefits</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-800">
-            <h4 className="font-medium mb-3 text-green-700 dark:text-green-300">Revenue Optimization</h4>
-            <ul className="text-sm text-green-600 dark:text-green-400 space-y-2">
-              <li>• Identify revenue recovery opportunities</li>
-              <li>• Optimize payment method mix</li>
-              <li>• Reduce payment failure rates</li>
-              <li>• Improve subscription retention</li>
-              <li>• Maximize customer lifetime value</li>
+      {/* Prerequisites */}
+      <div className="space-y-4">
+        <h2 id="prerequisites" className="text-2xl font-semibold">Prerequisites</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Stripe Account</p>
+                  <p className="text-sm text-muted-foreground">
+                    You need an active Stripe account with payment processing history
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Account Owner Access</p>
+                  <p className="text-sm text-muted-foreground">
+                    You must have owner or admin permissions to generate restricted API keys
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Transaction History</p>
+                  <p className="text-sm text-muted-foreground">
+                    Your Stripe account should have historical payment data to analyze
+                  </p>
+                </div>
+              </li>
             </ul>
-          </div>
-          <div className="p-4 rounded-lg border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
-            <h4 className="font-medium mb-3 text-blue-700 dark:text-blue-300">Risk Management</h4>
-            <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-2">
-              <li>• Early fraud detection and prevention</li>
-              <li>• Chargeback trend analysis</li>
-              <li>• Payment risk scoring</li>
-              <li>• Compliance monitoring</li>
-              <li>• Financial forecasting accuracy</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+          </CardContent>
+        </Card>
+      </div>
 
-      {/* Connection Setup */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Connecting Stripe to Datapad</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                1
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Create API Keys</h4>
-                <p className="text-sm text-muted-foreground">
-                  Generate restricted API keys in your Stripe dashboard with read-only permissions.
-                </p>
-              </div>
+      <Separator />
+
+      {/* Step-by-Step Connection Guide */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Connection Guide</h2>
+        
+        {/* Step 1 */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              1
             </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                2
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Configure Webhooks</h4>
-                <p className="text-sm text-muted-foreground">
-                  Set up webhooks for real-time data synchronization and event tracking.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-medium">
-                3
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Connect to Datapad</h4>
-                <p className="text-sm text-muted-foreground">
-                  Add your Stripe credentials in Datapad and start analyzing your payment data.
-                </p>
-              </div>
-            </div>
+            <h3 className="text-xl font-semibold">Navigate to Integrations</h3>
           </div>
-          <div className="space-y-4">
-            <div className="p-4 rounded-lg border bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-              <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Security Best Practices</h4>
-              <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-1">
-                <li>• Use restricted API keys with minimal permissions</li>
-                <li>• Enable webhook signature verification</li>
-                <li>• Regularly rotate API credentials</li>
-                <li>• Monitor API usage and access logs</li>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - In your Datapad workspace, click on the "Data" tab from the left sidebar. 
+                </p>
+                <p className="text-muted-foreground">- Then click on the "Add New Source" button</p>
+                <p className="text-muted-foreground">- Find "Stripe" in the list of data sources.</p>
+                {/* Screenshot of integrations page */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/stripe-connect.png"
+                    alt="Stripe integration in Datapad - Navigate to integrations and click Connect"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                  <Copy className="h-4 w-4 text-muted-foreground" />
+                  <code className="text-sm">Workspace → Data → Add New Source → Stripe</code>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Step 2 */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              2
+            </div>
+            <h3 className="text-xl font-semibold">Create Stripe Integration with Datapad</h3>
+          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - We need account id and API key to create the integration
+                </p>
+
+                  
+                {/* Screenshot of API key creation */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/stripe-auth.png"
+                    alt="Create Stripe integration with Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-medium">Required API Permissions:</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Read access to charges and payment intents</li>
+                    <li>• Read access to customers and subscriptions</li>
+                    <li>• Read access to refunds and disputes</li>
+                    <li>• Read access to balance and transaction data</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Step 3 */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              3
+            </div>
+            <h3 className="text-xl font-semibold">Find Stripe Account Id</h3>
+          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - Go to your Stripe Dashboard
+                </p>
+                <p className="text-muted-foreground">
+                  - Click on Settings
+                </p>
+                <p className="text-muted-foreground">
+                  - Under Account Settings you will see Business click it
+                </p>
+                <p className="text-muted-foreground">
+                  - Copy the account id as it is
+                </p>
+                {/* Screenshot of account id input */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/stripe-account-id.png"
+                    alt="Enter Stripe account id in Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">💡 Pro Tip</h4>
+                  <p className="text-sm text-blue-800 dark:text-blue-200">
+                    You can connect multiple Stripe accounts. This is useful if you manage payments for multiple businesses or have separate test/live environments.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+        
+      {/* Step 4 */}
+      <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              4
+            </div>
+            <h3 className="text-xl font-semibold">How to find the API key</h3>
+          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - In your Stripe dashboard, go to Developers → API keys and create a new restricted key with read-only permissions.
+                </p>
+                <p className="text-muted-foreground">
+                  - Or you can use secret key as well. Create key or copy the existing "Secret Key"
+                </p>
+                  <Alert>
+                    <Shield className="h-4 w-4" />
+                    <AlertDescription>
+                      Create a restricted API key with read-only permissions. Datapad only needs access to read your payment data.
+                    </AlertDescription>
+                  </Alert>
+                  
+                {/* Screenshot of API key creation */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/stripe-api-key.png"
+                    alt="Create Stripe integration with Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-medium">Required API Permissions:</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Read access to charges and payment intents</li>
+                    <li>• Read access to customers and subscriptions</li>
+                    <li>• Read access to refunds and disputes</li>
+                    <li>• Read access to balance and transaction data</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      <Separator />
+
+      {/* Available Metrics & Dimensions */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Available Metrics & Dimensions</h2>
+        <p className="text-muted-foreground">
+          Once connected, you can analyze all your Stripe payment data using natural language queries.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Metrics Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Metrics
+              </CardTitle>
+              <CardDescription>
+                Performance measurements you can analyze
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Balance Amount</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Fee</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Net</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Charge Gross Amount</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Exchange Rate</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Balance</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Next Invoice Sequence</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Subscription Quantity</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Subscription MRR</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Plan Amount</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Plan Interval Count</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Trial Period Days</span>
+                </li>
               </ul>
-            </div>
-            <div className="p-4 rounded-lg border bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
-              <h4 className="font-medium mb-2 text-green-700 dark:text-green-300">Data Sync</h4>
-              <ul className="text-sm text-green-600 dark:text-green-400 space-y-1">
-                <li>• Historical data: Up to 1 year</li>
-                <li>• Real-time webhook updates</li>
-                <li>• Incremental daily syncs</li>
-                <li>• Automatic data validation</li>
+            </CardContent>
+          </Card>
+
+          {/* Dimensions Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Dimensions
+              </CardTitle>
+              <CardDescription>
+                Ways to segment and filter your data
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Balance Currency</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Transaction Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Available On</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Created Date</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Description</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Status</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Charge Currency</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Reporting Category</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Type</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Address</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Email</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Customer Phone</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Subscription Status</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Plan Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Plan Interval</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Billing Scheme</span>
+                </li>
               </ul>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
 
-      {/* Next Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Next Steps</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Link href="/docs/features/ai-chat" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <BarChart3 className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Start Analyzing</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Use AI chat to ask questions about your Stripe payment data
-            </p>
-          </Link>
-          <Link href="/docs/features/dashboards" className="p-4 rounded-lg border hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Create Dashboards</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Build comprehensive payment and revenue dashboards
-            </p>
-          </Link>
+      <Separator />
+
+      {/* Example Queries */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Queries</h2>
+        <p className="text-muted-foreground">
+          Here are some example questions you can ask once your Stripe data is connected:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {exampleQueries.map((query, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Ask about payment performance ("which payment methods work best")</li>
+            <li>• Request financial insights ("show me recurring revenue trends")</li>
+            <li>• Analyze customer behavior ("what's the average customer lifetime value")</li>
+            <li>• Compare time periods ("this quarter vs last quarter revenue")</li>
+          </ul>
+        </div>
+      </div>
 
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/integrations/shopify">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Shopify
-          </Button>
-        </Link>
-        <Link href="/docs/features/ai-chat">
-          <Button className="gap-2">
-            Start Analyzing
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
+      <Separator />
+
+      {/* Troubleshooting */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Troubleshooting</h2>
+        
+        <div className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <AlertCircle className="h-5 w-5 text-orange-500" />
+                Common Issues
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium mb-1">API key authentication failed</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you're having trouble connecting:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Verify your API key is correct and hasn't been revoked</li>
+                    <li>• Check that the API key has the necessary read permissions</li>
+                    <li>• Ensure you're using a live key for production data</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Missing payment data</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If some payments are not appearing:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Check if payments were processed during the requested time period</li>
+                    <li>• Verify that payments are successful (not just attempted)</li>
+                    <li>• Some data may have slight delays due to Stripe processing</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Rate limiting issues</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you're experiencing rate limits:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Stripe has API rate limits - large accounts may sync slower</li>
+                    <li>• Initial sync of accounts with many transactions can take time</li>
+                    <li>• Try syncing smaller date ranges for better performance</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

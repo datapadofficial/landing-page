@@ -18,15 +18,37 @@ import {
   AlertCircle,
   PlayCircle,
   Copy,
-  Eye
+  Eye,
+  Target
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
 export const metadata: Metadata = {
   title: "Google Analytics Integration",
   description: "Connect Google Analytics to Datapad and analyze your website traffic using natural language queries.",
 };
+
+export default function GoogleAnalyticsIntegrationPage() {
+  const features = [
+    {
+      icon: BarChart3,
+      title: "Website Performance",
+      description: "Track sessions, page views, bounce rates, and user engagement across all your website pages."
+    },
+    {
+      icon: Users,
+      title: "Audience Analytics", 
+      description: "Understand visitor demographics, behavior patterns, and traffic sources to optimize your content strategy."
+    },
+    {
+      icon: Target,
+      title: "Conversion Tracking",
+      description: "Monitor goal completions, e-commerce revenue, and conversion funnels to maximize your ROI."
+    }
+  ];
 
 const exampleQueries = [
   "What's my website traffic trend for the last 30 days?",
@@ -48,7 +70,6 @@ const availableMetrics = [
   { name: "Demographics", description: "Age, gender, and location data" },
 ];
 
-export default function GoogleAnalyticsIntegrationPage() {
   return (
     <div className="flex flex-col gap-8">
       {/* Header */}
@@ -59,8 +80,14 @@ export default function GoogleAnalyticsIntegrationPage() {
           <Link href="/docs/integrations" className="hover:text-foreground">Integrations</Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <BarChart3 className="h-8 w-8 text-white" />
+          <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border shadow-sm">
+            <Image
+              src="/images/integrations/google-analytics.png"
+              alt="Google Analytics logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-4xl font-bold tracking-tight">Google Analytics</h1>
@@ -76,7 +103,7 @@ export default function GoogleAnalyticsIntegrationPage() {
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Clock className="h-3 w-3" />
-            5 min setup
+            2 min setup
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Shield className="h-3 w-3" />
@@ -85,44 +112,9 @@ export default function GoogleAnalyticsIntegrationPage() {
         </div>
       </div>
 
-      {/* Quick Start */}
-      <Card className="border-primary/20 bg-primary/5">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <PlayCircle className="h-5 w-5 text-primary" />
-            Quick Start
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex-1">
-              <p className="text-sm text-muted-foreground mb-3">
-                Connect Google Analytics in 3 simple steps and start analyzing your website data immediately.
-              </p>
-              <ul className="space-y-1 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>OAuth authentication</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Select properties & views</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Start asking questions</span>
-                </li>
-              </ul>
-            </div>
-            <Button asChild size="lg" className="gap-2">
-              <Link href="https://app.datapad.io/integrations/google-analytics">
-                <ExternalLink className="h-4 w-4" />
-                Connect Now
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* Prerequisites */}
       <div className="space-y-4">
@@ -135,16 +127,16 @@ export default function GoogleAnalyticsIntegrationPage() {
                 <div>
                   <p className="font-medium">Google Analytics Account</p>
                   <p className="text-sm text-muted-foreground">
-                    You need an active Google Analytics account with at least one property set up
+                    You need an active Google Analytics account with
                   </p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                 <div>
-                  <p className="font-medium">Admin or Edit Access</p>
+                  <p className="font-medium">Admin Access</p>
                   <p className="text-sm text-muted-foreground">
-                    You must have at least "Read & Analyze" permissions for the properties you want to connect
+                    You must have at least "Read & Analyze" permissions to connect the account
                   </p>
                 </div>
               </li>
@@ -153,7 +145,7 @@ export default function GoogleAnalyticsIntegrationPage() {
                 <div>
                   <p className="font-medium">Data Collection</p>
                   <p className="text-sm text-muted-foreground">
-                    Your website should have Google Analytics tracking code installed and collecting data
+                    Your Google Analytics account should be working properly, collecting data and reporting metrics
                   </p>
                 </div>
               </li>
@@ -181,18 +173,24 @@ export default function GoogleAnalyticsIntegrationPage() {
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  In your Datapad workspace, go to the Integrations page and find Google Analytics.
+                  - In your Datapad workspace, click on the "Data" tab from the left sidebar. 
                 </p>
-                
-                {/* Placeholder for screenshot */}
-                <div className="bg-muted/30 border-2 border-dashed border-muted-foreground/20 rounded-lg p-8 text-center">
-                  <BarChart3 className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Screenshot: Integrations page</p>
+                <p className="text-muted-foreground">- Then click on the "Add New Source" button</p>
+                <p className="text-muted-foreground">- Find "Google Analytics" in the list of data sources.</p>
+                {/* Screenshot of integrations page */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/ga4-connect.png"
+                    alt="Google Analytics integration in Datapad - Navigate to integrations and click Connect"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 
                 <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
                   <Copy className="h-4 w-4 text-muted-foreground" />
-                  <code className="text-sm">Workspace → Integrations → Google Analytics</code>
+                  <code className="text-sm">Workspace → Data → Add New Source → Google Analytics</code>
                 </div>
               </div>
             </CardContent>
@@ -212,20 +210,25 @@ export default function GoogleAnalyticsIntegrationPage() {
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  Click "Connect Google Analytics" and you'll be redirected to Google's OAuth flow.
+                  - Click "Connect Google Analytics" and you'll be redirected to Google's OAuth flow. You will be asked to grant access to Datapad. Accept it.
                 </p>
                 
                 <Alert>
                   <Shield className="h-4 w-4" />
                   <AlertDescription>
-                    Datapad uses OAuth 2.0 for secure authentication. We never store your Google credentials and only request the minimum permissions needed to read your Analytics data.
+                    Datapad uses OAuth 2.0 for secure authentication. We only request the minimum permissions needed to read your Analytics data.
                   </AlertDescription>
                 </Alert>
                 
-                {/* Placeholder for OAuth screenshot */}
-                <div className="bg-muted/30 border-2 border-dashed border-muted-foreground/20 rounded-lg p-8 text-center">
-                  <Shield className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Screenshot: Google OAuth consent screen</p>
+                {/* Screenshot of OAuth consent screen */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/ga4-oauth.png"
+                    alt="Google OAuth consent screen for Google Analytics integration"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 
                 <div className="space-y-2">
@@ -247,76 +250,33 @@ export default function GoogleAnalyticsIntegrationPage() {
             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
               3
             </div>
-            <h3 className="text-xl font-semibold">Select Properties & Views</h3>
+            <h3 className="text-xl font-semibold">Select Account to Connect</h3>
           </div>
           
           <Card>
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  Choose which Google Analytics properties and views you want to connect to Datapad.
+                  - Choose which Google Analytics account you want to connect to Datapad.
                 </p>
                 
-                {/* Placeholder for property selection screenshot */}
-                <div className="bg-muted/30 border-2 border-dashed border-muted-foreground/20 rounded-lg p-8 text-center">
-                  <Eye className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Screenshot: Property and view selection</p>
+                {/* Screenshot of property and view selection */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/ga4-account-select.png"
+                    alt="Select Google Analytics properties and views to connect to Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 
                 <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
                   <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">💡 Pro Tip</h4>
                   <p className="text-sm text-blue-800 dark:text-blue-200">
-                    You can connect multiple properties and views. If you're unsure, start with your main website property - you can always add more later.
+                    You can connect multiple accounts. If you're unsure, start with your main website account - you can always add more later.
                   </p>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Step 4 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
-              4
-            </div>
-            <h3 className="text-xl font-semibold">Verify Connection</h3>
-          </div>
-          
-          <Card>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Once connected, Datapad will verify the connection and start syncing your data.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      Connection Verified
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      Data sync begins immediately and typically completes within 5-10 minutes
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-blue-500" />
-                      Historical Data
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      We sync up to 2 years of historical data for comprehensive analysis
-                    </p>
-                  </div>
-                </div>
-                
-                <Button asChild className="gap-2">
-                  <Link href="/docs/get-started/quickstart#step-2">
-                    <ArrowRight className="h-4 w-4" />
-                    Start Asking Questions
-                  </Link>
-                </Button>
               </div>
             </CardContent>
           </Card>
@@ -325,24 +285,175 @@ export default function GoogleAnalyticsIntegrationPage() {
 
       <Separator />
 
-      {/* Available Data & Metrics */}
+      {/* Available Metrics & Dimensions */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-semibold">Available Data & Metrics</h2>
+        <h2 className="text-2xl font-semibold">Available Metrics & Dimensions</h2>
         <p className="text-muted-foreground">
           Once connected, you can analyze all your Google Analytics data using natural language queries.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {availableMetrics.map((metric) => (
-            <Card key={metric.name} className="hover:shadow-md transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">{metric.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{metric.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Metrics Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Metrics
+              </CardTitle>
+              <CardDescription>
+                Performance measurements you can analyze
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Conversions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Event Count</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">New Users</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Sessions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Total Users</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">User Engagement Duration</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Screen Page Views</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Conversion Rate</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Dimensions Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Dimensions
+              </CardTitle>
+              <CardDescription>
+                Ways to segment and filter your data
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Date</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">First User Campaign Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">First User Medium</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">First User Source</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Campaign Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Default Channel Grouping</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Medium</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Source</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Event Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Country</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">City</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Language</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">User Age Bracket</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">User Gender</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Region</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Device Category</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Landing Page</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Operating System</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Browser</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Session Source Medium</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">New Vs Returning</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Item Category</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Item Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Item Id</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
@@ -406,8 +517,7 @@ export default function GoogleAnalyticsIntegrationPage() {
                   </p>
                   <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                     <li>• Wait 5-10 minutes for initial sync to complete</li>
-                    <li>• Verify your website has the GA tracking code installed</li>
-                    <li>• Check that you selected the correct property and view</li>
+                    <li>• Check that you selected the correct account and you have the right permissions</li>
                     <li>• Ensure your Google Analytics account has data for the selected time period</li>
                   </ul>
                 </div>
@@ -420,9 +530,9 @@ export default function GoogleAnalyticsIntegrationPage() {
                     If you're getting permission errors:
                   </p>
                   <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-                    <li>• Verify you have at least "Read & Analyze" access to the GA property</li>
-                    <li>• Contact your GA admin to grant the necessary permissions</li>
-                    <li>• Try disconnecting and reconnecting the integration</li>
+                    <li>• Verify you have at least "Read & Analyze" access to the GA4 account</li>
+                    <li>• Contact your GA4 admin to grant the necessary permissions</li>
+                    <li>• Try deleting the integration and reconnecting it</li>
                   </ul>
                 </div>
                 
@@ -434,9 +544,9 @@ export default function GoogleAnalyticsIntegrationPage() {
                     If some data is missing:
                   </p>
                   <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-                    <li>• Google Analytics data can take 24-48 hours to appear</li>
-                    <li>• Some metrics may be filtered out due to GA sampling</li>
-                    <li>• Check if there are any filters applied in your GA view</li>
+                    <li>• If you are using agent make sure to specifically request the data you want</li>
+                    <li>• Check if there are any filters applied, or if you are using a custom date range</li>
+                    <li>• If metric/dimension is not among supported ones, please contact us. We will add it right away.</li>
                   </ul>
                 </div>
               </div>
@@ -444,35 +554,6 @@ export default function GoogleAnalyticsIntegrationPage() {
           </Card>
         </div>
       </div>
-
-      {/* Support */}
-      <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
-        <CardHeader>
-          <CardTitle>Need Help?</CardTitle>
-          <CardDescription>
-            Our support team is here to help you get the most out of your Google Analytics integration
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild variant="outline">
-              <Link href="mailto:support@datapad.io?subject=Google Analytics Integration Help">
-                Contact Support
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="https://calendly.com/datapad/integration-help" target="_blank" className="gap-2">
-                Book Integration Call <ExternalLink className="h-3 w-3" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/docs/guides/effective-queries">
-                Query Writing Guide
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

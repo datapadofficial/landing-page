@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { AttributionLink } from "@/components/attribution-link";
 
 export const metadata: Metadata = {
   title: "Quickstart Guide",
@@ -83,7 +84,7 @@ export default function QuickstartPage() {
           Before you begin, make sure you have:
         </p>
         <ul className="space-y-2 text-muted-foreground ml-6">
-          <li>• A Datapad account (<Link href="https://app.datapad.io/signup" className="text-primary hover:underline">sign up here</Link>)</li>
+          <li>• A Datapad account (<AttributionLink buttonLocation="docs-quickstart-signup" className="text-primary hover:underline">sign up here</AttributionLink>)</li>
           <li>• Access to at least one data source (database, spreadsheet, or marketing tool)</li>
           <li>• Basic understanding of your business metrics</li>
         </ul>
@@ -152,13 +153,6 @@ export default function QuickstartPage() {
           </Card>
         </div>
 
-        <div className="bg-muted/50 p-4 rounded-lg">
-          <h4 className="font-medium mb-2">💡 Pro Tip</h4>
-          <p className="text-sm text-muted-foreground">
-            Start with your most reliable data source that has historical data. 
-            This will give you the best experience for your first analysis.
-          </p>
-        </div>
       </div>
 
       <Separator />
@@ -250,6 +244,10 @@ export default function QuickstartPage() {
                 <p className="text-sm text-muted-foreground">"Build a marketing dashboard showing ad spend, conversions, and ROAS for the last 3 months"</p>
               </div>
               <div className="p-3 border rounded-lg">
+                <p className="font-medium text-sm mb-1">Metric Tracking Dashboard Request:</p>
+                <p className="text-sm text-muted-foreground">"Create a comprehensive dashboard for tracking roi across different marketing channels"</p>
+              </div>
+              <div className="p-3 border rounded-lg">
                 <p className="font-medium text-sm mb-1">Executive Request:</p>
                 <p className="text-sm text-muted-foreground">"Create an executive dashboard with our key business metrics and trends"</p>
               </div>
@@ -257,11 +255,15 @@ export default function QuickstartPage() {
           </CardContent>
         </Card>
 
-        {/* Placeholder for dashboard image */}
-        <div className="bg-muted/30 border-2 border-dashed border-muted-foreground/20 rounded-lg p-8 text-center">
-          <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-          <p className="text-muted-foreground">Dashboard Preview</p>
-          <p className="text-sm text-muted-foreground mt-1">Your generated dashboard will appear here</p>
+        {/* Dashboard Preview */}
+        <div className="relative w-full h-[600px] rounded-lg overflow-hidden border border-border bg-muted/5">
+          <Image
+            src="/images/docs/docs-dashboard.png"
+            alt="Example Dashboard Screenshot"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
       </div>
 
@@ -404,31 +406,6 @@ export default function QuickstartPage() {
           </Card>
         </div>
       </div>
-
-      {/* Help Section */}
-      <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
-        <CardHeader>
-          <CardTitle>Need Help?</CardTitle>
-          <CardDescription>
-            Our team is here to help you get the most out of Datapad
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild variant="outline" size="sm">
-              <Link href="mailto:support@datapad.io">Contact Support</Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link href="https://calendly.com/datapad/demo" target="_blank" className="gap-2">
-                Book a Demo <ExternalLink className="h-3 w-3" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link href="/docs/guides">Browse Guides</Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

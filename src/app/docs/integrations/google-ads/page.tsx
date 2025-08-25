@@ -1,352 +1,517 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  Database, 
-  ArrowRight, 
+  BarChart3, 
   CheckCircle, 
-  ExternalLink,
-  Search,
-  BarChart3,
-  TrendingUp,
-  DollarSign,
-  Target,
+  ArrowRight, 
+  ExternalLink, 
+  Shield, 
+  Clock,
   Users,
-  MousePointer
+  MousePointer,
+  TrendingUp,
+  Globe,
+  AlertCircle,
+  PlayCircle,
+  Copy,
+  Eye,
+  Target,
+  DollarSign
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Google Ads Integration",
   description: "Connect Google Ads to Datapad and analyze your advertising performance with AI-powered insights.",
 };
 
 export default function GoogleAdsIntegrationPage() {
+  const features = [
+    {
+      icon: TrendingUp,
+      title: "Performance Insights",
+      description: "Track impressions, clicks, CTR, conversions, and cost metrics across all campaigns."
+    },
+    {
+      icon: DollarSign,
+      title: "ROI Analysis", 
+      description: "Analyze return on ad spend (ROAS), cost per acquisition (CPA), and budget efficiency."
+    },
+    {
+      icon: Target,
+      title: "Audience Insights",
+      description: "Understand demographics, interests, and behavior patterns of your best-performing audiences."
+    }
+  ];
+
+const exampleQueries = [
+  "What's my best performing campaign last month?",
+  "Which keywords have the highest ROAS?",
+  "Show me conversion rates by device type",
+  "What's my average cost per acquisition by campaign?",
+  "How does mobile vs desktop ad performance compare?",
+  "Which audiences have the lowest CPA?",
+];
+
+const availableMetrics = [
+  { name: "Impressions", description: "Number of times your ads were shown" },
+  { name: "Clicks", description: "Total clicks on your ads" },
+  { name: "CTR", description: "Click-through rate" },
+  { name: "CPC", description: "Cost per click" },
+  { name: "Conversions", description: "Goal completions and conversions" },
+  { name: "ROAS", description: "Return on ad spend" },
+  { name: "Quality Score", description: "Google's keyword quality rating" },
+  { name: "Impression Share", description: "Percentage of available impressions" },
+];
+
+
+
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Advertising Integration
-          </Badge>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/integrations" className="hover:text-foreground">Integrations</Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-            <Image 
-              src="/images/integrations/google-ads.png" 
+          <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border shadow-sm">
+            <Image
+              src="/images/integrations/google-ads.png"
               alt="Google Ads logo"
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
             />
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">Google Ads Integration</h1>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Google Ads</h1>
+            <p className="text-xl text-muted-foreground">
+              Analyze your advertising performance and campaign data using natural language
+            </p>
+          </div>
         </div>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Connect your Google Ads account to Datapad and unlock AI-powered insights for campaign optimization, 
-          budget allocation, and performance analysis.
-        </p>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Target className="h-3 w-3" />
+            Advertising
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Clock className="h-3 w-3" />
+            2 min setup
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Shield className="h-3 w-3" />
+            OAuth 2.0
+          </Badge>
+        </div>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">What You'll Get</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Performance Insights</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Track impressions, clicks, CTR, conversions, and cost metrics across all campaigns.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">ROI Analysis</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Analyze return on ad spend (ROAS), cost per acquisition (CPA), and budget efficiency.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Target className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Audience Insights</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Understand demographics, interests, and behavior patterns of your best-performing audiences.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* Prerequisites */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Before You Connect</h2>
-        <div className="p-4 rounded-lg border bg-muted/20">
-          <h3 className="font-medium mb-3">Requirements</h3>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Active Google Ads account with campaign data
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Admin or Standard access to the Google Ads account
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Google account with 2-factor authentication enabled (recommended)
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div className="space-y-4">
+        <h2 id="prerequisites" className="text-2xl font-semibold">Prerequisites</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Google Ads Account</p>
+                  <p className="text-sm text-muted-foreground">
+                    You need an active Google Ads account with running campaigns
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Admin Access</p>
+                  <p className="text-sm text-muted-foreground">
+                    You must have admin or standard access to the Google Ads account
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Campaign Data</p>
+                  <p className="text-sm text-muted-foreground">
+                    Your Google Ads account should have historical campaign data to analyze
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
 
-      {/* Connection Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Connection Steps</h2>
+      <Separator />
+
+      {/* Step-by-Step Connection Guide */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Connection Guide</h2>
         
         {/* Step 1 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">1</div>
-            <h3 className="text-lg font-medium">Navigate to Integrations</h3>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              1
+            </div>
+            <h3 className="text-xl font-semibold">Navigate to Integrations</h3>
           </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">In your Datapad workspace:</p>
-            <ol className="text-sm text-muted-foreground space-y-1">
-              <li>1. Go to Settings → Integrations</li>
-              <li>2. Find "Google Ads" in the Advertising section</li>
-              <li>3. Click "Connect Account"</li>
-            </ol>
-          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - In your Datapad workspace, click on the "Data" tab from the left sidebar. 
+                </p>
+                <p className="text-muted-foreground">- Then click on the "Add New Source" button</p>
+                <p className="text-muted-foreground">- Find "Google Ads" in the list of data sources.</p>
+                {/* Screenshot of integrations page */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/gads-connect.png"
+                    alt="Google Ads integration in Datapad - Navigate to integrations and click Connect"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                  <Copy className="h-4 w-4 text-muted-foreground" />
+                  <code className="text-sm">Workspace → Data → Add New Source → Google Ads</code>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Step 2 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">2</div>
-            <h3 className="text-lg font-medium">Authorize Access</h3>
-          </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">You'll be redirected to Google to authorize access:</p>
-            <div className="p-3 rounded border bg-background">
-              <ol className="text-sm space-y-1">
-                <li>1. Sign in to your Google account</li>
-                <li>2. Select the Google Ads account to connect</li>
-                <li>3. Review the permissions requested by Datapad</li>
-                <li>4. Click "Allow" to grant access</li>
-              </ol>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              2
             </div>
-            <div className="p-3 rounded border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800">
-              <p className="text-sm text-amber-700 dark:text-amber-300">
-                ⚠️ <strong>Permissions:</strong> Datapad only requests read-only access to your Google Ads data. We cannot modify campaigns or billing settings.
-              </p>
-            </div>
+            <h3 className="text-xl font-semibold">Authenticate with Google</h3>
           </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - Click "Connect Google Ads" and you'll be redirected to Google's OAuth flow. You will be asked to grant access to Datapad. Accept it.
+                </p>
+                
+                <Alert>
+                  <Shield className="h-4 w-4" />
+                  <AlertDescription>
+                    Datapad uses OAuth 2.0 for secure authentication. We only request read-only access to your Google Ads data.
+                  </AlertDescription>
+                </Alert>
+                
+                {/* Screenshot of OAuth consent screen */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/gads-oauth.png"
+                    alt="Google OAuth consent screen for Google Ads integration"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-medium">Permissions Requested:</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Read access to Google Ads campaign data</li>
+                    <li>• View your Google Ads account information</li>
+                    <li>• Access to performance metrics and reports</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Step 3 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">3</div>
-            <h3 className="text-lg font-medium">Select Accounts & Data</h3>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              3
+            </div>
+            <h3 className="text-xl font-semibold">Select Account to Connect</h3>
           </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">Choose which accounts and data to sync:</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-2">Account Selection</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Select specific ad accounts</li>
-                  <li>• Choose campaign types to include</li>
-                  <li>• Set historical data range (recommended: 2 years)</li>
-                </ul>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - Choose which Google Ads account you want to connect to Datapad.
+                </p>
+                
+                {/* Screenshot of account selection */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/gads-account-select.png"
+                    alt="Select Google Ads accounts to connect to Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">💡 Pro Tip</h4>
+                  <p className="text-sm text-blue-800 dark:text-blue-200">
+                    You can connect multiple Google Ads accounts. If you're unsure, start with your main advertising account - you can always add more later.
+                  </p>
+                </div>
               </div>
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-2">Sync Frequency</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Real-time: Every 15 minutes</li>
-                  <li>• Hourly: For detailed analysis</li>
-                  <li>• Daily: For basic reporting</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
+      </div>
 
-        {/* Step 4 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">4</div>
-            <h3 className="text-lg font-medium">Initial Data Sync</h3>
-          </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">Wait for the initial data synchronization to complete:</p>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Small accounts (&lt; 10 campaigns): 2-5 minutes</li>
-              <li>• Medium accounts (10-100 campaigns): 5-15 minutes</li>
-              <li>• Large accounts (100+ campaigns): 15-30 minutes</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <Separator />
 
-      {/* Available Metrics */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Available Metrics</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Campaign Performance</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Impressions & Impression Share</li>
-                <li>• Clicks & Click-through Rate (CTR)</li>
-                <li>• Cost per Click (CPC)</li>
-                <li>• Quality Score</li>
-                <li>• Search Lost IS (Budget & Rank)</li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Conversion Tracking</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Conversions & Conversion Rate</li>
-                <li>• Cost per Acquisition (CPA)</li>
-                <li>• Return on Ad Spend (ROAS)</li>
-                <li>• Conversion Value</li>
-                <li>• Attribution Models</li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Audience Data</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Demographics (Age, Gender)</li>
-                <li>• Geographic Performance</li>
-                <li>• Device Performance</li>
-                <li>• Audience Segments</li>
-                <li>• Time of Day Performance</li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Keyword Insights</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Search Terms & Keywords</li>
-                <li>• Match Types Performance</li>
-                <li>• Negative Keywords</li>
-                <li>• Keyword Competitiveness</li>
-                <li>• Landing Page Performance</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI-Powered Insights */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">AI-Powered Insights</h2>
+      {/* Available Metrics & Dimensions */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Available Metrics & Dimensions</h2>
         <p className="text-muted-foreground">
-          Once connected, Datapad's AI will automatically analyze your Google Ads data to provide actionable insights:
+          Once connected, you can analyze all your Google Ads data using natural language queries.
         </p>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Optimization Recommendations</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Budget reallocation suggestions</li>
-              <li>• Keyword bid optimization</li>
-              <li>• Ad copy performance analysis</li>
-              <li>• Landing page recommendations</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Anomaly Detection</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Sudden performance drops/spikes</li>
-              <li>• Budget overspend alerts</li>
-              <li>• Quality score changes</li>
-              <li>• Competitive landscape shifts</li>
-            </ul>
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Metrics Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Metrics
+              </CardTitle>
+              <CardDescription>
+                Performance measurements you can analyze
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Clicks</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Conversions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Conversions Value</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Engagements</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Impressions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CTR</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CPM</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CPC</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Cost</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Dimensions Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Dimensions
+              </CardTitle>
+              <CardDescription>
+                Ways to segment and filter your data
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Budget</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Group</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Status</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Group Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Group Status</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Device</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Date</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Search Keywords</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Bidding Strategy</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
+
+      <Separator />
 
       {/* Example Queries */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Example AI Queries</h2>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Queries</h2>
         <p className="text-muted-foreground">
-          Ask these types of questions to get insights from your Google Ads data:
+          Here are some example questions you can ask once your Google Ads data is connected:
         </p>
-        <div className="space-y-3">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Campaign Performance</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "Which campaigns had the highest ROAS last month?"</li>
-              <li>• "Show me conversion rates by device type"</li>
-              <li>• "What's our average cost per acquisition by campaign?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Optimization Insights</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "Which keywords are underperforming?"</li>
-              <li>• "Recommend budget changes for better ROI"</li>
-              <li>• "Show me audiences with the lowest CPA"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Competitive Analysis</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "How is my impression share trending?"</li>
-              <li>• "What's my search lost IS due to budget vs rank?"</li>
-              <li>• "Show me quality score improvements over time"</li>
-            </ul>
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {exampleQueries.map((query, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about time periods ("last 30 days", "this month vs last month")</li>
+            <li>• Ask for comparisons ("how does mobile ads compare to desktop")</li>
+            <li>• Request specific metrics ("show ROAS by campaign")</li>
+            <li>• Ask for optimization insights ("which keywords should I bid higher on")</li>
+          </ul>
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Troubleshooting */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Troubleshooting</h2>
+        
         <div className="space-y-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Common Issues</h4>
-            <div className="space-y-3 text-sm">
-              <div>
-                <strong>Can't see all ad accounts:</strong> Ensure you have admin or standard access to all accounts you want to connect.
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <AlertCircle className="h-5 w-5 text-orange-500" />
+                Common Issues
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium mb-1">Can't see all ad accounts</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you don't see all your Google Ads accounts:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Ensure you have admin or standard access to all accounts you want to connect</li>
+                    <li>• Check that the accounts are active and not suspended</li>
+                    <li>• Verify you're signed in with the correct Google account</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Missing recent data</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If recent campaign data is not showing:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Google Ads API has a 3-hour delay for most metrics</li>
+                    <li>• Wait a few hours for the most recent data to appear</li>
+                    <li>• Check if campaigns were active during the requested time period</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Connection failed</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If the connection is failing:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Try disconnecting and reconnecting the integration</li>
+                    <li>• Ensure your Google account has 2FA enabled</li>
+                    <li>• Clear your browser cache and try again</li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <strong>Missing recent data:</strong> Google Ads API has a 3-hour delay for most metrics. Check again later.
-              </div>
-              <div>
-                <strong>Connection failed:</strong> Try disconnecting and reconnecting. Ensure your Google account has 2FA enabled.
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/integrations">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            All Integrations
-          </Button>
-        </Link>
-        <Link href="/docs/integrations/facebook-ads">
-          <Button className="gap-2">
-            Facebook Ads Integration
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
       </div>
     </div>
   );

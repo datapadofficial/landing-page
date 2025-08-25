@@ -1,326 +1,549 @@
-import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
-  ArrowRight, 
+  BarChart3, 
   CheckCircle, 
-  TrendingUp,
-  DollarSign,
-  Target,
+  ArrowRight, 
+  ExternalLink, 
+  Shield, 
+  Clock,
   Users,
-  Heart,
-  MessageCircle,
-  Share2
+  MousePointer,
+  TrendingUp,
+  Globe,
+  AlertCircle,
+  PlayCircle,
+  Copy,
+  Eye,
+  Target,
+  DollarSign
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Facebook Ads Integration",
   description: "Connect Facebook Ads to Datapad for comprehensive social media advertising analytics and AI-powered optimization insights.",
 };
 
 export default function FacebookAdsIntegrationPage() {
+  const features = [
+    {
+      icon: TrendingUp,
+      title: "Campaign Analytics",
+      description: "Track reach, impressions, CTR, CPC, and conversion metrics across all Facebook and Instagram campaigns."
+    },
+    {
+      icon: Users,
+      title: "Audience Insights", 
+      description: "Analyze demographics, interests, behaviors, and custom audience performance in detail."
+    },
+    {
+      icon: DollarSign,
+      title: "ROI Optimization",
+      description: "Optimize ROAS, CPA, and budget allocation across campaigns and ad sets."
+    }
+  ];
+
+const exampleQueries = [
+  "What's my best performing Facebook campaign this month?",
+  "Which age group has the highest conversion rate?",
+  "Show me Instagram vs Facebook ad performance",
+  "What's my average ROAS by campaign objective?",
+  "How does mobile vs desktop ad performance compare?",
+  "Which custom audiences perform best?",
+];
+
+const availableMetrics = [
+  { name: "Reach", description: "Number of unique people who saw your ads" },
+  { name: "Impressions", description: "Total number of times your ads were shown" },
+  { name: "CTR", description: "Click-through rate" },
+  { name: "CPC", description: "Cost per click" },
+  { name: "ROAS", description: "Return on ad spend" },
+  { name: "Conversions", description: "Goal completions and conversions" },
+  { name: "Frequency", description: "Average number of times each person saw your ad" },
+  { name: "Video Views", description: "Video ad view metrics" },
+];
+
+
+
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-8">
       {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-muted/50">
-            Advertising Integration
-          </Badge>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Link href="/docs" className="hover:text-foreground">Docs</Link>
+          <span>/</span>
+          <Link href="/docs/integrations" className="hover:text-foreground">Integrations</Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-            <Image 
-              src="/images/integrations/facebook-ads.png" 
-              alt="Facebook Ads logo"
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain"
+          <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border shadow-sm">
+          <Image 
+            src="/images/integrations/facebook-ads.png" 
+            alt="Facebook Ads logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
             />
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">Facebook Ads Integration</h1>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">Facebook Ads</h1>
+            <p className="text-xl text-muted-foreground">
+              Analyze your Facebook and Instagram advertising performance using natural language
+            </p>
+          </div>
         </div>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          Connect your Facebook Ads account to analyze campaign performance, audience insights, 
-          and get AI-powered recommendations for better social media advertising ROI.
-        </p>
+        <div className="flex gap-2">
+          <Badge variant="secondary" className="gap-1">
+            <Users className="h-3 w-3" />
+            Social Advertising
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Clock className="h-3 w-3" />
+            2 min setup
+          </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Shield className="h-3 w-3" />
+            OAuth 2.0
+          </Badge>
+        </div>
       </div>
 
-      {/* Overview */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">What You'll Get</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Campaign Analytics</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Track reach, impressions, CTR, CPC, and conversion metrics across all Facebook and Instagram campaigns.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">Audience Insights</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Analyze demographics, interests, behaviors, and custom audience performance in detail.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-4 w-4 text-primary" />
-              <h4 className="font-medium">ROI Optimization</h4>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Optimize ROAS, CPA, and budget allocation across campaigns and ad sets.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* Prerequisites */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Before You Connect</h2>
-        <div className="p-4 rounded-lg border bg-muted/20">
-          <h3 className="font-medium mb-3">Requirements</h3>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Facebook Business Manager account with active ad accounts
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Admin access to the Facebook ad accounts you want to connect
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Facebook Pixel installed on your website (for conversion tracking)
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-green-500" />
-              Two-factor authentication enabled on Facebook account (recommended)
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div className="space-y-4">
+        <h2 id="prerequisites" className="text-2xl font-semibold">Prerequisites</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Facebook Business Manager Account</p>
+                  <p className="text-sm text-muted-foreground">
+                    You need a Facebook Business Manager account with active ad accounts
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Admin Access</p>
+                  <p className="text-sm text-muted-foreground">
+                    You must have admin access to the Facebook ad accounts you want to connect
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium">Active Campaigns</p>
+                  <p className="text-sm text-muted-foreground">
+                    Your Facebook ad accounts should have active or historical campaign data
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
 
-      {/* Connection Steps */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Connection Steps</h2>
+      <Separator />
+
+      {/* Step-by-Step Connection Guide */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Connection Guide</h2>
         
         {/* Step 1 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">1</div>
-            <h3 className="text-lg font-medium">Access Integration Settings</h3>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              1
+            </div>
+            <h3 className="text-xl font-semibold">Navigate to Integrations</h3>
           </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">In your Datapad workspace:</p>
-            <ol className="text-sm text-muted-foreground space-y-1">
-              <li>1. Navigate to Settings → Integrations</li>
-              <li>2. Locate "Facebook Ads" in the Advertising section</li>
-              <li>3. Click "Connect Account"</li>
-            </ol>
-          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - In your Datapad workspace, click on the "Data" tab from the left sidebar. 
+                </p>
+                <p className="text-muted-foreground">- Then click on the "Add New Source" button</p>
+                <p className="text-muted-foreground">- Find "Facebook Ads" in the list of data sources.</p>
+                {/* Screenshot of integrations page */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/fbads-connect.png"
+                    alt="Facebook Ads integration in Datapad - Navigate to integrations and click Connect"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                  <Copy className="h-4 w-4 text-muted-foreground" />
+                  <code className="text-sm">Workspace → Data → Add New Source → Facebook Ads</code>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Step 2 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">2</div>
-            <h3 className="text-lg font-medium">Facebook Authorization</h3>
-          </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">Complete the Facebook OAuth process:</p>
-            <div className="p-3 rounded border bg-background">
-              <ol className="text-sm space-y-1">
-                <li>1. Log in to your Facebook account</li>
-                <li>2. Review the permissions requested by Datapad</li>
-                <li>3. Select the ad accounts you want to connect</li>
-                <li>4. Grant access to read advertising insights</li>
-              </ol>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              2
             </div>
-            <div className="p-3 rounded border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
-              <p className="text-sm text-blue-700 dark:text-blue-300">
-                💡 <strong>Permissions:</strong> Datapad requests read-only access to ads insights. We cannot create, modify, or delete your campaigns.
-              </p>
-            </div>
+            <h3 className="text-xl font-semibold">Authenticate with Facebook</h3>
           </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - Click "Connect Facebook Ads" and you'll be redirected to Facebook's OAuth flow. You will be asked to grant access to Datapad. Accept it.
+                </p>
+                
+                <Alert>
+                  <Shield className="h-4 w-4" />
+                  <AlertDescription>
+                    Datapad uses OAuth 2.0 for secure authentication. We only request read-only access to your Facebook Ads data.
+                  </AlertDescription>
+                </Alert>
+                
+                {/* Screenshot of OAuth consent screen */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/fbads-oauth.png"
+                    alt="Facebook OAuth consent screen for Facebook Ads integration"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-medium">Permissions Requested:</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Read access to Facebook Ads insights and reporting data</li>
+                    <li>• View your Facebook ad account information</li>
+                    <li>• Access to campaign performance metrics</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Step 3 */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">3</div>
-            <h3 className="text-lg font-medium">Configure Data Sync</h3>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              3
+            </div>
+            <h3 className="text-xl font-semibold">Select Accounts to Connect</h3>
           </div>
-          <div className="ml-10 space-y-3">
-            <p className="text-muted-foreground">Choose your data sync preferences:</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-2">Account & Campaign Selection</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Select specific ad accounts</li>
-                  <li>• Include Facebook and Instagram campaigns</li>
-                  <li>• Choose historical data period (max: 37 months)</li>
-                </ul>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  - Choose which Facebook ad accounts you want to connect to Datapad.
+                </p>
+                
+                {/* Screenshot of account selection */}
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/fbads-account-select.png"
+                    alt="Select Facebook ad accounts to connect to Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">💡 Pro Tip</h4>
+                  <p className="text-sm text-blue-800 dark:text-blue-200">
+                    You can connect multiple ad accounts from different Business Manager accounts. Start with your main advertising account and add more later.
+                  </p>
+                </div>
               </div>
-              <div className="p-3 rounded border bg-background">
-                <h4 className="font-medium text-sm mb-2">Update Frequency</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Real-time: Every 30 minutes</li>
-                  <li>• Hourly: For detailed reporting</li>
-                  <li>• Daily: For basic analytics</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
+      </div>
 
-        {/* Step 4 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary font-medium text-sm">4</div>
-            <h3 className="text-lg font-medium">Initial Data Import</h3>
-          </div>
-          <div className="ml-10 space-y-2">
-            <p className="text-muted-foreground">Data sync duration depends on account size:</p>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Small accounts (1-5 campaigns): 3-5 minutes</li>
-              <li>• Medium accounts (5-50 campaigns): 10-20 minutes</li>
-              <li>• Large accounts (50+ campaigns): 20-45 minutes</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <Separator />
 
-      {/* Available Metrics */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Available Metrics</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Campaign Performance</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Reach & Frequency</li>
-                <li>• Impressions & CPM</li>
-                <li>• Clicks & CTR</li>
-                <li>• Cost per Click (CPC)</li>
-                <li>• Video Views & View Rate</li>
+      {/* Available Metrics & Dimensions */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Available Metrics & Dimensions</h2>
+        <p className="text-muted-foreground">
+          Once connected, you can analyze all your Facebook Ads data using natural language queries.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Metrics Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Metrics
+              </CardTitle>
+              <CardDescription>
+                Performance measurements you can analyze
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Clicks</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Impressions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Spend</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CPC</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CPM</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">CTR</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Reach</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Frequency</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Conversions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Purchases</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Leads</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Link Clicks</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Landing Page Views</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Post Engagements</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Mobile App Installs</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Cost Per Lead</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Cost Per Purchase</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Cost Per Conversion</span>
+                </li>
               </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Conversion Tracking</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Conversions & Conversion Rate</li>
-                <li>• Cost per Acquisition (CPA)</li>
-                <li>• Return on Ad Spend (ROAS)</li>
-                <li>• Conversion Value</li>
-                <li>• Attribution Windows</li>
+            </CardContent>
+          </Card>
+
+          {/* Dimensions Card */}
+          <Card className="hover:shadow-md transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Dimensions
+              </CardTitle>
+              <CardDescription>
+                Ways to segment and filter your data
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Date</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Account Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Set Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Name</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Ad Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Campaign Id</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Quality Ranking</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Country</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Age</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm font-medium">Gender</span>
+                </li>
               </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Engagement Metrics</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Post Engagement Rate</li>
-                <li>• Likes, Comments, Shares</li>
-                <li>• Video Engagement</li>
-                <li>• Page Likes & Follows</li>
-                <li>• Social Actions</li>
-              </ul>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Audience Insights</h3>
-            <div className="p-4 rounded-lg border bg-muted/20">
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Demographics (Age, Gender)</li>
-                <li>• Location Performance</li>
-                <li>• Device & Platform Breakdown</li>
-                <li>• Custom Audience Performance</li>
-                <li>• Lookalike Audience Effectiveness</li>
-              </ul>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
+
+      <Separator />
 
       {/* Example Queries */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Example AI Queries</h2>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold">Example Queries</h2>
         <p className="text-muted-foreground">
-          Ask these types of questions to get insights from your Facebook Ads data:
+          Here are some example questions you can ask once your Facebook Ads data is connected:
         </p>
-        <div className="space-y-3">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Performance Analysis</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "Which age group has the highest conversion rate?"</li>
-              <li>• "Compare Instagram vs Facebook campaign performance"</li>
-              <li>• "What's our average ROAS by campaign objective?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Audience Optimization</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "Which custom audiences perform best?"</li>
-              <li>• "Show me lookalike audience effectiveness"</li>
-              <li>• "What interests have the lowest CPA?"</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Creative Performance</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• "Which ad formats have the highest engagement?"</li>
-              <li>• "Compare video vs image ad performance"</li>
-              <li>• "Show me creative fatigue patterns"</li>
-            </ul>
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {exampleQueries.map((query, index) => (
+            <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+        
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about platforms ("Instagram vs Facebook performance")</li>
+            <li>• Ask for audience insights ("which demographics convert best")</li>
+            <li>• Request optimization suggestions ("how to improve ROAS")</li>
+            <li>• Compare campaign objectives ("video views vs conversions")</li>
+          </ul>
+        </div>
+      </div>
+
+      <Separator />
 
       {/* Troubleshooting */}
-      <section className="space-y-6">
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Troubleshooting</h2>
+        
         <div className="space-y-4">
-          <div className="p-4 rounded-lg border bg-muted/20">
-            <h4 className="font-medium mb-2">Common Issues</h4>
-            <div className="space-y-3 text-sm">
-              <div>
-                <strong>Missing ad accounts:</strong> Ensure you have admin access and the accounts are active in Business Manager.
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <AlertCircle className="h-5 w-5 text-orange-500" />
+                Common Issues
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium mb-1">Missing ad accounts</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you don't see all your Facebook ad accounts:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Ensure you have admin access to all accounts in Business Manager</li>
+                    <li>• Check that the accounts are active and not restricted</li>
+                    <li>• Verify you're signed in with the correct Facebook account</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Incomplete data</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If some campaign data is missing:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Facebook Ads API may have delays up to 48 hours for attribution metrics</li>
+                    <li>• Check if campaigns were active during the requested time period</li>
+                    <li>• Some data may be limited due to iOS 14.5+ privacy changes</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h4 className="font-medium mb-1">Permission errors</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you're getting permission errors:
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                    <li>• Re-authorize if you've changed roles or account access has been modified</li>
+                    <li>• Contact your Business Manager admin to verify permissions</li>
+                    <li>• Try disconnecting and reconnecting the integration</li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <strong>Incomplete data:</strong> Facebook Ads API may have delays up to 48 hours for some attribution metrics.
-              </div>
-              <div>
-                <strong>Permission errors:</strong> Re-authorize if you've changed roles or if account access has been modified.
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t">
-        <Link href="/docs/integrations/google-ads">
-          <Button variant="outline" className="gap-2">
-            <ArrowRight className="h-4 w-4 rotate-180" />
-            Google Ads Integration
-          </Button>
-        </Link>
-        <Link href="/docs/integrations/mongodb">
-          <Button className="gap-2">
-            MongoDB Integration
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
       </div>
     </div>
   );

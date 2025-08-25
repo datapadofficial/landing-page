@@ -18,14 +18,36 @@ import {
   PlayCircle,
   Copy,
   Key,
-  Globe
+  Globe,
+  Info
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { DocSection } from "@/components/docs/doc-section";
+import { FeatureGrid } from "@/components/docs/feature-grid";
 
 export const metadata: Metadata = {
   title: "PostgreSQL Integration",
   description: "Connect your PostgreSQL database to Datapad and query your data using natural language instead of SQL.",
 };
+
+const features = [
+  {
+    icon: Database,
+    title: "Natural Language Queries",
+    description: "Ask questions in plain English instead of writing SQL queries to get insights from your PostgreSQL data."
+  },
+  {
+    icon: Shield,
+    title: "Secure Connections",
+    description: "SSL encryption and read-only access ensure your database remains secure while providing real-time data access."
+  },
+  {
+    icon: Code,
+    title: "AI-Powered SQL Generation",
+    description: "Advanced AI automatically converts your questions into optimized SQL queries that you can view and learn from."
+  }
+];
 
 const exampleQueries = [
   "Show me the top 10 customers by revenue this month",
@@ -38,24 +60,21 @@ const exampleQueries = [
 
 const connectionMethods = [
   {
-    title: "Direct Connection",
+    title: "Database Connection Form",
     description: "Connect directly using your database credentials",
     icon: Database,
-    recommended: true,
-    security: "SSL encryption required",
+    security: "SSL encryption",
   },
   {
     title: "Connection String",
     description: "Use a PostgreSQL connection string",
     icon: Code,
-    recommended: false,
-    security: "SSL encryption optional",
+    security: "SSL encryption",
   },
   {
     title: "SSH Tunnel",
     description: "Connect through an SSH tunnel for extra security",
     icon: Shield,
-    recommended: true,
     security: "Maximum security",
   },
 ];
@@ -71,8 +90,14 @@ export default function PostgreSQLIntegrationPage() {
           <Link href="/docs/integrations" className="hover:text-foreground">Integrations</Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-            <Database className="h-8 w-8 text-white" />
+          <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border shadow-sm">
+            <Image
+              src="/images/integrations/postgres.png"
+              alt="PostgreSQL logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-4xl font-bold tracking-tight">PostgreSQL</h1>
@@ -88,7 +113,7 @@ export default function PostgreSQLIntegrationPage() {
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Clock className="h-3 w-3" />
-            10 min setup
+            5 min setup
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Shield className="h-3 w-3" />
@@ -97,44 +122,9 @@ export default function PostgreSQLIntegrationPage() {
         </div>
       </div>
 
-      {/* Quick Start */}
-      <Card className="border-primary/20 bg-primary/5">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <PlayCircle className="h-5 w-5 text-primary" />
-            Quick Start
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex-1">
-              <p className="text-sm text-muted-foreground mb-3">
-                Connect your PostgreSQL database and start querying with natural language in minutes.
-              </p>
-              <ul className="space-y-1 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Secure SSL connection</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>No SQL knowledge required</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Real-time data access</span>
-                </li>
-              </ul>
-            </div>
-            <Button asChild size="lg" className="gap-2">
-              <Link href="https://app.datapad.io/integrations/postgresql">
-                <ExternalLink className="h-4 w-4" />
-                Connect Database
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <DocSection title="What You'll Get">
+        <FeatureGrid features={features} />
+      </DocSection>
 
       {/* Prerequisites */}
       <div className="space-y-4">
@@ -172,7 +162,7 @@ export default function PostgreSQLIntegrationPage() {
               <li className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                 <div>
-                  <p className="font-medium">SSL Certificate (Recommended)</p>
+                  <p className="font-medium">SSL Certificate</p>
                   <p className="text-sm text-muted-foreground">
                     SSL encryption for secure data transmission
                   </p>
@@ -194,25 +184,20 @@ export default function PostgreSQLIntegrationPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {connectionMethods.map((method) => (
-            <Card key={method.title} className={`hover:shadow-md transition-shadow ${method.recommended ? 'border-primary/50 bg-primary/5' : ''}`}>
+            <Card key={method.title} className={`hover:shadow-md transition-shadow`}>
               <CardHeader className="text-center">
-                <div className={`mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-2 ${method.recommended ? 'bg-primary/20' : 'bg-muted'}`}>
-                  <method.icon className={`h-6 w-6 ${method.recommended ? 'text-primary' : 'text-muted-foreground'}`} />
+                <div className={`mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-2 bg-muted`}>
+                  <method.icon className={`h-6 w-6 text-muted-foreground`} />
                 </div>
-                <CardTitle className="text-lg flex items-center gap-2">
+                <CardTitle className="text-lg text-center">
                   {method.title}
-                  {method.recommended && (
-                    <Badge variant="secondary" className="text-xs">Recommended</Badge>
-                  )}
                 </CardTitle>
-                <CardDescription>{method.description}</CardDescription>
+                <CardDescription className="text-center">{method.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Shield className="h-4 w-4 text-green-500" />
-                    <span className="text-muted-foreground">{method.security}</span>
-                  </div>
+              <CardContent className="text-center">
+                <div className="flex items-center justify-center gap-2 text-sm">
+                  <Shield className="h-4 w-4 text-green-500" />
+                  <span className="text-muted-foreground">{method.security}</span>
                 </div>
               </CardContent>
             </Card>
@@ -222,53 +207,80 @@ export default function PostgreSQLIntegrationPage() {
 
       <Separator />
 
-      {/* Step-by-Step Connection Guide */}
+      {/* Connection Guide */}
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold">Connection Guide</h2>
         
-        {/* Step 1 */}
+        {/* Step 1: Connect in Datapad */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
               1
             </div>
-            <h3 className="text-xl font-semibold">Gather Database Information</h3>
+            <h3 className="text-xl font-semibold">Access PostgreSQL Integration</h3>
           </div>
           
           <Card>
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  Collect the following information from your PostgreSQL database:
+                  Navigate to Integrations in Datapad and select PostgreSQL:
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <h4 className="font-medium text-sm mb-1">Host & Port</h4>
-                      <p className="text-xs text-muted-foreground">e.g., localhost:5432 or db.example.com:5432</p>
-                    </div>
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <h4 className="font-medium text-sm mb-1">Database Name</h4>
-                      <p className="text-xs text-muted-foreground">The specific database to connect to</p>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <h4 className="font-medium text-sm mb-1">Username & Password</h4>
-                      <p className="text-xs text-muted-foreground">Credentials with read access to your data</p>
-                    </div>
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <h4 className="font-medium text-sm mb-1">SSL Settings</h4>
-                      <p className="text-xs text-muted-foreground">SSL mode and certificate if required</p>
-                    </div>
-                  </div>
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/psql-connect.png"
+                    alt="PostgreSQL connect screen on Datapad UI"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* Step 2: Fill Connection String */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+              2
+            </div>
+            <h3 className="text-xl font-semibold">Fill Connection String</h3>
+          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  Enter your PostgreSQL database connection string:
+                </p>
+                
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/psql-cs.png"
+                    alt="PostgreSQL connection form in Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Required Fields:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                      <li>• Connection Name</li>
+                      <li>• Connection String</li>
+                      <li>• Database Schema</li>
+                    </ul>
+                  </div>
+                </div>
                 <Alert>
-                  <Lock className="h-4 w-4" />
+                  <Info className="h-4 w-4" />
                   <AlertDescription>
-                    For security, we recommend creating a dedicated read-only user for Datapad rather than using your admin credentials.
+                    The PostgreSQL connection string format is: postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME
                   </AlertDescription>
                 </Alert>
               </div>
@@ -276,12 +288,53 @@ export default function PostgreSQLIntegrationPage() {
           </Card>
         </div>
 
-        {/* Step 2 */}
+        {/* Step 3: Fill Connection Form */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
-              2
+              3
             </div>
+            <h3 className="text-xl font-semibold">Fill Connection Details</h3>
+          </div>
+          
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  Enter your PostgreSQL database connection details:
+                </p>
+                
+                <div className="rounded-lg overflow-hidden border">
+                  <Image
+                    src="/images/docs/psql-form.png"
+                    alt="PostgreSQL connection form in Datapad"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Required Fields:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                      <li>• Database Host</li>
+                      <li>• Port (default: 5432)</li>
+                      <li>• Database Name</li>
+                      <li>• Username</li>
+                      <li>• Password</li>
+                      <li>• SSL Mode</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Create Read-Only User */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
             <h3 className="text-xl font-semibold">Create Read-Only User (Recommended)</h3>
           </div>
           
@@ -319,115 +372,12 @@ GRANT SELECT ON TABLES TO datapad_readonly;`}
                   </pre>
                 </div>
                 
-                <div className="bg-yellow-50 dark:bg-yellow-950/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
-                  <h4 className="font-medium text-yellow-900 dark:text-yellow-100 mb-2">⚡ Quick Setup</h4>
-                  <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                    Replace <code>your_database</code> with your actual database name and choose a strong password for the datapad_readonly user.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Step 3 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
-              3
-            </div>
-            <h3 className="text-xl font-semibold">Connect in Datapad</h3>
-          </div>
-          
-          <Card>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Navigate to Integrations in Datapad and select PostgreSQL:
-                </p>
-                
-                {/* Placeholder for connection form screenshot */}
-                <div className="bg-muted/30 border-2 border-dashed border-muted-foreground/20 rounded-lg p-8 text-center">
-                  <Database className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Screenshot: PostgreSQL connection form</p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium">Connection Form Fields:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-                      <li>• Database Host</li>
-                      <li>• Port (default: 5432)</li>
-                      <li>• Database Name</li>
-                      <li>• Username</li>
-                      <li>• Password</li>
-                      <li>• SSL Mode</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium">Advanced Options:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-                      <li>• Connection Timeout</li>
-                      <li>• Schema Selection</li>
-                      <li>• SSH Tunnel Settings</li>
-                      <li>• Custom Connection String</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Step 4 */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
-              4
-            </div>
-            <h3 className="text-xl font-semibold">Test & Verify Connection</h3>
-          </div>
-          
-          <Card>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Datapad will test the connection and verify access to your database:
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      Connection Tests
-                    </h4>
-                    <ul className="text-sm text-muted-foreground space-y-1 ml-6">
-                      <li>• Network connectivity</li>
-                      <li>• Authentication verification</li>
-                      <li>• SSL certificate validation</li>
-                      <li>• Schema access confirmation</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium flex items-center gap-2">
-                      <Database className="h-4 w-4 text-blue-500" />
-                      Schema Discovery
-                    </h4>
-                    <ul className="text-sm text-muted-foreground space-y-1 ml-6">
-                      <li>• Table and view detection</li>
-                      <li>• Column type mapping</li>
-                      <li>• Relationship discovery</li>
-                      <li>• Sample data analysis</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <Button asChild className="gap-2">
-                  <Link href="/docs/get-started/quickstart#step-2">
-                    <ArrowRight className="h-4 w-4" />
-                    Start Querying Your Data
-                  </Link>
-                </Button>
+                <Alert>
+                  <Lock className="h-4 w-4" />
+                  <AlertDescription>
+                    Replace your_database with your actual database name and choose a strong password for the datapad_readonly user.
+                  </AlertDescription>
+                </Alert>
               </div>
             </CardContent>
           </Card>
@@ -438,9 +388,9 @@ GRANT SELECT ON TABLES TO datapad_readonly;`}
 
       {/* Example Queries */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-semibold">Example Natural Language Queries</h2>
+        <h2 className="text-2xl font-semibold">Example Queries</h2>
         <p className="text-muted-foreground">
-          Once connected, you can ask questions about your data without writing SQL:
+          Here are some example questions you can ask once your PostgreSQL data is connected:
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -451,114 +401,45 @@ GRANT SELECT ON TABLES TO datapad_readonly;`}
                   <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium mt-0.5">
                     {index + 1}
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium group-hover:text-primary transition-colors mb-2">
-                      "{query}"
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      AI will generate and execute the SQL automatically
-                    </p>
-                  </div>
+                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
+                    "{query}"
+                  </p>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
         
-        <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Code className="h-5 w-5" />
-              Behind the Scenes
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
-              Datapad automatically converts your natural language questions into optimized SQL queries. 
-              You can always view the generated SQL to learn and verify the results.
-            </p>
-            <Button asChild variant="outline" size="sm">
-              <Link href="/docs/features/text-to-sql-python">
-                Learn More About Text-to-SQL
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="bg-muted/50 p-4 rounded-lg">
+          <h4 className="font-medium mb-2">💬 Natural Language Tips</h4>
+          <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+            <li>• Be specific about time periods ("last 30 days", "this month vs last month")</li>
+            <li>• Include table names when possible ("orders table", "users table")</li>
+            <li>• Ask for comparisons to get more insights ("compare X vs Y")</li>
+            <li>• Use business terms that align with your data schema</li>
+          </ul>
+        </div>
       </div>
 
       <Separator />
 
-      {/* Security & Best Practices */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-semibold">Security & Best Practices</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Shield className="h-5 w-5 text-green-500" />
-                Security Measures
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>SSL/TLS encryption in transit</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Read-only database access</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Encrypted credential storage</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>IP whitelisting support</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>SOC 2 Type II compliance</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Server className="h-5 w-5 text-blue-500" />
-                Best Practices
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Use dedicated read-only user</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Enable SSL encryption</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Regularly rotate credentials</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Monitor connection logs</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Test with staging data first</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
+      {/* Behind the Scenes */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Behind the Scenes</h2>
+        <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Code className="h-5 w-5" />
+              AI-Powered SQL Generation
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Datapad automatically converts your natural language questions into optimized SQL queries. 
+              You can always view the generated SQL to learn and verify the results.
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       <Separator />
@@ -600,7 +481,6 @@ GRANT SELECT ON TABLES TO datapad_readonly;`}
                   <li>• Verify username and password are correct</li>
                   <li>• Check if the user has access to the database</li>
                   <li>• Ensure pg_hba.conf allows connections from Datapad</li>
-                  <li>• Try connecting with the same credentials using psql</li>
                 </ul>
               </div>
               
@@ -622,35 +502,7 @@ GRANT SELECT ON TABLES TO datapad_readonly;`}
           </CardContent>
         </Card>
       </div>
-
-      {/* Support */}
-      <Card className="bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
-        <CardHeader>
-          <CardTitle>Need Help?</CardTitle>
-          <CardDescription>
-            Our team is here to help you connect your PostgreSQL database successfully
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild variant="outline">
-              <Link href="mailto:support@datapad.io?subject=PostgreSQL Integration Help">
-                Contact Support
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="https://calendly.com/datapad/database-setup" target="_blank" className="gap-2">
-                Book Database Setup Call <ExternalLink className="h-3 w-3" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/docs/guides/data-security">
-                Security Guide
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      
     </div>
   );
 }

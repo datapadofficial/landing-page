@@ -892,7 +892,7 @@ export const integrations: Integration[] = [
   {
     id: "google-mybusiness",
     name: "Google My Business",
-    category: "analytics",
+    category: "social",
     icon: "/images/integrations/google-mybusiness.png",
     website: "https://business.google.com",
     headline:
