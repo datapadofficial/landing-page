@@ -3,7 +3,7 @@
 import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
 import { AttributionLink } from "@/components/attribution-link";
-import { PieChart } from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 interface TeamHeroProps {
   team: Team;
@@ -20,10 +20,12 @@ export function TeamHero({ team, customContent }: TeamHeroProps) {
               className="flex size-16 items-center justify-center rounded-2xl border bg-background drop-shadow-lg"
               style={{ color: `var(--${team.color})` }}
             >
-              <PieChart className="size-8" />
+              <DynamicIcon name={team.icon as IconName} className="size-8" />
             </div>
             <div className="text-center">
-              <h1 className="max-w-6xl">Crunch {team.name} Data Like a Boss</h1>
+              <h1 className="max-w-6xl">
+                {team.heroTitle || `Crunch ${team.name} Data Like a Boss`}
+              </h1>
             </div>
           </div>
 

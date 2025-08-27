@@ -77,7 +77,7 @@ export const teams: Team[] = [
           "Territory management and commission calculations happen in spreadsheets. Errors are common and disputes waste everyone's time.",
       },
     ],
-    priority: 5,
+    priority: 6,
   },
   {
     slug: "retail-ecommerce",
@@ -111,7 +111,43 @@ export const teams: Team[] = [
           "Customer behavior insights are buried in complex analytics tools. Can't understand why visitors leave without buying.",
       },
     ],
-    priority: 6,
+    priority: 7,
+  },
+  {
+    slug: "education",
+    name: "Education",
+    description:
+      "Academic data analysis, research projects, and statistical homework support",
+    icon: "book-open",
+    color: "chart-green",
+    heroTitle: "Skip the Python Struggle, Get Straight to Insights",
+    seoTitle: "Education Analytics & Academic Data Analysis | Datapad",
+    seoDescription:
+      "Empower students and educators with AI-powered data analysis for research, statistics homework, medical data analysis, and academic projects.",
+    featuredIntegrations: ["csv", "google-sheets", "python"],
+    featuredFeatures: ["ai-data-agent", "text-to-sql-python", "learning-layer"],
+    showWorkflows: false,
+    painPoints: [
+      {
+        icon: "brain",
+        title: "Python is Hard",
+        description:
+          "Statistics and data science homework requires expensive software and advanced coding skills. Students struggle with R, Python, and SPSS without proper guidance.",
+      },
+      {
+        icon: "clock",
+        title: "Data Crunching Takes Majority of Research Time",
+        description:
+          "Medical and research data analysis takes weeks to learn proper techniques. Students waste time on data cleaning instead of focusing on insights and conclusions.",
+      },
+      {
+        icon: "help-circle",
+        title: "No Real-Time Academic Coaching",
+        description:
+          "Office hours are limited and tutoring is expensive. Students get stuck on data interpretation and statistical concepts with no immediate help available.",
+      },
+    ],
+    priority: 2,
   },
   {
     slug: "content-seo",
@@ -144,7 +180,7 @@ export const teams: Team[] = [
           "Content efforts can't be connected to actual business outcomes. Hard to prove content ROI or justify content marketing budgets.",
       },
     ],
-    priority: 2,
+    priority: 3,
   },
   {
     slug: "social-media",
@@ -183,7 +219,7 @@ export const teams: Team[] = [
           "Influencer campaigns cost thousands but ROI is impossible to calculate. Can't track which partnerships actually drive sales or brand awareness.",
       },
     ],
-    priority: 7,
+    priority: 8,
   },
   {
     slug: "product-management",
@@ -217,7 +253,7 @@ export const teams: Team[] = [
           "Customer feedback is scattered across support tickets, app store reviews, and user interviews. Can't connect feedback to actual product usage patterns.",
       },
     ],
-    priority: 8,
+    priority: 9,
   },
   {
     slug: "finance",
@@ -255,7 +291,7 @@ export const teams: Team[] = [
           "Department spending insights arrive after budgets are already blown. Can't track ROI by department or optimize resource allocation.",
       },
     ],
-    priority: 9,
+    priority: 10,
   },
   {
     slug: "agency",
@@ -294,7 +330,7 @@ export const teams: Team[] = [
           "Don't know which clients are actually profitable. Time tracking and cost allocation are manual, making pricing and resource decisions difficult.",
       },
     ],
-    priority: 3,
+    priority: 4,
   },
   {
     slug: "growth",
@@ -327,7 +363,7 @@ export const teams: Team[] = [
           "Growth experiments lack proper measurement and statistical significance. Can't tell if improvements are real or just random variance.",
       },
     ],
-    priority: 10,
+    priority: 11,
   },
   {
     slug: "supply-chain",
@@ -365,7 +401,7 @@ export const teams: Team[] = [
           "Cost optimization opportunities are buried in spreadsheets. Can't identify which suppliers, routes, or logistics changes would save the most money.",
       },
     ],
-    priority: 11,
+    priority: 12,
   },
   {
     slug: "crm",
@@ -399,6 +435,6 @@ export const teams: Team[] = [
           "Customer lifetime value calculations are updated quarterly at best. Can't make real-time decisions about customer investment and resource allocation.",
       },
     ],
-    priority: 4,
+    priority: 5,
   },
 ];
