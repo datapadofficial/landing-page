@@ -7,6 +7,7 @@ import { getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BOOKING_LINK } from "@/lib/constants";
 import {
   Card,
   CardContent,
@@ -422,7 +423,10 @@ export default async function IntegrationsPage() {
                 </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <AttributionLink buttonLocation="integrations-page-cta-demo">
+                <AttributionLink
+                  href={BOOKING_LINK}
+                  buttonLocation="integrations-page-cta-demo"
+                >
                   Book a Demo
                 </AttributionLink>
               </Button>

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -34,7 +35,10 @@ const MainCTA = () => {
               </AttributionLink>
             </Button>
             <Button asChild variant="outline">
-              <AttributionLink buttonLocation="main-cta-demo">
+              <AttributionLink
+                href={BOOKING_LINK}
+                buttonLocation="main-cta-demo"
+              >
                 Book a Demo
                 <Play className="ml-2" />
               </AttributionLink>

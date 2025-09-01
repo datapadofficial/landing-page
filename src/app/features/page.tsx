@@ -1,6 +1,7 @@
 import { getFeaturesByCategory } from "@/lib/feature-utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { BOOKING_LINK } from "@/lib/constants";
 import Link from "next/link";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import { AttributionLink } from "@/components/attribution-link";
@@ -50,7 +51,10 @@ export default function FeaturesPage() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              <AttributionLink buttonLocation="features-page-hero-demo">
+              <AttributionLink
+                href={BOOKING_LINK}
+                buttonLocation="features-page-hero-demo"
+              >
                 Book a Demo
               </AttributionLink>
             </Button>
@@ -253,7 +257,10 @@ export default function FeaturesPage() {
                   </AttributionLink>
                 </Button>
                 <Button asChild variant="secondary" size="lg">
-                  <AttributionLink buttonLocation="features-page-cta-demo">
+                  <AttributionLink
+                    href={BOOKING_LINK}
+                    buttonLocation="features-page-cta-demo"
+                  >
                     Book a Demo
                   </AttributionLink>
                 </Button>

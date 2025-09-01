@@ -8,6 +8,7 @@ import { AnnouncementBadge } from "@/components/ui/announcement-badge";
 import { AnimatedTicker } from "@/components/ui/animated-ticker";
 import { cn } from "@/lib/utils";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 
 interface MainHeroProps {
   heading?: string;
@@ -82,7 +83,7 @@ const MainHero = ({
             size="lg"
             className="w-full sm:w-fit min-w-42"
           >
-            <AttributionLink href={button.url} buttonLocation="hero-demo">
+            <AttributionLink href={BOOKING_LINK} buttonLocation="hero-demo">
               Book a Demo
             </AttributionLink>
           </Button>
