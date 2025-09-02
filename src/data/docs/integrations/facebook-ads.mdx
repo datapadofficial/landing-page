@@ -1,0 +1,115 @@
+---
+title: "Facebook Ads Integration"
+description: "Connect your Facebook Ads account to Datapad and get AI-powered insights that turn ad spend into instant optimization actions."
+category: "advertising"
+icon: "/images/integrations/facebook-ads.png"
+website: "https://www.facebook.com/business/ads"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Facebook Ads Integration - AI-Powered Campaign Optimization | Datapad"
+seoDescription: "Connect Facebook Ads to Datapad and get AI insights that tell you exactly which ads to scale, pause, or optimize with specific recommendations."
+features:
+  - icon: "Target"
+    title: "Instant ROAS Analysis"
+    description: "Get instant ROAS analysis across all campaigns with actionable next steps and specific optimization recommendations."
+  - icon: "Users"
+    title: "AI Audience Insights" 
+    description: "AI identifies your best-performing audiences and suggests lookalike expansions for scaling success."
+  - icon: "DollarSign"
+    title: "Smart Budget Allocation"
+    description: "Automatic budget reallocation recommendations based on performance trends and ROI analysis."
+---
+
+## Prerequisites
+
+<FeatureItem>**Facebook Business Account** - An active Facebook Business Manager account with ad spending history</FeatureItem>
+<FeatureItem>**Ad Account Access** - Admin or Advertiser access to your Facebook Ad accounts</FeatureItem>
+<FeatureItem>**Campaign Data** - At least 30 days of campaign data for meaningful optimization insights</FeatureItem>
+
+## Connection Methods
+
+### Facebook OAuth
+Secure connection using Facebook's OAuth system with read-only permissions to your ad data.
+
+### Business Manager Integration
+Connect through Facebook Business Manager for multi-account access and team collaboration.
+
+## Connection Guide
+
+### Step 1: Access Facebook Ads Integration
+
+Navigate to Integrations in Datapad and select Facebook Ads:
+
+![Facebook Ads connect screen on Datapad UI](/images/docs/fbads-connect.png)
+
+### Step 2: Authenticate with Facebook
+
+Click "Connect with Facebook" and sign in with your Facebook Business account:
+
+![Facebook Ads OAuth authentication](/images/docs/fbads-oauth.png)
+
+### Step 3: Select Ad Accounts
+
+Choose which Facebook Ad accounts you want to analyze:
+
+![Facebook Ads account selection](/images/docs/fbads-account-select.png)
+
+**Required Selections:**
+- Facebook Business Account
+- Ad Accounts to Connect
+- Data Access Permissions
+
+<InfoItem>Datapad only requests read-only access to your Facebook Ads data and never modifies your campaigns or settings.</InfoItem>
+
+**Available Analysis:**
+- Campaign Performance & ROAS
+- Audience Demographics & Behavior
+- Ad Creative Performance
+- Conversion Tracking & Attribution
+- Budget Utilization & Recommendations
+
+## Example Queries
+
+Here are some example questions you can ask once your Facebook Ads data is connected:
+
+<StepItem>"Which campaigns have the highest ROAS and should I scale them?"</StepItem>
+<StepItem>"What audiences are converting best and how can I expand them?"</StepItem>
+<StepItem>"Which ad creatives are driving the most conversions?"</StepItem>
+<StepItem>"How should I reallocate my budget across campaigns for better ROI?"</StepItem>
+<StepItem>"What's my cost per acquisition by audience segment?"</StepItem>
+<StepItem>"Which campaigns are spending budget without conversions?"</StepItem>
+
+### 💬 Optimization Tips
+
+<TipItem>Focus on ROAS rather than just CTR for better profitability insights</TipItem>
+<TipItem>Ask about audience overlap to avoid competing against yourself</TipItem>
+<TipItem>Request creative fatigue analysis for better ad refresh timing</TipItem>
+<TipItem>Compare performance across different campaign objectives</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Facebook Marketing API to fetch your campaign data, performance metrics, and audience insights. Our AI analyzes campaign performance patterns, identifies optimization opportunities, and provides specific recommendations for scaling successful campaigns while eliminating budget waste.
+
+## Troubleshooting
+
+### Authorization failed
+If Facebook authorization fails:
+- Ensure you have admin or advertiser access to the ad accounts
+- Check that your Facebook Business Manager account is properly set up
+- Verify your account isn't restricted by Facebook policies
+- Try disconnecting and reconnecting your Facebook account
+
+### Missing campaign data
+If campaign data is missing:
+- Verify you selected the correct ad accounts during setup
+- Check that campaigns have been running for at least 7 days
+- Ensure you have sufficient spending history for analysis
+- Verify Facebook Pixel is properly implemented for conversion tracking
+
+### ROAS data unavailable
+If ROAS data is missing:
+- Ensure Facebook Pixel or Conversions API is properly set up
+- Check that conversion events are being tracked correctly
+- Verify purchase values are being passed to Facebook
+- Contact support if custom conversion tracking needs configuration

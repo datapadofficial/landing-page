@@ -1,0 +1,166 @@
+---
+title: "Amazon Redshift Integration"
+description: "Connect your Amazon Redshift data warehouse to Datapad and get AI-powered insights that transform analytics into growth acceleration strategies."
+category: "database"
+icon: "/images/integrations/redshift.png"
+website: "https://aws.amazon.com/redshift/"
+setupTime: "4 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Amazon Redshift Integration - Data Warehouse Analytics | Datapad"
+seoDescription: "Connect Amazon Redshift to Datapad and get AI insights from your data warehouse with natural language queries and automatic optimization."
+features:
+  - icon: "Database"
+    title: "Data Warehouse Analytics"
+    description: "AI analyzes your Redshift data warehouse and provides instant insights from massive datasets with optimized columnar storage queries."
+  - icon: "Shield"
+    title: "AWS Security Integration"
+    description: "IAM roles, VPC security groups, and SSL encryption ensure your Redshift data warehouse remains secure and compliant."
+  - icon: "Code"
+    title: "Optimized Redshift SQL"
+    description: "Advanced AI generates optimized Redshift SQL with distribution keys, sort keys, and columnar storage considerations."
+---
+
+## Prerequisites
+
+<FeatureItem>**Amazon Redshift Cluster** - An active Redshift cluster with your data warehouse</FeatureItem>
+<FeatureItem>**Database Access** - Redshift user account with read permissions on target databases and schemas</FeatureItem>
+<FeatureItem>**Network Access** - Cluster accessible through VPC security groups or public access</FeatureItem>
+<FeatureItem>**AWS Credentials** - IAM roles or database credentials for secure access</FeatureItem>
+
+## Connection Methods
+
+Choose the authentication method that fits your AWS environment.
+
+### Database Credentials
+Standard Redshift username and password authentication.
+
+### IAM Database Authentication
+Use AWS IAM roles for temporary database credentials.
+
+### Federated User Access
+Connect through AWS SSO and federated identity providers.
+
+## Connection Guide
+
+### Step 1: Access Redshift Integration
+
+Navigate to Integrations in Datapad and select Amazon Redshift:
+
+![Redshift connect screen on Datapad UI](/images/docs/redshift-connect.png)
+
+### Step 2: Enter Connection Details
+
+Fill in your Redshift cluster information:
+
+![Redshift connection form](/images/docs/redshift-form.png)
+
+**Required Fields:**
+- Cluster Endpoint
+- Port (default: 5439)
+- Database Name
+- Username
+- Password or IAM Role
+- SSL Mode
+
+<InfoItem>Your Redshift cluster endpoint can be found in the AWS Redshift console under cluster properties.</InfoItem>
+
+### Step 3: Configure Security Settings
+
+Set up security and performance options:
+
+![Redshift security configuration](/images/docs/redshift-security.png)
+
+**Configuration Options:**
+- SSL Certificate Verification
+- Connection Pool Settings
+- Query Timeout
+- Schema Selection
+
+### Create Read-Only User (Recommended)
+
+For security, create a dedicated user with read-only permissions:
+
+```sql
+-- Create a new user for Datapad
+CREATE USER datapad_readonly PASSWORD 'SecurePassword123!';
+
+-- Grant connect permission to the database
+GRANT CONNECT ON DATABASE your_database TO datapad_readonly;
+
+-- Grant usage permission on schema
+GRANT USAGE ON SCHEMA your_schema TO datapad_readonly;
+
+-- Grant select permissions on tables
+GRANT SELECT ON ALL TABLES IN SCHEMA your_schema TO datapad_readonly;
+
+-- Grant select permissions on future tables
+ALTER DEFAULT PRIVILEGES IN SCHEMA your_schema GRANT SELECT ON TABLES TO datapad_readonly;
+
+-- Grant access to system tables for metadata
+GRANT SELECT ON pg_catalog.pg_class TO datapad_readonly;
+GRANT SELECT ON pg_catalog.pg_attribute TO datapad_readonly;
+GRANT SELECT ON information_schema.tables TO datapad_readonly;
+GRANT SELECT ON information_schema.columns TO datapad_readonly;
+```
+
+<WarningItem>Replace database and schema names with your actual names. Use strong passwords and consider IAM database authentication for enhanced security.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Redshift data is connected:
+
+<StepItem>"Show me customer acquisition cost trends by marketing channel over time"</StepItem>
+<StepItem>"What's our revenue per user cohort analysis for the last 12 months?"</StepItem>
+<StepItem>"How does product performance vary across different geographic regions?"</StepItem>
+<StepItem>"Which features drive the highest user engagement and retention?"</StepItem>
+<StepItem>"Show me our sales funnel conversion rates by traffic source"</StepItem>
+<StepItem>"What's the lifetime value distribution across customer segments?"</StepItem>
+
+### 💬 Data Warehouse Tips
+
+<TipItem>Include schema names for precise targeting in large data warehouses</TipItem>
+<TipItem>Use date ranges to optimize query performance on large time-series data</TipItem>
+<TipItem>Ask about distribution and sort keys for query optimization insights</TipItem>
+<TipItem>Request cohort and funnel analysis for advanced business insights</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your Amazon Redshift cluster using secure protocols and generates optimized SQL queries that take advantage of Redshift's columnar storage, distribution keys, and sort keys. Our AI understands Redshift-specific performance optimizations and generates queries that minimize data movement and maximize parallel processing across your cluster nodes.
+
+## Troubleshooting
+
+### Connection timeout
+If Redshift connection times out:
+- Verify your VPC security groups allow inbound connections on port 5439
+- Check that the cluster is in an available state
+- Ensure your IP address is whitelisted in the security group
+- Test connectivity using a SQL client like DBeaver or pgAdmin
+
+### Authentication failed
+If authentication fails:
+- Verify username and password are correct
+- Check if the user account exists and is active
+- Ensure the user has CONNECT permission on the database
+- Try connecting using the same credentials with a SQL client
+
+### Network access issues
+If network connection fails:
+- Verify the cluster endpoint URL is correct
+- Check VPC routing tables and internet gateway configuration
+- Ensure NAT gateway is configured for private subnet access
+- Review AWS CloudTrail logs for connection attempts
+
+### Query performance issues
+If queries are running slowly:
+- Check Redshift query execution plans using EXPLAIN
+- Verify that tables have appropriate distribution and sort keys
+- Monitor cluster performance in the AWS Redshift console
+- Consider query optimization or cluster scaling if needed
+
+### Permission errors
+If you encounter permission errors:
+- Verify the user has SELECT permissions on target tables
+- Check that schema USAGE permissions are granted
+- Ensure access to system tables for metadata queries
+- Review IAM policies if using IAM database authentication

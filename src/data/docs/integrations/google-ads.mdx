@@ -1,0 +1,109 @@
+---
+title: "Google Ads Integration"
+description: "Connect your Google Ads account to Datapad and get AI-powered insights that turn ad spend into compounding ROI automatically."
+category: "advertising"
+icon: "/images/integrations/google-ads.png"
+website: "https://ads.google.com"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Google Ads Integration - AI-Powered Campaign Optimization | Datapad"
+seoDescription: "Connect Google Ads to Datapad and get AI insights that identify profitable keywords, optimize bids, and improve campaign performance automatically."
+features:
+  - icon: "Search"
+    title: "Keyword ROI Analysis"
+    description: "Instant keyword ROI analysis with specific bid adjustment recommendations and profitable keyword discovery."
+  - icon: "Target"
+    title: "Quality Score Optimization"
+    description: "Automated quality score improvement suggestions for better ad rankings and lower costs per click."
+  - icon: "DollarSign"
+    title: "Smart Budget Management"
+    description: "Smart budget reallocation across campaigns based on performance data and conversion tracking."
+---
+
+## Prerequisites
+
+<FeatureItem>**Google Ads Account** - An active Google Ads account with campaign spending history</FeatureItem>
+<FeatureItem>**Campaign Data** - At least 30 days of campaign performance data for optimization insights</FeatureItem>
+<FeatureItem>**Conversion Tracking** - Google Ads conversion tracking or Google Analytics goals properly configured</FeatureItem>
+<FeatureItem>**Account Access** - Admin or Standard access to your Google Ads account</FeatureItem>
+
+## Connection Methods
+
+### Google OAuth
+Secure connection using Google's OAuth system with read-only access to your campaign data.
+
+### Google Ads API
+Direct API connection for advanced users with custom reporting needs.
+
+## Connection Guide
+
+### Step 1: Access Google Ads Integration
+
+Navigate to Integrations in Datapad and select Google Ads:
+
+![Google Ads connect screen on Datapad UI](/images/docs/gads-connect.png)
+
+### Step 2: Authenticate with Google
+
+Click "Connect with Google" and sign in with your Google account:
+
+![Google Ads OAuth authentication](/images/docs/gads-oauth.png)
+
+### Step 3: Select Ad Accounts
+
+Choose which Google Ads accounts you want to analyze:
+
+![Google Ads account selection](/images/docs/gads-account-select.png)
+
+**Required Selections:**
+- Google Account
+- Google Ads Accounts
+- Campaign Access Permissions
+
+<InfoItem>Datapad only requests read-only access to your Google Ads data and never modifies your campaigns, keywords, or bids.</InfoItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Google Ads data is connected:
+
+<StepItem>"Which keywords have the highest conversion rate and should I increase bids?"</StepItem>
+<StepItem>"What search terms are wasting budget without converting?"</StepItem>
+<StepItem>"How can I improve my quality scores to reduce cost per click?"</StepItem>
+<StepItem>"Which campaigns should get more budget based on performance?"</StepItem>
+<StepItem>"What negative keywords should I add to improve targeting?"</StepItem>
+<StepItem>"How does my performance compare across different match types?"</StepItem>
+
+### 💬 PPC Optimization Tips
+
+<TipItem>Focus on conversion value rather than just clicks for better ROI</TipItem>
+<TipItem>Ask about search query reports to find new keyword opportunities</TipItem>
+<TipItem>Request audience performance analysis for demographic targeting</TipItem>
+<TipItem>Compare performance across different device types and locations</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Google Ads API to fetch your campaign performance data, keyword metrics, and conversion tracking information. Our AI analyzes bidding strategies, keyword performance, and competition data to provide specific recommendations for improving campaign performance and reducing wasted ad spend.
+
+## Troubleshooting
+
+### Authorization failed
+If Google authorization fails:
+- Ensure you have admin or standard access to Google Ads accounts
+- Check that your Google account isn't restricted by organization policies
+- Verify Google Ads API access is enabled for your account
+- Try disconnecting and reconnecting your Google account
+
+### Missing conversion data
+If conversion data is missing:
+- Verify Google Ads conversion tracking is properly set up
+- Check that conversion actions are enabled and properly configured
+- Ensure Google Analytics goals are linked if using GA conversions
+- Import conversions from your website or CRM if needed
+
+### Campaign data incomplete
+If campaign data appears incomplete:
+- Verify you selected all relevant Google Ads accounts
+- Check that campaigns have been running for sufficient time
+- Ensure campaigns have enough data for statistical significance
+- Contact support if specific campaigns or metrics are missing

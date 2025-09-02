@@ -1,0 +1,151 @@
+---
+title: "Microsoft SQL Server Integration"
+description: "Connect your SQL Server database to Datapad and get AI-powered insights that transform enterprise database data into strategic business intelligence."
+category: "database"
+icon: "/images/integrations/mssql.png"
+website: "https://www.microsoft.com/sql-server"
+setupTime: "5 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "SQL Server Integration - Enterprise Database Analytics | Datapad"
+seoDescription: "Connect Microsoft SQL Server to Datapad and get AI insights from your enterprise database with natural language queries and advanced analytics."
+features:
+  - icon: "Database"
+    title: "Enterprise Database Analytics"
+    description: "AI analyzes your SQL Server data and provides instant insights from complex enterprise datasets with natural language queries."
+  - icon: "Shield"
+    title: "Enterprise Security"
+    description: "Windows Authentication, SSL encryption, and read-only access ensure your SQL Server data remains secure."
+  - icon: "Code"
+    title: "T-SQL Generation"
+    description: "Advanced AI automatically converts your questions into optimized T-SQL queries with SQL Server specific functions."
+---
+
+## Prerequisites
+
+<FeatureItem>**SQL Server Instance** - A running SQL Server instance (2016 or higher) with your data</FeatureItem>
+<FeatureItem>**Database Access** - SQL Server login or Windows Authentication with read permissions</FeatureItem>
+<FeatureItem>**Network Access** - Database should be accessible from the internet or through VPN/tunnel</FeatureItem>
+<FeatureItem>**SSL Certificate** - SSL encryption for secure data transmission (recommended)</FeatureItem>
+
+## Connection Methods
+
+Choose the authentication method that fits your SQL Server configuration.
+
+### SQL Server Authentication
+Use SQL Server username and password authentication.
+
+### Windows Authentication
+Use Windows Authentication for integrated security.
+
+### Azure SQL Database
+Connect to Azure SQL Database with connection strings.
+
+## Connection Guide
+
+### Step 1: Access SQL Server Integration
+
+Navigate to Integrations in Datapad and select Microsoft SQL Server:
+
+![SQL Server connect screen on Datapad UI](/images/docs/mssql-connect.png)
+
+### Step 2: Enter Connection Details
+
+Fill in your SQL Server connection information:
+
+![SQL Server connection form](/images/docs/mssql-form.png)
+
+**Required Fields:**
+- Server Name/Instance
+- Port (default: 1433)
+- Database Name
+- Authentication Method
+- Username and Password
+- Encryption Settings
+
+<InfoItem>For Azure SQL Database, use the fully qualified server name (server.database.windows.net).</InfoItem>
+
+### Step 3: Configure Security Settings
+
+Select encryption and security options:
+
+![SQL Server security configuration](/images/docs/mssql-security.png)
+
+**Security Options:**
+- SSL Encryption (recommended)
+- Trust Server Certificate
+- Connection Timeout
+- Command Timeout
+
+### Create Read-Only Login (Recommended)
+
+For security, create a dedicated login with read-only permissions:
+
+```sql
+-- Create a new login for Datapad
+CREATE LOGIN datapad_readonly WITH PASSWORD = 'SecurePassword123!';
+
+-- Create user in your database
+USE your_database;
+CREATE USER datapad_readonly FOR LOGIN datapad_readonly;
+
+-- Grant read permissions
+ALTER ROLE db_datareader ADD MEMBER datapad_readonly;
+
+-- Grant view definition for metadata access
+GRANT VIEW DEFINITION TO datapad_readonly;
+```
+
+<WarningItem>Replace "your_database" with your actual database name and use a strong password that meets your organization's security requirements.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your SQL Server data is connected:
+
+<StepItem>"Show me the top performing sales representatives this quarter"</StepItem>
+<StepItem>"What's our inventory turnover rate by product category?"</StepItem>
+<StepItem>"How many support tickets were resolved each day this month?"</StepItem>
+<StepItem>"Which departments have the highest budget utilization?"</StepItem>
+<StepItem>"Show me year-over-year revenue growth by region"</StepItem>
+<StepItem>"What's the average processing time for customer orders?"</StepItem>
+
+### 💬 Enterprise Query Tips
+
+<TipItem>Include schema names for precise targeting (e.g., "Sales.Orders table")</TipItem>
+<TipItem>Use business terminology that aligns with your database naming conventions</TipItem>
+<TipItem>Ask about stored procedure results and views for complex business logic</TipItem>
+<TipItem>Request performance analysis for query optimization insights</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your SQL Server database using secure protocols and generates optimized T-SQL queries that leverage SQL Server-specific features like CTEs, window functions, and advanced analytics. Our AI understands SQL Server's unique syntax and performance characteristics to provide fast, efficient database analysis.
+
+## Troubleshooting
+
+### Connection failed
+If SQL Server connection fails:
+- Verify SQL Server is configured to accept remote connections
+- Check that TCP/IP protocol is enabled in SQL Server Configuration Manager
+- Ensure the SQL Server Browser service is running (for named instances)
+- Test connectivity using SQL Server Management Studio
+
+### Authentication error
+If authentication fails:
+- Verify login credentials are correct and account is active
+- Check if the login has access to the target database
+- Ensure Windows Authentication is properly configured (if using)
+- Try connecting with SQL Server Management Studio using same credentials
+
+### Firewall and network issues
+If network connection fails:
+- Verify SQL Server port (usually 1433) is open in firewall
+- Check that SQL Server is listening on the correct IP address
+- Ensure no network security groups are blocking connections
+- Test network connectivity using telnet or similar tools
+
+### Permission errors
+If you get permission-related errors:
+- Verify the user has db_datareader role in the target database
+- Check that VIEW DEFINITION permissions are granted for metadata access
+- Ensure the user can access system views needed for schema analysis
+- Contact your DBA if additional permissions are required

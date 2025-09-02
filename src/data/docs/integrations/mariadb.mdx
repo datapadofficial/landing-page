@@ -1,0 +1,142 @@
+---
+title: "MariaDB Integration"
+description: "Connect your MariaDB database to Datapad and query your data using natural language instead of SQL."
+category: "database"
+icon: "/images/integrations/mariadb.png"
+website: "https://mariadb.org"
+setupTime: "5 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "MariaDB Integration - Natural Language Database Queries | Datapad"
+seoDescription: "Connect your MariaDB database to Datapad and query your data using natural language instead of SQL. Get AI-powered insights without complex queries."
+features:
+  - icon: "Database"
+    title: "Natural Language Queries"
+    description: "Ask questions in plain English instead of writing SQL queries to get insights from your MariaDB data."
+  - icon: "Shield"
+    title: "Secure Connections"
+    description: "SSL encryption and read-only access ensure your database remains secure while providing real-time data access."
+  - icon: "Code"
+    title: "AI-Powered SQL Generation"
+    description: "Advanced AI automatically converts your questions into optimized MariaDB SQL queries that you can view and learn from."
+---
+
+## Prerequisites
+
+<FeatureItem>**MariaDB Database** - A running MariaDB instance (version 10.3 or higher) with your data</FeatureItem>
+<FeatureItem>**Database Credentials** - Host, port, database name, username, and password with read access</FeatureItem>
+<FeatureItem>**Network Access** - Database should be accessible from the internet or through VPN/SSH tunnel</FeatureItem>
+<FeatureItem>**SSL Certificate** - SSL encryption for secure data transmission</FeatureItem>
+
+## Connection Methods
+
+Choose the connection method that best fits your security requirements and infrastructure setup.
+
+### Database Connection Form
+Connect directly using your database credentials with SSL encryption.
+
+### Connection String
+Use a MariaDB connection string with SSL encryption.
+
+### SSH Tunnel
+Connect through an SSH tunnel for maximum security.
+
+## Connection Guide
+
+### Step 1: Access MariaDB Integration
+
+Navigate to Integrations in Datapad and select MariaDB:
+
+![MariaDB connect screen on Datapad UI](/images/docs/mariadb-connect.png)
+
+### Step 2: Fill Connection String
+
+Enter your MariaDB database connection string:
+
+![MariaDB connection string form in Datapad](/images/docs/mariadb-cs.png)
+
+**Required Fields:**
+- Connection Name
+- Connection String
+- Database Schema
+
+<InfoItem>The MariaDB connection string format is: mariadb://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME</InfoItem>
+
+### Step 3: Fill Connection Details
+
+Enter your MariaDB database connection details:
+
+![MariaDB connection form in Datapad](/images/docs/mariadb-form.png)
+
+**Required Fields:**
+- Database Host
+- Port (default: 3306)
+- Database Name
+- Username
+- Password
+- SSL Mode
+
+### Create Read-Only User (Recommended)
+
+For security, create a dedicated user with read-only permissions:
+
+```sql
+-- Create a new user for Datapad
+CREATE USER 'datapad_readonly'@'%' IDENTIFIED BY 'secure_password';
+
+-- Grant connect permission to the database
+GRANT USAGE ON *.* TO 'datapad_readonly'@'%';
+
+-- Grant select permissions on specific database
+GRANT SELECT ON your_database.* TO 'datapad_readonly'@'%';
+
+-- Apply the changes
+FLUSH PRIVILEGES;
+```
+
+<WarningItem>Replace your_database with your actual database name and choose a strong password for the datapad_readonly user.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your MariaDB data is connected:
+
+<StepItem>"Show me the top 10 customers by revenue this month"</StepItem>
+<StepItem>"What's the average order value by customer segment?"</StepItem>
+<StepItem>"How many new users signed up each day this week?"</StepItem>
+<StepItem>"Which products have the highest profit margin?"</StepItem>
+<StepItem>"Show me monthly revenue growth for the last year"</StepItem>
+<StepItem>"What's our customer retention rate by cohort?"</StepItem>
+
+### 💬 Natural Language Tips
+
+<TipItem>Be specific about time periods ("last 30 days", "this month vs last month")</TipItem>
+<TipItem>Include table names when possible ("orders table", "users table")</TipItem>
+<TipItem>Ask for comparisons to get more insights ("compare X vs Y")</TipItem>
+<TipItem>Use business terms that align with your data schema</TipItem>
+
+## Behind the Scenes
+
+Datapad automatically converts your natural language questions into optimized MariaDB SQL queries. You can always view the generated SQL to learn and verify the results, including MariaDB-specific functions and performance optimizations.
+
+## Troubleshooting
+
+### Connection timeout
+If the connection times out:
+- Check firewall settings and whitelist Datapad IPs
+- Verify the host and port are correct
+- Ensure MariaDB is accepting connections
+- Test connectivity from your network
+
+### Authentication failed
+If authentication fails:
+- Verify username and password are correct
+- Check if the user has access to the database
+- Ensure user can connect from external hosts ('%' wildcard)
+- Try connecting with the same credentials using mariadb client
+
+### SSL connection issues
+If SSL connection fails:
+- Verify SSL is enabled on your MariaDB server
+- Check if you have valid SSL certificates
+- Try different SSL modes (REQUIRED, PREFERRED, DISABLED)
+- Contact support for help with certificate issues

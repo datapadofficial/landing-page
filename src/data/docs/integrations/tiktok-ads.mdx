@@ -1,0 +1,109 @@
+---
+title: "TikTok Ads Integration"
+description: "Connect your TikTok Ads account to Datapad and get AI-powered insights that turn creative campaigns into viral revenue growth strategies."
+category: "advertising"
+icon: "/images/integrations/tiktok-ads.png"
+website: "https://ads.tiktok.com"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "TikTok Ads Integration - Viral Advertising Analytics | Datapad"
+seoDescription: "Connect TikTok Ads to Datapad and get AI insights that identify viral creative patterns, optimize audience targeting, and scale successful campaigns."
+features:
+  - icon: "Video"
+    title: "Creative Performance Analysis"
+    description: "AI analyzes your video creatives to identify viral patterns, trending elements, and high-performing content formats."
+  - icon: "Users"
+    title: "Audience Optimization"
+    description: "Get insights into your most profitable TikTok audiences with demographic and interest-based targeting recommendations."
+  - icon: "Target"
+    title: "Campaign Scaling Strategy"
+    description: "AI identifies your best-performing campaigns and provides specific strategies for scaling successful creative and audience combinations."
+---
+
+## Prerequisites
+
+<FeatureItem>**TikTok Ads Manager** - An active TikTok Ads Manager account with campaign spending history</FeatureItem>
+<FeatureItem>**Creative Content** - Video ad creatives and campaign data for performance pattern analysis</FeatureItem>
+<FeatureItem>**Conversion Tracking** - TikTok Pixel properly implemented for ROI and conversion analysis</FeatureItem>
+<FeatureItem>**Account Access** - Admin or Advertiser access to your TikTok advertising accounts</FeatureItem>
+
+## Connection Methods
+
+### TikTok Marketing API
+Secure connection using TikTok's Marketing API with read-only access to campaign performance data.
+
+### Business Center Integration
+Connect through TikTok Business Center for multi-account access and team collaboration.
+
+## Connection Guide
+
+### Step 1: Access TikTok Ads Integration
+
+Navigate to Integrations in Datapad and select TikTok Ads:
+
+![TikTok Ads connect screen on Datapad UI](/images/docs/tads-connect.png)
+
+### Step 2: Authenticate with TikTok
+
+Click "Connect with TikTok" and sign in with your TikTok business account:
+
+![TikTok Ads OAuth authentication](/images/docs/tads-oauth.png)
+
+### Step 3: Select Ad Accounts
+
+Choose which TikTok Ads accounts you want to analyze:
+
+![TikTok Ads account selection](/images/docs/tads-account-select.png)
+
+**Required Selections:**
+- TikTok Business Account
+- Ad Accounts to Connect
+- Campaign Data Access Permissions
+
+<InfoItem>Datapad only requests read-only access to your TikTok Ads data and never modifies your campaigns, creatives, or targeting settings.</InfoItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your TikTok Ads data is connected:
+
+<StepItem>"Which video creatives have the highest engagement rates and viral potential?"</StepItem>
+<StepItem>"What audience demographics convert best for our TikTok campaigns?"</StepItem>
+<StepItem>"How do our creative formats perform compared to organic TikTok content?"</StepItem>
+<StepItem>"Which campaigns should we scale and what budget adjustments should we make?"</StepItem>
+<StepItem>"What trending sounds and hashtags are driving the most conversions?"</StepItem>
+<StepItem>"How does our cost per acquisition vary by age group and interest targeting?"</StepItem>
+
+### 💬 Creative Advertising Tips
+
+<TipItem>Focus on creative hook performance in the first 3 seconds for better engagement</TipItem>
+<TipItem>Ask about trending elements to incorporate into future creative campaigns</TipItem>
+<TipItem>Request user-generated content performance for authentic advertising strategies</TipItem>
+<TipItem>Use demographic insights to tailor creative content to your target audience</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the TikTok Marketing API to fetch your campaign performance data, creative analytics, and audience insights. Our AI analyzes video creative patterns, viral content elements, and audience engagement behaviors to provide specific recommendations for creating high-performing TikTok ads that resonate with your target audience and drive conversions.
+
+## Troubleshooting
+
+### Authorization failed
+If TikTok Ads authorization fails:
+- Ensure you have admin or advertiser access to the TikTok ad accounts
+- Check that your TikTok Business account is properly set up
+- Verify your account complies with TikTok's advertising policies
+- Try connecting through TikTok Business Center directly
+
+### Missing campaign data
+If campaign data is missing:
+- Verify you selected the correct ad accounts during setup
+- Check that campaigns have been running for at least 48-72 hours
+- Ensure campaigns have sufficient spend for meaningful analytics
+- Confirm TikTok Pixel is properly implemented for conversion tracking
+
+### Creative analytics incomplete
+If creative performance data is incomplete:
+- Verify video ads have been approved and are actively serving
+- Check that creative assets meet TikTok's advertising guidelines
+- Ensure sufficient creative diversity for meaningful pattern analysis
+- Contact support if specific creative metrics appear to be missing

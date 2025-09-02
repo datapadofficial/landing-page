@@ -1,32 +1,49 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getIntegrationsOverview } from "@/lib/integrations-overview-utils";
-import { IntegrationsOverviewContent } from "@/components/docs/integrations-overview-content";
-import { IntegrationsOverviewMDXContent } from "@/components/docs/integrations-overview-mdx-content";
+import { getIntegrationDocBySlug, getIntegrationDocSlugs } from "@/lib/integration-doc-utils";
+import { IntegrationDocContent } from "@/components/docs/integration-doc-content";
+import { IntegrationMDXContent } from "@/components/docs/integration-mdx-content";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const doc = await getIntegrationsOverview();
+interface IntegrationDocPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export async function generateMetadata({
+  params,
+}: IntegrationDocPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const doc = await getIntegrationDocBySlug(slug);
 
   if (!doc) {
     return {
-      title: "Integrations Not Found - Datapad",
-      description: "The integrations page could not be found.",
+      title: "Integration Not Found - Datapad",
+      description: "The requested integration documentation could not be found.",
     };
   }
 
   const siteUrl = "https://datapad.io";
-  const docUrl = `${siteUrl}/docs/integrations`;
+  const docUrl = `${siteUrl}/docs/integrations/${slug}`;
 
   // Use SEO-specific fields if available, fallback to regular fields
-  const metaTitle = doc.seoTitle || `${doc.title} | Datapad Docs`;
+  const metaTitle = doc.seoTitle || `${doc.title} Integration | Datapad`;
   const metaDescription = doc.seoDescription || doc.description;
 
   return {
     title: metaTitle,
     description: metaDescription,
     authors: [{ name: "Datapad Team" }],
-    keywords: doc.keywords?.join(", ") || "integrations, data sources, databases, analytics, CRM, marketing tools",
+    keywords: [
+      doc.title,
+      "integration",
+      "Datapad",
+      doc.category,
+      "data analytics",
+      "business intelligence",
+      "AI analytics",
+    ].join(", "),
     category: "Technology",
 
     // Open Graph metadata
@@ -38,13 +55,13 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "article",
       authors: ["Datapad Team"],
       section: "Integration Documentation",
-      tags: ["integrations", "data sources", "databases"],
+      tags: [doc.title, doc.category, "integration"],
       images: [
         {
           url: `${siteUrl}/images/datapad-og-integrations.png`,
           width: 1200,
           height: 630,
-          alt: `${doc.title} - Datapad`,
+          alt: `${doc.title} Integration - Datapad`,
           type: "image/png",
         },
       ],
@@ -60,7 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: `${siteUrl}/images/datapad-twitter-integrations.png`,
-          alt: `${doc.title} - Datapad`,
+          alt: `${doc.title} Integration - Datapad`,
         },
       ],
     },
@@ -78,6 +95,13 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
 
+    // Article-specific metadata
+    other: {
+      "article:author": "Datapad Team",
+      "article:section": "Integration Documentation",
+      "article:tag": [doc.title, doc.category, "integration"].join(","),
+    },
+
     // Canonical URL
     alternates: {
       canonical: docUrl,
@@ -85,23 +109,31 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function IntegrationsPage() {
-  const doc = await getIntegrationsOverview();
+export async function generateStaticParams() {
+  const slugs = await getIntegrationDocSlugs();
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
+
+export default async function IntegrationDocPage({ params }: IntegrationDocPageProps) {
+  const { slug } = await params;
+  const doc = await getIntegrationDocBySlug(slug);
 
   if (!doc) {
     notFound();
   }
 
   const siteUrl = "https://datapad.io";
-  const docUrl = `${siteUrl}/docs/integrations`;
+  const docUrl = `${siteUrl}/docs/integrations/${slug}`;
 
-  // Generate JSON-LD structured data for the integrations page
+  // Generate JSON-LD structured data for the integration documentation
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: doc.title,
     description: doc.seoDescription || doc.description,
-    image: [`${siteUrl}/images/datapad-og-integrations.png`],
+    image: doc.icon ? [doc.icon] : [`${siteUrl}/images/datapad-og-default.png`],
     author: {
       "@type": "Organization",
       name: "Datapad Team",
@@ -123,15 +155,15 @@ export default async function IntegrationsPage() {
       "@type": "WebPage",
       "@id": docUrl,
     },
-    keywords: doc.keywords?.join(", ") || "integrations, data sources",
+    keywords: [doc.title, doc.category, "integration", "Datapad"].join(", "),
     articleSection: "Integration Documentation",
     inLanguage: "en-US",
     isAccessibleForFree: true,
     about: {
       "@type": "SoftwareApplication",
-      name: "Datapad Integrations",
-      category: "BusinessApplication",
-      description: "50+ data source integrations for business analytics",
+      name: doc.title,
+      category: doc.category,
+      url: doc.website,
     },
   };
 
@@ -146,9 +178,9 @@ export default async function IntegrationsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <IntegrationsOverviewContent doc={doc}>
-        <IntegrationsOverviewMDXContent content={doc.content} />
-      </IntegrationsOverviewContent>
+      <IntegrationDocContent doc={doc}>
+        <IntegrationMDXContent content={doc.content} />
+      </IntegrationDocContent>
     </>
   );
 }

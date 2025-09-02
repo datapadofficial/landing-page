@@ -20,12 +20,12 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
   };
 
   return (
-    <div className={`grid gap-4 ${gridCols[columns]}`}>
+    <div className={`grid gap-6 ${gridCols[columns]}`}>
       {features.map((feature, index) => (
         <div key={index} className="p-4 rounded-lg border bg-muted/20">
           <div className="flex items-center gap-2 mb-2">
             <feature.icon className="h-4 w-4 text-primary" />
-            <h4 className="font-medium">{feature.title}</h4>
+            <h4 className="font-medium text-lg">{feature.title}</h4>
           </div>
           <p className="text-sm text-muted-foreground">
             {feature.description}

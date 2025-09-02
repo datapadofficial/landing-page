@@ -1,0 +1,139 @@
+---
+title: "Google BigQuery Integration"
+description: "Connect your Google BigQuery data warehouse to Datapad and get AI-powered insights that turn big data into smart business decisions."
+category: "database"
+icon: "/images/integrations/google-bigquery.png"
+website: "https://cloud.google.com/bigquery"
+setupTime: "5 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Google BigQuery Integration - Big Data Analytics | Datapad"
+seoDescription: "Connect Google BigQuery to Datapad and get AI insights from massive datasets with natural language queries and automatic SQL optimization."
+features:
+  - icon: "Database"
+    title: "Petabyte-Scale Analysis"
+    description: "AI analyzes massive BigQuery datasets and provides instant insights from petabytes of data without complex SQL queries."
+  - icon: "Shield"
+    title: "Google Cloud Security"
+    description: "IAM roles, VPC controls, and encryption ensure your BigQuery data warehouse remains secure and compliant."
+  - icon: "Code"
+    title: "Optimized BigQuery SQL"
+    description: "Advanced AI generates optimized BigQuery SQL with partitioning, clustering, and cost optimization considerations."
+---
+
+## Prerequisites
+
+<FeatureItem>**Google Cloud Project** - An active Google Cloud project with BigQuery enabled and dataset access</FeatureItem>
+<FeatureItem>**BigQuery Datasets** - Datasets with tables containing your analysis data in BigQuery</FeatureItem>
+<FeatureItem>**IAM Permissions** - BigQuery Data Viewer role or custom permissions for read access</FeatureItem>
+<FeatureItem>**Service Account** - Google Cloud service account with appropriate BigQuery permissions</FeatureItem>
+
+## Connection Methods
+
+Choose the authentication method that fits your Google Cloud setup.
+
+### Service Account Key
+Use a service account JSON key file for secure API access.
+
+### OAuth 2.0
+Use OAuth authentication for individual user access.
+
+### Google Cloud IAM
+Connect using Google Cloud Identity and Access Management roles.
+
+## Connection Guide
+
+### Step 1: Access BigQuery Integration
+
+Navigate to Integrations in Datapad and select Google BigQuery:
+
+![BigQuery connect screen on Datapad UI](/images/docs/bigquery-connect.png)
+
+### Step 2: Set Up Google Cloud Authentication
+
+Create a service account in Google Cloud Console:
+
+![Google Cloud service account setup](/images/docs/bigquery-service-account.png)
+
+**Required Steps:**
+1. Go to Google Cloud Console → IAM & Admin → Service Accounts
+2. Create a new service account
+3. Grant BigQuery Data Viewer role
+4. Generate and download JSON key file
+
+<InfoItem>Keep your service account key file secure and never share it publicly. This key provides access to your BigQuery data.</InfoItem>
+
+### Step 3: Configure BigQuery Connection
+
+Enter your Google Cloud project and authentication details:
+
+![BigQuery connection form](/images/docs/bigquery-form.png)
+
+**Required Fields:**
+- Google Cloud Project ID
+- Service Account Key File
+- Default Dataset (optional)
+- Query Location/Region
+
+### Step 4: Select Datasets and Tables
+
+Choose which BigQuery datasets you want to analyze:
+
+![BigQuery dataset selection](/images/docs/bigquery-datasets.png)
+
+**Selection Options:**
+- All Datasets (for comprehensive analysis)
+- Specific Datasets (for focused analysis)
+- Table-level permissions (for granular control)
+
+## Example Queries
+
+Here are some example questions you can ask once your BigQuery data is connected:
+
+<StepItem>"What's our customer acquisition cost trend across all marketing channels this year?"</StepItem>
+<StepItem>"How do user engagement metrics vary by geographic region and device type?"</StepItem>
+<StepItem>"Which product features drive the highest user retention and revenue?"</StepItem>
+<StepItem>"Show me our sales funnel conversion rates by traffic source and campaign?"</StepItem>
+<StepItem>"What's the lifetime value distribution across our customer segments?"</StepItem>
+<StepItem>"How does seasonal demand affect our inventory and supply chain metrics?"</StepItem>
+
+### 💬 Big Data Tips
+
+<TipItem>Include dataset and table names for precise targeting in large data warehouses</TipItem>
+<TipItem>Use date partitioning references to optimize query performance and costs</TipItem>
+<TipItem>Ask about clustering keys and optimization for better query efficiency</TipItem>
+<TipItem>Request cost analysis to understand and optimize BigQuery spending</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to Google BigQuery using the BigQuery API and generates optimized SQL queries that take advantage of BigQuery's columnar storage, partitioning, and clustering features. Our AI understands BigQuery-specific functions, cost optimization strategies, and performance best practices to provide fast, cost-effective analytics from your big data warehouse.
+
+## Troubleshooting
+
+### Authentication failed
+If BigQuery authentication fails:
+- Verify your service account key file is valid and not expired
+- Check that the service account has BigQuery Data Viewer permissions
+- Ensure the Google Cloud project ID is correct
+- Try creating a new service account key
+
+### Permission denied errors
+If you get permission errors:
+- Verify the service account has access to the specific datasets
+- Check that BigQuery API is enabled in your Google Cloud project
+- Ensure IAM roles are properly assigned at the project or dataset level
+- Contact your Google Cloud admin for additional permissions
+
+### Query performance issues
+If queries are running slowly or timing out:
+- Check BigQuery query execution details for optimization opportunities
+- Verify that tables are properly partitioned and clustered
+- Consider query optimization or slot reservation for better performance
+- Monitor BigQuery job history for performance patterns
+
+### Cost optimization
+If BigQuery costs are higher than expected:
+- Review query patterns and suggest more efficient alternatives
+- Check for full table scans that could benefit from partitioning
+- Consider using clustered tables for better query performance
+- Set up query cost monitoring and alerts in Google Cloud Console

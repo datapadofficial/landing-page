@@ -1,0 +1,128 @@
+---
+title: "Metabase Integration"
+description: "Connect your Metabase instance to Datapad and get AI-powered insights that turn dashboard data into strategic business actions."
+category: "analytics"
+icon: "/images/integrations/metabase.png"
+website: "https://metabase.com"
+setupTime: "4 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Metabase Integration - Dashboard Analytics Enhancement | Datapad"
+seoDescription: "Connect Metabase to Datapad and get AI insights that analyze your dashboard data and provide strategic recommendations for business growth."
+features:
+  - icon: "BarChart3"
+    title: "Dashboard Intelligence"
+    description: "AI analyzes your Metabase dashboards and provides intelligent insights that go beyond static visualizations."
+  - icon: "Target"
+    title: "Metric Correlation Analysis"
+    description: "Identify relationships between different metrics and KPIs across your Metabase dashboards for strategic insights."
+  - icon: "TrendingUp"
+    title: "Trend Prediction & Alerts"
+    description: "Get predictive insights and automated alerts based on patterns in your Metabase data and dashboard metrics."
+---
+
+## Prerequisites
+
+<FeatureItem>**Metabase Instance** - A running Metabase instance (cloud or self-hosted) with configured dashboards and data</FeatureItem>
+<FeatureItem>**Admin Access** - Admin access to your Metabase instance for API key generation and permissions</FeatureItem>
+<FeatureItem>**Dashboard Data** - Existing dashboards and questions in Metabase with historical data for analysis</FeatureItem>
+<FeatureItem>**Network Access** - Metabase instance accessible from Datapad (internet or VPN connectivity)</FeatureItem>
+
+## Connection Methods
+
+### Metabase API Key
+Secure connection using Metabase API key with read-only access to your dashboards and questions.
+
+### Session-Based Authentication
+Connect using username/password authentication for direct access.
+
+## Connection Guide
+
+### Step 1: Access Metabase Integration
+
+Navigate to Integrations in Datapad and select Metabase:
+
+![Metabase connect screen on Datapad UI](/images/docs/metabase-connect.png)
+
+### Step 2: Generate Metabase API Key
+
+Create an API key in your Metabase admin settings:
+
+![Metabase API key generation](/images/docs/metabase-api-key.png)
+
+**Steps to Generate API Key:**
+1. Go to Metabase Admin → Settings → Authentication
+2. Generate a new API key
+3. Set appropriate permissions (read-only recommended)
+4. Copy the API key for Datapad connection
+
+<InfoItem>Store your Metabase API key securely. This key provides access to your dashboard data and should not be shared publicly.</InfoItem>
+
+### Step 3: Configure Metabase Connection
+
+Enter your Metabase instance URL:
+
+![Metabase connection form](/images/docs/metabase-url.png)
+
+**Required Fields:**
+- Find your Metabase Instance URL
+
+### Step 4: Enter Your Metabase Credentials
+
+Choose which Metabase content you want to analyze:
+
+![Metabase dashboard selection](/images/docs/metabase-auth.png)
+
+Enter Your Credentials and Click on Connect
+
+## Example Queries
+
+Here are some example questions you can ask once your Metabase data is connected:
+
+<StepItem>"What trends are emerging across my key business metrics in Metabase?"</StepItem>
+<StepItem>"Which dashboard metrics are most correlated with revenue growth?"</StepItem>
+<StepItem>"What anomalies or unusual patterns appear in my dashboard data this month?"</StepItem>
+<StepItem>"How do different business units perform based on their dashboard KPIs?"</StepItem>
+<StepItem>"Which metrics should I focus on to predict upcoming business challenges?"</StepItem>
+<StepItem>"What story does my data tell about customer behavior and business performance?"</StepItem>
+
+### 💬 Dashboard Analysis Tips
+
+<TipItem>Focus on metric relationships rather than individual dashboard values</TipItem>
+<TipItem>Ask about data quality and consistency across different Metabase questions</TipItem>
+<TipItem>Request trend analysis that spans multiple dashboards for comprehensive insights</TipItem>
+<TipItem>Use predictive analysis to identify future opportunities and risks</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your Metabase instance via the Metabase API to access dashboard data, question results, and metadata. Our AI analyzes patterns across your dashboards, identifies correlations between metrics, and provides strategic insights that help you understand the story your data is telling and what actions to take based on dashboard trends.
+
+## Troubleshooting
+
+### Connection failed
+If Metabase connection fails:
+- Verify your Metabase instance URL is correct and accessible
+- Check that the API key is valid and hasn't expired
+- Ensure Metabase is running and responsive
+- Test connectivity using the same URL and credentials in a browser
+
+### Authentication error
+If authentication fails:
+- Verify the API key has the necessary permissions
+- Check that the username/password combination is correct (if using session auth)
+- Ensure the user account has access to the required dashboards and collections
+- Try generating a new API key if the current one isn't working
+
+### Missing dashboard data
+If dashboard data is incomplete:
+- Verify the selected dashboards contain data and are not empty
+- Check that underlying data sources are properly connected in Metabase
+- Ensure dashboard questions are properly configured and executing
+- Contact support if specific dashboards or metrics appear to be missing
+
+### Performance issues
+If data sync is slow:
+- Check your Metabase instance performance and resource usage
+- Verify network connectivity between Datapad and your Metabase instance
+- Consider optimizing complex Metabase questions for better performance
+- Adjust sync frequency settings if real-time updates aren't critical

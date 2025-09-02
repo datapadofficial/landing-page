@@ -1,0 +1,156 @@
+---
+title: "Snowflake Integration"
+description: "Connect your Snowflake cloud data warehouse to Datapad and get AI-powered insights that turn massive datasets into strategic intelligence."
+category: "database"
+icon: "/images/integrations/snowflake.png"
+website: "https://snowflake.com"
+setupTime: "4 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Snowflake Integration - Cloud Data Warehouse Analytics | Datapad"
+seoDescription: "Connect Snowflake to Datapad and get AI insights from your cloud data warehouse with natural language queries and automatic SQL optimization."
+features:
+  - icon: "Database"
+    title: "Cloud Data Warehouse Analysis"
+    description: "AI analyzes your Snowflake data warehouse and provides instant insights from massive datasets without complex queries."
+  - icon: "Shield" 
+    title: "Enterprise Security"
+    description: "Secure connections with SSO integration, role-based access, and read-only permissions for maximum data protection."
+  - icon: "Code"
+    title: "Optimized SQL Generation"
+    description: "Advanced AI generates optimized Snowflake SQL queries with proper syntax and performance considerations."
+---
+
+## Prerequisites
+
+<FeatureItem>**Snowflake Account** - An active Snowflake account with access to your data warehouse</FeatureItem>
+<FeatureItem>**Database Access** - Read permissions on databases, schemas, and tables you want to analyze</FeatureItem>
+<FeatureItem>**Connection Details** - Account URL, warehouse name, and authentication credentials</FeatureItem>
+<FeatureItem>**Network Access** - Snowflake account accessible from Datapad (usually automatic for cloud)</FeatureItem>
+
+## Connection Methods
+
+Choose the authentication method that fits your organization's security requirements.
+
+### Username/Password
+Standard authentication using Snowflake username and password.
+
+### SSO Integration
+Single Sign-On integration for enterprise security and convenience.
+
+### Key Pair Authentication
+Use RSA key pair authentication for enhanced security.
+
+## Connection Guide
+
+### Step 1: Access Snowflake Integration
+
+Navigate to Integrations in Datapad and select Snowflake:
+
+![Snowflake connect screen on Datapad UI](/images/docs/snowflake-connect.png)
+
+### Step 2: Enter Connection Details
+
+Fill in your Snowflake connection information:
+
+![Snowflake connection form](/images/docs/snowflake-form.png)
+
+**Required Fields:**
+- Account URL (e.g., your-account.snowflakecomputing.com)
+- Username
+- Password or Authentication Method
+- Warehouse Name
+- Database Name
+- Schema Name (optional)
+
+<InfoItem>Your Snowflake account URL can be found in your Snowflake console under Account settings.</InfoItem>
+
+### Step 3: Configure Warehouse Settings
+
+Select compute warehouse and resource settings:
+
+![Snowflake warehouse configuration](/images/docs/snowflake-warehouse.png)
+
+**Warehouse Options:**
+- Existing Warehouse (recommended)
+- Warehouse Size Preference
+- Auto-suspend Settings
+- Query Timeout Limits
+
+### Create Read-Only Role (Recommended)
+
+For security, create a dedicated role with read-only permissions:
+
+```sql
+-- Create a role for Datapad
+CREATE ROLE datapad_readonly;
+
+-- Grant database and schema usage
+GRANT USAGE ON DATABASE your_database TO ROLE datapad_readonly;
+GRANT USAGE ON SCHEMA your_database.your_schema TO ROLE datapad_readonly;
+
+-- Grant select permissions on tables
+GRANT SELECT ON ALL TABLES IN SCHEMA your_database.your_schema TO ROLE datapad_readonly;
+GRANT SELECT ON FUTURE TABLES IN SCHEMA your_database.your_schema TO ROLE datapad_readonly;
+
+-- Grant warehouse usage
+GRANT USAGE ON WAREHOUSE your_warehouse TO ROLE datapad_readonly;
+
+-- Create user and assign role
+CREATE USER datapad_user PASSWORD = 'secure_password';
+GRANT ROLE datapad_readonly TO USER datapad_user;
+```
+
+<WarningItem>Replace database, schema, and warehouse names with your actual names. Use a strong password for the datapad_user account.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Snowflake data is connected:
+
+<StepItem>"What's our revenue trend by month for the last year?"</StepItem>
+<StepItem>"Show me the top 10 customers by total spend across all regions"</StepItem>
+<StepItem>"How does our conversion rate vary by traffic source and campaign?"</StepItem>
+<StepItem>"What's the average customer lifetime value by cohort?"</StepItem>
+<StepItem>"Which products have the highest profit margins this quarter?"</StepItem>
+<StepItem>"Show me daily active users trend with seasonality analysis"</StepItem>
+
+### 💬 Data Warehouse Tips
+
+<TipItem>Include database and schema names for precise targeting</TipItem>
+<TipItem>Ask about data lineage and relationships between tables</TipItem>
+<TipItem>Request performance analysis to optimize your queries</TipItem>
+<TipItem>Use business metrics that align with your data warehouse structure</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your Snowflake data warehouse using secure connections and generates optimized SQL queries that take advantage of Snowflake's cloud architecture. Our AI understands Snowflake-specific functions, performance optimizations, and best practices to provide fast, cost-effective analytics from your data warehouse.
+
+## Troubleshooting
+
+### Connection timeout
+If Snowflake connection times out:
+- Verify your account URL is correct and accessible
+- Check that your warehouse is running and available
+- Ensure network connectivity to Snowflake cloud
+- Try increasing connection timeout settings
+
+### Authentication failed
+If authentication fails:
+- Verify username and password are correct
+- Check that the user account is active and not locked
+- Ensure the user has access to the specified database and warehouse
+- Try logging in directly to Snowflake console with same credentials
+
+### Insufficient privileges
+If you get privilege errors:
+- Verify the user has SELECT permissions on target tables
+- Check that USAGE permissions are granted on database and schema
+- Ensure the user can access the specified warehouse
+- Review role assignments and privilege inheritance
+
+### Query performance issues
+If queries are running slowly:
+- Check warehouse size and consider scaling up for better performance
+- Review query complexity and suggest optimizations
+- Ensure proper clustering and indexing on frequently queried columns
+- Contact support for query optimization assistance

@@ -1,0 +1,146 @@
+---
+title: "MongoDB Integration"
+description: "Connect your MongoDB database to Datapad and leverage AI-powered analytics for NoSQL data, document analysis, and complex aggregation insights."
+category: "database"
+icon: "/images/integrations/mongodb.png"
+website: "https://mongodb.com"
+setupTime: "5 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "MongoDB Integration - NoSQL Analytics with AI | Datapad"
+seoDescription: "Connect MongoDB to Datapad and get AI-powered insights from your NoSQL document database with natural language queries."
+features:
+  - icon: "BarChart3"
+    title: "Document Analytics"
+    description: "Analyze document structures, field distributions, and data patterns across collections with AI insights."
+  - icon: "Shield"
+    title: "Secure Connection"
+    description: "SSL-encrypted connections with read-only access ensure your MongoDB data remains secure."
+  - icon: "Code"
+    title: "Natural Language Queries"
+    description: "Ask questions in plain English and get optimized MongoDB aggregation pipelines automatically."
+---
+
+## Prerequisites
+
+<FeatureItem>**MongoDB Database** - A running MongoDB instance (version 4.4 or higher) with your data</FeatureItem>
+<FeatureItem>**Database Credentials** - Connection string or host/port with read access permissions</FeatureItem>
+<FeatureItem>**Network Access** - Database should be accessible from the internet or through VPN/tunnel</FeatureItem>
+<FeatureItem>**SSL Certificate** - SSL encryption for secure data transmission (recommended)</FeatureItem>
+
+## Connection Methods
+
+Choose the connection method that best fits your MongoDB setup.
+
+### Connection String
+Use a MongoDB connection string for quick setup with authentication.
+
+### Manual Configuration
+Configure host, port, database, and authentication separately.
+
+### Atlas Cloud
+Connect directly to MongoDB Atlas with cluster connection strings.
+
+## Connection Guide
+
+### Step 1: Access MongoDB Integration
+
+Navigate to Integrations in Datapad and select MongoDB:
+
+![MongoDB connect screen on Datapad UI](/images/docs/mongodb-connect.png)
+
+### Step 2: Enter Connection Details
+
+Choose your preferred connection method and enter details:
+
+![MongoDB connection configuration](/images/docs/mongodb-config.png)
+
+**Connection String Format:**
+```
+mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]
+```
+
+**Required Information:**
+- Connection String or Host/Port
+- Database Name
+- Username and Password
+- Authentication Database (if different)
+
+<InfoItem>For MongoDB Atlas, use the connection string provided in your cluster dashboard.</InfoItem>
+
+### Step 3: Configure Collection Access
+
+Select which collections you want to analyze:
+
+![MongoDB collection selection](/images/docs/mongodb-collections.png)
+
+**Available Options:**
+- All Collections (recommended for full analysis)
+- Specific Collections (for focused analysis)
+- Collection Patterns (using regex matching)
+
+### Create Read-Only User (Recommended)
+
+For security, create a dedicated user with read-only permissions:
+
+```javascript
+// Connect to your MongoDB instance
+use admin
+
+// Create a read-only user for Datapad
+db.createUser({
+  user: "datapad_readonly",
+  pwd: "secure_password",
+  roles: [
+    { role: "read", db: "your_database" },
+    { role: "read", db: "your_other_database" }
+  ]
+})
+```
+
+<WarningItem>Replace "your_database" with your actual database names and choose a strong password for the datapad_readonly user.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your MongoDB data is connected:
+
+<StepItem>"Show me the most common document structures in my user collection"</StepItem>
+<StepItem>"What's the average order value by customer location in the orders collection?"</StepItem>
+<StepItem>"How many documents were created each day this month?"</StepItem>
+<StepItem>"Which fields are missing or null across documents in the products collection?"</StepItem>
+<StepItem>"Show me the distribution of array sizes in the tags field"</StepItem>
+<StepItem>"What's the most common value for the status field across all collections?"</StepItem>
+
+### 💬 NoSQL Query Tips
+
+<TipItem>Use collection names in your questions for better targeting</TipItem>
+<TipItem>Ask about document structure analysis to understand your data schema</TipItem>
+<TipItem>Request field distribution analysis for data quality insights</TipItem>
+<TipItem>Use business terms that align with your document field names</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your MongoDB database and analyzes document structures, field distributions, and data patterns. Our AI understands NoSQL document relationships and generates optimized aggregation pipelines for complex queries, providing insights that are difficult to obtain with traditional MongoDB queries.
+
+## Troubleshooting
+
+### Connection failed
+If MongoDB connection fails:
+- Verify your connection string format is correct
+- Check that your username and password are accurate
+- Ensure the database is accessible from external connections
+- Test connectivity using MongoDB Compass or mongo shell
+
+### Authentication error
+If authentication fails:
+- Verify the user has read permissions on the target databases
+- Check that the authentication database is correctly specified
+- Ensure the user account isn't locked or expired
+- Try connecting with the same credentials using MongoDB client tools
+
+### Collection access issues
+If specific collections aren't accessible:
+- Verify the user has read permissions on those collections
+- Check that collection names are spelled correctly
+- Ensure collections contain documents for analysis
+- Contact support if permissions appear correct but access still fails
