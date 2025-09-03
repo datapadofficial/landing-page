@@ -9,7 +9,6 @@ import {
   MessageSquare, 
   Code2,
   Mic,
-  Share,
   Layers,
   Brain,
   Globe,

@@ -15,29 +15,11 @@ import {
   ArrowUp, 
   Database, 
   Clock, 
-  Shield, 
-  BarChart3,
-  Target,
-  Users,
-  DollarSign,
-  Search,
-  CreditCard,
-  TrendingUp,
-  TrendingDown,
-  Package,
-  Code,
-  ThumbsUp,
-  Video,
-  Heart,
-  Hash,
-  MessageSquare,
-  Eye
+  Shield,  
 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { IntegrationDoc } from "@/types/integration-doc";
-import { FeatureGrid } from "@/components/docs/feature-grid";
-import { DocSection } from "@/components/docs/doc-section";
 
 interface IntegrationDocContentProps {
   doc: IntegrationDoc;
@@ -49,40 +31,7 @@ export function IntegrationDocContent({ doc, children }: IntegrationDocContentPr
   const [headings, setHeadings] = useState<
     Array<{ id: string; text: string; level: number }>
   >([]);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
-  // Convert features to use Lucide icons with proper type mapping
-  const featuresWithIcons = doc.features?.map((feature) => {
-    // Map icon names to actual icon components
-    const iconMap = {
-      Database,
-      Shield,
-      Clock,
-      BarChart3,
-      Target,
-      Users,
-      DollarSign,
-      Search,
-      CreditCard,
-      TrendingUp,
-      TrendingDown,
-      Package,
-      Code,
-      ThumbsUp,
-      Video,
-      Heart,
-      Hash,
-      MessageSquare,
-      Eye,
-    };
-    
-    const IconComponent = iconMap[feature.icon as keyof typeof iconMap] || Database;
-    
-    return {
-      ...feature,
-      icon: IconComponent,
-    };
-  }) || [];
+  const [showBackToTop, setShowBackToTop] = useState(false);  
 
   // Extract headings from MDX content
   useEffect(() => {
