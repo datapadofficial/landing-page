@@ -6,6 +6,11 @@ export interface FeatureDocStep {
   color?: string;
 }
 
+export interface FeatureDocFaq {
+  question: string;
+  answer: string;
+}
+
 export interface FeatureDoc {
   // Frontmatter fields
   slug: string;
@@ -23,6 +28,7 @@ export interface FeatureDoc {
   videoUrl: string;
   redirectUrl?: string;
   steps: FeatureDocStep[];
+  faqs?: FeatureDocFaq[];
   
   // SEO fields
   seoTitle?: string;

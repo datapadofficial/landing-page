@@ -17,6 +17,7 @@ import { FeatureDoc } from "@/types/feature-doc";
 import { FeatureHero } from "@/components/features/feature-hero";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { MainCTA } from "@/components/main-cta";
+import { Faq } from "@/components/faq";
 
 
 
@@ -300,6 +301,14 @@ export function FeatureDocContent({ doc, children }: FeatureDocContentProps) {
 
       {/* Main CTA Section */}
       <MainCTA />
+
+      {/* FAQ Section */}
+      {doc.faqs && doc.faqs.length > 0 && (
+        <Faq 
+          heading="Frequently Asked Questions" 
+          items={doc.faqs}
+        />
+      )}
     </>
   );
 }
