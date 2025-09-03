@@ -1,0 +1,168 @@
+---
+slug: "text-to-sql-python"
+title: "Text2SQL & Python"
+shortDescription: "Convert natural language questions into executable code and database queries."
+longDescription: "Bridge the gap between business questions and technical implementation. Our AI seamlessly converts your natural language questions into optimized SQL queries and Python code, giving you the power of both database expertise and statistical programming without the learning curve."
+icon: "code-2"
+color: "chart-purple"
+benefits:
+  - "Natural language to code conversion"
+  - "Optimized SQL query generation"
+  - "Advanced Python analytics"
+  - "Database expertise automation"
+  - "Statistical programming made simple"
+useCases:
+  - "Complex data extraction"
+  - "Advanced statistical modeling"
+  - "Custom analytics workflows"
+  - "Data transformation pipelines"
+  - "Predictive analysis"
+ctaText: "Try Code Generation"
+ctaUrl: "https://app.datapad.io"
+category: "core"
+priority: 3
+videoUrl: "/videos/features/text-to-sql-python.mp4"
+steps:
+  - title: "Ask Your Question"
+    description: "Describe what you want to know in plain English - no coding required."
+    icon: "message-square"
+    color: "chart-green"
+  - title: "AI Converts to Code"
+    description: "Watch as AI instantly converts your question into optimized SQL queries and Python scripts."
+    icon: "code"
+    color: "chart-purple"
+  - title: "Execute & Get Results"
+    description: "Run the code with one click and get your data results with professional visualizations."
+    icon: "play"
+    color: "chart-red"
+seoTitle: "Text to SQL & Python - Natural Language Code Generation | Datapad"
+seoDescription: "Convert natural language questions into optimized SQL queries and Python code. Bridge the gap between business questions and technical implementation with AI."
+---
+
+## Transform Business Questions Into Code
+
+The Text2SQL & Python feature represents the future of data analysis, where technical barriers disappear and anyone can harness the full power of databases and statistical programming through natural conversation.
+
+<FeatureItem icon="code" title="Intelligent Code Generation">Our AI understands the nuances of both SQL and Python, generating optimized, production-ready code that follows best practices and performs efficiently.</FeatureItem>
+<FeatureItem icon="database" title="Database Expertise">Get the equivalent of a senior database administrator's knowledge instantly - complex joins, window functions, and optimized queries generated from simple questions.</FeatureItem>
+<FeatureItem icon="trending-up" title="Statistical Programming">Access advanced Python libraries like pandas, NumPy, and scikit-learn without needing to learn their syntax or methods.</FeatureItem>
+
+## Code Generation Capabilities
+
+### SQL Query Generation
+Transform business questions into sophisticated database queries:
+
+- **Complex Joins**: Multi-table relationships handled automatically
+- **Window Functions**: Advanced analytics like running totals and rankings
+- **Aggregations**: Group-by operations with intelligent filtering
+- **Performance Optimization**: Indexed queries that run efficiently
+
+### Python Script Creation
+Generate statistical analysis and data manipulation code:
+
+- **Data Cleaning**: Handle missing values, outliers, and transformations
+- **Statistical Modeling**: Regression, classification, and clustering algorithms
+- **Visualization**: Professional charts with matplotlib and seaborn
+- **Time Series**: Forecasting and trend analysis
+
+<InfoItem title="Code Quality">All generated code includes comments explaining the logic, making it educational and maintainable for your team.</InfoItem>
+
+## Real-World Examples
+
+### Business Intelligence Queries
+**Question**: "Show me monthly revenue trends by product category for the last year"
+
+**Generated SQL**:
+```sql
+SELECT 
+    DATE_TRUNC('month', order_date) as month,
+    product_category,
+    SUM(revenue) as monthly_revenue,
+    LAG(SUM(revenue)) OVER (
+        PARTITION BY product_category 
+        ORDER BY DATE_TRUNC('month', order_date)
+    ) as previous_month_revenue
+FROM orders o
+JOIN products p ON o.product_id = p.id
+WHERE order_date >= CURRENT_DATE - INTERVAL '1 year'
+GROUP BY month, product_category
+ORDER BY month DESC, monthly_revenue DESC;
+```
+
+### Statistical Analysis
+**Question**: "Predict customer churn based on usage patterns"
+
+**Generated Python**:
+```python
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+
+# Load and prepare data
+df = pd.read_sql(sql_query, connection)
+features = ['usage_frequency', 'session_duration', 'last_login_days']
+X = df[features]
+y = df['churned']
+
+# Train model
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Generate predictions and insights
+predictions = model.predict(X_test)
+feature_importance = pd.DataFrame({
+    'feature': features,
+    'importance': model.feature_importances_
+}).sort_values('importance', ascending=False)
+```
+
+<StepItem number="1" title="Natural Language Input">Simply describe what you want to analyze or extract from your data using plain English.</StepItem>
+<StepItem number="2" title="AI Code Generation">Watch as advanced AI converts your request into optimized, production-ready SQL queries and Python scripts.</StepItem>
+<StepItem number="3" title="One-Click Execution">Run the generated code instantly and see your results with professional visualizations and insights.</StepItem>
+
+## Advanced Features
+
+### Multi-Language Support
+The AI can generate code in multiple languages and formats:
+
+- **SQL Dialects**: MySQL, PostgreSQL, Snowflake, BigQuery
+- **Python Libraries**: pandas, NumPy, scikit-learn, matplotlib
+- **R Scripts**: For specialized statistical analysis
+- **Excel Formulas**: For spreadsheet-based analysis
+
+### Code Optimization
+Every generated query and script is optimized for performance:
+
+- **Query Planning**: Efficient execution paths and index usage
+- **Memory Management**: Optimized data loading and processing
+- **Vectorization**: Efficient operations on large datasets
+- **Error Handling**: Robust code that handles edge cases
+
+<WarningItem title="Code Review">While our AI generates high-quality code, we recommend reviewing generated scripts before running them in production environments, especially for critical business operations.</WarningItem>
+
+## Integration with Your Workflow
+
+### Code Export Options
+- **Copy to Clipboard**: Instantly use code in your preferred IDE
+- **Save as Scripts**: Build a library of reusable analysis code
+- **Documentation**: Auto-generated explanations for team sharing
+- **Version Control**: Track changes and iterations
+
+### Learning Opportunities
+Use generated code as a learning tool:
+
+- **Commented Code**: Every line explained for educational value
+- **Best Practices**: Learn proper SQL and Python techniques
+- **Pattern Recognition**: Understand common analytical approaches
+- **Skill Development**: Gradually build your technical expertise
+
+Transform complex technical requirements into simple conversations and unlock the full potential of your data through code.
+
+## Frequently Asked Questions
+
+<InfoItem title="What programming languages and databases are supported?">We support all major SQL databases (MySQL, PostgreSQL, Snowflake, BigQuery, etc.) and generate Python code using popular libraries like pandas, NumPy, scikit-learn, and matplotlib. R scripts and Excel formulas are also available for specialized use cases.</InfoItem>
+<InfoItem title="How accurate is the generated code?">The AI generates production-ready, optimized code following best practices. All code includes comments explaining the logic and error handling for edge cases. We recommend reviewing generated code before running in production environments.</InfoItem>
+<InfoItem title="Can I learn from the generated code?">Absolutely! Every generated script includes detailed comments explaining each step, making it educational. You'll learn proper SQL techniques, Python best practices, and analytical approaches that you can apply to future projects.</InfoItem>
+<InfoItem title="What if I need to modify the generated code?">Generated code is designed to be readable and modifiable. You can adjust parameters, add custom logic, or combine multiple generated scripts. The AI can also help you modify existing code by describing your desired changes in plain English.</InfoItem>
