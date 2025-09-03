@@ -112,7 +112,6 @@ const navigation: NavItem[] = [
       { title: "Natural Language Queries", href: "/docs/features/natural-language-queries" },
       { title: "Text-to-SQL & Python", href: "/docs/features/text-to-sql-python" },
       { title: "Voice Mode", href: "/docs/features/voice-mode" },
-      { title: "Shareable Reports", href: "/docs/features/shareable-reports" },
       { title: "Data Blending", href: "/docs/features/data-blending" },
       { title: "Multi-Model AI", href: "/docs/features/multi-model-ai" },
     ],

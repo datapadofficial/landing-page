@@ -79,15 +79,6 @@ const advancedFeatures = [
     category: "Advanced"
   },
   {
-    title: "Shareable Reports",
-    description: "Generate and share professional reports and dashboards with stakeholders instantly.",
-    icon: Share,
-    href: "/docs/features/shareable-reports",
-    color: "text-cyan-500", 
-    bgColor: "bg-cyan-100 dark:bg-cyan-900/20",
-    category: "Core"
-  },
-  {
     title: "Data Blending",
     description: "Combine data from multiple sources for comprehensive cross-platform analysis.",
     icon: Layers,

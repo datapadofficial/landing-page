@@ -1,0 +1,216 @@
+---
+slug: "data-security"
+title: "Data Security & Privacy"
+description: "Your data security is our top priority. Learn how Datapad protects your information with enterprise-grade security measures, encryption, and comprehensive privacy controls."
+category: "Security"
+difficulty: "intermediate"
+estimatedTime: "12 min read"
+author: "Datapad Security Team"
+lastUpdated: "2024-01-15"
+features:
+  - title: "Zero Trust Architecture"
+    description: "Every request is verified and authenticated before accessing any data"
+    icon: "shield"
+  - title: "End-to-End Encryption"
+    description: "Data is encrypted in transit and at rest using industry-standard protocols"
+    icon: "shield"
+  - title: "Read-Only Access"
+    description: "Datapad only reads your data. We never modify, delete, or write to your systems"
+    icon: "shield"
+  - title: "SOC 2 Compliance"
+    description: "Independent audit of security and availability controls"
+    icon: "shield"
+faqs:
+  - question: "How does Datapad ensure my data never leaves my control?"
+    answer: "Datapad uses read-only connections to your data sources and processes queries in real-time without storing your raw data. Your data remains in your systems while we provide analysis results. All connections use encrypted channels and are automatically revocable."
+  - question: "What happens to my data if I stop using Datapad?"
+    answer: "When you stop using Datapad, all access tokens are immediately revoked and any cached metadata is automatically deleted according to your retention policy. Your source data remains completely untouched in your original systems."
+  - question: "Is Datapad compliant with GDPR and other privacy regulations?"
+    answer: "Yes, Datapad is fully GDPR compliant and also meets CCPA requirements. We implement privacy by design principles, provide data processing transparency, and support all user rights including data portability and erasure."
+  - question: "How does Datapad handle authentication and access control?"
+    answer: "Datapad supports OAuth 2.0, SSO integration, multi-factor authentication, and role-based access control. You can configure granular permissions, set up automated access reviews, and maintain full audit logs of all data access."
+seoTitle: "Data Security & Privacy - Enterprise Data Protection | Datapad"
+seoDescription: "Learn how Datapad protects your data with zero trust architecture, end-to-end encryption, and comprehensive privacy controls. SOC 2 compliant and GDPR ready."
+---
+
+## Security Commitment
+
+Datapad is built with security-first principles to ensure your business data remains protected at every level. Our comprehensive security framework combines technical safeguards, operational controls, and continuous monitoring to maintain the highest standards of data protection.
+
+<FeatureGrid>
+  <FeatureCard 
+    icon="shield" 
+    title="Zero Trust Architecture" 
+    description="Every request is verified and authenticated before accessing any data, with no implicit trust assumptions."
+  />
+  <FeatureCard 
+    icon="shield" 
+    title="End-to-End Encryption" 
+    description="Data is encrypted in transit and at rest using AES-256 and TLS 1.3 industry-standard protocols."
+  />
+  <FeatureCard 
+    icon="shield" 
+    title="Read-Only Access" 
+    description="Datapad only reads your data. We never modify, delete, or write to your systems."
+  />
+  <FeatureCard 
+    icon="shield" 
+    title="Continuous Monitoring" 
+    description="24/7 security monitoring with automated threat detection and incident response."
+  />
+</FeatureGrid>
+
+## How We Protect Your Data
+
+### Encryption Standards
+
+**Data in Transit**
+- TLS 1.3 encryption for all API connections
+- Certificate pinning for secure communications
+- Perfect Forward Secrecy (PFS) protocols
+- Regular security certificate updates
+
+**Data at Rest**
+- AES-256 encryption for stored data
+- Encrypted database backups
+- Hardware Security Module (HSM) protection
+- Automated key rotation and management
+
+<StepItem title="Industry Standards">All encryption implementations follow NIST guidelines and are regularly audited by third-party security firms to ensure compliance with the latest security standards.</StepItem>
+
+### Access Control
+
+**Authentication Methods**
+- OAuth 2.0 and OpenID Connect protocols
+- Multi-factor authentication (MFA) support
+- Single Sign-On (SSO) integration
+- Session management and timeout controls
+
+**Authorization Framework**
+- Role-based access control (RBAC)
+- Principle of least privilege enforcement
+- Granular permission controls
+- Regular access reviews and audits
+
+<WarningItem title="Access Management">Always review and update user permissions regularly. Remove access for team members who no longer need it and use time-limited access tokens where possible.</WarningItem>
+
+## Compliance & Certifications
+
+### GDPR Compliance
+**European Data Protection Standards**
+- Data processing transparency and lawful basis
+- Right to erasure ("right to be forgotten")
+- Data portability and access rights
+- Privacy by design principles
+
+### SOC 2 Type II
+**Independent Security Audit**
+- Security control effectiveness verification
+- Availability and uptime guarantees
+- Processing integrity validation
+- Confidentiality protection measures
+
+### CCPA Compliance
+**California Privacy Protection**
+- Consumer rights to know and delete personal data
+- Opt-out capabilities for data processing
+- Non-discrimination policies
+- Clear data processing disclosures
+
+<SuccessItem title="Continuous Compliance">We maintain ongoing compliance through regular audits, policy updates, and staff training to ensure we meet evolving regulatory requirements.</SuccessItem>
+
+## Data Handling Practices
+
+### Data Collection
+
+<SuccessItem title="Minimal Data Collection">We only access data necessary for analysis and insights generation. No unnecessary data collection or storage occurs.</SuccessItem>
+
+<SuccessItem title="Read-Only Access">All data source connections are read-only. Datapad cannot modify, delete, or write to your original data systems.</SuccessItem>
+
+<SuccessItem title="Explicit Consent">Clear authorization required for each data source connection with detailed explanations of access requirements.</SuccessItem>
+
+### Data Processing
+
+<SuccessItem title="Secure Processing">All data operations occur in encrypted environments with isolated processing for each customer.</SuccessItem>
+
+<SuccessItem title="Data Isolation">Your data is never mixed with other customers' data during processing or analysis.</SuccessItem>
+
+<SuccessItem title="Purpose Limitation">Data is used only for agreed analysis purposes and authorized business intelligence functions.</SuccessItem>
+
+<StepItem title="Real-Time Processing">Most data analysis happens in real-time without long-term storage, reducing data exposure and ensuring you always work with current information.</StepItem>
+
+## Your Privacy Controls
+
+### Data Access Control
+- **Granular Connection Permissions:** Control exactly which data sources Datapad can access
+- **Selective Data Source Access:** Choose specific databases, tables, or data ranges
+- **Time-Limited Access Tokens:** Set expiration dates for all data connections
+- **Instant Access Revocation:** Remove Datapad's access to any data source immediately
+
+### Data Retention Management
+- **Configurable Retention Periods:** Set how long analysis results and metadata are stored
+- **Automatic Data Expiration:** Automated deletion based on your retention policies
+- **Manual Data Deletion:** Delete specific data or entire workspaces at any time
+- **Export Before Deletion:** Download your analysis history before removing data
+
+### Transparency & Audit
+- **Data Access Logs:** Complete records of all data access and processing activities
+- **Processing Activity Records:** Detailed logs of what data was analyzed and when
+- **Clear Privacy Policies:** Transparent documentation of all data handling practices
+- **Regular Security Updates:** Ongoing communication about security improvements
+
+## Continuous Security Monitoring
+
+### 24/7 Monitoring
+- Real-time threat detection and automated response
+- Security event logging and analysis
+- Regular penetration testing and vulnerability scanning
+- Continuous monitoring of all system access and activities
+
+### Incident Response
+- Documented response procedures for security events
+- Immediate containment protocols for potential threats
+- Stakeholder notification processes for relevant incidents
+- Forensic analysis capabilities and recovery procedures
+
+<StepItem title="Automated Detection">Our security systems automatically identify and respond to potential threats, often resolving issues before they can impact your data.</StepItem>
+
+<StepItem title="Human Oversight">Security experts monitor automated systems and conduct regular reviews to ensure comprehensive protection.</StepItem>
+
+## Security Best Practices for Users
+
+### Account Security
+
+<TipItem title="Enable Two-Factor Authentication">Always enable 2FA for your Datapad account to add an extra layer of security beyond passwords.</TipItem>
+
+<TipItem title="Use Strong Passwords">Create unique, complex passwords for your Datapad account and avoid reusing passwords from other services.</TipItem>
+
+<TipItem title="Review Connected Integrations">Regularly audit which data sources are connected and remove any that are no longer needed.</TipItem>
+
+<TipItem title="Monitor Access Logs">Check your account access logs periodically to ensure no unauthorized access has occurred.</TipItem>
+
+### Data Source Security
+
+<TipItem title="Limit Required Permissions">Only grant Datapad the minimum permissions necessary for your analysis needs.</TipItem>
+
+<TipItem title="Regular Permission Audits">Review and update connected account permissions quarterly or when team members change roles.</TipItem>
+
+<TipItem title="Revoke Unused Access">Remove Datapad's access to data sources you no longer analyze to minimize exposure.</TipItem>
+
+<TipItem title="Keep Systems Updated">Maintain current security patches on your source systems and databases.</TipItem>
+
+## Security Questions & Reporting
+
+### Security Inquiries
+For questions about our security practices, detailed security documentation, or enterprise security requirements, contact our security team directly.
+
+**Email:** security@datapad.io
+
+### Vulnerability Reporting
+If you discover a security vulnerability, we appreciate responsible disclosure. Our security team will respond promptly to investigate and address any reported issues.
+
+**Email:** security@datapad.io
+
+<StepItem title="Bug Bounty Program">We maintain a responsible disclosure program and work with security researchers to identify and fix potential vulnerabilities.</StepItem>
+
+Your data security is fundamental to everything we do at Datapad. We continuously invest in security infrastructure, regular audits, and team training to ensure your business data remains protected at all times.

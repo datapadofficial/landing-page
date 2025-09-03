@@ -199,29 +199,6 @@ export function FeatureDocContent({ doc, children }: FeatureDocContentProps) {
         </div>
       </section>
 
-      {/* What You'll Get Section */}
-      <section className="py-8 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto flex max-w-3xl flex-col justify-center gap-7 md:text-center mb-12">
-            <h2 className="text-3xl font-bold">What You'll Get</h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to {doc.title.toLowerCase()} with confidence and efficiency.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {doc.benefits.map((benefit, index) => (
-              <div key={index} className="border bg-card rounded-2xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">{benefit}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* MDX Content Section */}
       <section className="py-8 sm:py-32 px-4 sm:px-0">
         <div className="container mx-auto px-4">

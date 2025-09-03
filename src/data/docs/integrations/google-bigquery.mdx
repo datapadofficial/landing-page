@@ -25,21 +25,12 @@ features:
 
 <FeatureItem>**Google Cloud Project** - An active Google Cloud project with BigQuery enabled and dataset access</FeatureItem>
 <FeatureItem>**BigQuery Datasets** - Datasets with tables containing your analysis data in BigQuery</FeatureItem>
-<FeatureItem>**IAM Permissions** - BigQuery Data Viewer role or custom permissions for read access</FeatureItem>
-<FeatureItem>**Service Account** - Google Cloud service account with appropriate BigQuery permissions</FeatureItem>
+<FeatureItem>**IAM Permissions** - Service Account file with BigQuery Data Viewer and BigQuery Job User role for read access</FeatureItem>
 
 ## Connection Methods
 
-Choose the authentication method that fits your Google Cloud setup.
-
-### Service Account Key
+### Service Account Key File
 Use a service account JSON key file for secure API access.
-
-### OAuth 2.0
-Use OAuth authentication for individual user access.
-
-### Google Cloud IAM
-Connect using Google Cloud Identity and Access Management roles.
 
 ## Connection Guide
 
@@ -51,17 +42,24 @@ Navigate to Integrations in Datapad and select Google BigQuery:
 
 ### Step 2: Set Up Google Cloud Authentication
 
-Create a service account in Google Cloud Console:
+<StepItem>Go to Google Cloud Console - IAM & Admin - Service Accounts</StepItem>
+
+![Google Cloud service account sidebar](/images/docs/iam-sidebar.png)
+
+<StepItem>Create a new service account</StepItem>
+
+![Google Cloud service account creation](/images/docs/create-service-account.png)
+
+<StepItem>Configure the name, permissions for the Service Account. Grant BigQuery Data Viewer and BigQuery Job roles</StepItem>
+
+![Google Cloud service account settings](/images/docs/service-account-settings.png)
+
+<StepItem>Generate and download JSON key file</StepItem>
+
 
 ![Google Cloud service account setup](/images/docs/bigquery-service-account.png)
 
-**Required Steps:**
-1. Go to Google Cloud Console → IAM & Admin → Service Accounts
-2. Create a new service account
-3. Grant BigQuery Data Viewer role
-4. Generate and download JSON key file
-
-<InfoItem>Keep your service account key file secure and never share it publicly. This key provides access to your BigQuery data.</InfoItem>
+<StepItem>Keep your service account key file secure and never share it publicly. This key provides access to your BigQuery data.</StepItem>
 
 ### Step 3: Configure BigQuery Connection
 
@@ -70,21 +68,8 @@ Enter your Google Cloud project and authentication details:
 ![BigQuery connection form](/images/docs/bigquery-form.png)
 
 **Required Fields:**
-- Google Cloud Project ID
+- Name of the connection
 - Service Account Key File
-- Default Dataset (optional)
-- Query Location/Region
-
-### Step 4: Select Datasets and Tables
-
-Choose which BigQuery datasets you want to analyze:
-
-![BigQuery dataset selection](/images/docs/bigquery-datasets.png)
-
-**Selection Options:**
-- All Datasets (for comprehensive analysis)
-- Specific Datasets (for focused analysis)
-- Table-level permissions (for granular control)
 
 ## Example Queries
 

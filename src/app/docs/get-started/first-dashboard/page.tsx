@@ -278,12 +278,6 @@ export default function FirstDashboardPage() {
                 Create automated reports and alerts based on your dashboard metrics.
               </p>
             </Link>
-            <Link href="/docs/features/shareable-reports" className="p-4 rounded-lg border bg-muted/20 hover:bg-muted/30 transition-colors">
-              <h4 className="font-medium mb-2">Share Your Dashboard</h4>
-              <p className="text-sm text-muted-foreground">
-                Learn how to share dashboards with team members and create scheduled reports.
-              </p>
-            </Link>
             <Link href="/docs/integrations" className="p-4 rounded-lg border bg-muted/20 hover:bg-muted/30 transition-colors">
               <h4 className="font-medium mb-2">Connect More Data Sources</h4>
               <p className="text-sm text-muted-foreground">

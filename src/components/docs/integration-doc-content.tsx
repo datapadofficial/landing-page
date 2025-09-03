@@ -250,12 +250,6 @@ export function IntegrationDocContent({ doc, children }: IntegrationDocContentPr
           {/* Main Content */}
           <div className="gap-6 lg:col-span-4">
             <div className="max-w-prose lg:mx-auto">
-              {/* What You'll Get Section */}
-              {featuresWithIcons.length > 0 && (
-                <DocSection title="What You'll Get" className="mb-8">
-                  <FeatureGrid features={featuresWithIcons} />
-                </DocSection>
-              )}
 
               {/* Article Content */}
               <div className="prose dark:prose-invert prose-h3:mt-14 prose-h3:scroll-mt-14 prose-h3:text-lg mt-12">
