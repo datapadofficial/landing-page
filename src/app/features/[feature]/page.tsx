@@ -1,19 +1,8 @@
-import { getFeatureBySlug, getAllFeatures } from "@/lib/feature-utils";
+import { getFeatureDocBySlug, getFeatureDocSlugs } from "@/lib/feature-doc-utils";
 import { notFound } from "next/navigation";
-import { FeatureHero } from "@/components/features/feature-hero";
-import { AppVideoPreview } from "@/components/creatives/app-video-preview";
-
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { HowItWorksSection } from "@/components/how-it-works-section";
-import { Faq } from "@/components/faq";
-import { MainCTA } from "@/components/main-cta";
+import { FeatureDocContent } from "@/components/docs/feature-doc-content";
+import { FeatureMDXContent } from "@/components/docs/feature-mdx-content";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 interface FeaturePageProps {
   params: Promise<{
@@ -22,28 +11,32 @@ interface FeaturePageProps {
 }
 
 export async function generateStaticParams() {
-  const features = getAllFeatures();
-  return features.map((feature) => ({
-    feature: feature.slug,
+  const slugs = await getFeatureDocSlugs();
+  return slugs.map((slug) => ({
+    feature: slug,
   }));
 }
 
 export async function generateMetadata({ params }: FeaturePageProps) {
   const { feature: featureSlug } = await params;
-  const feature = getFeatureBySlug(featureSlug);
+  const doc = await getFeatureDocBySlug(featureSlug);
 
-  if (!feature) {
+  if (!doc) {
     return {
-      title: "Feature Not Found",
+      title: "Feature Not Found - Datapad",
+      description: "The requested feature could not be found.",
     };
   }
 
+  const metaTitle = doc.seoTitle || `${doc.title} | Datapad`;
+  const metaDescription = doc.seoDescription || doc.shortDescription;
+
   return {
-    title: `${feature.title} - Datapad Features`,
-    description: feature.shortDescription,
+    title: metaTitle,
+    description: metaDescription,
     openGraph: {
-      title: `${feature.title} - Datapad Features`,
-      description: feature.shortDescription,
+      title: metaTitle,
+      description: metaDescription,
       type: "website",
     },
   };
@@ -51,53 +44,18 @@ export async function generateMetadata({ params }: FeaturePageProps) {
 
 export default async function FeaturePage({ params }: FeaturePageProps) {
   const { feature: featureSlug } = await params;
-  const feature = getFeatureBySlug(featureSlug);
+  const doc = await getFeatureDocBySlug(featureSlug);
 
-  if (!feature) {
+  if (!doc) {
     notFound();
   }
 
   return (
     <>
-      {/* Breadcrumb Navigation */}
-      <section className="pt-16 sm:pt-24">
-        <div className="container">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/features">Features</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{feature.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-      </section>
-
-      {/* Feature Hero */}
-      <FeatureHero feature={feature} />
-
-      {/* Video Preview Section */}
-      <AppVideoPreview videoUrl={feature.videoUrl} />
-
-      {/* How It Works Section */}
-      <HowItWorksSection
-        steps={feature.steps}
-        title={<h2>How {feature.title} Works</h2>}
-        description={feature.shortDescription}
-      />
-
-      {/* Main CTA Section */}
-      <MainCTA />
-
-      {/* FAQ Section */}
-      <Faq />
+      <ScrollProgress color="primary" />
+      <FeatureDocContent doc={doc}>
+        <FeatureMDXContent content={doc.content} />
+      </FeatureDocContent>
     </>
   );
 }

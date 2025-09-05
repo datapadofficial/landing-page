@@ -96,6 +96,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       // For all entries, recalculate the path
       for (const entry of entries) {
         // We don't actually use the entry, but we need to iterate
+        console.log("entry", entry);
         updatePath();
       }
     });

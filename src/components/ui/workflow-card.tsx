@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { AttributionLink } from "@/components/attribution-link";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+
 import Image from "next/image";
 import { getTeamBySlug } from "@/lib/team-utils";
 

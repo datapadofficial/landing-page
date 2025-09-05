@@ -1,3 +1,4 @@
+import React from "react";
 import type { MDXComponents } from "mdx/types";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -21,16 +22,43 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     code: ({ children, ...props }) => <code {...props}>{children}</code>,
     pre: ({ children, ...props }) => <pre {...props}>{children}</pre>,
+    div: ({ children, ...props }) => <div {...props}>{children}</div>,
+    svg: ({ children, ...props }) => <svg {...props}>{children}</svg>,
+    path: ({ ...props }) => <path {...props} />,
 
     // Helper components for special bullet types
     FeatureItem: ({ children }) => <li data-type="feature">{children}</li>,
-    StepItem: ({ children }) => <li data-type="step">{children}</li>,
+    StepItem: ({ children, title }) => (
+      <div className="step-item mb-4 pb-4 rounded-lg border bg-muted/20 text-center justify-center">
+        {title && <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">{title}</h4>}
+        <div>{children}</div>
+      </div>
+    ),
     TipItem: ({ children }) => <li data-type="tip">{children}</li>,
     WarningItem: ({ children }) => <li data-type="warning">{children}</li>,
     SuccessItem: ({ children }) => <li data-type="success">{children}</li>,
-    InfoItem: ({ children }) => <li data-type="info">{children}</li>,
     RocketItem: ({ children }) => <li data-type="rocket">{children}</li>,
     ChartItem: ({ children }) => <li data-type="chart">{children}</li>,
+
+    // Guide-specific components
+    FeatureGrid: ({ children }) => (
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
+        {React.Children.map(children, (child, index) => (
+          <React.Fragment key={index}>{child}</React.Fragment>
+        ))}
+      </div>
+    ),
+    FeatureCard: ({ icon, title, description }) => (
+      <div className="p-4 rounded-lg border bg-muted/20">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="h-4 w-4 text-primary" />
+          <h4 className="font-medium">{title}</h4>
+        </div>
+        <p className="text-sm text-muted-foreground">
+          {description}
+        </p>
+      </div>
+    ),
 
     ...components,
   };

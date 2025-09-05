@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ProductSubmenu } from "@/components/navigation/product-submenu";
-import { WorkflowsSubmenu } from "@/components/navigation/workflows-submenu";
+
 import { IntegrationsSubmenu } from "@/components/navigation/integrations-submenu";
 import { TeamsSubmenu } from "@/components/navigation/teams-submenu";
 
@@ -106,6 +106,26 @@ const MainNavigation = () => {
                     className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
                   >
                     Blog
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* Docs */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/docs"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Docs
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* Security */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/security"
+                    className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-8 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    Security
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -229,6 +249,16 @@ const MainNavigation = () => {
                       {/* Blog */}
                       <Link href="/blog" className="text-md font-semibold">
                         Blog
+                      </Link>
+
+                      {/* Docs */}
+                      <Link href="/docs" className="text-md font-semibold">
+                        Docs
+                      </Link>
+
+                      {/* Security */}
+                      <Link href="/security" className="text-md font-semibold">
+                        Security
                       </Link>
                     </Accordion>
 

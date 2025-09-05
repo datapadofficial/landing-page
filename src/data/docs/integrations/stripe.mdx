@@ -1,0 +1,120 @@
+---
+title: "Stripe Integration"
+description: "Connect your Stripe account to Datapad and get AI-powered insights that turn payment data into revenue optimization strategies."
+category: "finance"
+icon: "/images/integrations/stripe.png"
+website: "https://stripe.com"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Stripe Integration - AI-Powered Payment Analytics | Datapad"
+seoDescription: "Connect Stripe to Datapad and get AI insights that identify revenue leaks, predict churn, and optimize payment success rates."
+features:
+  - icon: "CreditCard"
+    title: "Payment Success Optimization"
+    description: "AI identifies patterns in failed payments and suggests optimization strategies to maximize payment success rates."
+  - icon: "TrendingDown"
+    title: "Churn Prediction & Prevention"
+    description: "Subscription churn prediction with personalized retention campaigns based on payment behavior patterns."
+  - icon: "DollarSign"
+    title: "Revenue Forecasting"
+    description: "Accurate revenue forecasting based on payment trends, customer behavior, and subscription lifecycle analysis."
+---
+
+## Prerequisites
+
+<FeatureItem>**Stripe Account** - An active Stripe account with payment processing history</FeatureItem>
+<FeatureItem>**Transaction Data** - At least 30 days of payment and subscription data for analysis</FeatureItem>
+<FeatureItem>**API Access** - Ability to create restricted API keys in your Stripe dashboard</FeatureItem>
+<FeatureItem>**Webhook Configuration** - Optional: Webhooks for real-time payment event analysis</FeatureItem>
+
+## Connection Methods
+
+### API Key Connection
+Connect using Stripe's restricted API keys with read-only permissions for secure data access.
+
+### Webhook Integration
+Optional webhook setup for real-time payment event monitoring and alerts.
+
+## Connection Guide
+
+### Step 1: Access Stripe Integration
+
+Navigate to Integrations in Datapad and select Stripe:
+
+![Stripe connect screen on Datapad UI](/images/docs/stripe-connect.png)
+
+### Step 2: Get Stripe Account Id
+
+In your Stripe dashboard, copy your account id for Datapad:
+
+![Stripe account id](/images/docs/stripe-account-id.png)
+
+### Step 3: Create API Key
+
+In your Stripe dashboard, create a an API key for Datapad:
+
+![Stripe API key creation](/images/docs/stripe-api-key.png)
+
+**Required Permissions:**
+- Read access to charges and payments
+- Read access to customers and subscriptions
+- Read access to invoices and payment intents
+- Read access to disputes and refunds
+
+<WarningItem>Only grant read permissions to Datapad. Never share API keys with write access to maintain security.</WarningItem>
+
+### Step 4: Enter API Key in Datapad
+
+Paste your restricted API key into the Datapad connection form:
+
+![Stripe API key entry](/images/docs/stripe-auth.png)
+
+**Connection Details:**
+- Stripe Account Name
+- API Key
+
+## Example Queries
+
+Here are some example questions you can ask once your Stripe data is connected:
+
+<StepItem>"What's my payment failure rate and how can I improve it?"</StepItem>
+<StepItem>"Which customers are likely to churn and how can I retain them?"</StepItem>
+<StepItem>"What's my monthly recurring revenue trend and forecast?"</StepItem>
+<StepItem>"How does payment method affect success rates and customer lifetime value?"</StepItem>
+<StepItem>"Which subscription plans have the highest retention rates?"</StepItem>
+<StepItem>"What patterns do I see in disputed transactions?"</StepItem>
+
+### 💬 Payment Optimization Tips
+
+<TipItem>Monitor payment failure reasons to optimize checkout flow</TipItem>
+<TipItem>Track customer payment behavior for personalized retention strategies</TipItem>
+<TipItem>Analyze subscription lifecycle to optimize pricing and billing cycles</TipItem>
+<TipItem>Use dispute patterns to improve customer communication and policies</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Stripe API to fetch your payment data, subscription information, and customer behavior patterns. Our AI analyzes payment success rates, identifies churn risk factors, and provides specific recommendations for optimizing revenue flows and reducing payment-related losses.
+
+## Troubleshooting
+
+### API key authentication failed
+If API key authentication fails:
+- Verify the API key is correctly copied from your Stripe dashboard
+- Ensure the API key has the required read permissions
+- Check that the API key hasn't been restricted or deactivated
+- Try creating a new restricted API key with proper permissions
+
+### Missing payment data
+If payment data is missing:
+- Verify your Stripe account has sufficient transaction history
+- Check that the API key has access to all required resources
+- Ensure payments are being processed through your connected Stripe account
+- Contact support if specific payment types or periods are missing
+
+### Subscription analysis incomplete
+If subscription analysis is incomplete:
+- Verify Stripe Billing/Subscriptions is enabled in your account
+- Check that subscription data includes sufficient customer history
+- Ensure subscription events are being properly recorded in Stripe
+- Review webhook configuration if real-time analysis is needed

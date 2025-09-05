@@ -1,0 +1,124 @@
+---
+title: "Mixpanel Integration"
+description: "Connect your Mixpanel analytics to Datapad and get AI-powered insights that transform user behavior data into growth acceleration strategies."
+category: "analytics"
+icon: "/images/integrations/mixpanel.png"
+website: "https://mixpanel.com"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Mixpanel Integration - User Behavior Analytics | Datapad"
+seoDescription: "Connect Mixpanel to Datapad and get AI insights that analyze user events, funnels, and cohorts to increase retention and revenue per user."
+features:
+  - icon: "Users"
+    title: "User Behavior Analysis"
+    description: "AI analyzes your Mixpanel events to identify user behavior patterns, drop-off points, and engagement opportunities."
+  - icon: "Target"
+    title: "Funnel Optimization Insights"
+    description: "Get specific recommendations for improving conversion funnels and reducing user churn at each step."
+  - icon: "TrendingUp"
+    title: "Cohort & Retention Strategies"
+    description: "AI creates retention strategies based on cohort analysis and user lifecycle patterns from your Mixpanel data."
+---
+
+## Prerequisites
+
+<FeatureItem>**Mixpanel Project** - An active Mixpanel project with event tracking and user data collection</FeatureItem>
+<FeatureItem>**Event Data** - At least 30 days of user events and properties for meaningful behavior analysis</FeatureItem>
+<FeatureItem>**API Credentials** - Mixpanel project API secret or service account for data access</FeatureItem>
+<FeatureItem>**Admin Access** - Admin or developer access to your Mixpanel project for credential generation</FeatureItem>
+
+## Connection Methods
+
+### Mixpanel API Secret
+Secure connection using your Mixpanel project API secret with read-only data access.
+
+### Service Account
+Connect using Mixpanel service account credentials for automated access.
+
+## Connection Guide
+
+### Step 1: Access Mixpanel Integration
+
+Navigate to Integrations in Datapad and select Mixpanel:
+
+![Mixpanel connect screen on Datapad UI](/images/docs/mixpanel-connect.png)
+
+### Step 2: Get Mixpanel API Credentials
+
+Find your API credentials in Mixpanel project settings:
+
+![Mixpanel API credentials location](/images/docs/mixpanel-credentials.png)
+
+**Where to Find Credentials:**
+1. Go to Mixpanel → Project Settings → Access Keys
+2. Copy the Project Token and API Secret
+3. Note your Project ID and Data Region
+4. Ensure API access is enabled for your project
+
+<StepItem>Keep your Mixpanel API secret secure and never share it publicly. This credential provides access to all your user behavior data.</StepItem>
+
+### Step 3: Configure Mixpanel Connection
+
+Enter your Mixpanel project details and authentication:
+
+![Mixpanel connection form](/images/docs/mixpanel-form.png)
+
+**Required Fields:**
+- Project Token
+- API Secret
+- Data Region (US/EU)
+- Date Range for Analysis
+- Event Filter Preferences
+
+## Example Queries
+
+Here are some example questions you can ask once your Mixpanel data is connected:
+
+<StepItem>"What user behavior patterns predict the highest lifetime value customers?"</StepItem>
+<StepItem>"Which events in my onboarding funnel have the highest drop-off rates?"</StepItem>
+<StepItem>"How do user retention rates vary by acquisition channel and user properties?"</StepItem>
+<StepItem>"What feature usage patterns correlate with increased user engagement?"</StepItem>
+<StepItem>"Which user segments should I target for re-engagement campaigns?"</StepItem>
+<StepItem>"How can I optimize my conversion funnel to increase activation rates?"</StepItem>
+
+### 💬 User Analytics Tips
+
+<TipItem>Focus on user journey analysis rather than individual event counts</TipItem>
+<TipItem>Ask about cohort behavior differences to identify successful user patterns</TipItem>
+<TipItem>Request predictive analysis for user churn and lifetime value</TipItem>
+<TipItem>Use property-based segmentation for personalized user experience insights</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Mixpanel Export API to fetch your event data, user profiles, and funnel analytics. Our AI analyzes user behavior patterns, identifies key moments in the user journey, and provides specific recommendations for improving user engagement, reducing churn, and increasing revenue per user through data-driven product and marketing strategies.
+
+## Troubleshooting
+
+### Authorization failed
+If Mixpanel authorization fails:
+- Verify your API secret is correct and hasn't been regenerated
+- Check that your project token matches your Mixpanel project
+- Ensure API access is enabled in your Mixpanel project settings
+- Try generating new API credentials if the current ones aren't working
+
+### Missing event data
+If event data is missing or incomplete:
+- Verify events are being properly tracked and sent to Mixpanel
+- Check that event names and properties match your tracking implementation
+- Ensure the date range includes periods with sufficient user activity
+- Confirm events aren't being filtered out by Mixpanel's data retention settings
+
+### Data sync issues
+If data synchronization is slow or failing:
+- Check your Mixpanel project's rate limits and API usage
+- Verify your data region setting matches your Mixpanel project
+- Ensure stable internet connectivity for data transfer
+- Contact support if specific events or time periods appear to be missing
+
+### Limited user insights
+If user behavior analysis seems limited:
+- Verify you have sufficient user volume for statistical significance
+- Check that user properties and events provide meaningful segmentation
+- Ensure proper user identification and tracking across sessions
+- Consider expanding event tracking for more comprehensive behavior analysis

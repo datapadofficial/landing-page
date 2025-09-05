@@ -1,0 +1,153 @@
+---
+slug: "text-to-sql-python"
+title: "Text2SQL & Python"
+shortDescription: "Convert natural language questions into executable code and database queries."
+longDescription: "Bridge the gap between business questions and technical implementation. Our AI seamlessly converts your natural language questions into optimized SQL queries and Python code, giving you the power of both database expertise and statistical programming without the learning curve."
+icon: "code-2"
+color: "chart-purple"
+benefits:
+  - "Natural language to code conversion"
+  - "Optimized SQL query generation"
+  - "Advanced Python analytics"
+  - "Database expertise automation"
+  - "Statistical programming made simple"
+useCases:
+  - "Complex data extraction"
+  - "Advanced statistical modeling"
+  - "Custom analytics workflows"
+  - "Data transformation pipelines"
+  - "Predictive analysis"
+ctaText: "Try Code Generation"
+ctaUrl: "https://app.datapad.io"
+category: "core"
+priority: 3
+videoUrl: "/videos/features/text-to-sql-python.mp4"
+steps:
+  - title: "Ask Your Question"
+    description: "Describe what you want to know in plain English - no coding required."
+    icon: "message-square"
+    color: "chart-green"
+  - title: "AI Converts to Code"
+    description: "Watch as AI instantly converts your question into optimized SQL queries and Python scripts."
+    icon: "code"
+    color: "chart-purple"
+  - title: "Execute & Get Results"
+    description: "Run the code with one click and get your data results with professional visualizations."
+    icon: "play"
+    color: "chart-red"
+faqs:
+  - question: "What programming languages and databases are supported?"
+    answer: "We support all major SQL databases (MySQL, PostgreSQL, Snowflake, BigQuery, etc.) and generate Python code using popular libraries like pandas, NumPy, scikit-learn, and matplotlib. R scripts and Excel formulas are also available for specialized use cases."
+  - question: "How accurate is the generated code?"
+    answer: "The AI generates production-ready, optimized code following best practices. All code includes comments explaining the logic and error handling for edge cases. We recommend reviewing generated code before running in production environments."
+  - question: "Can I learn from the generated code?"
+    answer: "Absolutely! Every generated script includes detailed comments explaining each step, making it educational. You'll learn proper SQL techniques, Python best practices, and analytical approaches that you can apply to future projects."
+  - question: "What if I need to modify the generated code?"
+    answer: "Generated code is designed to be readable and modifiable. You can adjust parameters, add custom logic, or combine multiple generated scripts. The AI can also help you modify existing code by describing your desired changes in plain English."
+seoTitle: "Text to SQL & Python - Natural Language Code Generation | Datapad"
+seoDescription: "Convert natural language questions into optimized SQL queries and Python code. Bridge the gap between business questions and technical implementation with AI."
+---
+
+## Transform Business Questions Into Code
+
+The Text2SQL & Python feature represents the future of data analysis, where technical barriers disappear and anyone can harness the full power of databases and statistical programming through natural conversation.
+![text2mongo and python](/images/docs/features/text2sql-python.png)
+
+## Code Generation Capabilities
+
+### SQL Query Generation
+Transform business questions into sophisticated database queries:
+
+- **Complex Joins**: Multi-table relationships handled automatically
+- **Window Functions**: Advanced analytics like running totals and rankings
+- **Aggregations**: Group-by operations with intelligent filtering
+- **Performance Optimization**: Indexed queries that run efficiently
+
+### Mongo Aggregation Generation
+Transform business questions into sophisticated mongo aggregations:
+![mongo aggregation](/images/docs/features/mongo-aggregation.png)
+
+
+### Python Script Creation
+Generate statistical analysis and data manipulation code:
+![python script](/images/docs/features/python-script.png)
+
+- **Data Cleaning**: Handle missing values, outliers, and transformations
+- **Statistical Modeling**: Regression, classification, and clustering algorithms
+- **Visualization**: Professional charts with matplotlib and seaborn
+- **Time Series**: Forecasting and trend analysis
+
+<StepItem title="Code Quality">All generated code includes comments explaining the logic, making it educational and maintainable for your team.</StepItem>
+
+## Real-World Examples
+
+### Business Intelligence Queries
+**Question**: "Show me percentage of users with email with .edu extension in it"
+
+**Generated SQL**:
+```sql
+SELECT 
+    DATE_TRUNC('month', order_date) as month,
+    product_category,
+    SUM(revenue) as monthly_revenue,
+    LAG(SUM(revenue)) OVER (
+        PARTITION BY product_category 
+        ORDER BY DATE_TRUNC('month', order_date)
+    ) as previous_month_revenue
+FROM orders o
+JOIN products p ON o.product_id = p.id
+WHERE order_date >= CURRENT_DATE - INTERVAL '1 year'
+GROUP BY month, product_category
+ORDER BY month DESC, monthly_revenue DESC;
+```
+
+### Statistical Analysis
+**Question**: "How many users in our database has a .edu extension in their emails?"
+
+**Generated Python**:
+```python
+# Get the users dataset
+dataset = [ds for ds in existing_datasets if ds.dataset_id == '68b819eee96e2fa1686a319e'][0]
+df = dataset.data
+
+# Filter for users with .edu email extensions
+edu_users = df[df['email'].str.contains(r'\.edu$', case=False, na=False)]
+
+# Count total .edu users
+edu_count = len(edu_users)
+total_users = len(df)
+
+# Create summary dataframe
+summary_df = pd.DataFrame({
+    'Category': ['Users with .edu emails', 'Total users', 'Percentage with .edu'],
+    'Count': [edu_count, total_users, f"{(edu_count/total_users)*100:.2f}%"]
+})
+
+print(f"Users with .edu email extensions: {edu_count}")
+print(f"Total users: {total_users}")
+print(f"Percentage: {(edu_count/total_users)*100:.2f}%")
+
+# Show some examples of .edu emails if any exist
+if edu_count > 0:
+    print("\nExamples of .edu email addresses:")
+    print(edu_users[['display_name', 'email']].head(10))
+
+computed_dataframe.append(summary_df)
+```
+
+## Advanced Features
+
+### Multi-Language Support
+The AI can generate code in multiple languages and formats:
+
+- **SQL Dialects**: MySQL, PostgreSQL, Snowflake, BigQuery
+- **Python Libraries**: pandas, NumPy, scikit-learn, matplotlib
+- **MongoDb Aggregations**: For mongo databases
+
+### Code Optimization
+Every generated query and script is optimized for performance:
+
+- **Query Planning**: Efficient execution paths and index usage
+- **Memory Management**: Optimized data loading and processing
+- **Vectorization**: Efficient operations on large datasets
+- **Error Handling**: Robust code that handles edge cases

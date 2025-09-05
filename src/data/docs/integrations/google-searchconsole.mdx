@@ -1,0 +1,109 @@
+---
+title: "Google Search Console Integration"
+description: "Connect your Google Search Console to Datapad and get AI-powered insights that turn search performance data into SEO growth strategies."
+category: "analytics"
+icon: "/images/integrations/google-searchconsole.png"
+website: "https://search.google.com/search-console"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Google Search Console Integration - SEO Analytics | Datapad"
+seoDescription: "Connect Google Search Console to Datapad and get AI insights that analyze search performance, keyword rankings, and SEO optimization opportunities."
+features:
+  - icon: "Search"
+    title: "Search Performance Analysis"
+    description: "AI analyzes your search queries, impressions, clicks, and rankings to identify SEO opportunities and content gaps."
+  - icon: "TrendingUp"
+    title: "Keyword Optimization Insights"
+    description: "Get specific recommendations for improving keyword rankings, click-through rates, and search visibility."
+  - icon: "Target"
+    title: "Content Strategy Recommendations"
+    description: "AI identifies high-potential keywords and content opportunities based on your search performance data."
+---
+
+## Prerequisites
+
+<FeatureItem>**Google Search Console Property** - A verified website property in Google Search Console with search data</FeatureItem>
+<FeatureItem>**Website Verification** - Verified ownership of your website through Google Search Console</FeatureItem>
+<FeatureItem>**Search Performance Data** - At least 30 days of search impressions and click data for analysis</FeatureItem>
+<FeatureItem>**Google Account** - Google account with owner or full user access to your Search Console property</FeatureItem>
+
+## Connection Methods
+
+### Google OAuth
+Secure connection using Google OAuth with read-only access to your Search Console data.
+
+### Multi-Property Access
+Connect multiple websites for comprehensive SEO portfolio analysis.
+
+## Connection Guide
+
+### Step 1: Access Google Search Console Integration
+
+Navigate to Integrations in Datapad and select Google Search Console:
+
+![Google Search Console connect screen on Datapad UI](/images/docs/gsc-connect.png)
+
+### Step 2: Authenticate with Google
+
+Click "Connect with Google" and sign in with your Google account:
+
+![Google Search Console OAuth authentication](/images/docs/gsc-oauth.png)
+
+### Step 3: Select Website Properties
+
+Choose which Search Console properties you want to analyze:
+
+![Google Search Console property selection](/images/docs/gsc-account-select.png)
+
+**Required Selections:**
+- Google Account
+- Website Properties
+- Search Data Access Permissions
+
+<StepItem>Datapad only requests read-only access to your Search Console data and never modifies your website settings or content.</StepItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Google Search Console data is connected:
+
+<StepItem>"Which keywords am I ranking for but have low click-through rates?"</StepItem>
+<StepItem>"What pages are getting the most search impressions but need better optimization?"</StepItem>
+<StepItem>"How has my search visibility changed over the past quarter for key topics?"</StepItem>
+<StepItem>"Which search queries are driving the most traffic and how can I optimize for more?"</StepItem>
+<StepItem>"What content gaps exist based on high-impression, low-ranking queries?"</StepItem>
+<StepItem>"How does my search performance vary by country and device type?"</StepItem>
+
+### 💬 SEO Optimization Tips
+
+<TipItem>Focus on high-impression, low-CTR keywords for quick optimization wins</TipItem>
+<TipItem>Ask about position vs CTR analysis to identify ranking opportunities</TipItem>
+<TipItem>Request seasonal keyword analysis for content planning</TipItem>
+<TipItem>Use page-level insights to prioritize SEO optimization efforts</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Google Search Console API to fetch your website's search performance data, including queries, impressions, clicks, and average positions. Our AI analyzes search patterns, keyword opportunities, and content performance to provide specific recommendations for improving your search visibility and organic traffic growth.
+
+## Troubleshooting
+
+### Authorization failed
+If Google Search Console authorization fails:
+- Ensure you have owner or full user access to the Search Console property
+- Check that your website is verified and active in Search Console
+- Verify your Google account isn't restricted by organization policies
+- Try accessing Search Console directly to confirm permissions
+
+### Missing search data
+If search performance data is missing:
+- Verify your website has been indexed by Google for sufficient time
+- Check that your website receives organic search traffic
+- Ensure your property is properly configured in Search Console
+- Confirm your website isn't blocked by robots.txt or noindex tags
+
+### Incomplete performance metrics
+If some performance data appears incomplete:
+- Verify your website meets Google's minimum requirements for Search Console data
+- Check that your site has sufficient search volume for statistical significance
+- Ensure proper website verification and sitemap submission
+- Contact support if specific pages or queries appear to be missing from data

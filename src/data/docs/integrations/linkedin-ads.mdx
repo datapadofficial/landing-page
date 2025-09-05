@@ -1,0 +1,109 @@
+---
+title: "LinkedIn Ads Integration"
+description: "Connect your LinkedIn Ads account to Datapad and get AI-powered insights that turn B2B ad spend into qualified lead generation."
+category: "advertising"
+icon: "/images/integrations/linkedin-ads.png"
+website: "https://business.linkedin.com/marketing-solutions/ads"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "LinkedIn Ads Integration - B2B Advertising Analytics | Datapad"
+seoDescription: "Connect LinkedIn Ads to Datapad and get AI insights that identify profitable B2B audiences, optimize campaigns, and generate sales-ready leads."
+features:
+  - icon: "Target"
+    title: "B2B Audience Optimization"
+    description: "AI identifies your highest-converting professional audiences and job titles with specific targeting recommendations."
+  - icon: "Users"
+    title: "Professional Targeting Insights"
+    description: "Campaign optimization recommendations based on B2B buyer behavior patterns and professional demographics."
+  - icon: "BarChart3"
+    title: "Lead Quality Analysis"
+    description: "Lead quality analysis with scoring based on conversion likelihood and professional qualifications."
+---
+
+## Prerequisites
+
+<FeatureItem>**LinkedIn Ads Account** - An active LinkedIn Campaign Manager account with advertising spend history</FeatureItem>
+<FeatureItem>**Campaign Data** - At least 30 days of campaign performance data for B2B optimization insights</FeatureItem>
+<FeatureItem>**Conversion Tracking** - LinkedIn Insight Tag properly implemented for ROI and lead quality analysis</FeatureItem>
+<FeatureItem>**Account Access** - Admin or Campaign Manager access to your LinkedIn advertising accounts</FeatureItem>
+
+## Connection Methods
+
+### LinkedIn Marketing API
+Secure connection using LinkedIn's Marketing API with read-only access to campaign performance data.
+
+### Campaign Manager Integration
+Connect through LinkedIn Campaign Manager for comprehensive advertising analytics.
+
+## Connection Guide
+
+### Step 1: Access LinkedIn Ads Integration
+
+Navigate to Integrations in Datapad and select LinkedIn Ads:
+
+![LinkedIn Ads connect screen on Datapad UI](/images/docs/lads-connect.png)
+
+### Step 2: Authenticate with LinkedIn
+
+Click "Connect with LinkedIn" and sign in with your LinkedIn business account:
+
+![LinkedIn Ads OAuth authentication](/images/docs/lads-oauth.png)
+
+### Step 3: Select Ad Accounts
+
+Choose which LinkedIn Ads accounts you want to analyze:
+
+![LinkedIn Ads account selection](/images/docs/lads-account-select.png)
+
+**Required Selections:**
+- LinkedIn Business Account
+- Ad Accounts to Connect
+- Campaign Data Access Permissions
+
+<StepItem>Datapad only requests read-only access to your LinkedIn Ads data and never modifies your campaigns, budgets, or targeting settings.</StepItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your LinkedIn Ads data is connected:
+
+<StepItem>"Which job titles and industries are converting best for our B2B campaigns?"</StepItem>
+<StepItem>"How does our cost per lead vary by company size and professional seniority?"</StepItem>
+<StepItem>"Which LinkedIn ad formats generate the highest quality B2B leads?"</StepItem>
+<StepItem>"What professional audiences should we scale and which should we pause?"</StepItem>
+<StepItem>"How do our B2B conversion rates compare across different campaign objectives?"</StepItem>
+<StepItem>"Which targeting combinations drive the lowest cost per qualified lead?"</StepItem>
+
+### 💬 B2B Advertising Tips
+
+<TipItem>Focus on lead quality and lifetime value rather than just cost per click</TipItem>
+<TipItem>Ask about professional audience overlap to avoid competing against yourself</TipItem>
+<TipItem>Request company size analysis for better B2B targeting strategies</TipItem>
+<TipItem>Use job function insights to refine your ideal customer profile</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the LinkedIn Marketing API to fetch your campaign performance data, audience insights, and conversion tracking information. Our AI analyzes B2B buying patterns, professional audience performance, and lead quality metrics to provide specific recommendations for optimizing LinkedIn campaigns to generate qualified business leads at scale.
+
+## Troubleshooting
+
+### Authorization failed
+If LinkedIn Ads authorization fails:
+- Ensure you have admin or campaign manager access to the ad accounts
+- Check that your LinkedIn account has access to Campaign Manager
+- Verify your business account complies with LinkedIn's advertising policies
+- Try disconnecting and reconnecting through LinkedIn Campaign Manager
+
+### Missing campaign data
+If campaign data is missing:
+- Verify you selected the correct ad accounts during setup
+- Check that campaigns have been running for sufficient time
+- Ensure campaigns have adequate spend for statistical significance
+- Confirm LinkedIn Insight Tag is properly implemented for conversion tracking
+
+### Conversion tracking issues
+If conversion data is incomplete:
+- Verify LinkedIn Insight Tag is installed correctly on your website
+- Check that conversion events are properly configured in Campaign Manager
+- Ensure conversion values and lead scoring are being tracked
+- Contact support if B2B lead quality data appears missing

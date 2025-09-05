@@ -1,0 +1,164 @@
+---
+title: "Oracle Database Integration"
+description: "Connect your Oracle database to Datapad and get AI-powered insights that turn enterprise database data into strategic competitive advantage."
+category: "database"
+icon: "/images/integrations/oracle.png"
+website: "https://oracle.com/database"
+setupTime: "6 min"
+isSSLEncrypted: true
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Oracle Database Integration - Enterprise Analytics | Datapad"
+seoDescription: "Connect Oracle Database to Datapad and get AI insights from your enterprise database with natural language queries and advanced Oracle analytics."
+features:
+  - icon: "Database"
+    title: "Enterprise Database Intelligence"
+    description: "AI analyzes your Oracle database and provides strategic insights from complex enterprise data with advanced analytics capabilities."
+  - icon: "Shield"
+    title: "Enterprise-Grade Security"
+    description: "SSL encryption, Oracle Advanced Security, and read-only access ensure maximum protection of your Oracle database."
+  - icon: "Code"
+    title: "Oracle SQL Generation"
+    description: "Advanced AI generates optimized Oracle SQL with PL/SQL functions, analytical queries, and Oracle-specific features."
+---
+
+## Prerequisites
+
+<FeatureItem>**Oracle Database** - Oracle Database 12c or higher with your enterprise data</FeatureItem>
+<FeatureItem>**Database Access** - Oracle user account with read permissions and connect privileges</FeatureItem>
+<FeatureItem>**Network Access** - Database accessible through TNS listener or direct connection</FeatureItem>
+<FeatureItem>**Oracle Client** - Oracle client libraries for secure connectivity</FeatureItem>
+
+## Connection Methods
+
+Choose the connection method that fits your Oracle infrastructure.
+
+### TNS Connection
+Connect using TNS names and Oracle Net Services configuration.
+
+### Direct Connection
+Direct connection using host, port, and service name.
+
+### Oracle Cloud
+Connect to Oracle Autonomous Database or Oracle Cloud Infrastructure.
+
+## Connection Guide
+
+### Step 1: Access Oracle Integration
+
+Navigate to Integrations in Datapad and select Oracle Database:
+
+![Oracle connect screen on Datapad UI](/images/docs/oracle-connect.png)
+
+### Step 2: Enter Connection Details
+
+Fill in your Oracle connection information:
+
+![Oracle connection form](/images/docs/oracle-form.png)
+
+**Required Fields:**
+- Host/Server Name
+- Port (default: 1521)
+- Service Name or SID
+- Username
+- Password
+- Connection Type (TNS/Direct)
+
+<StepItem>For Oracle Cloud Autonomous Database, use the connection string from your cloud console.</StepItem>
+
+### Step 3: Configure Advanced Settings
+
+Set Oracle-specific connection options:
+
+![Oracle advanced configuration](/images/docs/oracle-advanced.png)
+
+**Advanced Options:**
+- SSL/TLS Encryption
+- Connection Pool Settings
+- Query Timeout
+- Schema Selection
+
+### Create Read-Only User (Recommended)
+
+For security, create a dedicated user with read-only permissions:
+
+```sql
+-- Create a new user for Datapad
+CREATE USER datapad_readonly IDENTIFIED BY "SecurePassword123!";
+
+-- Grant basic connection privileges
+GRANT CREATE SESSION TO datapad_readonly;
+
+-- Grant read access to specific schemas
+GRANT SELECT ON your_schema.your_table TO datapad_readonly;
+-- Or grant read access to all tables in a schema
+GRANT SELECT ANY TABLE TO datapad_readonly;
+
+-- Grant access to system views for metadata
+GRANT SELECT ON DBA_TABLES TO datapad_readonly;
+GRANT SELECT ON DBA_TAB_COLUMNS TO datapad_readonly;
+GRANT SELECT ON DBA_CONSTRAINTS TO datapad_readonly;
+
+-- For Oracle 12c+ container databases
+ALTER USER datapad_readonly SET CONTAINER_DATA=ALL;
+```
+
+<WarningItem>Replace schema and table names with your actual objects. Use strong passwords that meet Oracle security requirements and your organization's policies.</WarningItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Oracle data is connected:
+
+<StepItem>"Show me the top revenue-generating products across all business units"</StepItem>
+<StepItem>"What's our quarterly financial performance by region and division?"</StepItem>
+<StepItem>"How many transactions are processed per hour during peak times?"</StepItem>
+<StepItem>"Which customers have the highest lifetime value in the enterprise segment?"</StepItem>
+<StepItem>"Show me supply chain efficiency metrics by supplier and location"</StepItem>
+<StepItem>"What's the trend in operational costs over the last fiscal year?"</StepItem>
+
+### 💬 Oracle Query Tips
+
+<TipItem>Include schema names for precise targeting in complex enterprise environments</TipItem>
+<TipItem>Use Oracle-specific analytical functions for advanced calculations</TipItem>
+<TipItem>Ask about hierarchical queries and recursive data structures</TipItem>
+<TipItem>Request performance analysis using Oracle execution plans</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to your Oracle database using Oracle's native connectivity protocols and generates optimized Oracle SQL that leverages advanced features like analytical functions, hierarchical queries, and Oracle-specific performance optimizations. Our AI understands Oracle's enterprise features and generates queries that take advantage of Oracle's powerful analytical capabilities.
+
+## Troubleshooting
+
+### Connection failed
+If Oracle connection fails:
+- Verify the Oracle listener is running and accepting connections
+- Check that the TNS names configuration is correct
+- Ensure the Oracle client libraries are properly installed
+- Test connectivity using SQL*Plus or Oracle SQL Developer
+
+### TNS resolution errors
+If TNS name resolution fails:
+- Verify the tnsnames.ora file contains the correct service definition
+- Check that the ORACLE_HOME and TNS_ADMIN environment variables are set
+- Ensure the Oracle Net Services are properly configured
+- Try using a direct connection instead of TNS names
+
+### Authentication failed
+If authentication fails:
+- Verify the username and password are correct
+- Check if the user account is locked or expired
+- Ensure the user has CREATE SESSION privilege
+- Try connecting with Oracle SQL Developer using the same credentials
+
+### Performance issues
+If queries are running slowly:
+- Check Oracle execution plans for query optimization opportunities
+- Verify that proper indexes exist on frequently queried columns
+- Consider using Oracle hints for query optimization
+- Monitor Oracle AWR reports for system performance analysis
+
+### Privilege errors
+If you encounter privilege errors:
+- Verify the user has SELECT permissions on target tables and views
+- Check that system view access is granted for metadata queries
+- Ensure proper role assignments for read-only access
+- Contact your Oracle DBA for additional privilege grants if needed

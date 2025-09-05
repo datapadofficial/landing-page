@@ -1,0 +1,96 @@
+---
+title: "Google Analytics Integration"
+description: "Connect your Google Analytics account to Datapad and get AI-powered insights that turn website traffic into actionable growth strategies."
+category: "analytics"
+icon: "/images/integrations/google-analytics.png"
+website: "https://analytics.google.com"
+setupTime: "2 min"
+isSSLEncrypted: false
+lastModified: "2024-01-15T00:00:00.000Z"
+seoTitle: "Google Analytics Integration - AI-Powered Website Analytics | Datapad"
+seoDescription: "Connect Google Analytics to Datapad and get AI insights that identify your highest-converting traffic sources and create specific optimization strategies."
+features:
+  - icon: "BarChart3"
+    title: "Traffic Source Analysis"
+    description: "AI identifies your highest-converting traffic sources and scaling opportunities with specific recommendations."
+  - icon: "Target"
+    title: "Conversion Funnel Optimization"
+    description: "Automatic conversion funnel analysis with specific improvement recommendations to increase revenue."
+  - icon: "Users"
+    title: "Smart Audience Segmentation"
+    description: "AI creates smart audience segments with personalized marketing strategies for each group."
+---
+
+## Prerequisites
+
+<FeatureItem>**Google Analytics Account** - An active GA4 property with data collection enabled</FeatureItem>
+<FeatureItem>**Admin Access** - Admin or Editor access to your Google Analytics property</FeatureItem>
+<FeatureItem>**Google Account** - A Google account with access to your Analytics property</FeatureItem>
+<FeatureItem>**Data Collection** - At least 7 days of data in your GA4 property for meaningful insights</FeatureItem>
+
+## Connection Guide
+
+### Step 1: Access Google Analytics Integration
+
+Navigate to Integrations in Datapad and select Google Analytics:
+
+![Google Analytics connect screen on Datapad UI](/images/docs/ga4-connect.png)
+
+### Step 2: Authenticate with Google
+
+Click "Connect with Google" and sign in with your Google account:
+
+![Google Analytics OAuth authentication](/images/docs/ga4-oauth.png)
+
+### Step 3: Select Analytics Property
+
+Choose the Google Analytics property you want to connect:
+
+![Google Analytics property selection](/images/docs/ga4-account-select.png)
+
+<StepItem>Datapad only requests read-only access to your Google Analytics data and never modifies your account settings.</StepItem>
+
+## Example Queries
+
+Here are some example questions you can ask once your Google Analytics data is connected:
+
+<StepItem>"Which traffic sources drive the most conversions this month?"</StepItem>
+<StepItem>"What pages have the highest bounce rate and how can I improve them?"</StepItem>
+<StepItem>"Which marketing campaigns generate the highest ROI?"</StepItem>
+<StepItem>"What's the customer journey for my top converting users?"</StepItem>
+<StepItem>"How does mobile traffic performance compare to desktop?"</StepItem>
+<StepItem>"Which content drives the most engagement and repeat visits?"</StepItem>
+
+### 💬 Natural Language Tips
+
+<TipItem>Be specific about metrics ("conversion rate", "bounce rate", "session duration")</TipItem>
+<TipItem>Include time frames ("last 30 days", "this quarter vs last quarter")</TipItem>
+<TipItem>Ask about specific traffic sources ("organic search", "social media", "paid ads")</TipItem>
+<TipItem>Compare different segments ("mobile vs desktop", "new vs returning users")</TipItem>
+
+## Behind the Scenes
+
+Datapad connects to the Google Analytics Reporting API v4 and GA4 Data API to fetch your website data. Our AI analyzes traffic patterns, user behavior, and conversion funnels to provide actionable insights for improving your website performance and marketing ROI.
+
+## Troubleshooting
+
+### Authorization failed
+If Google authorization fails:
+- Ensure you have admin or editor access to the Analytics property
+- Check that your Google account isn't restricted by organization policies
+- Try disconnecting and reconnecting your Google account
+- Clear browser cookies and try again
+
+### No data available
+If no data appears:
+- Verify your GA4 property is collecting data
+- Check that you selected the correct property during setup
+- Ensure you have at least 7 days of data for meaningful insights
+- Verify tracking code is properly installed on your website
+
+### Missing conversion data
+If conversion data is missing:
+- Ensure conversion events are properly configured in GA4
+- Check that enhanced ecommerce tracking is enabled (if applicable)
+- Verify goals and events are firing correctly
+- Contact support if custom conversion tracking needs setup

@@ -6,7 +6,6 @@ import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { IntegrationList } from "@/components/integrations/integration-list";
-import { TeamCTA } from "@/components/team/team-cta";
 import { MainLogos } from "@/components/main-logos";
 import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
 import { FeatureAccordion } from "@/components/features/feature-accordion";

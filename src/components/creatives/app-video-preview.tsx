@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+
 
 interface AppVideoPreviewProps {
   videoUrl?: string;
@@ -23,12 +22,9 @@ export function AppVideoPreview({
   loop = true,
   muted = true,
 }: AppVideoPreviewProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+
+
 
   return (
     <section className="my-8 sm:my-12 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

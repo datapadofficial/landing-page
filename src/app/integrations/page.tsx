@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import {
   getAllIntegrations,
-  getIntegrationsByCategory,
 } from "@/lib/integration-utils";
 import { getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
