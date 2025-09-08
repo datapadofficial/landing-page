@@ -62,26 +62,6 @@ export default async function TeamPage({ params }: TeamPageProps) {
 
   const workflows = getWorkflowsByTeam(slug);
   const integrations = getIntegrationsByIds(team.featuredIntegrations);
-  const features = team.featuredFeatures
-    .map((slug) => getFeatureBySlug(slug))
-    .filter(Boolean);
-
-  // Check for custom page override (like marketing team)
-  try {
-    const CustomPage = await import(
-      `../../../components/teams/${slug}/page`
-    ).then((module) => module.default);
-    return (
-      <CustomPage
-        team={team}
-        workflows={workflows}
-        integrations={integrations}
-        features={features}
-      />
-    );
-  } catch {
-    // No custom page found, use template
-  }
 
   return (
     <main className="flex flex-col max-w-7xl items-center mx-auto">
