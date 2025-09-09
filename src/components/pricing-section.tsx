@@ -325,7 +325,7 @@ const PlanCard = ({
         </div>
       </div>
       <div className="text-xs text-muted-2-foreground mt-1">
-        <div>per person / {monthly ? "month" : "year"}</div>
+        <div>per person / month</div>
         <div className="mt-1">{plan.bestFor}</div>
       </div>
       <div className="mt-4 mb-6 text-lg font-medium text-foreground">
