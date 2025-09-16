@@ -113,27 +113,15 @@ export function AppPreview({ videoURL, seekPoints }: AppPreviewProps) {
               playsInline
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
-              onPlay={() => {
-                console.log("Video started playing");
-                handlePlay();
-              }}
-              onPause={() => {
-                console.log("Video paused");
-                handlePause();
-              }}
+              onPlay={handlePlay}
+              onPause={handlePause}
               onError={(e) => console.error("Video error:", e)}
-              onLoadStart={() => console.log("Video load started")}
               onCanPlay={() => {
-                console.log("Video can play");
                 if (
                   videoRef.current &&
                   videoRef.current.duration &&
                   !isNaN(videoRef.current.duration)
                 ) {
-                  console.log(
-                    "Setting duration from canPlay:",
-                    videoRef.current.duration
-                  );
                   setDuration(videoRef.current.duration);
                 }
               }}
@@ -143,7 +131,6 @@ export function AppPreview({ videoURL, seekPoints }: AppPreviewProps) {
                   videoRef.current.duration &&
                   !isNaN(videoRef.current.duration)
                 ) {
-                  console.log("Duration changed:", videoRef.current.duration);
                   setDuration(videoRef.current.duration);
                 }
               }}
