@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { UseCaseCard } from "./use-case-card";
 import { Button } from "./ui/button";
+import { AttributionLink } from "./attribution-link";
 
 interface UseCase {
   title: string;
@@ -29,7 +30,8 @@ const useCases: UseCase[] = [
   },
   {
     title: "Sentiment analysis",
-    description: "Identify if text expresses positive, negative, or neutral feelings",
+    description:
+      "Identify if text expresses positive, negative, or neutral feelings",
     imageSrc: "/images/datapad-ai-analyst.png",
   },
   {
@@ -54,21 +56,22 @@ export const UseCaseGrid: React.FC = () => {
           description={useCase.description}
         >
           <div className="flex w-full flex-1 flex-col gap-4">
-            <Button
-              variant="link"
+            <AttributionLink
+              buttonLocation="use-case-grid-try-it-out"
               className="group inline-flex w-fit items-center gap-2 px-0 text-sm font-semibold text-chart-blue transition-colors hover:text-slate-blue-700 focus-visible:text-slate-blue-700"
             >
               Try it out
               <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Button>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-black/5 bg-gradient-to-b from-white via-white to-black/5 shadow-[0_22px_45px_-30px_rgba(15,23,42,0.55)]">
-              <Image
-                src={useCase.imageSrc}
-                alt={useCase.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+            </AttributionLink>
+            <div className="relative w-full h-full">
+              <div className="absolute bottom-[-32px] right-[-42px] aspect-[4/3] w-full overflow-hidden rounded-2xl border border-input">
+                <Image
+                  src={useCase.imageSrc}
+                  alt={useCase.title}
+                  fill
+                  className="object-cover h-[500px]"
+                />
+              </div>
             </div>
           </div>
         </UseCaseCard>

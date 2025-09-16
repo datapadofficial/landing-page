@@ -6,6 +6,7 @@ import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
 import { FeatureGrid } from "@/components/features/feature-grid";
 import { ExcelHero } from "./excel-hero";
+import UseCaseGrid from "@/components/use-case-grid";
 
 export const metadata: Metadata = {
   title: "AI Excel Analysis | Excel AI Agent | Excel Analyzer Tool | Datapad",
@@ -161,6 +162,11 @@ export default function ExcelAIAnalysisPage() {
 
       {/* Logos Section */}
       <MainLogos />
+
+      {/* Use Case Cards */}
+      <div className="mt-8 px-2 py-8 sm:py-10">
+        <UseCaseGrid />
+      </div>
 
       {/* Feature Grid - Using existing component */}
       <FeatureGrid itemCount={6} />

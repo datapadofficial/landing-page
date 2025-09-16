@@ -33,7 +33,7 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
   return (
     <div
       className={cn(
-        "bg-black-3 dark:bg-white-3 border group relative flex h-full min-h-80 sm:min-h-96 w-full flex-col justify-between text-ellipsis rounded-2xl sm:rounded-3xl p-4 sm:p-6",
+        "bg-black-3 overflow-hidden dark:bg-white-3 border group relative flex h-full min-h-80 sm:min-h-[500px] w-full flex-col justify-between text-ellipsis rounded-2xl sm:rounded-3xl p-4 sm:p-6",
         className
       )}
     >
@@ -50,24 +50,19 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
           </p>
         </div>
       </div>
-      <div className="mt-6 flex w-full flex-1">
-        {children}
-      </div>
+      <div className="mt-6 flex w-full flex-1">{children}</div>
     </div>
   );
 };
 
 // Wrapped version with dotted lines
-export const UseCaseCardWithDots: React.FC<UseCaseCardProps & { wrapperClassName?: string }> = ({
-  title,
-  description,
-  children,
-  className,
-  step,
-  wrapperClassName,
-}) => {
+export const UseCaseCardWithDots: React.FC<
+  UseCaseCardProps & { wrapperClassName?: string }
+> = ({ title, description, children, className, step, wrapperClassName }) => {
   return (
-    <DottedDiv className={cn("mt-8 w-full px-2 py-8 sm:py-10", wrapperClassName)}>
+    <DottedDiv
+      className={cn("mt-8 w-full px-2 py-8 sm:py-10", wrapperClassName)}
+    >
       <UseCaseCard
         title={title}
         description={description}
