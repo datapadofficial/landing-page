@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+import { AttributionLink } from "@/components/attribution-link";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -277,10 +278,13 @@ const PlanCard = ({
               variant="outline"
               size="lg"
             >
-              <a href={plan.cta.href}>
+              <AttributionLink
+                buttonLocation="pricing-enterprise-contact"
+                href={plan.cta.href}
+              >
                 {plan.cta.text}
                 <ArrowRight />
-              </a>
+              </AttributionLink>
             </Button>
           </div>
 
@@ -337,10 +341,13 @@ const PlanCard = ({
         variant={plan.mostPopular ? "default" : "outline"}
         size="lg"
       >
-        <a href={plan.cta.href}>
+        <AttributionLink
+          buttonLocation={`pricing-${plan.name.toLowerCase()}-signup`}
+          href={plan.cta.href === "#" ? undefined : plan.cta.href}
+        >
           {plan.cta.text}
           <ArrowRight />
-        </a>
+        </AttributionLink>
       </Button>
       <div className="mt-6 flex flex-col gap-3">
         {plan.features?.map((feature, index) => (
