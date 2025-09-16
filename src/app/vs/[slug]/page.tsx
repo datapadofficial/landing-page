@@ -10,6 +10,7 @@ import { MainCTA } from "@/components/main-cta";
 import { Faq } from "@/components/faq";
 import { AIDataAgentSection } from "@/components/ai-data-agent";
 import UseCaseGrid from "@/components/use-case-grid";
+import { Stats } from "@/components/sections/stats";
 
 interface CompetitorPageProps {
   params: Promise<{
@@ -103,10 +104,19 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
         subtitle={competitor.subtitle}
         ctaText={competitor.ctaText}
         badgeText={competitor.badgeText}
+        competitorLogoContainerClassName={
+          competitor.id === "julius-ai" ? "bg-white" : undefined
+        }
       />
 
       {/* Trusted By Section */}
       <MainLogos />
+
+      {/* Stats Section */}
+      <Stats
+        title={`Proudly Serving the World`}
+        subtitle={`We're proud to serve the world's largest companies and organizations.`}
+      />
 
       {/* Comparison Table */}
       <VsComparisonTable
@@ -119,7 +129,7 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
           competitor.name
         } offers ${competitor.description.toLowerCase()}.`}
       />
-      
+
       {/* Use Case Cards */}
       <div className="mt-8 px-2 py-8 sm:py-10">
         <UseCaseGrid />
