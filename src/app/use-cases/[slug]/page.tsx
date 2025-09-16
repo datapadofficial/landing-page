@@ -3,11 +3,28 @@ import { Metadata } from "next";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { Faq } from "@/components/faq";
 import { MainCTA } from "@/components/main-cta";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AttributionLink } from "@/components/attribution-link";
-import { Upload, MessageSquare, BarChart3, FileSpreadsheet, Zap, Brain, ArrowRight, CheckCircle } from "lucide-react";
+import { ExcelAIHero } from "@/components/ui/excel-ai-hero";
+import { AppPreview } from "@/components/creatives/app-preview";
+import { MainLogos } from "@/components/main-logos";
+import { HowItWorksSection } from "@/components/how-it-works-section";
+import { FeatureGrid } from "@/components/features/feature-grid";
+import dynamic from "next/dynamic";
+
+// Only lazy load components with heavy visualizations
+const ExcelAIDataAgentSection = dynamic(
+  () =>
+    import("@/components/ui/excel-ai-data-agent").then((mod) => ({
+      default: mod.ExcelAIDataAgentSection,
+    })),
+  {
+    ssr: true, // Keep SSR for SEO
+    loading: () => (
+      <div className="h-96 animate-pulse bg-muted/50 rounded-lg" />
+    ),
+  }
+);
 
 interface UseCasePageProps {
   params: Promise<{
@@ -18,33 +35,49 @@ interface UseCasePageProps {
 // Supported use case slugs
 const SUPPORTED_USE_CASES = {
   "excel-ai": {
-    title: "Excel AI Analysis - Turn Spreadsheets into Business Intelligence | Datapad",
-    description: "Transform your Excel files into powerful business insights with AI. Upload spreadsheets, ask questions in natural language, and get instant analysis, charts, and recommendations.",
+    title: "AI Excel Analysis | Excel AI Agent | Excel Analyzer Tool | Datapad",
+    description: "Transform Excel spreadsheets into business intelligence with AI. Ask questions in plain English, get instant Excel AI analysis, charts, and actionable insights. Excel AI analyzer tool.",
     keywords: [
-      "excel analysis",
-      "excel ai analysis",
       "ai excel analysis",
-      "excel pivot table",
-      "excel data analysis",
-      "spreadsheet analysis",
+      "excel analysis",
+      "excel ai agent",
+      "excel ai analyzer",
+      "excel analyzer",
+      "excel analysis ai",
       "excel ai assistant",
-      "excel automation",
-      "excel insights",
-      "excel reporting",
-      "excel dashboard",
-      "excel business intelligence",
-      "excel ai tools",
-      "excel data visualization",
-      "excel analytics",
-      "spreadsheet ai",
+      "excel ai tool",
+      "excel ai chatbot",
       "excel ai chat",
-      "excel data mining",
-      "excel predictive analysis",
-      "excel ai reports"
+      "excel ai analysis tool",
+      "excel ai insights",
+      "excel ai reporting",
+      "excel ai dashboard",
+      "excel ai automation",
+      "excel ai data analysis",
+      "excel ai analytics",
+      "excel ai business intelligence",
+      "excel ai natural language",
+      "excel ai query",
+      "excel ai questions",
+      "excel ai answers",
+      "excel ai visualization",
+      "excel ai charts",
+      "excel ai reports",
+      "excel ai pivot tables",
+      "excel ai data mining",
+      "excel ai predictive analysis",
+      "excel ai forecasting",
+      "excel ai recommendations",
+      "excel ai suggestions",
+      "excel ai insights",
+      "excel ai intelligence",
+      "excel ai decision making",
+      "excel ai data exploration",
+      "excel ai data discovery"
     ],
     openGraph: {
-      title: "Excel AI Analysis - Turn Spreadsheets into Business Intelligence | Datapad",
-      description: "Transform your Excel files into powerful business insights with AI. Upload spreadsheets, ask questions in natural language, and get instant analysis, charts, and recommendations.",
+      title: "AI Excel Analysis | Excel AI Agent | Excel Analyzer Tool | Datapad",
+      description: "Transform Excel spreadsheets into business intelligence with AI. Ask questions in plain English, get instant Excel AI analysis, charts, and actionable insights. Excel AI analyzer tool.",
       type: "website"
     }
   }
@@ -104,82 +137,46 @@ export async function generateStaticParams() {
   }));
 }
 
-const STEPS = [
-  {
-    icon: Upload,
-    title: "Upload Your Excel Files",
-    description: "Drag and drop your Excel spreadsheets (.xlsx, .xls) or CSV files. Support for multiple sheets, large datasets, and complex formulas.",
-    details: "Instant upload with automatic data type detection and column recognition."
-  },
-  {
-    icon: MessageSquare,
-    title: "Ask Questions in Natural Language",
-    description: "Chat with your data like you would with a human analyst. Ask complex questions about trends, correlations, and insights.",
-    details: "Examples: 'What are my top-selling products?', 'Show me sales growth by region', 'Identify unusual patterns in my data'"
-  },
-  {
-    icon: BarChart3,
-    title: "Get Instant Analysis & Export",
-    description: "Receive AI-generated charts, pivot tables, and insights. Export results as PDFs, images, or new Excel files.",
-    details: "Automated chart generation, trend analysis, predictive insights, and actionable recommendations."
-  }
-];
-
-const FEATURES = [
-  {
-    icon: Brain,
-    title: "AI-Powered Analysis",
-    description: "Advanced machine learning algorithms analyze patterns, trends, and correlations in your Excel data."
-  },
-  {
-    icon: Zap,
-    title: "Instant Insights",
-    description: "Get answers to complex questions in seconds, not hours or days of manual analysis."
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "Excel Native",
-    description: "Works seamlessly with your existing Excel files, formulas, and data structures."
-  },
-  {
-    icon: CheckCircle,
-    title: "No Technical Skills Required",
-    description: "Simply upload and ask questions - our AI handles all the complex data processing."
-  }
-];
-
 const FAQ_ITEMS = [
   {
-    question: "What types of Excel files can I upload?",
-    answer: "You can upload Excel files (.xlsx, .xls), CSV files, and Google Sheets. We support multiple worksheets, large datasets (up to millions of rows), and complex formulas. The AI automatically detects data types and column structures."
+    question: "What is an Excel AI analyzer?",
+    answer: "An Excel AI analyzer is an intelligent tool that uses artificial intelligence to analyze your Excel spreadsheets. Our Excel AI agent can understand natural language questions, perform complex data analysis, and provide actionable insights from your Excel data automatically."
   },
   {
-    question: "How does the Excel AI analysis work?",
-    answer: "Our AI data analyst reads your Excel data, understands the context and relationships between columns, and can answer questions about trends, patterns, correlations, and insights. It can create charts, perform statistical analysis, and generate reports automatically."
+    question: "How does Excel AI analysis work?",
+    answer: "Our Excel AI agent reads your Excel files, understands the data structure and relationships, and allows you to ask questions in plain English. The Excel AI analyzer then performs sophisticated analysis to deliver insights, charts, and recommendations instantly."
   },
   {
-    question: "Can I ask questions about multiple Excel files at once?",
-    answer: "Yes! You can upload multiple Excel files and ask questions that span across all your data. The AI can correlate information between different spreadsheets and provide unified insights across your entire dataset."
+    question: "Can I use natural language with Excel AI?",
+    answer: "Yes! Our Excel AI agent is designed for natural language interaction. Simply ask questions like 'What are my top-selling products?' or 'Show me sales trends by region' and get instant Excel AI analysis in plain English responses."
   },
   {
-    question: "What kind of questions can I ask my Excel data?",
-    answer: "You can ask any business question: sales trends, customer analysis, financial forecasting, inventory optimization, marketing performance, and more. Use natural language like 'Show me my best-selling products last quarter' or 'What are my biggest cost drivers?'"
+    question: "What Excel files does the Excel AI analyzer support?",
+    answer: "Our Excel AI agent supports all major Excel file formats including .xlsx, .xls, CSV files, and Google Sheets. It can handle multiple worksheets, large datasets with millions of rows, complex formulas, pivot tables, and macros."
   },
   {
-    question: "Can I export the analysis results?",
-    answer: "Absolutely! Export your AI-generated insights as PDF reports, Excel files with new analysis sheets, chart images, or CSV data. You can also schedule automated reports to be generated and delivered regularly."
+    question: "How fast is Excel AI analysis?",
+    answer: "Get instant Excel AI analysis results in seconds! Unlike traditional Excel analysis that can take hours or days, our Excel AI agent processes your data and provides insights, charts, and recommendations immediately after you ask questions."
   },
   {
-    question: "Is my Excel data secure?",
-    answer: "Yes, data security is our top priority. Your Excel files are encrypted in transit and at rest. We follow industry-standard security practices and never share your data with third parties. You maintain full control over your data at all times."
+    question: "Can Excel AI create charts and visualizations?",
+    answer: "Absolutely! Our Excel AI analyzer automatically generates charts, graphs, and visualizations based on your questions. It creates pivot tables, trend analysis, and custom reports that would normally require hours of manual Excel work."
   },
   {
-    question: "Do I need Excel expertise to use this?",
-    answer: "No technical skills required! Simply upload your Excel file and start asking questions in plain English. Our AI handles all the complex data processing, statistical analysis, and visualization automatically."
+    question: "Is the Excel AI agent secure?",
+    answer: "Yes, security is our top priority. Your Excel files are encrypted during transit and storage. Our Excel AI agent processes your data securely and never shares it with third parties. You maintain full control over your data at all times."
   },
   {
-    question: "What if my Excel file has complex formulas or macros?",
-    answer: "Our AI can work with complex Excel files including formulas, pivot tables, and macros. It understands the relationships in your data and can analyze the results of your calculations to provide deeper insights."
+    question: "Do I need Excel skills to use Excel AI analysis?",
+    answer: "No Excel expertise required! Our Excel AI agent is designed for everyone. Simply upload your files and ask questions in plain English. The Excel AI analyzer handles all the complex data processing, statistical analysis, and visualization automatically."
+  },
+  {
+    question: "Can Excel AI handle large datasets?",
+    answer: "Yes! Our Excel AI analyzer can process large datasets with millions of rows efficiently. It automatically optimizes performance and can handle complex Excel files with multiple sheets, formulas, and data relationships."
+  },
+  {
+    question: "What kind of insights can Excel AI provide?",
+    answer: "Our Excel AI agent provides comprehensive business intelligence including trend analysis, predictive insights, correlation discovery, anomaly detection, forecasting, and actionable recommendations based on your Excel data patterns."
   }
 ];
 
@@ -191,209 +188,60 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
   }
 
   return (
-    <>
-      {/* Hero Section */}
-      
-      <section className="pt-16 sm:pt-24 pb-16">
-        <div className="container">
-          <div className="mx-auto text-center max-w-4xl">
-            <Badge variant="outline" className="bg-background mb-6">
-              <Brain className="w-4 h-4 mr-2" />
-              Excel AI Analysis
-            </Badge>
+    <main className="flex flex-col max-w-7xl items-center mx-auto">
+      {/* Hero Section - Excel AI Optimized */}
+      <ExcelAIHero />
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              Turn Excel Spreadsheets into
-              <span className="text-primary block">Business Intelligence</span>
-            </h1>
+      {/* App Preview Section */}
+      <AppPreview />
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Upload your Excel files, ask questions in natural language, and get instant AI-powered analysis,
-              charts, and actionable insights. No more manual pivot tables or complex formulas.
-            </p>
+      {/* Logos Section */}
+      <MainLogos />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button asChild size="lg">
-                <AttributionLink
-                  href={process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io"}
-                  buttonLocation="excel-ai-hero-primary"
-                >
-                  Analyze Your Excel Data
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </AttributionLink>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <AttributionLink
-                  href={process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io"}
-                  buttonLocation="excel-ai-hero-demo"
-                >
-                  Book a Demo
-                </AttributionLink>
-              </Button>
-            </div>
+      {/* How It Works Section - Using existing component */}
+      <HowItWorksSection
+        title={
+          <h3 className="text-3xl font-bold">
+            Excel AI Analyzer in <span className="text-primary">3 Simple Steps</span>
+          </h3>
+        }
+        description="Transform your Excel spreadsheets into business intelligence with our Excel AI agent"
+        steps={[
+          {
+            title: "Upload Your Excel Files",
+            description: "Drag and drop your Excel spreadsheets (.xlsx, .xls) or CSV files. Our Excel AI analyzer supports multiple sheets, large datasets, and complex formulas.",
+            icon: "upload"
+          },
+          {
+            title: "Ask Questions in Plain English",
+            description: "Chat with your data using natural language. Ask complex questions about trends, correlations, and insights. Our Excel AI agent understands plain English queries.",
+            icon: "message-square"
+          },
+          {
+            title: "Get Instant Excel AI Analysis",
+            description: "Receive AI-generated charts, pivot tables, and actionable insights. Export your Excel AI analysis results as PDFs, images, or enhanced Excel files.",
+            icon: "bar-chart-3"
+          }
+        ]}
+      />
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary mb-1">3 Steps</div>
-                <div className="text-sm text-muted-foreground">To Excel Analysis</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary mb-1">Instant</div>
-                <div className="text-sm text-muted-foreground">AI Insights</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary mb-1">No Code</div>
-                <div className="text-sm text-muted-foreground">Required</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Excel AI Data Agent Section */}
+      <ExcelAIDataAgentSection />
 
-      {/* How It Works Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">How Excel AI Analysis Works</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Transform your Excel spreadsheets into powerful business intelligence in just 3 simple steps
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {STEPS.map((step, index) => (
-              <Card key={index} className="text-center relative">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
-                    {index + 1}
-                  </div>
-                  <CardTitle className="text-xl mb-2">{step.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {step.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{step.details}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Excel AI Analysis?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Advanced AI capabilities that go beyond traditional Excel analysis
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {FEATURES.map((feature, index) => (
-              <Card key={index} className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg mb-2">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What Can You Analyze?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Ask questions about any aspect of your business data
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Sales & Revenue Analysis</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• "What are my top-selling products?"</li>
-                  <li>• "Show me sales trends by region"</li>
-                  <li>• "Which customers have the highest lifetime value?"</li>
-                  <li>• "Predict next month's revenue"</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Financial Analysis</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• "What are my biggest cost drivers?"</li>
-                  <li>• "Analyze profit margins by category"</li>
-                  <li>• "Identify unusual expense patterns"</li>
-                  <li>• "Forecast cash flow for next quarter"</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Marketing Performance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• "Which marketing channels perform best?"</li>
-                  <li>• "Calculate customer acquisition cost"</li>
-                  <li>• "Analyze campaign ROI by source"</li>
-                  <li>• "Identify optimal budget allocation"</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Operational Insights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• "What are my inventory turnover rates?"</li>
-                  <li>• "Identify supply chain bottlenecks"</li>
-                  <li>• "Analyze employee productivity metrics"</li>
-                  <li>• "Optimize resource allocation"</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Feature Grid - Using existing component */}
+      <FeatureGrid />
 
       {/* Case Studies */}
       <DatapadCasestudies />
 
       {/* FAQ Section */}
       <Faq
-        heading="Excel AI Analysis: Frequently Asked Questions"
+        heading="Excel AI Analyzer: Frequently Asked Questions"
         items={FAQ_ITEMS}
       />
 
       {/* CTA Section */}
       <MainCTA />
-    </>
+    </main>
   );
 }
