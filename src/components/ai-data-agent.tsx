@@ -22,7 +22,7 @@ interface AIDataAgentSectionProps {
 const AIDataAgentSection = ({
   heading = (
     <>
-      <span>The Only Agent</span> With
+      <span>AI Agent</span> With
       <br />
       <span className="text-chart-purple">Data Super-Powers</span>
     </>

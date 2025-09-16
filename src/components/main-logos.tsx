@@ -98,14 +98,6 @@ const MainLogos = ({
 
 const topRowCompanies = [
   {
-    name: "Harvard",
-    logo: "/images/company-logos/harvard-logo.svg",
-    width: 130,
-    height: 35,
-    maxHeight: "max-h-6 sm:max-h-8 lg:max-h-10",
-    href: "https://harvard.edu",
-  },
-  {
     name: "Delta Air Lines",
     logo: "/images/company-logos/delta-logo.svg",
     width: 104,
@@ -114,12 +106,12 @@ const topRowCompanies = [
     href: "https://delta.com",
   },
   {
-    name: "Maersk",
-    logo: "/images/company-logos/maersk-logo.svg",
-    width: 113,
-    height: 22,
-    maxHeight: "max-h-4 sm:max-h-5 lg:max-h-6",
-    href: "https://maersk.com",
+    name: "Harvard",
+    logo: "/images/company-logos/harvard-logo.svg",
+    width: 130,
+    height: 35,
+    maxHeight: "max-h-6 sm:max-h-8 lg:max-h-10",
+    href: "https://harvard.edu",
   },
   {
     name: "NYU",
@@ -128,6 +120,14 @@ const topRowCompanies = [
     height: 30,
     maxHeight: "max-h-4 sm:max-h-5 lg:max-h-6",
     href: "https://nyu.edu",
+  },
+  {
+    name: "Maersk",
+    logo: "/images/company-logos/maersk-logo.svg",
+    width: 113,
+    height: 22,
+    maxHeight: "max-h-4 sm:max-h-5 lg:max-h-6",
+    href: "https://maersk.com",
   },
 ];
 

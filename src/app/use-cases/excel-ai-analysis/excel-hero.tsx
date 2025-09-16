@@ -49,7 +49,7 @@ export function ExcelHero() {
 
           {/* Title */}
           <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight">
-            AI Excel Analysis Made Simple
+            Still Working on That Excel File?
           </h1>
 
           {/* Description */}
@@ -72,7 +72,7 @@ export function ExcelHero() {
               buttonLocation="integration-hero-primary"
               searchParams={{ integration: "excel" }}
             >
-              Connect Sheets
+              Try for Free
             </AttributionLink>
           </Button>
 

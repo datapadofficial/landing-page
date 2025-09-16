@@ -51,8 +51,8 @@ const MainHero = ({
           </div>
           <h1 className="w-full relative text-center mx-auto">
             <div className="">
-              <div>Start Winning With Data</div>
-              {/* <div>AI Agent That Can</div> */}
+              {/* <div>Manual Anlaysis is Dead</div> */}
+              <div>Crunch Data With AI</div>
               {/* <div>Stop Guessing. Start Winning.</div> */}
               <AnimatedTicker
                 texts={[
@@ -61,7 +61,7 @@ const MainHero = ({
                   "Step-Up Your SQL Game",
                   "Analyze Data Like a PhD",
                   "Build Stellar Dashboards",
-                  "Impress Data-Driven Insights",
+                  "Impress With Insights",
                 ]}
                 interval={3000}
                 className="text-chart-purple"

@@ -214,7 +214,7 @@ const SocialMediaTestimonials = () => {
             buttonLocation="social-media-testimonials-primary"
             className="cursor-pointer"
           >
-            <Button className="mt-4">Join the Community</Button>
+            <Button className="mt-4">Try for Free</Button>
           </AttributionLink>
         </div>
       </div>
