@@ -100,7 +100,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
 
       {/* Related Workflows Gallery */}
       {workflows.length > 0 && (
-        <WorkflowGallery
+        <WorkflowGallery 
           workflows={workflows}
           title={
             <>
@@ -109,7 +109,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
             </>
           }
           subtitle={
-            <p className="text-muted-foreground text-lg max-w-2xl text-center">
+            <p key={team.slug} className="text-muted-foreground text-lg max-w-2xl text-center">
               Get actionable campaigns and strategies from your{" "}
               {team.name.toLowerCase()} data in seconds, not spreadsheets.
               Copy-paste ready.
