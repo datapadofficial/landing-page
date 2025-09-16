@@ -29,28 +29,28 @@ const AIDataAgentSection = ({
   ),
   description = "Connect any data source with a simple prompt and watch our AI dive deep into your numbers. Get sophisticated SQL analysis, predictive models, and data insights that would take data scientists weeks to uncover - all from natural language questions about your business.",
   feature1 = {
-    title: "Ask Anything, Get Expert Analysis",
+    title: "Ask Anything, Get Insights",
     description:
       "Ask any business question in plain English. Get sophisticated statistical analysis, trend identification, and data-driven insights that reveal hidden patterns in your business metrics across any dataset.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
-    title: "Any Data Source, Unified Insights",
+    title: "Blend Any Data Source",
     description:
       "Connect databases, CRMs, financial systems, and any data source with drag-and-drop simplicity. Watch your fragmented data transform into unified, comprehensive insights in real-time.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
   },
   feature3 = {
-    title: "SQL + Python, Best Tool for Every Job",
+    title: "SQL + Python Code",
     description:
       "Unlike analysts who are limited to one tool, our AI seamlessly switches between SQL for data extraction and Python for advanced modeling. Transform any data source without restrictions - get the sophisticated analysis that requires both database expertise and statistical programming.",
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature4 = {
-    title: "Instant Dashboards, Better Decisions",
+    title: "Instant Interactive Dashboards",
     description:
       "Track KPIs, performance metrics, and business health across all systems in one unified dashboard. Get the complete operational picture that drives better decisions instantly.",
     image:

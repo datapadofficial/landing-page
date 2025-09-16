@@ -42,7 +42,7 @@ const MainLogos = ({
     return basePath;
   };
   return (
-    <section className="py-8 sm:py-32 px-4 sm:px-0">
+    <section className="py-8 sm:py-24 px-4 sm:px-0">
       <div className="container flex flex-col gap-10">
         {title}
 

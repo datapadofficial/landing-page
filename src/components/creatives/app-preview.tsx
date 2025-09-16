@@ -9,9 +9,14 @@ import { VideoSeekingComponent, VideoSeekPoint } from "./video-seeking";
 interface AppPreviewProps {
   videoURL?: string;
   seekPoints?: VideoSeekPoint[];
+  videoPlayerProps?: React.VideoHTMLAttributes<HTMLVideoElement>;
 }
 
-export function AppPreview({ videoURL, seekPoints }: AppPreviewProps) {
+export function AppPreview({
+  videoURL,
+  seekPoints,
+  videoPlayerProps,
+}: AppPreviewProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -107,6 +112,7 @@ export function AppPreview({ videoURL, seekPoints }: AppPreviewProps) {
             <video
               ref={videoRef}
               src={videoURL}
+              {...videoPlayerProps}
               autoPlay
               muted
               loop
