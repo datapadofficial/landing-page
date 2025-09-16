@@ -143,17 +143,17 @@ export default function ExcelAIAnalysisPage() {
         seekPoints={[
           {
             start: 0,
-            end: 10,
+            end: 3,
             title: "1. Upload Your File",
           },
           {
-            start: 10,
-            end: 20,
+            start: 3,
+            end: 15,
             title: "2. Ask a Question",
           },
           {
-            start: 20,
-            end: 30,
+            start: 15,
+            end: 20,
             title: "3. Get Insights",
           },
         ]}

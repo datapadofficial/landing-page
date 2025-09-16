@@ -57,14 +57,14 @@ export function VideoSeekingComponent({
                 "hover:opacity-100"
               )}
             >
-              <div className="flex flex-col items-start text-left w-full">
+              <div className="flex flex-col items-start text-left w-full gap-1.5">
                 <span className="text-xs sm:text-sm font-medium mb-1">
                   {point.title}
                 </span>
                 {/* Progress bar below title */}
-                <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+                <div className="w-full h-[2px] bg-muted rounded-full overflow-hidden">
                   <div
-                    className="transition-all duration-1000 ease-out"
+                    className="transition-all duration-600 ease-out"
                     style={{
                       height: "100%",
                       width: `${progress}%`,
