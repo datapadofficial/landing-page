@@ -8,6 +8,7 @@ import { AnnouncementBadge } from "@/components/ui/announcement-badge";
 import { AnimatedTicker } from "@/components/ui/animated-ticker";
 import { cn } from "@/lib/utils";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 
 interface MainHeroProps {
   heading?: string;
@@ -49,11 +50,11 @@ const MainHero = ({
             </AnnouncementBadge>
           </div>
           <h1 className="w-full relative text-center mx-auto">
-            <div className="inline-flex items-center gap-2">
-              Crunch
+            <div className="">
+              <div>Stop Guessing. Start Winning.</div>
               <AnimatedTicker
                 texts={[
-                  "Excel Files",
+                  "Reports That Drive Decisions",
                   "Data Insights That Justify",
                   "Ad Strategies That Convert",
                   "SEO Content That Ranks",
@@ -65,8 +66,7 @@ const MainHero = ({
                 ]}
                 interval={3000}
                 className="text-chart-purple"
-              />
-              With AI
+              />{" "}
             </div>
           </h1>
           <p className="text-muted-foreground px-4 sm:px-0">{description}</p>
@@ -83,7 +83,7 @@ const MainHero = ({
             size="lg"
             className="w-full sm:w-fit min-w-42"
           >
-            <AttributionLink href={button.url} buttonLocation="hero-demo">
+            <AttributionLink href={BOOKING_LINK} buttonLocation="hero-demo">
               Book a Demo
             </AttributionLink>
           </Button>
