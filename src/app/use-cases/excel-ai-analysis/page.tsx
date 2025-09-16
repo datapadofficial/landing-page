@@ -2,26 +2,10 @@ import { Metadata } from "next";
 import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { Faq } from "@/components/faq";
 import { MainCTA } from "@/components/main-cta";
-import { ExcelAIHero } from "@/components/ui/excel-ai-hero";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
-import { HowItWorksSection } from "@/components/how-it-works-section";
 import { FeatureGrid } from "@/components/features/feature-grid";
-import dynamic from "next/dynamic";
-
-// Only lazy load components with heavy visualizations
-const ExcelAIDataAgentSection = dynamic(
-  () =>
-    import("@/components/ui/excel-ai-data-agent").then((mod) => ({
-      default: mod.ExcelAIDataAgentSection,
-    })),
-  {
-    ssr: true, // Keep SSR for SEO
-    loading: () => (
-      <div className="h-96 animate-pulse bg-muted/50 rounded-lg" />
-    ),
-  }
-);
+import { ExcelHero } from "./excel-hero";
 
 export const metadata: Metadata = {
   title: "AI Excel Analysis | Excel AI Agent | Excel Analyzer Tool | Datapad",
@@ -150,51 +134,36 @@ const FAQ_ITEMS = [
 export default function ExcelAIAnalysisPage() {
   return (
     <main className="flex flex-col max-w-7xl items-center mx-auto">
-      {/* Hero Section - Excel AI Optimized */}
-      <ExcelAIHero />
+      {/* Hero Section */}
+      <ExcelHero />
 
       {/* App Preview Section */}
-      <AppPreview />
-
-      {/* Logos Section */}
-      <MainLogos />
-
-      {/* How It Works Section - Using existing component */}
-      <HowItWorksSection
-        title={
-          <h3 className="text-3xl font-bold">
-            Excel AI Analyzer in{" "}
-            <span className="text-primary">3 Simple Steps</span>
-          </h3>
-        }
-        description="Transform your Excel spreadsheets into business intelligence with our Excel AI agent"
-        steps={[
+      <AppPreview
+        videoURL="/videos/features/excel-ai-analysis.mp4"
+        seekPoints={[
           {
-            title: "Upload Your Excel Files",
-            description:
-              "Drag and drop your Excel spreadsheets (.xlsx, .xls) or CSV files. Our Excel AI analyzer supports multiple sheets, large datasets, and complex formulas.",
-            icon: "upload",
+            start: 0,
+            end: 10,
+            title: "1. Upload Your File",
           },
           {
-            title: "Ask Questions in Plain English",
-            description:
-              "Chat with your data using natural language. Ask complex questions about trends, correlations, and insights. Our Excel AI agent understands plain English queries.",
-            icon: "message-square",
+            start: 10,
+            end: 20,
+            title: "2. Ask a Question",
           },
           {
-            title: "Get Instant Excel AI Analysis",
-            description:
-              "Receive AI-generated charts, pivot tables, and actionable insights. Export your Excel AI analysis results as PDFs, images, or enhanced Excel files.",
-            icon: "bar-chart-3",
+            start: 20,
+            end: 30,
+            title: "3. Get Insights",
           },
         ]}
       />
 
-      {/* Excel AI Data Agent Section */}
-      <ExcelAIDataAgentSection />
+      {/* Logos Section */}
+      <MainLogos />
 
       {/* Feature Grid - Using existing component */}
-      <FeatureGrid />
+      <FeatureGrid itemCount={6} />
 
       {/* Case Studies */}
       <DatapadCasestudies />

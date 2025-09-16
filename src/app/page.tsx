@@ -10,6 +10,7 @@ import { DatapadCasestudies } from "@/components/datapad-casestudies";
 
 import dynamic from "next/dynamic";
 import { IntegrationsSection } from "@/components/integrations/integrations-section";
+import { ExcelHero } from "./use-cases/excel-ai-analysis/excel-hero";
 
 // Only lazy load components with heavy charts/visualizations
 const AIDataAgentSection = dynamic(
@@ -37,7 +38,7 @@ export default function Home() {
           "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4"
         }
       /> */}
-      <AppPreview />
+      <AppPreview videoURL="/videos/features/excel-ai-analysis.mp4" />
 
       {/* Logos section */}
       <MainLogos />
