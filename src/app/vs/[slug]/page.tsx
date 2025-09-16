@@ -9,7 +9,7 @@ import { MainLogos } from "@/components/main-logos";
 import { MainCTA } from "@/components/main-cta";
 import { Faq } from "@/components/faq";
 import { AIDataAgentSection } from "@/components/ai-data-agent";
-import { Marquee } from "@/components/magicui/marquee";
+import UseCaseGrid from "@/components/use-case-grid";
 
 interface CompetitorPageProps {
   params: Promise<{
@@ -119,6 +119,11 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
           competitor.name
         } offers ${competitor.description.toLowerCase()}.`}
       />
+      
+      {/* Use Case Cards */}
+      <div className="mt-8 px-2 py-8 sm:py-10">
+        <UseCaseGrid />
+      </div>
 
       {/* Data Agent */}
       <AIDataAgentSection />
