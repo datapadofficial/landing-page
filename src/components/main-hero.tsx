@@ -49,11 +49,11 @@ const MainHero = ({
             </AnnouncementBadge>
           </div>
           <h1 className="w-full relative text-center mx-auto">
-            <div className="">
-              <div>Stop Guessing. Start Winning.</div>
+            <div className="inline-flex items-center gap-2">
+              Crunch
               <AnimatedTicker
                 texts={[
-                  "Reports That Drive Decisions",
+                  "Excel Files",
                   "Data Insights That Justify",
                   "Ad Strategies That Convert",
                   "SEO Content That Ranks",
@@ -65,7 +65,8 @@ const MainHero = ({
                 ]}
                 interval={3000}
                 className="text-chart-purple"
-              />{" "}
+              />
+              With AI
             </div>
           </h1>
           <p className="text-muted-foreground px-4 sm:px-0">{description}</p>

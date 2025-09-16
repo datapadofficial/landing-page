@@ -37,7 +37,7 @@ export const teams: Team[] = [
           "Spending 10+ hours weekly copying data from different platforms into spreadsheets. Reports are outdated by the time they're finished.",
       },
       {
-        icon: "question-mark",
+        icon: "circle-question-mark",
         title: "Attribution Mystery",
         description:
           "Can't prove which campaigns actually drive revenue. Marketing gets blamed for poor ROI when attribution is broken, not strategy.",
@@ -171,7 +171,7 @@ export const teams: Team[] = [
           "Managing metrics across Facebook, Instagram, LinkedIn, TikTok, and Twitter manually. Each platform has different reporting periods and metrics.",
       },
       {
-        icon: "question-mark",
+        icon: "trending-down",
         title: "Vanity Metrics Trap",
         description:
           "Lots of likes and shares, but can't prove social media actually drives business results. Engagement data doesn't translate to revenue impact.",
@@ -243,7 +243,7 @@ export const teams: Team[] = [
           "Financial reporting is still done in Excel with manual data entry. Reports are error-prone, time-consuming, and outdated before they're finished.",
       },
       {
-        icon: "crystal-ball",
+        icon: "trending-up-down",
         title: "Reactive Cash Flow Management",
         description:
           "Cash flow forecasting happens after problems arise. Can't predict cash crunches or identify seasonal patterns until it's too late.",

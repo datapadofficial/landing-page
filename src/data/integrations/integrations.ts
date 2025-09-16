@@ -317,7 +317,7 @@ export const integrations: Integration[] = [
       {
         title: "Lead Quality Uncertainty",
         description: "Can't identify which leads are actually worth pursuing",
-        icon: "user-question",
+        icon: "circle-question-mark",
       },
       {
         title: "Poor Lead Generation",
