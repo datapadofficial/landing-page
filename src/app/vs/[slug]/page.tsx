@@ -9,6 +9,7 @@ import { MainLogos } from "@/components/main-logos";
 import { MainCTA } from "@/components/main-cta";
 import { Faq } from "@/components/faq";
 import { AIDataAgentSection } from "@/components/ai-data-agent";
+import { Marquee } from "@/components/magicui/marquee";
 
 interface CompetitorPageProps {
   params: Promise<{
@@ -104,6 +105,9 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
         badgeText={competitor.badgeText}
       />
 
+      {/* Trusted By Section */}
+      <MainLogos />
+
       {/* Comparison Table */}
       <VsComparisonTable
         competitorName={competitor.name}
@@ -115,9 +119,6 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
           competitor.name
         } offers ${competitor.description.toLowerCase()}.`}
       />
-
-      {/* Trusted By Section */}
-      <MainLogos />
 
       {/* Data Agent */}
       <AIDataAgentSection />

@@ -583,6 +583,8 @@ body {
   --color-4: oklch(80.2% 0.134 225);
   --color-5: oklch(90.7% 0.231 133);  
 
+  /* Logo fill for theme switching */
+  --logo-fill: #1e1e1e;
 }
 
 .dark {
@@ -622,6 +624,9 @@ body {
   --color-3: oklch(69.6% 0.165 251);
   --color-4: oklch(80.2% 0.134 225);
   --color-5: oklch(90.7% 0.231 133);
+
+  /* Logo fill for theme switching */
+  --logo-fill: #ffffff;
 }
 
 @layer base {
