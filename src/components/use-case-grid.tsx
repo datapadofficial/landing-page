@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 import { UseCaseCard } from "./use-case-card";
-import { Button } from "./ui/button";
 import { AttributionLink } from "./attribution-link";
 
 interface UseCase {
@@ -48,35 +47,48 @@ const useCases: UseCase[] = [
 
 export const UseCaseGrid: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {useCases.map((useCase, index) => (
-        <UseCaseCard
-          key={index}
-          title={useCase.title}
-          description={useCase.description}
-        >
-          <div className="flex w-full flex-1 flex-col gap-4">
-            <AttributionLink
-              buttonLocation="use-case-grid-try-it-out"
-              className="group inline-flex w-fit items-center gap-2 px-0 text-sm font-semibold text-chart-blue transition-colors hover:text-slate-blue-700 focus-visible:text-slate-blue-700"
+    <section className="py-8 sm:py-32 px-4 sm:px-0">
+      <div className="container">
+        <div className="flex flex-col gap-6 text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium">
+            Popular Use Cases
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+            From correlation analysis to sentiment tracking, discover how teams
+            use AI to transform their data into actionable insights.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {useCases.map((useCase, index) => (
+            <UseCaseCard
+              key={index}
+              title={useCase.title}
+              description={useCase.description}
             >
-              Try it out
-              <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </AttributionLink>
-            <div className="relative w-full h-full">
-              <div className="absolute bottom-[-32px] right-[-42px] aspect-[4/3] w-full overflow-hidden rounded-2xl border border-input">
-                <Image
-                  src={useCase.imageSrc}
-                  alt={useCase.title}
-                  fill
-                  className="object-cover h-[500px]"
-                />
+              <div className="flex w-full flex-1 flex-col gap-4">
+                <AttributionLink
+                  buttonLocation="use-case-grid-try-it-out"
+                  className="group inline-flex w-fit items-center gap-2 px-0 text-sm font-semibold text-chart-blue transition-colors hover:text-slate-blue-700 focus-visible:text-slate-blue-700"
+                >
+                  Try it out
+                  <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </AttributionLink>
+                <div className="relative w-full h-full">
+                  <div className="absolute bottom-[-32px] right-[-42px] aspect-[4/3] w-full overflow-hidden rounded-2xl border border-input">
+                    <Image
+                      src={useCase.imageSrc}
+                      alt={useCase.title}
+                      fill
+                      className="object-cover h-[500px]"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </UseCaseCard>
-      ))}
-    </div>
+            </UseCaseCard>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

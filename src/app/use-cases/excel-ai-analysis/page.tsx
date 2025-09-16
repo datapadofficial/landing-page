@@ -164,9 +164,7 @@ export default function ExcelAIAnalysisPage() {
       <MainLogos />
 
       {/* Use Case Cards */}
-      <div className="mt-8 px-2 py-8 sm:py-10">
-        <UseCaseGrid />
-      </div>
+      <UseCaseGrid />
 
       {/* Feature Grid - Using existing component */}
       <FeatureGrid itemCount={6} />
