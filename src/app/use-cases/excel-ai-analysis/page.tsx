@@ -7,6 +7,7 @@ import { MainLogos } from "@/components/main-logos";
 import { FeatureGrid } from "@/components/features/feature-grid";
 import { ExcelHero } from "./excel-hero";
 import UseCaseGrid from "@/components/use-case-grid";
+import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
 
 export const metadata: Metadata = {
   title: "AI Excel Analysis | Excel AI Agent | Excel Analyzer Tool | Datapad",
@@ -170,7 +171,7 @@ export default function ExcelAIAnalysisPage() {
       <FeatureGrid itemCount={6} />
 
       {/* Case Studies */}
-      <DatapadCasestudies />
+      <SocialMediaTestimonials />
 
       {/* FAQ Section */}
       <Faq

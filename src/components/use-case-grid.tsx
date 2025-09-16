@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 
 import { UseCaseCard } from "./use-case-card";
-import { AttributionLink } from "./attribution-link";
 
 interface UseCase {
   title: string;
@@ -64,15 +62,12 @@ export const UseCaseGrid: React.FC = () => {
               key={index}
               title={useCase.title}
               description={useCase.description}
+              href={process.env.NEXT_PUBLIC_APP_URL || "https://app.datapad.io"}
+              buttonLocation={`use-case-grid-${useCase.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")}`}
             >
               <div className="flex w-full flex-1 flex-col gap-4">
-                <AttributionLink
-                  buttonLocation="use-case-grid-try-it-out"
-                  className="group inline-flex w-fit items-center gap-2 px-0 text-sm font-semibold text-chart-blue transition-colors hover:text-slate-blue-700 focus-visible:text-slate-blue-700"
-                >
-                  Try it out
-                  <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </AttributionLink>
                 <div className="relative w-full h-full">
                   <div className="absolute bottom-[-32px] right-[-42px] aspect-[4/3] w-full overflow-hidden rounded-2xl border border-input">
                     <Image

@@ -5,6 +5,11 @@ import Image from "next/image";
 export function ExcelHero() {
   const integrations = [
     {
+      id: "csv",
+      name: "CSV",
+      icon: "/images/integrations/csv.png",
+    },
+    {
       id: "excel",
       name: "Excel",
       icon: "/images/integrations/excel.png",
@@ -14,11 +19,6 @@ export function ExcelHero() {
       name: "Sheets",
       icon: "/images/integrations/google-sheets.png",
     },
-    {
-      id: "csv",
-      name: "CSV",
-      icon: "/images/integrations/csv.png",
-    },
   ];
   return (
     <section className="pt-8 sm:pt-16">
@@ -26,6 +26,27 @@ export function ExcelHero() {
         <div className="bg-background pointer-events-none absolute inset-0 z-20 h-full w-full [mask-image:radial-gradient(transparent,white)]" />
 
         <div className="relative z-30 mx-auto flex flex-col gap-4 sm:gap-6 max-w-7xl">
+          {/* Integration Icons */}
+          <div className="flex justify-center items-center mb-4 p-2">
+            {integrations.map((integration, index) => (
+              <div
+                key={integration.id}
+                className={`flex size-12 sm:size-16 items-center justify-center rounded-full border bg-[#f7f7f7] dark:bg-[#18181b] drop-shadow-lg ${
+                  index > 0 ? "-ml-2 sm:-ml-3" : ""
+                } ${integration.id === "excel" ? "scale-110" : ""}`}
+                style={{ zIndex: integration.id === "excel" ? 3 : 1 }}
+              >
+                <Image
+                  src={integration.icon}
+                  alt={integration.name}
+                  width={32}
+                  height={32}
+                  className="rounded object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
           {/* Title */}
           <h1 className="w-full relative text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight">
             AI Excel Analysis Made Simple

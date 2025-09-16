@@ -11,6 +11,7 @@ import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import dynamic from "next/dynamic";
 import { IntegrationsSection } from "@/components/integrations/integrations-section";
 import { ExcelHero } from "./use-cases/excel-ai-analysis/excel-hero";
+import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
 
 // Only lazy load components with heavy charts/visualizations
 const AIDataAgentSection = dynamic(
@@ -53,10 +54,13 @@ export default function Home() {
       <FeatureGrid />
 
       {/* Case Studies Section */}
-      <DatapadCasestudies />
+      {/* <DatapadCasestudies /> */}
 
       {/* Integrations Section */}
       <IntegrationsSection />
+
+      {/* Testimonials Section */}
+      <SocialMediaTestimonials />
 
       {/* Pricing Section */}
       <PricingSection />

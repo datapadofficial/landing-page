@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { AttributionLink } from "./attribution-link";
 
 const DottedDiv = ({
   children,
@@ -21,6 +22,8 @@ interface UseCaseCardProps {
   children: React.ReactNode;
   className?: string;
   step?: string;
+  href?: string;
+  buttonLocation?: string;
 }
 
 export const UseCaseCard: React.FC<UseCaseCardProps> = ({
@@ -29,11 +32,13 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
   children,
   className,
   step,
+  href,
+  buttonLocation,
 }) => {
-  return (
+  const cardContent = (
     <div
       className={cn(
-        "bg-black-3 overflow-hidden dark:bg-white-3 border group relative flex h-full min-h-80 sm:min-h-[500px] w-full flex-col justify-between text-ellipsis rounded-2xl sm:rounded-3xl p-4 sm:p-6",
+        "bg-black-3 overflow-hidden dark:bg-white-3 border group relative flex h-full min-h-80 sm:min-h-[500px] w-full flex-col justify-between text-ellipsis rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-transform duration-200 ease-out hover:scale-[1.02]",
         className
       )}
     >
@@ -50,15 +55,42 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
           </p>
         </div>
       </div>
-      <div className="mt-6 flex w-full flex-1">{children}</div>
+      <div className="mt-6 flex w-full flex-1 [&_.overflow-hidden]:transition-transform [&_.overflow-hidden]:duration-300 [&_.overflow-hidden]:ease-in-out group-hover:[&_.overflow-hidden]:scale-105 group-hover:[&_.overflow-hidden]:rotate-1 [&_.rounded-2xl:has(img)]:transition-transform [&_.rounded-2xl:has(img)]:duration-300 [&_.rounded-2xl:has(img)]:ease-in-out group-hover:[&_.rounded-2xl:has(img)]:scale-105 group-hover:[&_.rounded-2xl:has(img)]:rotate-1">
+        {children}
+      </div>
     </div>
   );
+
+  // If href and buttonLocation are provided, wrap with AttributionLink
+  if (href && buttonLocation) {
+    return (
+      <AttributionLink
+        href={href}
+        buttonLocation={buttonLocation}
+        className="block w-full h-full"
+      >
+        {cardContent}
+      </AttributionLink>
+    );
+  }
+
+  // Otherwise, return the card without link wrapper
+  return cardContent;
 };
 
 // Wrapped version with dotted lines
 export const UseCaseCardWithDots: React.FC<
   UseCaseCardProps & { wrapperClassName?: string }
-> = ({ title, description, children, className, step, wrapperClassName }) => {
+> = ({
+  title,
+  description,
+  children,
+  className,
+  step,
+  wrapperClassName,
+  href,
+  buttonLocation,
+}) => {
   return (
     <DottedDiv
       className={cn("mt-8 w-full px-2 py-8 sm:py-10", wrapperClassName)}
@@ -68,6 +100,8 @@ export const UseCaseCardWithDots: React.FC<
         description={description}
         step={step}
         className={className}
+        href={href}
+        buttonLocation={buttonLocation}
       >
         {children}
       </UseCaseCard>
