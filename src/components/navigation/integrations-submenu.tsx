@@ -23,7 +23,7 @@ const IntegrationsSubmenu = () => {
     "facebook-ads",
     "google-ads",
     "shopify",
-    "hubspot",
+    "excel",
     "stripe",
     "salesforce",
     "linkedin-ads",
@@ -59,7 +59,7 @@ const IntegrationsSubmenu = () => {
                 title={integration.name}
                 description={integration.description}
                 iconSrc={integration.icon}
-                url={`/integrations/${integration.id}`}
+                url={integration.customUrl || `/integrations/${integration.id}`}
               />
             ))}
 
@@ -120,7 +120,7 @@ const IntegrationLink = ({
       </div>
       <div className="space-y-1">
         <div className="text-sm font-semibold">{title}</div>
-        <p className="text-muted-foreground text-xs leading-snug">
+        <p className="text-muted-foreground text-xs leading-snug line-clamp-4">
           {description}
         </p>
       </div>

@@ -50,7 +50,7 @@ export const UseCaseGrid: React.FC = () => {
     <section className="py-8 sm:py-32 px-4 sm:px-0">
       <div className="container">
         <div className="flex flex-col gap-6 text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium">
+          <h2 className="text-3xl sm:text-4xlink to excell md:text-5xl font-medium">
             Popular Use Cases
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">

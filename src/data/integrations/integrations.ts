@@ -179,7 +179,9 @@ export const integrations: Integration[] = [
     category: "analytics",
     icon: "/images/integrations/excel.png",
     website: "https://www.microsoft.com/microsoft-365/excel",
-    headline: "Give Your Excel Data an AI Analyst That Builds Dashboards For You",
+    customUrl: "/use-cases/excel-ai-analysis",
+    headline:
+      "Give Your Excel Data an AI Analyst That Builds Dashboards For You",
     description:
       "Connect Excel to Datapad and hand every spreadsheet to an Excel AI analyst. Run Excel analysis using AI, fix Excel with AI cleanup, and turn messy tabs into automated insights, alerts, and board-ready dashboards in minutes.",
     benefits: [

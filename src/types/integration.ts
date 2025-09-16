@@ -6,6 +6,7 @@ export interface Integration {
   cta?: string;
   secondaryCta?: string;
   website?: string;
+  customUrl?: string;
   category:
     | "advertising"
     | "analytics"
