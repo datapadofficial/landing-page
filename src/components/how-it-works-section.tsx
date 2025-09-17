@@ -92,6 +92,8 @@ const HowItWorksSection = ({
                   <Image
                     src={step.image}
                     alt={step.title}
+                    width={600}
+                    height={400}
                     className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto hidden sm:block"
                   />
                 ) : step.icon ? (
@@ -112,6 +114,8 @@ const HowItWorksSection = ({
                   <Image
                     src={`https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-${stepNumber}.svg`}
                     alt={step.title}
+                    width={600}
+                    height={400}
                     className="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto hidden sm:block"
                   />
                 )}

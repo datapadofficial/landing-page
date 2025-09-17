@@ -1,7 +1,6 @@
-import { getFeatureDocBySlug, getFeatureDocSlugs } from "@/lib/feature-doc-utils";
+import { getFeatureBySlug, getAllFeatures } from "@/lib/feature-utils";
 import { notFound } from "next/navigation";
-import { FeatureDocContent } from "@/components/docs/feature-doc-content";
-import { FeatureMDXContent } from "@/components/docs/feature-mdx-content";
+import { FeatureContent } from "@/components/features/feature-content";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 interface FeaturePageProps {
@@ -11,25 +10,25 @@ interface FeaturePageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getFeatureDocSlugs();
-  return slugs.map((slug) => ({
-    feature: slug,
+  const features = getAllFeatures();
+  return features.map((feature) => ({
+    feature: feature.slug,
   }));
 }
 
 export async function generateMetadata({ params }: FeaturePageProps) {
   const { feature: featureSlug } = await params;
-  const doc = await getFeatureDocBySlug(featureSlug);
+  const feature = getFeatureBySlug(featureSlug);
 
-  if (!doc) {
+  if (!feature) {
     return {
       title: "Feature Not Found - Datapad",
       description: "The requested feature could not be found.",
     };
   }
 
-  const metaTitle = doc.seoTitle || `${doc.title} | Datapad`;
-  const metaDescription = doc.seoDescription || doc.shortDescription;
+  const metaTitle = `${feature.title} | Datapad`;
+  const metaDescription = feature.shortDescription;
 
   return {
     title: metaTitle,
@@ -44,18 +43,16 @@ export async function generateMetadata({ params }: FeaturePageProps) {
 
 export default async function FeaturePage({ params }: FeaturePageProps) {
   const { feature: featureSlug } = await params;
-  const doc = await getFeatureDocBySlug(featureSlug);
+  const feature = getFeatureBySlug(featureSlug);
 
-  if (!doc) {
+  if (!feature) {
     notFound();
   }
 
   return (
     <>
       <ScrollProgress color="primary" />
-      <FeatureDocContent doc={doc}>
-        <FeatureMDXContent content={doc.content} />
-      </FeatureDocContent>
+      <FeatureContent feature={feature} />
     </>
   );
 }

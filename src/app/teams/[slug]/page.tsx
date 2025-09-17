@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { getTeamBySlug, getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 import { getIntegrationsByIds } from "@/lib/integration-utils";
-import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { IntegrationList } from "@/components/integrations/integration-list";
 import { MainLogos } from "@/components/main-logos";
@@ -100,8 +99,8 @@ export default async function TeamPage({ params }: TeamPageProps) {
       <AIDataAgentSection />
 
       {/* Related Workflows Gallery */}
-      {team.showWorkflows !== false && workflows.length > 0 && (
-        <WorkflowGallery
+      {workflows.length > 0 && (
+        <WorkflowGallery 
           workflows={workflows}
           title={
             <>
@@ -110,7 +109,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
             </>
           }
           subtitle={
-            <p className="text-muted-foreground text-lg max-w-2xl text-center">
+            <p key={team.slug} className="text-muted-foreground text-lg max-w-2xl text-center">
               Get actionable campaigns and strategies from your{" "}
               {team.name.toLowerCase()} data in seconds, not spreadsheets.
               Copy-paste ready.

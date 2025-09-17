@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ProductSubmenu } from "@/components/navigation/product-submenu";
+import { getAllFeatures } from "@/lib/feature-utils";
 
 import { IntegrationsSubmenu } from "@/components/navigation/integrations-submenu";
 import { TeamsSubmenu } from "@/components/navigation/teams-submenu";
@@ -286,85 +287,31 @@ const MainNavigation = () => {
 };
 
 // Mobile menu components (simplified versions of the desktop submenus)
-const MobileProductMenu = () => (
-  <div className="flex flex-col gap-2">
-    <Link
-      href="/features/ai-data-agent"
-      className="text-sm hover:text-accent-foreground"
-    >
-      AI Data Agent
-    </Link>
-    <Link
-      href="/features/dashboards"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Generative Dashboards
-    </Link>
-    <Link
-      href="/features/text-to-sql-python"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Text2SQL & Python
-    </Link>
-    <Link
-      href="/features/integrations"
-      className="text-sm hover:text-accent-foreground"
-    >
-      50+ Integrations
-    </Link>
-    <Link
-      href="/features/data-blending"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Data Blending
-    </Link>
-    <Link
-      href="/features/shareable-reports"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Shareable Reports
-    </Link>
-    <Link
-      href="/features/slack-bot"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Slack Bot
-    </Link>
-    <Link
-      href="/features/voice-mode"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Voice Mode
-    </Link>
-    <Link href="/workflows" className="text-sm hover:text-accent-foreground">
-      Workflows
-    </Link>
-    <Link
-      href="/features/multi-model-ai"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Multi-Model AI
-    </Link>
-    <Link
-      href="/features/learning-layer"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Learning Layer
-    </Link>
-    <Link
-      href="/features/web-access"
-      className="text-sm hover:text-accent-foreground"
-    >
-      Web Access
-    </Link>
-    <Link
-      href="/features"
-      className="text-sm hover:text-accent-foreground font-medium"
-    >
-      View All Features
-    </Link>
-  </div>
-);
+const MobileProductMenu = () => {
+  const features = getAllFeatures();
+  // Get first 11 features for the mobile menu, plus "View All Features" link
+  const featuresForMenu = features.slice(0, 11);
+
+  return (
+    <div className="flex flex-col gap-2">
+      {featuresForMenu.map((feature) => (
+        <Link
+          key={feature.slug}
+          href={feature.redirectUrl || `/features/${feature.slug}`}
+          className="text-sm hover:text-accent-foreground"
+        >
+          {feature.title}
+        </Link>
+      ))}
+      <Link
+        href="/features"
+        className="text-sm hover:text-accent-foreground font-medium"
+      >
+        View All Features
+      </Link>
+    </div>
+  );
+};
 
 const MobileWorkflowsMenu = () => (
   <div className="flex flex-col gap-2">

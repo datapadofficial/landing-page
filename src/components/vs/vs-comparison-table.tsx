@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimatedLogo } from "@/components/navigation/aimated-logo/animated-logo";
 import Image from "next/image";
+import { Fragment } from "react";
 
 interface ComparisonFeature {
   feature: string;
@@ -85,9 +86,9 @@ const VsComparisonTable = ({
 
             {/* Feature rows */}
             {features.map((feature, index) => (
-              <>
+              <Fragment key={`feature-${index}`}>
                 <div
-                  key={`feature-${index}`}
+                  
                   className="flex items-center gap-2 border-b border-border p-5"
                 >
                   {feature.icon && <feature.icon className="size-4 shrink-0" />}
@@ -109,7 +110,7 @@ const VsComparisonTable = ({
                     {feature.competitor.description}
                   </span>
                 </div>
-              </>
+              </Fragment>
             ))}
 
             {/* CTA row */}

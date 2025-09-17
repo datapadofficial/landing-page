@@ -26,11 +26,50 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     svg: ({ children, ...props }) => <svg {...props}>{children}</svg>,
     path: ({ ...props }) => <path {...props} />,
 
+    // Table elements for markdown table support
+    table: ({ children, ...props }) => (
+      <div className="overflow-x-auto my-6">
+        <table
+          className="min-w-full border-collapse border border-gray-300 dark:border-gray-600"
+          {...props}
+        >
+          {children}
+        </table>
+      </div>
+    ),
+    thead: ({ children, ...props }) => (
+      <thead className="bg-gray-50 dark:bg-gray-800" {...props}>
+        {children}
+      </thead>
+    ),
+    tbody: ({ children, ...props }) => <tbody {...props}>{children}</tbody>,
+    tr: ({ children, ...props }) => <tr {...props}>{children}</tr>,
+    th: ({ children, ...props }) => (
+      <th
+        className="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left font-semibold bg-gray-100 dark:bg-gray-700"
+        {...props}
+      >
+        {children}
+      </th>
+    ),
+    td: ({ children, ...props }) => (
+      <td
+        className="border border-gray-300 dark:border-gray-600 px-4 py-2"
+        {...props}
+      >
+        {children}
+      </td>
+    ),
+
     // Helper components for special bullet types
     FeatureItem: ({ children }) => <li data-type="feature">{children}</li>,
     StepItem: ({ children, title }) => (
       <div className="step-item mb-4 pb-4 rounded-lg border bg-muted/20 text-center justify-center">
-        {title && <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">{title}</h4>}
+        {title && (
+          <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
+            {title}
+          </h4>
+        )}
         <div>{children}</div>
       </div>
     ),
@@ -54,9 +93,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           <div className="h-4 w-4 text-primary" />
           <h4 className="font-medium">{title}</h4>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {description}
-        </p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     ),
 

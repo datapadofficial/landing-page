@@ -18,7 +18,6 @@ export const competitors: Competitor[] = [
     logo: "/images/julius-logo.png",
     tagline: "AI data science tool",
     description: "Limited to in-chat results targeted towards data scientists",
-    badgeText: "Limited Time 50% Student Discount",
     subtitle:
       "No more wasting time on analyzing Excels, CSVs. Get instant answers anywhere, anytime.",
     faqItems: [
@@ -499,7 +498,7 @@ export const competitors: Competitor[] = [
   {
     id: "sisense",
     name: "Sisense",
-    logo: "/images/datapad-logo.svg", // Placeholder - needs actual Sisense logo
+    logo: "https://framerusercontent.com/images/hA2Rw2PmR8PaMpOgPBvIHjEY.png?scale-down-to=512", // Placeholder - needs actual Sisense logo
     tagline: "AI-driven analytics platform",
     description:
       "Traditional BI platform requiring complex data modeling and technical setup",

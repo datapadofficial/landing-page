@@ -51,8 +51,22 @@ const MainHero = ({
           </div>
           <h1 className="w-full relative text-center mx-auto">
             <div className="">
-              <div>Stop Guessing. Start Winning.</div>
+              {/* <div>Manual Anlaysis is Dead</div> */}
+              <div>Crunch Data With AI</div>
+              {/* <div>Stop Guessing. Start Winning.</div> */}
               <AnimatedTicker
+                texts={[
+                  "Crunch Excel Files in Seconds",
+                  "Blend Any Data Source",
+                  "Step-Up Your SQL Game",
+                  "Analyze Data Like a PhD",
+                  "Build Stellar Dashboards",
+                  "Impress With Insights",
+                ]}
+                interval={3000}
+                className="text-chart-purple"
+              />{" "}
+              {/* <AnimatedTicker
                 texts={[
                   "Reports That Drive Decisions",
                   "Data Insights That Justify",
@@ -66,10 +80,12 @@ const MainHero = ({
                 ]}
                 interval={3000}
                 className="text-chart-purple"
-              />{" "}
+              />{" "} */}
             </div>
           </h1>
-          <p className="text-muted-foreground px-4 sm:px-0">{description}</p>
+          <p className="text-muted-foreground px-4 sm:px-0 text-lg max-w-3xl mx-auto">
+            {description}
+          </p>
         </div>
         <div className="relative z-30 flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full sm:w-fit">
           <Button asChild size="lg" className="w-full sm:w-fit min-w-42">

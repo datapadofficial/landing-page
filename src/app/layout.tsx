@@ -123,7 +123,7 @@ export default function RootLayout({
         >
           <StructuredData />
           <AttributionTracker />
-          <AttributionDebug />
+          {/* <AttributionDebug /> */}
           <ConditionalLayout>{children}</ConditionalLayout>
         </ThemeProvider>
         {process.env.NEXT_PUBLIC_GTM_ID &&

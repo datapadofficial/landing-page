@@ -4,11 +4,14 @@ import { getCompetitorById, getAllCompetitors } from "@/lib/competitor-utils";
 
 import { VsHero } from "@/components/vs/vs-hero";
 import { VsComparisonTable } from "@/components/vs/vs-comparison-table";
-import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainLogos } from "@/components/main-logos";
 import { MainCTA } from "@/components/main-cta";
 import { Faq } from "@/components/faq";
 import { AIDataAgentSection } from "@/components/ai-data-agent";
+import UseCaseGrid from "@/components/use-case-grid";
+import { Stats } from "@/components/sections/stats";
+import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
+import { AppPreview } from "@/components/creatives/app-preview";
 
 interface CompetitorPageProps {
   params: Promise<{
@@ -102,6 +105,40 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
         subtitle={competitor.subtitle}
         ctaText={competitor.ctaText}
         badgeText={competitor.badgeText}
+        competitorLogoContainerClassName={
+          competitor.id === "julius-ai" ? "bg-white" : undefined
+        }
+      />
+
+      <AppPreview
+        videoURL="/videos/features/excel-ai-analysis.mp4"
+        seekPoints={[
+          {
+            start: 0,
+            end: 3,
+            title: "1. Upload Your File",
+          },
+          {
+            start: 3,
+            end: 15,
+            title: "2. Ask a Question",
+          },
+          {
+            start: 15,
+            end: 20,
+            title: "3. Get Insights",
+          },
+        ]}
+      />
+      
+
+      {/* Trusted By Section */}
+      <MainLogos />
+
+      {/* Stats Section */}
+      <Stats
+        title={`Proudly Serving the World`}
+        subtitle={`We're proud to serve the world's largest companies and organizations.`}
       />
 
       {/* Comparison Table */}
@@ -116,14 +153,14 @@ export default async function CompetitorPage({ params }: CompetitorPageProps) {
         } offers ${competitor.description.toLowerCase()}.`}
       />
 
-      {/* Trusted By Section */}
-      <MainLogos />
+      {/* Use Case Cards */}
+      <UseCaseGrid />
 
       {/* Data Agent */}
       <AIDataAgentSection />
 
       {/* Testimonials */}
-      <DatapadCasestudies />
+      <SocialMediaTestimonials />
 
       {/* Competitor-specific FAQ */}
       <Faq

@@ -31,7 +31,7 @@ const iconMap: Record<string, React.ReactNode> = {
   globe: <Globe className="size-6" />,
 };
 
-const FeatureGrid = () => {
+const FeatureGrid = ({ itemCount = 12 }: { itemCount?: number }) => {
   return (
     <section className="container py-8 sm:py-32 px-4 sm:px-0">
       <div className="border bg-black-3 dark:bg-white-3 m-auto rounded-2xl sm:rounded-3xl px-4 sm:px-8 pb-8 pt-12 text-center md:px-16 md:pb-16 md:pt-24">
@@ -47,6 +47,7 @@ const FeatureGrid = () => {
         <div className="mt-12 sm:mt-16 grid w-full grid-cols-3 sm:grid-cols-3 lg:grid-cols-6">
           {features
             .sort((a, b) => a.priority - b.priority)
+            .slice(0, itemCount)
             .map((feature) => {
               const featureIcon = iconMap[feature.icon];
               const href = feature.redirectUrl

@@ -109,7 +109,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What are our most profitable products, channels, and customer segments? Calculate profit margins, contribution margins, and identify optimization opportunities.",
     team: "finance",
-    integrations: ["postgres", "google-sheets", "stripe"],
+    integrations: ["postgres", "google-sheets", "excel", "stripe"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -124,7 +124,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What will our cash flow look like over the next 6 months? Create predictive models based on historical patterns, seasonality, and current pipeline",
     team: "finance",
-    integrations: ["postgres", "google-sheets"],
+    integrations: ["postgres", "google-sheets", "excel"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -220,7 +220,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Predict SKU‑level stock‑out dates using historical sales and current inventory. Flag items at risk within 14 days.",
     team: "supply-chain",
-    integrations: ["postgres", "google-sheets"],
+    integrations: ["postgres", "google-sheets", "excel"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -270,6 +270,7 @@ export const workflows: WorkflowTemplate[] = [
       "google-ads",
       "google-analytics",
       "google-sheets",
+      "excel",
       "linkedin-ads",
       "tiktok-ads",
     ],
@@ -407,7 +408,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Using competitor_keywords.csv, find high‑volume terms competitors rank top‑10 for that we don’t rank in the top‑30. Provide an ordered list with estimated search volume and content angle.",
     team: "content-seo",
-    integrations: ["google-searchconsole", "google-sheets"],
+    integrations: ["google-searchconsole", "google-sheets", "excel"],
     difficulty: "beginner",
     estimatedTime: "5-10 minutes",
     prompt:
@@ -426,6 +427,7 @@ export const workflows: WorkflowTemplate[] = [
       "facebook-ads",
       "google-ads",
       "google-sheets",
+      "excel",
       "linkedin-ads",
       "tiktok-ads",
     ],
@@ -563,7 +565,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products will I run out of next month? Show me current inventory vs sales velocity",
     team: "retail-ecommerce",
-    integrations: ["postgres", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "excel", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -630,7 +632,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Did my recent price changes increase total profit? Show me volume increase vs margin decrease by product.",
     team: "retail-ecommerce",
-    integrations: ["postgres", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "excel", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -643,7 +645,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "Which products haven't sold in 90 days? Show me slow-moving inventory with quantities and cost tied up.",
     team: "retail-ecommerce",
-    integrations: ["postgres", "google-sheets", "shopify"],
+    integrations: ["postgres", "google-sheets", "excel", "shopify"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -706,6 +708,7 @@ export const workflows: WorkflowTemplate[] = [
       "google-ads",
       "google-analytics",
       "google-sheets",
+      "excel",
     ],
     difficulty: "advanced",
     estimatedTime: "20-30 minutes",
@@ -732,7 +735,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What's the long-term value we've created? Show me customer lifetime value and retention improvements since we started.",
     team: "agency",
-    integrations: ["postgres", "google-analytics", "google-sheets", "stripe"],
+    integrations: ["postgres", "google-analytics", "google-sheets", "excel", "stripe"],
     difficulty: "intermediate",
     estimatedTime: "10-20 minutes",
     prompt:
@@ -894,7 +897,7 @@ export const workflows: WorkflowTemplate[] = [
     description:
       "What content are my competitors creating that I'm missing? Analyze competitor video performance, identify trending topics in my niche, and discover untapped content opportunities.",
     team: "content-creators",
-    integrations: ["youtube", "google-sheets"],
+    integrations: ["youtube", "google-sheets", "excel"],
     difficulty: "advanced",
     estimatedTime: "20-30 minutes",
     prompt:

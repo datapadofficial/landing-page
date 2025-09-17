@@ -174,6 +174,68 @@ export const integrations: Integration[] = [
     ],
   },
   {
+    id: "excel",
+    name: "Excel",
+    category: "analytics",
+    icon: "/images/integrations/excel.png",
+    website: "https://www.microsoft.com/microsoft-365/excel",
+    customUrl: "/use-cases/excel-ai-analysis",
+    headline:
+      "Give Your Excel Data an AI Analyst That Builds Dashboards For You",
+    description:
+      "Connect Excel to Datapad and hand every spreadsheet to an Excel AI analyst. Run Excel analysis using AI, fix Excel with AI cleanup, and turn messy tabs into automated insights, alerts, and board-ready dashboards in minutes.",
+    benefits: [
+      "Excel AI analyst cleans data, reconciles tabs, and highlights revenue-impacting trends instantly",
+      "AI Excel analyzer spots anomalies across sheets and explains the why with natural language context",
+      "Excel AI data analyst auto-builds dashboards, decks, and stakeholder updates for every KPI",
+      "Run AI Excel data science forecasts, cohort analysis, and scenario planning without writing formulas",
+      "Ask questions in chat and get Excel analysis using AI with refreshable answers and charts",
+    ],
+    cta: "Connect Excel & Launch AI Dashboards",
+    painPoints: [
+      {
+        title: "Manual Spreadsheet Maintenance",
+        description:
+          "Hours lost cleaning Excel exports, fixing formulas, and reconciling tabs before analysis can start",
+        icon: "eraser",
+      },
+      {
+        title: "Dashboards That Go Stale",
+        description:
+          "Leadership wants live Excel dashboards but updates require tedious copy-paste work",
+        icon: "layout-dashboard",
+      },
+      {
+        title: "Slow Answers to Urgent Questions",
+        description:
+          "Teams wait days for someone to run a fresh Excel report or troubleshoot why numbers broke",
+        icon: "alarm-clock",
+      },
+    ],
+    solutions: [
+      {
+        title: "Fix Excel With AI",
+        description:
+          "Automated cleanup repairs broken formulas, aligns column headers, and prepares every sheet for analysis",
+      },
+      {
+        title: "AI Excel Dashboard Builder",
+        description:
+          "Auto-generate interactive dashboards, decks, and executive summaries straight from Excel data",
+      },
+      {
+        title: "Excel AI Analyst on Call",
+        description:
+          "Chat with your data, request ad-hoc reports, and get citations back in your original spreadsheets",
+      },
+      {
+        title: "AI Excel Data Science",
+        description:
+          "Forecast KPIs, segment cohorts, and simulate scenarios using machine learning on top of Excel",
+      },
+    ],
+  },
+  {
     id: "shopify",
     name: "Shopify",
     category: "ecommerce",
@@ -317,7 +379,7 @@ export const integrations: Integration[] = [
       {
         title: "Lead Quality Uncertainty",
         description: "Can't identify which leads are actually worth pursuing",
-        icon: "user-question",
+        icon: "circle-question-mark",
       },
       {
         title: "Poor Lead Generation",
