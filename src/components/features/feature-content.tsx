@@ -12,11 +12,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ArrowUp, CheckCircle, Target } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { FeatureHero } from "@/components/features/feature-hero";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 import { MainCTA } from "@/components/main-cta";
-import { Faq } from "@/components/faq";
 
 interface FeatureContentProps {
   feature: Feature;

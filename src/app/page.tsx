@@ -6,11 +6,9 @@ import { WorkflowsSection } from "@/components/workflows-section";
 import { FeatureGrid } from "@/components/features/feature-grid";
 import { Faq } from "@/components/faq";
 import { PricingSection } from "@/components/pricing-section";
-import { DatapadCasestudies } from "@/components/datapad-casestudies";
 
 import dynamic from "next/dynamic";
 import { IntegrationsSection } from "@/components/integrations/integrations-section";
-import { ExcelHero } from "./use-cases/excel-ai-analysis/excel-hero";
 import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
 
 // Only lazy load components with heavy charts/visualizations

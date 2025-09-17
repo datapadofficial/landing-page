@@ -1,5 +1,5 @@
 "use client";
-import { BadgeCheck, Clock } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { Faq } from "@/components/faq";
 import { MainCTA } from "@/components/main-cta";
 import { AppPreview } from "@/components/creatives/app-preview";

@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { getTeamBySlug, getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 import { getIntegrationsByIds } from "@/lib/integration-utils";
-import { getFeatureBySlug } from "@/lib/feature-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { IntegrationList } from "@/components/integrations/integration-list";
 
