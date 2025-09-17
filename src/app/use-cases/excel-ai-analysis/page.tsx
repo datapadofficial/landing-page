@@ -5,6 +5,7 @@ import { MainCTA } from "@/components/main-cta";
 import { AppPreview } from "@/components/creatives/app-preview";
 import { MainLogos } from "@/components/main-logos";
 import { FeatureGrid } from "@/components/features/feature-grid";
+import { HowItWorksSection } from "@/components/how-it-works-section";
 import { ExcelHero } from "./excel-hero";
 import UseCaseGrid from "@/components/use-case-grid";
 import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
@@ -172,6 +173,44 @@ export default function ExcelAIAnalysisPage() {
 
       {/* Case Studies */}
       <SocialMediaTestimonials />
+      
+      {/* By using existing components, please do not create new component for this section. Do not also write your own component with HTML tags just call an existing one.
+        Use this section as SEO-optimization place. Please include our keywords as much as possible. Make a meaningful and understandable content but our aim is to use our keywords as much as possible. */}
+
+      <HowItWorksSection
+        title={
+          <h2 className="text-4xl font-medium md:text-5xl">
+            Datapad Excel AI Analyzer & AI Excel Dashboard Builder
+          </h2>
+        }
+        description="Datapad delivers ai excel analysis and excel analysis with ai across Google Ads, Google Analytics, Search Console, Facebook Ads, MongoDB, PostgreSQL, Microsoft SQL Server, and Metabase so every stakeholder gets ai excel charts, tables, and actions without juggling spreadsheets."
+        steps={[
+          {
+            title: "Connect the Datapad excel ai analyzer to your live sources",
+            description:
+              "Sync Excel, databases, and marketing platforms to launch ai excel analysis that compares favorably to gptexcel, excelmatic, and formulabot while surfacing immediate charts, tables, and narratives in one workspace.",
+            image: "/images/use-cases/how_to1.png",
+          },
+          {
+            title: "Generate ai excel formulas from plain English",
+            description:
+              "Ask questions in natural language and let this ai excel copilot craft ai excel formulas, statistical models, and SQL so analysts stop re-writing logic and still benefit from consistent ai excel insights across teams.",
+            image: "/images/use-cases/how_to2.png",
+          },
+          {
+            title: "Automate pivot-ready summaries",
+            description:
+              "Datapad serves as your ai excel pivot table builder, assembling the segments, cohorts, and calculations you request so excel analysis with ai stays precise without manual cell formatting or broken spreadsheets.",
+            image: "/images/use-cases/how_to3.png"
+          },
+          {
+            title: "Publish decision-ready dashboards",
+            description:
+              "Use the ai excel dashboard builder to share boardroom-ready views, align leadership inside a single excel dashboard builder, and keep ai excel charts and tables unified alongside live commentary from Datapad.",
+            image: "/images/use-cases/how_to4.png"
+          },
+        ]}
+      />
 
       {/* FAQ Section */}
       <Faq

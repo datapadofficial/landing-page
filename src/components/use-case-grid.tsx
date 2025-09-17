@@ -11,35 +11,35 @@ interface UseCase {
 
 const useCases: UseCase[] = [
   {
-    title: "Correlation analysis",
+    title: "Interactive Dashboards",
     description: "Identify relationships and patterns within your data",
     imageSrc: "/images/datapad-ai-analyst.png",
   },
   {
     title: "Exploratory analysis",
     description: "Explore your data to uncover patterns, trends & anomalies",
-    imageSrc: "/images/datapad-ai-analyst.png",
+    imageSrc: "/images/use-cases/exploratory_analysis.png",
   },
   {
     title: "Data Cleaning",
     description: "Clear your Excel with AI with only 1 click",
-    imageSrc: "/images/datapad-ai-analyst.png",
+    imageSrc: "/images/use-cases/data_cleaning.png",
   },
   {
-    title: "Sentiment analysis",
+    title: "Data Science & Analysis",
     description:
-      "Identify if text expresses positive, negative, or neutral feelings",
-    imageSrc: "/images/datapad-ai-analyst.png",
+      "Analyze data to gain insights and make decisions",
+    imageSrc: "/images/use-cases/data_science.png",
   },
   {
     title: "KPI tracking",
     description: "Monitor key metrics over time to measure performance",
-    imageSrc: "/images/datapad-ai-analyst.png",
+    imageSrc: "/images/use-cases/kpi_tracking.png",
   },
   {
     title: "Scientific Research",
     description: "Correlation matrix on genetic dataset",
-    imageSrc: "/images/datapad-ai-analyst.png",
+    imageSrc: "/images/use-cases/scientific_research.png",
   },
 ];
 
