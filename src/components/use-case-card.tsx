@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { AttributionLink } from "./attribution-link";
-
+import { ArrowRight } from "lucide-react";
 const DottedDiv = ({
   children,
   className,
@@ -50,9 +50,11 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
         )}
         <div className="flex w-full flex-col space-y-2">
           <h5 className="transition-all ease-in-out">{title}</h5>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {description}
-          </p>
+          <p className="text-muted-foreground leading-relaxed">{description}</p>
+        </div>
+        <div className="flex  items-center gap-2 font-medium  text-chart-blue">
+          <div>Learn more</div>
+          <ArrowRight className="w-4 h-4" />
         </div>
       </div>
       <div className="mt-6 flex w-full flex-1 [&_.overflow-hidden]:transition-transform [&_.overflow-hidden]:duration-300 [&_.overflow-hidden]:ease-in-out group-hover:[&_.overflow-hidden]:scale-105 group-hover:[&_.overflow-hidden]:rotate-1 [&_.rounded-2xl:has(img)]:transition-transform [&_.rounded-2xl:has(img)]:duration-300 [&_.rounded-2xl:has(img)]:ease-in-out group-hover:[&_.rounded-2xl:has(img)]:scale-105 group-hover:[&_.rounded-2xl:has(img)]:rotate-1">

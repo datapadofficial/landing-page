@@ -22,13 +22,12 @@ const useCases: UseCase[] = [
   },
   {
     title: "Data Cleaning",
-    description: "Clear your Excel with AI with only 1 click",
+    description: "Clear your Excel with AI with only 1 click and prompting",
     imageSrc: "/images/use-cases/data_cleaning.png",
   },
   {
     title: "Data Science & Analysis",
-    description:
-      "Analyze data to gain insights and make decisions",
+    description: "Analyze data to gain insights and make decisions",
     imageSrc: "/images/use-cases/data_science.png",
   },
   {
@@ -38,7 +37,7 @@ const useCases: UseCase[] = [
   },
   {
     title: "Scientific Research",
-    description: "Correlation matrix on genetic dataset",
+    description: "Parse any medical data to validate your research outputs",
     imageSrc: "/images/use-cases/scientific_research.png",
   },
 ];
@@ -69,12 +68,12 @@ export const UseCaseGrid: React.FC = () => {
             >
               <div className="flex w-full flex-1 flex-col gap-4">
                 <div className="relative w-full h-full">
-                  <div className="absolute bottom-[-32px] right-[-42px] aspect-[4/3] w-full overflow-hidden rounded-2xl border border-input">
+                  <div className="absolute top-0 right-[-42px] aspect-[4/4] w-full overflow-hidden rounded-2xl border border-input">
                     <Image
                       src={useCase.imageSrc}
                       alt={useCase.title}
                       fill
-                      className="object-cover h-[500px]"
+                      className="object-top object-cover"
                     />
                   </div>
                 </div>
