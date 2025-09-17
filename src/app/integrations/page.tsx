@@ -6,6 +6,7 @@ import { getAllTeams } from "@/lib/team-utils";
 import { getWorkflowsByIntegration } from "@/lib/workflow-template-helpers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BOOKING_LINK } from "@/lib/constants";
 import {
   Card,
   CardContent,
@@ -21,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight, Search, Filter, Zap, Globe } from "lucide-react";
+import { ArrowRight, Search, Filter, ExternalLink, Zap } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { AttributionLink } from "@/components/attribution-link";
@@ -325,7 +326,7 @@ export default async function IntegrationsPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <Globe className="h-3 w-3" />
+                              <ExternalLink className="h-3 w-3" />
                             </a>
                           </Button>
                         )}
@@ -421,7 +422,10 @@ export default async function IntegrationsPage() {
                 </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <AttributionLink buttonLocation="integrations-page-cta-demo">
+                <AttributionLink
+                  href={BOOKING_LINK}
+                  buttonLocation="integrations-page-cta-demo"
+                >
                   Book a Demo
                 </AttributionLink>
               </Button>

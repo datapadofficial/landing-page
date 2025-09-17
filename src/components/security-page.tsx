@@ -267,7 +267,7 @@ export function SecurityPageContent() {
               <p className="font-medium text-foreground">TX-Ramp</p>
               <div className="mt-2 flex justify-center">
                 <Badge variant="secondary" className="bg-blue-100 text-blue-700 font-medium">
-                  In Progress
+                  Compliant
                 </Badge>
               </div>
             </div>
@@ -281,10 +281,10 @@ export function SecurityPageContent() {
                   className="w-48 h-48 object-contain"
                 />
               </div>
-              <p className="font-medium text-foreground">SOC 2 Type 2</p>
+              <p className="font-medium text-foreground">SOC 2</p>
               <div className="mt-2 flex justify-center">
                 <Badge variant="secondary" className="bg-blue-100 text-blue-700 font-medium">
-                  In Progress
+                  Compliant
                 </Badge>
               </div>
             </div>
@@ -301,7 +301,7 @@ export function SecurityPageContent() {
               <p className="font-medium text-foreground">GDPR</p>
               <div className="mt-2 flex justify-center">
                 <Badge variant="secondary" className="bg-blue-100 text-blue-700 font-medium">
-                  In Progress
+                  Compliant
                 </Badge>
               </div>
             </div>

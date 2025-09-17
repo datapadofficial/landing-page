@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 import { Feature } from "@/types/feature";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 import { cn } from "@/lib/utils";
@@ -73,6 +74,7 @@ const FeatureHero = ({ feature }: FeatureHeroProps) => {
             className="w-full sm:w-auto"
           >
             <AttributionLink
+              href={BOOKING_LINK}
               buttonLocation="feature-hero-demo"
               searchParams={{ feature: feature.slug }}
             >

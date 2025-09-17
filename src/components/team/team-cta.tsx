@@ -3,6 +3,7 @@
 import { Team } from "@/types/team";
 import { Button } from "@/components/ui/button";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 
 interface TeamCTAProps {
   team: Team;
@@ -36,6 +37,7 @@ export function TeamCTA({ team, customContent }: TeamCTAProps) {
             </Button>
             <Button asChild variant="outline" size="lg">
               <AttributionLink
+                href={BOOKING_LINK}
                 buttonLocation="team-cta-demo"
                 searchParams={{ team: team.slug }}
               >

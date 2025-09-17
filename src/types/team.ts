@@ -6,8 +6,10 @@ export interface Team {
   color: string;
   seoTitle?: string;
   seoDescription?: string;
+  heroTitle?: string;
   featuredIntegrations: string[];
   featuredFeatures: string[];
+  showWorkflows?: boolean;
   valuePropositions?: Array<{
     id: number;
     title: string;

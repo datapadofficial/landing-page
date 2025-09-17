@@ -3,6 +3,7 @@ import { getAllWorkflows } from "@/lib/workflow-template-helpers";
 import { getAllTeams } from "@/lib/team-utils";
 import { Button } from "@/components/ui/button";
 import { AttributionLink } from "@/components/attribution-link";
+import { BOOKING_LINK } from "@/lib/constants";
 import { WorkflowsFilter } from "@/components/ui/workflows-filter";
 import { AppVideoPreview } from "@/components/creatives/app-video-preview";
 
@@ -123,7 +124,10 @@ export default async function WorkflowsPage() {
                 </AttributionLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <AttributionLink buttonLocation="workflows-cta-demo">
+                <AttributionLink
+                  href={BOOKING_LINK}
+                  buttonLocation="workflows-cta-demo"
+                >
                   Book a Demo
                 </AttributionLink>
               </Button>

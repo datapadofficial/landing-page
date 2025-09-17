@@ -5,7 +5,6 @@ import { getWorkflowsByTeam } from "@/lib/workflow-template-helpers";
 import { getIntegrationsByIds } from "@/lib/integration-utils";
 import { TeamHero } from "@/components/team/team-hero";
 import { IntegrationList } from "@/components/integrations/integration-list";
-
 import { MainLogos } from "@/components/main-logos";
 import { getFeaturedFeaturesForTeam } from "@/lib/team-utils";
 import { FeatureAccordion } from "@/components/features/feature-accordion";
@@ -83,17 +82,19 @@ export default async function TeamPage({ params }: TeamPageProps) {
       />
 
       {/* Workflows Section */}
-      <WorkflowsSection
-        title={
-          <>
-            <span className="text-primary">We Fixed It With AI</span>
-            <br />
-            Press a Button, Watch Your {team.name} ROI Increase
-          </>
-        }
-        description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${team.name.toLowerCase()} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
-        workflows={workflows}
-      />
+      {team.showWorkflows !== false && (
+        <WorkflowsSection
+          title={
+            <>
+              <span className="text-primary">We Fixed It With AI</span>
+              <br />
+              Press a Button, Watch Your {team.name} ROI Increase
+            </>
+          }
+          description={`Stop wasting hours creating content that doesn't convert. Get AI that actually generates your ${team.name.toLowerCase()} campaigns, blog posts, email sequences, and sales scripts - ready to copy-paste in minutes.`}
+          workflows={workflows}
+        />
+      )}
 
       <AIDataAgentSection />
 

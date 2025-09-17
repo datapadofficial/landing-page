@@ -6,6 +6,17 @@ const nextConfig: NextConfig = {
   // Configure page extensions to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
 
+  // Configure redirects
+  async redirects() {
+    return [
+      {
+        source: "/metabase",
+        destination: "/integrations/metabase",
+        permanent: true,
+      },
+    ];
+  },
+
   // Configure allowed image domains
   images: {
     remotePatterns: [
