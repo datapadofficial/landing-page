@@ -31,12 +31,14 @@ const VsHero = ({
       <div className="container relative z-10 overflow-visible px-4 md:px-8">
         <div className="flex flex-col items-center gap-12">
           {/* Top Badge */}
+          {badgeText && (
           <Badge
             variant="outline"
             className="text-xs uppercase font-medium text-chart-green"
           >
             {badgeText}
-          </Badge>
+            </Badge>
+          )}
 
           {/* Main Layout with Large Logos */}
           <div className="flex items-center justify-center gap-16 w-full max-w-6xl relative px-8 md:px-16">

@@ -12,32 +12,38 @@ interface UseCase {
 const useCases: UseCase[] = [
   {
     title: "Interactive Dashboards",
-    description: "Identify relationships and patterns within your data",
+    description:
+      "Deliver interactive dashboards for self-service business intelligence and real-time KPI insights",
     imageSrc: "/images/datapad-ai-analyst.png",
   },
   {
     title: "Exploratory analysis",
-    description: "Explore your data to uncover patterns, trends & anomalies",
-    imageSrc: "/images/use-cases/exploratory_analysis.png",
+    description:
+      "Run exploratory data analysis to surface hidden trends, anomalies, and customer behavior signals",
+    imageSrc: "/images/use-cases/exploratory_analysis2.png",
   },
   {
     title: "Data Cleaning",
-    description: "Clear your Excel with AI with only 1 click and prompting",
+    description:
+      "Automate Excel data cleaning to normalize fields, remove duplicates, detect outliers,and prepare datasets for modeling",
     imageSrc: "/images/use-cases/data_cleaning.png",
   },
   {
     title: "Data Science & Analysis",
-    description: "Analyze data to gain insights and make decisions",
+    description:
+      "Orchestrate data science workflows with predictive analytics, feature engineering, and data storytelling",
     imageSrc: "/images/use-cases/data_science.png",
   },
   {
     title: "KPI tracking",
-    description: "Monitor key metrics over time to measure performance",
+    description:
+      "Monitor mission-critical KPIs, KRAs with automated dashboards, benchmarking alerts, and performance intelligence",
     imageSrc: "/images/use-cases/kpi_tracking.png",
   },
   {
     title: "Scientific Research",
-    description: "Parse any medical data to validate your research outputs",
+    description:
+      "Process clinical research, medical, scientific, financial datasets with compliant analytics for evidence-based insights and publication-ready visuals",
     imageSrc: "/images/use-cases/scientific_research.png",
   },
 ];
