@@ -37,7 +37,7 @@ export default function Home() {
           "https://framerusercontent.com/assets/s6inNxqh5m9k41CDacUiLwBUGVc.mp4"
         }
       /> */}
-      <AppPreview videoURL="/videos/features/excel-ai-analysis.mp4" />
+      <AppPreview videoURL="/videos/features/homepage_video.mp4" />
 
       {/* Logos section */}
       <MainLogos />
