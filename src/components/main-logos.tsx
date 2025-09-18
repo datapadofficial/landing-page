@@ -11,10 +11,10 @@ interface MainLogosProps {
 const MainLogos = ({
   title = (
     <h6 className="text-center">
-      Powering the world's best product teams.
+      Powering the world's best teams.
       <br className="max-md:hidden" />
       <span className="text-muted-foreground">
-        From next-gen startups to established enterprises.
+        From next-gen startups to top-tier universities.
       </span>
     </h6>
   ),
