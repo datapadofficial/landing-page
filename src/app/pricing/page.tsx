@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { Faq } from "@/components/faq";
-import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainCTA } from "@/components/main-cta";
 import { PricingSection } from "@/components/pricing-section";
 import { PricingComparisonTable } from "@/components/pricing-comparison-table";
+import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
 export const metadata: Metadata = {
   title: "Pricing - Datapad | AI Data Analysis Platform",
   description:
@@ -75,7 +75,7 @@ export default function PricingPage() {
       <PricingComparisonTable />
 
       {/* Social Proof - Case Studies */}
-      <DatapadCasestudies />
+      <SocialMediaTestimonials />
 
       {/* Call to Action */}
       <MainCTA />

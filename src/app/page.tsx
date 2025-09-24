@@ -10,6 +10,7 @@ import { PricingSection } from "@/components/pricing-section";
 import dynamic from "next/dynamic";
 import { IntegrationsSection } from "@/components/integrations/integrations-section";
 import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
+import UseCaseGrid from "@/components/use-case-grid";
 
 // Only lazy load components with heavy charts/visualizations
 const AIDataAgentSection = dynamic(
@@ -45,6 +46,7 @@ export default function Home() {
       {/* Data Agent Section */}
       <AIDataAgentSection />
 
+      <UseCaseGrid />
       {/* Workflows Section */}
       <WorkflowsSection />
 

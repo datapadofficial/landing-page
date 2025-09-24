@@ -5,11 +5,6 @@ import Image from "next/image";
 export function MedicalHero() {
   const integrations = [
     {
-      id: "ehr",
-      name: "EHR",
-      icon: "/images/integrations/manual.png",
-    },
-    {
       id: "csv",
       name: "CSV",
       icon: "/images/integrations/csv.png",
@@ -18,6 +13,11 @@ export function MedicalHero() {
       id: "postgres",
       name: "Warehouse",
       icon: "/images/integrations/postgres.png",
+    },
+    {
+      id: "excel",
+      name: "Excel",
+      icon: "/images/integrations/excel.png",
     },
   ];
 
