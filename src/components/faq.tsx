@@ -61,8 +61,8 @@ const Faq = ({
   ],
 }: Faq2Props) => {
   return (
-    <section className="py-8 sm:py-32 bg-background px-4 sm:px-0">
-      <div className="container max-w-3xl">
+    <section className="py-8 sm:py-32 bg-background px-4 sm:px-0 w-full">
+      <div className="container ">
         <h1 className="mb-4 text-3xl font-semibold md:mb-11 md:text-4xl">
           {heading}
         </h1>

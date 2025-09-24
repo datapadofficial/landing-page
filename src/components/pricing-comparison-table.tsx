@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { Card } from "./ui/card";
 
 type PlanKey = "basic" | "pro" | "scale" | "enterprise";
 
@@ -128,41 +129,39 @@ const renderPlanValue = (value: string | boolean) => {
 
 const PricingComparisonTable = ({ className }: { className?: string }) => {
   return (
-    <section className={cn("py-8 sm:py-32 px-4 sm:px-0", className)}>
-      <div className="container">
-        <div className="flex flex-col items-center justify-center w-full overflow-x-auto">
-          <Table className="w-full table-fixed caption-bottom min-w-[880px] lg:min-w-full">
-            <TableHeader>
-              <TableRow className="hover:bg-background">
-                <TableHead className="text-muted-foreground"></TableHead>
+    <Card className={cn("container max-w-6xl", className)}>
+      <div className="flex flex-col items-center justify-center w-full overflow-x-auto">
+        <Table className="w-full table-fixed caption-bottom min-w-[880px] lg:min-w-full">
+          <TableHeader>
+            <TableRow className="hover:bg-background">
+              <TableHead className="text-muted-foreground p-6"></TableHead>
+              {PLAN_COLUMNS.map((plan) => (
+                <TableHead
+                  key={plan.key}
+                  className="font-bold text-primary p-6 text-lg "
+                >
+                  {plan.label}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {COMPARISON_FEATURES.map((item) => (
+              <TableRow key={item.feature} className="hover:bg-background">
+                <TableCell className="font-medium text-foreground p-6">
+                  {item.feature}
+                </TableCell>
                 {PLAN_COLUMNS.map((plan) => (
-                  <TableHead
-                    key={plan.key}
-                    className="font-bold text-primary"
-                  >
-                    {plan.label}
-                  </TableHead>
+                  <TableCell key={plan.key}>
+                    {renderPlanValue(item[plan.key])}
+                  </TableCell>
                 ))}
               </TableRow>
-            </TableHeader>
-            <TableBody>
-              {COMPARISON_FEATURES.map((item) => (
-                <TableRow key={item.feature} className="hover:bg-background">
-                  <TableCell className="font-medium text-foreground">
-                    {item.feature}
-                  </TableCell>
-                  {PLAN_COLUMNS.map((plan) => (
-                    <TableCell key={plan.key}>
-                      {renderPlanValue(item[plan.key])}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+            ))}
+          </TableBody>
+        </Table>
       </div>
-    </section>
+    </Card>
   );
 };
 

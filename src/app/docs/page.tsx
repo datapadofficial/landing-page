@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  BookOpen, 
-  Zap, 
-  Database, 
-  BarChart3, 
-  MessageSquare, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  BookOpen,
+  Zap,
+  Database,
+  BarChart3,
+  MessageSquare,
   Workflow,
   ArrowRight,
   Rocket,
-  PlayCircle
+  PlayCircle,
 } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Get Started with Datapad",
-  description: "Learn how to use Datapad's AI data analyst to transform your business data into actionable insights.",
+  description:
+    "Learn how to use Datapad's AI data analyst to transform your business data into actionable insights.",
 };
 
 export default function DocsHomePage() {
@@ -32,8 +39,9 @@ export default function DocsHomePage() {
           Welcome to Datapad Docs
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl">
-          Transform your business data into actionable insights with Datapad's 100% autonomous AI data analyst. 
-          Get instant answers, create beautiful dashboards, and generate reports using natural language.
+          Transform your business data into actionable insights with Datapad's
+          100% autonomous AI data analyst. Get instant answers, create beautiful
+          dashboards, and generate reports using natural language.
         </p>
         <div className="flex gap-3 mt-4">
           <Button asChild size="lg" className="gap-2">
@@ -84,7 +92,8 @@ export default function DocsHomePage() {
               <CardTitle>Integrations</CardTitle>
             </div>
             <CardDescription>
-              Connect 50+ data sources including databases, CRMs, and marketing tools
+              Connect 50+ data sources including databases, CRMs, and marketing
+              tools
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -202,15 +211,15 @@ export default function DocsHomePage() {
       <div className="flex flex-col gap-4 mt-8">
         <h2 className="text-2xl font-semibold">Popular Guides</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link 
-            href="/docs/get-started/quickstart" 
+          <Link
+            href="/docs/get-started/quickstart"
             className="group p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-medium group-hover:text-primary transition-colors">
+                <h6 className="font-medium group-hover:text-primary transition-colors">
                   5-Minute Quickstart Guide
-                </h3>
+                </h6>
                 <p className="text-sm text-muted-foreground mt-1">
                   Connect your data and get your first insights
                 </p>
@@ -219,15 +228,15 @@ export default function DocsHomePage() {
             </div>
           </Link>
 
-          <Link 
-            href="/docs/integrations/google-analytics" 
+          <Link
+            href="/docs/integrations/google-analytics"
             className="group p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-medium group-hover:text-primary transition-colors">
+                <h6 className="font-medium group-hover:text-primary transition-colors">
                   Connect Google Analytics
-                </h3>
+                </h6>
                 <p className="text-sm text-muted-foreground mt-1">
                   Analyze your website traffic and user behavior
                 </p>
@@ -236,15 +245,15 @@ export default function DocsHomePage() {
             </div>
           </Link>
 
-          <Link 
-            href="/docs/features/natural-language-queries" 
+          <Link
+            href="/docs/features/natural-language-queries"
             className="group p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-medium group-hover:text-primary transition-colors">
+                <h6 className="font-medium group-hover:text-primary transition-colors">
                   Writing Effective Queries
-                </h3>
+                </h6>
                 <p className="text-sm text-muted-foreground mt-1">
                   Learn how to ask better questions to get better insights
                 </p>
@@ -253,15 +262,15 @@ export default function DocsHomePage() {
             </div>
           </Link>
 
-          <Link 
-            href="/docs/integrations/postgresql" 
+          <Link
+            href="/docs/integrations/postgresql"
             className="group p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-medium group-hover:text-primary transition-colors">
+                <h6 className="font-medium group-hover:text-primary transition-colors">
                   Connect PostgreSQL Database
-                </h3>
+                </h6>
                 <p className="text-sm text-muted-foreground mt-1">
                   Query your database using natural language
                 </p>
