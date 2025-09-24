@@ -15,6 +15,8 @@ import {
   Users,
   Workflow,
   Zap,
+  FileChartColumnIncreasing,
+  DatabaseZap
 } from "lucide-react";
 import { useState } from "react";
 
@@ -45,35 +47,16 @@ interface PricingPlan {
 
 const PLANS: PricingPlan[] = [
   {
-    name: "Free",
-    priceMonthly: "$0",
-    priceYearly: "$0",
-    description: "Get started with AI data analysis",
-    bestFor: "Individual users and small teams",
-    features: [
-      { icon: Users, text: "1 User" },
-      { icon: MessageSquare, text: "10 Weekly Messages" },
-      { icon: ChartLine, text: "1 Dashboard" },
-      { icon: Database, text: "1 Data Source" },
-    ],
-    cta: {
-      text: "Start Free",
-      href: "#",
-    },
-  },
-  {
     name: "Basic",
-    mostPopular: true,
     priceMonthly: "$20",
     priceYearly: "$16",
-    description: "Essential features for growing teams",
-    bestFor: "Small teams getting started",
+    description: "Get started with AI data analysis",
+    bestFor: "Individual users",
     features: [
-      { icon: Users, text: "Per Seat Pricing" },
+      { icon: Users, text: "1 User" },
       { icon: MessageSquare, text: "Unlimited Messages" },
-      { icon: ChartLine, text: "10 Dashboards" },
-      { icon: Database, text: "10 Data Sources" },
-      { icon: LifeBuoy, text: "Email support" },
+      { icon: FileChartColumnIncreasing, text: "Unlimited File Uploads" },
+      { icon: Database, text: "1 Data Source except Database" }
     ],
     cta: {
       text: "Start Free",
@@ -82,16 +65,36 @@ const PLANS: PricingPlan[] = [
   },
   {
     name: "Pro",
+    mostPopular: true,
+    priceMonthly: "$100",
+    priceYearly: "$80",
+    description: "Essential features for growing teams",
+    bestFor: "Small teams getting started",
+    features: [
+      { icon: Users, text: "Per Workspace Pricing" },
+      { icon: MessageSquare, text: "Unlimited Messages" },
+      { icon: FileChartColumnIncreasing, text: "Unlimited File Uploads" },
+      { icon: ChartLine, text: "Unlimited Dashboards" },
+      { icon: Database, text: "10 Data Sources except Databases" }
+    ],
+    cta: {
+      text: "Start Free",
+      href: "#",
+    },
+  },
+  {
+    name: "Scale",
     mostPopular: false,
-    priceMonthly: "$50",
-    priceYearly: "$40",
+    priceMonthly: "$1000",
+    priceYearly: "$500",
     description: "Advanced AI features for teams",
     bestFor: "Teams that need automation",
     features: [
-      { icon: Users, text: "Per Seat Pricing" },
+      { icon: Users, text: "Per Workspace Pricing" },
       { icon: MessageSquare, text: "Unlimited Messages" },
+      { icon: FileChartColumnIncreasing, text: "Unlimited File Uploads" },
       { icon: ChartLine, text: "Unlimited Dashboards" },
-      { icon: Database, text: "20 Data Sources ($5 per additional)" },
+      { icon: Database, text: "Unlimited Data Sources including Databases" },
       { icon: LifeBuoy, text: "Priority support" },
       { icon: Workflow, text: "Workflow & Automation" },
       { icon: Slack, text: "Slack Bot" },
@@ -109,7 +112,7 @@ const PLANS: PricingPlan[] = [
     description: "Custom solutions at scale",
     bestFor: "Large enterprises with specific needs",
     features: [
-      { icon: Users, text: "Everything in Pro" },
+      { icon: Users, text: "Everything in Scale" },
       { icon: Server, text: "Bring Your Own Cloud" },
       { icon: PhoneCall, text: "Dedicated Support" },
       { icon: Code, text: "Custom Services" },
@@ -328,8 +331,8 @@ const PlanCard = ({
           <div>{plan.priceYearly}</div>
         </div>
       </div>
-      <div className="text-xs text-muted-2-foreground mt-1">
-        <div>per person / month</div>
+     <div className="text-xs text-muted-2-foreground mt-1">
+        {plan.name !== "Basic" && <div>per workspace / month</div>}
         <div className="mt-1">{plan.bestFor}</div>
       </div>
       <div className="mt-4 mb-6 text-lg font-medium text-foreground">
