@@ -15,29 +15,15 @@ import { Integration } from "@/types/integration";
 
 const IntegrationsSubmenu = () => {
   // Get featured integrations for the navigation menu
-  const allIntegrations = getAllIntegrations(9);
-
-  // Define which integrations to show in the navigation (most popular/important ones)
+  const allIntegrations = getAllIntegrations();
   const featuredIntegrationIds = [
+    "excel",
+    "google-sheets",
     "google-analytics",
     "facebook-ads",
     "google-ads",
-    "shopify",
-    "excel",
-    "stripe",
-    "salesforce",
-    "linkedin-ads",
-    "tiktok-ads",
-    "instagram-business",
-    "youtube",
-    "mailchimp",
-    "klaviyo",
-    "activecampaign",
-    "google-sheets",
-    "airtable",
     "postgres",
-    "mysql",
-    "snowflake",
+    "google-searchconsole",
     "google-bigquery",
   ];
 

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-import { PricingSection } from "@/components/pricing-section";
 import { Faq } from "@/components/faq";
-import { DatapadCasestudies } from "@/components/datapad-casestudies";
 import { MainCTA } from "@/components/main-cta";
+import { PricingSection } from "@/components/pricing-section";
+import { PricingComparisonTable } from "@/components/pricing-comparison-table";
+import { SocialMediaTestimonials } from "@/components/social-media-testimonials";
 export const metadata: Metadata = {
   title: "Pricing - Datapad | AI Data Analysis Platform",
   description:
@@ -67,61 +68,20 @@ const pricingFAQs = [
 
 export default function PricingPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Datapad",
-            description:
-              "AI Data Analysis Platform that connects to your data sources and generates actionable insights",
-            brand: {
-              "@type": "Brand",
-              name: "Datapad",
-            },
-            offers: [
-              {
-                "@type": "Offer",
-                name: "Free",
-                price: "0",
-                priceCurrency: "USD",
-                priceValidUntil: "2025-12-31",
-                availability: "https://schema.org/InStock",
-              },
-              {
-                "@type": "Offer",
-                name: "Basic",
-                price: "20",
-                priceCurrency: "USD",
-                priceValidUntil: "2025-12-31",
-                availability: "https://schema.org/InStock",
-              },
-              {
-                "@type": "Offer",
-                name: "Pro",
-                price: "50",
-                priceCurrency: "USD",
-                priceValidUntil: "2025-12-31",
-                availability: "https://schema.org/InStock",
-              },
-            ],
-          }),
-        }}
-      />
-
+    <div className="flex flex-col container max-w-7xl items-center">
       {/* Pricing Table */}
       <PricingSection />
 
+      <PricingComparisonTable />
+
       {/* Social Proof - Case Studies */}
-      <DatapadCasestudies />
+      <SocialMediaTestimonials />
 
       {/* Call to Action */}
       <MainCTA />
 
       {/* FAQ Section */}
       <Faq heading="Pricing FAQ" items={pricingFAQs} />
-    </>
+    </div>
   );
 }
