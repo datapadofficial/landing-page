@@ -66,12 +66,12 @@ const PLANS: PricingPlan[] = [
   {
     name: "Pro",
     mostPopular: true,
-    priceMonthly: "$100",
-    priceYearly: "$80",
+    priceMonthly: "$50",
+    priceYearly: "$40",
     description: "Essential features for growing teams",
     bestFor: "Small teams getting started",
     features: [
-      { icon: Users, text: "Per Workspace Pricing" },
+      { icon: Users, text: "Per User Pricing" },
       { icon: MessageSquare, text: "Unlimited Messages" },
       { icon: FileChartColumnIncreasing, text: "Unlimited File Uploads" },
       { icon: ChartLine, text: "Unlimited Dashboards" },
@@ -330,7 +330,8 @@ const PlanCard = ({
         </div>
       </div>
       <div className="text-xs text-muted-2-foreground mt-1">
-        {plan.name !== "Basic" && <div>per workspace / month</div>}
+        {plan.name === "Scale" && <div>per workspace / month</div>}
+        {plan.name === "Pro" && <div>per user / month</div>}
         <div className="mt-1">{plan.bestFor}</div>
       </div>
       <div className="mt-4 mb-6 text-lg font-medium text-foreground">
