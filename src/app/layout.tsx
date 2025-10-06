@@ -76,6 +76,14 @@ export const metadata: Metadata = {
     description:
       "No more frustrating waits in critical meetings. Get instant answers anywhere, anytime with Datapad's autonomous AI data analyst.",
     siteName: "Datapad",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Datapad - Crunch Data With AI, Impress With Insights",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -83,6 +91,7 @@ export const metadata: Metadata = {
     description:
       "No more frustrating waits in critical meetings. Get instant answers anywhere, anytime with Datapad's autonomous AI data analyst.",
     creator: "@datapad",
+    images: ["/images/og-image.png"],
   },
   verification: {
     google: "google-site-verification-code",
