@@ -48,8 +48,8 @@ interface PricingPlan {
 const PLANS: PricingPlan[] = [
   {
     name: "Basic",
-    priceMonthly: "$20",
-    priceYearly: "$16",
+    priceMonthly: "$30",
+    priceYearly: "$15",
     description: "Get started with AI data analysis",
     bestFor: "Individual users",
     features: [
@@ -67,7 +67,7 @@ const PLANS: PricingPlan[] = [
     name: "Pro",
     mostPopular: true,
     priceMonthly: "$50",
-    priceYearly: "$40",
+    priceYearly: "$25",
     description: "Essential features for growing teams",
     bestFor: "Small teams getting started",
     features: [
